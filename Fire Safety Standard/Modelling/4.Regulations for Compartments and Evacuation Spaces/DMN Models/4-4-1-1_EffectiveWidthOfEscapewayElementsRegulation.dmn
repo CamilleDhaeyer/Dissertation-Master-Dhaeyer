@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_1ou54sb" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_1lj5fdp" name="EscapewayElementWidthSuccesseRequirementSucces">
+    <informationRequirement id="InformationRequirement_11jvxib">
+      <requiredInput href="#EscapewayElement" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0hzymxu">
+      <requiredInput href="#ElementEffectiveWidth" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_13kc17y">
+      <requiredInput href="#RequiredEffectiveWidth" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_155jw7t">
+      <input id="InputClause_0tsf52g" label="EscapewayElement">
+        <inputExpression id="LiteralExpression_04f8esm" typeRef="string">
+          <text>EscapewayElement</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1om0qr1" label="ElementEffectiveWidth">
+        <inputExpression id="LiteralExpression_1r4d3fy" typeRef="double">
+          <text>ElementEffectiveWidth</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0n580hq" label="RequiredEffectiveWidth" biodi:width="219">
+        <inputExpression id="LiteralExpression_1oggasg" typeRef="double">
+          <text>RequiredEffectiveWidth</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0z1jhsq" label="EscapewayElementWidthSuccess" name="EscapewayElementWidthSuccess" typeRef="boolean" biodi:width="227" />
+      <rule id="DecisionRule_06ifv67">
+        <inputEntry id="UnaryTests_1adcex8">
+          <text>"Evacuation route","Access door"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zbk761">
+          <text>&gt;= 0.8</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19r65ce">
+          <text>&lt;= ElementEffectiveWidth</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0lvjy6q">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0xkt0gl">
+        <inputEntry id="UnaryTests_1bjhdtq">
+          <text>"Evacuation route","Access door"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01spvww">
+          <text>&gt;= 0.8</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gfjetk">
+          <text>&gt; ElementEffectiveWidth</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_11dziku">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0112zd5">
+        <inputEntry id="UnaryTests_0u6mcnx">
+          <text>"Evacuation route","Access door"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1izsn56">
+          <text>&lt; 0.8</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08zz9ho">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1dxwqs8">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1g5wgj0">
+        <inputEntry id="UnaryTests_07ict2k">
+          <text>"Escape terrace"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ls7yuo">
+          <text>&gt;= 0.6</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vuh4ln">
+          <text>&lt;= ElementEffectiveWidth</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_01y1nbq">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0t4csuv">
+        <inputEntry id="UnaryTests_18ix0eg">
+          <text>"Escape terrace"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sue3hu">
+          <text>&gt;= 0.6</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1971tb9">
+          <text>&gt; ElementEffectiveWidth</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_19h3nn9">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1xjbmud">
+        <inputEntry id="UnaryTests_0ea3wti">
+          <text>"Escape terrace"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ce35tr">
+          <text>&lt; 0.6</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vib8wx">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1guonmm">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="EscapewayElement" name="EscapewayElement" />
+  <inputData id="ElementEffectiveWidth" name="ElementEffectiveWidth" />
+  <inputData id="RequiredEffectiveWidth" name="RequiredEffectiveWidth" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_0lslfk4" dmnElementRef="Decision_1lj5fdp">
+        <dc:Bounds height="80" width="180" x="280" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0wt1d12" dmnElementRef="EscapewayElement">
+        <dc:Bounds height="45" width="125" x="158" y="218" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_15351sa" dmnElementRef="InformationRequirement_11jvxib">
+        <di:waypoint x="221" y="218" />
+        <di:waypoint x="325" y="180" />
+        <di:waypoint x="325" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_07yfio3" dmnElementRef="ElementEffectiveWidth">
+        <dc:Bounds height="45" width="125" x="308" y="219" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0dqt5tl" dmnElementRef="InformationRequirement_0hzymxu">
+        <di:waypoint x="371" y="219" />
+        <di:waypoint x="370" y="180" />
+        <di:waypoint x="370" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0qy7rlu" dmnElementRef="RequiredEffectiveWidth">
+        <dc:Bounds height="45" width="125" x="458" y="219" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_13tyn0j" dmnElementRef="InformationRequirement_13kc17y">
+        <di:waypoint x="521" y="219" />
+        <di:waypoint x="415" y="180" />
+        <di:waypoint x="415" y="160" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

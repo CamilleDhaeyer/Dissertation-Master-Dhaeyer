@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_0ppu205" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_16r507i" name="Verify if objects in staircase are allowed">
+    <informationRequirement id="InformationRequirement_02d5y7h">
+      <requiredInput href="#ElementInStaircase" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0pivmq6">
+      <requiredInput href="#TypeOfBuilding" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_09lx2s3">
+      <input id="InputClause_0oqbo4w" label="TypeOfBuilding" biodi:width="235">
+        <inputExpression id="LiteralExpression_0n1lljl" typeRef="string">
+          <text>TypeOfBuilding</text>
+        </inputExpression>
+      </input>
+      <input id="Input_1" label="ElementInStaircase">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>ElementInStaircase</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="ObjectInStaircaseAllowed" name="ObjectInStaircaseAllowed" typeRef="boolean" />
+      <rule id="DecisionRule_1ym4dmh">
+        <inputEntry id="UnaryTests_1ajtvub">
+          <text>"Any other building","BuildingWithOnly1ApartmentPerFloorLevel"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ggk90x">
+          <text>"Detection system","Extinguishing device","Signalisation device","Lightning device","heating device","Ventilation system","Smoke extraction system","Water supply line"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1bjffrp">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1s682qn">
+        <inputEntry id="UnaryTests_0qs106w">
+          <text>"Any other building"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1sbqqt6">
+          <text>"Other device","Fire hose reel"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_13a27it">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1imgquc">
+        <inputEntry id="UnaryTests_0anzt6a">
+          <text>"BuildingWithOnly1ApartmentPerFloorLevel"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02pvf87">
+          <text>"Fire hose reel"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ikh0e5">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0hhc6rf">
+        <inputEntry id="UnaryTests_1jn3k2s">
+          <text>"BuildingWithOnly1ApartmentPerFloorLevel"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kchq9u">
+          <text>"Other device"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0cij0pb">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_13xicyv">
+        <inputEntry id="UnaryTests_1cymns0">
+          <text>"Any other building","BuildingWithOnly1ApartmentPerFloorLevel"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wjeg4b">
+          <text>"No element present"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_042tsc5">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="ElementInStaircase" name="ElementInStaircase" />
+  <inputData id="TypeOfBuilding" name="TypeOfBuilding" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_16r507i">
+        <dc:Bounds height="80" width="180" x="160" y="190" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1lsg7tb" dmnElementRef="ElementInStaircase">
+        <dc:Bounds height="45" width="125" x="187" y="337" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1n3rvpz" dmnElementRef="InformationRequirement_02d5y7h">
+        <di:waypoint x="250" y="337" />
+        <di:waypoint x="250" y="290" />
+        <di:waypoint x="250" y="270" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_13e5idz" dmnElementRef="TypeOfBuilding">
+        <dc:Bounds height="45" width="125" x="188" y="78" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0nj0kid" dmnElementRef="InformationRequirement_0pivmq6">
+        <di:waypoint x="251" y="123" />
+        <di:waypoint x="250" y="170" />
+        <di:waypoint x="250" y="190" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

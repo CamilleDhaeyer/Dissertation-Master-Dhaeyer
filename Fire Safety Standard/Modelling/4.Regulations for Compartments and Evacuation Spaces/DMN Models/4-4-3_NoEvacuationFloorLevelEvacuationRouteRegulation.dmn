@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_1ff2svd" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_1iy9iqs" name="GeneralRuleNoEvacuationLevel verification">
+    <informationRequirement id="InformationRequirement_10ebbfe">
+      <requiredInput href="#FireResistanceAllWallSuccess" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1b3re3f">
+      <requiredInput href="#FireResistanceAllDoorSuccess" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0f1skab">
+      <requiredInput href="#ExceptionToFireResistanceRequirementsSuccess" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0han1r4" hitPolicy="FIRST">
+      <input id="InputClause_00p2s3b" label="ExceptionToFireResistanceRequirementsSuccess">
+        <inputExpression id="LiteralExpression_17lnohy" typeRef="boolean">
+          <text>ExceptionToFireResistanceRequirementsSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="Input_1" label="FireResistanceAllWallSuccess">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text>FireResistanceAllWallSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0vae3uv" label="FireResistanceAllDoorSuccess" biodi:width="188">
+        <inputExpression id="LiteralExpression_101be09" typeRef="boolean">
+          <text>FireResistanceAllDoorSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="NoEvacuationFloorLevelEvacRouteRegulationSuccess" name="NoEvacuationFloorLevelEvacRouteRegulationSuccess" typeRef="boolean" biodi:width="232" />
+      <rule id="DecisionRule_1q5cbav">
+        <description>EI30 wall module</description>
+        <inputEntry id="UnaryTests_14utgn9">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ym8ocl">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jlwgqy">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0fwu909">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_14spcww">
+        <description>EI 30 for doors without selfclosing aspect</description>
+        <inputEntry id="UnaryTests_149uhrv">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1bx2el0">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xifben">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_100j8bb">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1vj23k3">
+        <inputEntry id="UnaryTests_1axe8jx">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08qlbho">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ks1sup">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_18akj0t">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_065v8l7">
+        <inputEntry id="UnaryTests_1tfaacy">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_116quii">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0p3fz0c">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0d5fsfq">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1j9rqjm">
+        <inputEntry id="UnaryTests_0sg29ze">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0m0xiz8">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zpp61r">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_03rjkm3">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="FireResistanceAllWallSuccess" name="FireResistanceAllWallSuccess" />
+  <inputData id="FireResistanceAllDoorSuccess" name="FireResistanceAllDoorSuccess" />
+  <inputData id="ExceptionToFireResistanceRequirementsSuccess" name="ExceptionToFireResistanceRequirementsSuccess" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1iy9iqs">
+        <dc:Bounds height="80" width="180" x="350" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1ttrug3" dmnElementRef="FireResistanceAllWallSuccess">
+        <dc:Bounds height="45" width="125" x="157" y="97" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1xr3d8d" dmnElementRef="InformationRequirement_10ebbfe">
+        <di:waypoint x="282" y="120" />
+        <di:waypoint x="330" y="120" />
+        <di:waypoint x="350" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_09rob1n" dmnElementRef="FireResistanceAllDoorSuccess">
+        <dc:Bounds height="45" width="125" x="587" y="97" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_08ohhhl" dmnElementRef="InformationRequirement_1b3re3f">
+        <di:waypoint x="587" y="120" />
+        <di:waypoint x="550" y="120" />
+        <di:waypoint x="530" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_11372fz" dmnElementRef="ExceptionToFireResistanceRequirementsSuccess">
+        <dc:Bounds height="45" width="125" x="378" y="238" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1v1kdhx" dmnElementRef="InformationRequirement_0f1skab">
+        <di:waypoint x="441" y="238" />
+        <di:waypoint x="440" y="180" />
+        <di:waypoint x="440" y="160" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

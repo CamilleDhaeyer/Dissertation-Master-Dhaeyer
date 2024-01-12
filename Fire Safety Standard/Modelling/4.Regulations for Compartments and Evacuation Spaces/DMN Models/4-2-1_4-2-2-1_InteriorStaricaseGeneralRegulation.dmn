@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_1pwpi4p" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_0i9jzn1" name="General regulation on interior staircase">
+    <informationRequirement id="InformationRequirement_18es3uj">
+      <requiredInput href="#InteriorStaircaseIsEnclosed" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1eeuec5">
+      <requiredInput href="#AllFireResistanceInteriorWallOfInteriorStaircaseSuccess" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0sne52l">
+      <requiredInput href="#ExteriorWallHasWindows" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_133zpuv">
+      <requiredInput href="#DoesExteriorWallComplyWithRegulation" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0vq1f73">
+      <input id="Input_1" label="InteriorStaircaseIsEnclosed">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text>InteriorStaircaseIsEnclosed</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1yuitih" label="AllFireResistanceInteriorWallOfInteriorStaircaseSuccess">
+        <inputExpression id="LiteralExpression_09eltf6" typeRef="boolean">
+          <text>AllFireResistanceInteriorWallOfInteriorStaircaseSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1vjzcj5" label="ExteriorWallHasWindows">
+        <inputExpression id="LiteralExpression_0foyz7x" typeRef="boolean">
+          <text>ExteriorWallHasWindows</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_02urznj" label="DoesExteriorWallComplyWithRegulation">
+        <inputExpression id="LiteralExpression_18dd7fi" typeRef="boolean">
+          <text>DoesExteriorWallComplyWithRegulation</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="InteriorStaircaseGeneralRegulationSucces" name="InteriorStaircaseGeneralRegulationSucces" typeRef="boolean" />
+      <output id="OutputClause_1oswg5h" label="InteriorStaircaseGeneralMessage" name="InteriorStaircaseGeneralMessage" typeRef="string" />
+      <rule id="DecisionRule_10ahxxr">
+        <inputEntry id="UnaryTests_0ozxmia">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zn5kaz">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_092jsla">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cj7pxe">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_13djfhv">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1fhl8tt">
+          <text>"Interior staircase should be enclosed"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_066eztx">
+        <inputEntry id="UnaryTests_0ehk6w8">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cqgz76">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kmoiks">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19s2eel">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_04ees0y">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_044yjqj">
+          <text>"Not all fire resistances of interior walls comply"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0fbjzfh">
+        <inputEntry id="UnaryTests_0gtx1e4">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ttp8pw">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04ickiq">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wybbvf">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_18wtev7">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0laanya">
+          <text>"No further message"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1mhm8jr">
+        <inputEntry id="UnaryTests_1mjznau">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0raku2k">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1y0lty7">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gog631">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1nhkhnv">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1bam960">
+          <text>"Verify exterior wall regulation from DMNs of section 3_5"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0fvbwh1">
+        <inputEntry id="UnaryTests_1jc8a8m">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_138gqye">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ab56tc">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0oqwj4u">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0sfttdj">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_00rf2nk">
+          <text>"No further message"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InteriorStaircaseIsEnclosed" name="InteriorStaircaseIsEnclosed" />
+  <inputData id="AllFireResistanceInteriorWallOfInteriorStaircaseSuccess" name="AllFireResistanceInteriorWallOfInteriorStaircaseSuccess" />
+  <inputData id="ExteriorWallHasWindows" name="ExteriorWallHasWindows" />
+  <inputData id="DoesExteriorWallComplyWithRegulation" name="DoesExteriorWallComplyWithRegulation" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_0i9jzn1">
+        <dc:Bounds height="80" width="180" x="380" y="210" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0a16qj7" dmnElementRef="InteriorStaircaseIsEnclosed">
+        <dc:Bounds height="45" width="125" x="157" y="227" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0ljbj88" dmnElementRef="InformationRequirement_18es3uj">
+        <di:waypoint x="282" y="250" />
+        <di:waypoint x="360" y="250" />
+        <di:waypoint x="380" y="250" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1he5dp5" dmnElementRef="AllFireResistanceInteriorWallOfInteriorStaircaseSuccess">
+        <dc:Bounds height="45" width="125" x="408" y="358" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1hzixr1" dmnElementRef="InformationRequirement_1eeuec5">
+        <di:waypoint x="471" y="358" />
+        <di:waypoint x="470" y="310" />
+        <di:waypoint x="470" y="290" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1e170w6" dmnElementRef="ExteriorWallHasWindows">
+        <dc:Bounds height="45" width="125" x="658" y="228" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0w0tn27" dmnElementRef="InformationRequirement_0sne52l">
+        <di:waypoint x="658" y="251" />
+        <di:waypoint x="580" y="250" />
+        <di:waypoint x="560" y="250" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0qojs51" dmnElementRef="DoesExteriorWallComplyWithRegulation">
+        <dc:Bounds height="45" width="125" x="407" y="97" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0kyx4rd" dmnElementRef="InformationRequirement_133zpuv">
+        <di:waypoint x="470" y="142" />
+        <di:waypoint x="470" y="190" />
+        <di:waypoint x="470" y="210" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

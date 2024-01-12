@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0har7x1" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_0lrianw" name="ExteriorStaircaseEnclosure Verification">
+    <informationRequirement id="InformationRequirement_18dt6lp">
+      <requiredInput href="#ExteriorStaircaseIsEnclosed" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1h6q0ns">
+      <requiredInput href="#MinimalExteriorStaircaseSidesWithFreshAirAccessPerBuildingLayer" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1nhlo1t">
+      <requiredInput href="#ExteriorStaircaseDistanceToUnsufficientFRfacadeElement" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0n7dzxo" hitPolicy="FIRST">
+      <input id="InputClause_0u09ej9" label="ExteriorStaircaseIsEnclosed">
+        <inputExpression id="LiteralExpression_00xqpk1" typeRef="boolean">
+          <text>ExteriorStaircaseIsEnclosed</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0y7rezr" label="MinimalExteriorStaircaseSidesWithFreshAirAccessPerBuildingLayer">
+        <inputExpression id="LiteralExpression_1ur34vs" typeRef="integer">
+          <text>MinimalExteriorStaircaseSidesWithFreshAirAccessPerBuildingLayer</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1gyxr2v" label="ExteriorStaircaseDistanceToUnsufficientFRfacadeElement">
+        <inputExpression id="LiteralExpression_0t2at08" typeRef="double">
+          <text>ExteriorStaircaseDistanceToUnsufficientFRfacadeElement</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0fait29" label="ExteriorStaircaseGeneralRegulationSuccess" name="ExteriorStaircaseGeneralRegulationSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_0dttfi4">
+        <inputEntry id="UnaryTests_036shw7">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ijbqvs">
+          <text>&gt;= 1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00yq8es">
+          <text>&gt;= 1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0h526x1">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ks27oh">
+        <inputEntry id="UnaryTests_1dngfg6">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0r5ldh0">
+          <text>&gt;= 1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hh4iip">
+          <text>&lt; 1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_112x11t">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1r1rdf4">
+        <inputEntry id="UnaryTests_1fmjbq3">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1scwy9u">
+          <text>&lt; 1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kxjsm2">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0wxgymi">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0xex0i9">
+        <inputEntry id="UnaryTests_1w5m2u5">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jioior">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0np3o1p">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0emp236">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="ExteriorStaircaseIsEnclosed" name="ExteriorStaircaseIsEnclosed" />
+  <inputData id="MinimalExteriorStaircaseSidesWithFreshAirAccessPerBuildingLayer" name="MinimalExteriorStaircaseSidesWithFreshAirAccessPerBuildingLayer" />
+  <inputData id="ExteriorStaircaseDistanceToUnsufficientFRfacadeElement" name="ExteriorStaircaseDistanceToUnsufficientFRfacadeElement" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_0m7fx0u" dmnElementRef="Decision_0lrianw">
+        <dc:Bounds height="80" width="180" x="240" y="210" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_11ygf45" dmnElementRef="ExteriorStaircaseIsEnclosed">
+        <dc:Bounds height="45" width="125" x="157" y="348" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1u88hp2" dmnElementRef="InformationRequirement_18dt6lp">
+        <di:waypoint x="220" y="348" />
+        <di:waypoint x="300" y="310" />
+        <di:waypoint x="300" y="290" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0fkaap4" dmnElementRef="MinimalExteriorStaircaseSidesWithFreshAirAccessPerBuildingLayer">
+        <dc:Bounds height="45" width="125" x="358" y="349" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1rva0e6" dmnElementRef="InformationRequirement_1h6q0ns">
+        <di:waypoint x="421" y="349" />
+        <di:waypoint x="360" y="310" />
+        <di:waypoint x="360" y="290" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1mhr6ho" dmnElementRef="ExteriorStaircaseDistanceToUnsufficientFRfacadeElement">
+        <dc:Bounds height="45" width="125" x="268" y="78" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1pnhqtv" dmnElementRef="InformationRequirement_1nhlo1t">
+        <di:waypoint x="331" y="123" />
+        <di:waypoint x="330" y="190" />
+        <di:waypoint x="330" y="210" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

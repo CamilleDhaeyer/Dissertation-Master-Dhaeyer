@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_00eq59y" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_03mtupf" name="Verify which floor level is larger">
+    <informationRequirement id="InformationRequirement_0vtge82">
+      <requiredInput href="#DuplexAreaFirstFloor" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0cdyzjm">
+      <requiredInput href="#DuplexAreaSecondFloor" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1o9gwls">
+      <input id="InputClause_1erik9n" label="DuplexAreaFirstFloor">
+        <inputExpression id="LiteralExpression_1p3tj4c" typeRef="double">
+          <text>DuplexAreaFirstFloor</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1wy4nrd" label="DuplexAreaSecondFloor" biodi:width="204">
+        <inputExpression id="LiteralExpression_1lt4ufw" typeRef="double">
+          <text>DuplexAreaSecondFloor</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0urjm8h" label="FirstFloorLarger" name="FirstFloorLarger" typeRef="boolean" biodi:width="188" />
+      <rule id="DecisionRule_084exn3">
+        <inputEntry id="UnaryTests_1q2u8l6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0eu8h4s">
+          <text>&lt;=DuplexAreaFirstFloor</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_10r78px">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0z16fu9">
+        <inputEntry id="UnaryTests_0eck08o">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qlhncj">
+          <text>&gt;DuplexAreaFirstFloor</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1y2gw42">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="DuplexAreaFirstFloor" name="DuplexAreaFirstFloor" />
+  <inputData id="DuplexAreaSecondFloor" name="DuplexAreaSecondFloor" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_03bvf7v" dmnElementRef="Decision_03mtupf">
+        <dc:Bounds height="80" width="180" x="340" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0qlb496" dmnElementRef="DuplexAreaFirstFloor">
+        <dc:Bounds height="45" width="125" x="157" y="97" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_02mi36s" dmnElementRef="DuplexAreaSecondFloor">
+        <dc:Bounds height="45" width="125" x="567" y="97" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0o4gv3o" dmnElementRef="InformationRequirement_0vtge82">
+        <di:waypoint x="282" y="120" />
+        <di:waypoint x="320" y="120" />
+        <di:waypoint x="340" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0kvdb85" dmnElementRef="InformationRequirement_0cdyzjm">
+        <di:waypoint x="567" y="120" />
+        <di:waypoint x="540" y="120" />
+        <di:waypoint x="520" y="120" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

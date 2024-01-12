@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_19ucaly" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_1hfc9zo" name="Define the minimal floor level to be connected to evacuation route">
+    <informationRequirement id="InformationRequirement_0wn4o0p">
+      <requiredInput href="#TriplexAreaFirstFloor" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1s5ik00">
+      <requiredInput href="#TriplexAreaSecondFloor" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0qro5en">
+      <requiredInput href="#TriplexAreaThirdFloor" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0640zx0">
+      <input id="Input_1" label="TriplexAreaFirstFloor">
+        <inputExpression id="InputExpression_1" typeRef="double">
+          <text>TriplexAreaFirstFloor</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0s30k0l" label="TriplexAreaSecondFloor" biodi:width="243">
+        <inputExpression id="LiteralExpression_1dx70kq" typeRef="double">
+          <text>TriplexAreaSecondFloor</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1c1lotc" label="TriplexAreaThirdFloor">
+        <inputExpression id="LiteralExpression_1lu1l7p" typeRef="double">
+          <text>TriplexAreaThirdFloor</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1qgzpkh" label="MinimalRequiredEvacuationFloorLevel" name="MinimalRequiredEvacuationFloorLevel" typeRef="string" />
+      <rule id="DecisionRule_1cly0co">
+        <inputEntry id="UnaryTests_0ondpha">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0w53v8s">
+          <text>&lt;TriplexAreaFirstFloor</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vjhv5j">
+          <text>&lt;TriplexAreaFirstFloor</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ih222r">
+          <text>"Level 1"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ar2coa">
+        <inputEntry id="UnaryTests_1boau6b">
+          <text>&lt;TriplexAreaSecondFloor</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gh2dte">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kpdwuq">
+          <text>&lt;TriplexAreaSecondFloor</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_15p389o">
+          <text>"Level 2"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1wtxw45">
+        <inputEntry id="UnaryTests_0807m37">
+          <text>&lt;TriplexAreaThirdFloor</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0b9g15o">
+          <text>&lt;TriplexAreaThirdFloor</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0s5hptn">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_14oxri5">
+          <text>"Level 3"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_01jlmkx" name="Define other evacuation floor levels">
+    <informationRequirement id="InformationRequirement_034uawr">
+      <requiredDecision href="#Decision_1hfc9zo" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0c7tv7a">
+      <requiredInput href="#OccupancyTime" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0t7o31x">
+      <requiredInput href="#DayOccupancyLevel" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0x11bw3">
+      <input id="InputClause_0ldgvj1" label="MinimalRequiredEvacuationFloorLevel">
+        <inputExpression id="LiteralExpression_1wsnb0b" typeRef="string">
+          <text>MinimalRequiredEvacuationFloorLevel</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0a18evq" label="OccupancyTime">
+        <inputExpression id="LiteralExpression_0i4vnk4" typeRef="string">
+          <text>OccupancyTime</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1gvirx5" label="DayOccupancyLevel">
+        <inputExpression id="LiteralExpression_1t75v7o" typeRef="string">
+          <text>DayOccupancyLevel</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_10m9ix2" label="OtherRequiredEvacuationLevels" name="OtherRequiredEvacuationLevels" typeRef="string" />
+      <rule id="DecisionRule_0qbldwr">
+        <inputEntry id="UnaryTests_1lcv21j">
+          <text>"Level 1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09bnzs3">
+          <text>"Day occupancy only"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hgfyz9">
+          <text>"On all levels"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0wxn3d7">
+          <text>"And level 2"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_021hm3b">
+        <inputEntry id="UnaryTests_08ykynf">
+          <text>"Level 1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1csa9uc">
+          <text>"Day occupancy only"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1uv3361">
+          <text>"Not on all levels"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0j9adyv">
+          <text>"And level 2 or level 3"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0s8qfoe">
+        <inputEntry id="UnaryTests_0755tak">
+          <text>"Level 2"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bb30qe">
+          <text>"Day occupancy only"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0thay9h">
+          <text>"On all levels"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_08zd05s">
+          <text>"None"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1wv2wc6">
+        <inputEntry id="UnaryTests_13lwsi4">
+          <text>"Level 2"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1b0hszv">
+          <text>"Day occupancy only"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zwuwdx">
+          <text>"Not on all levels"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_142c4e6">
+          <text>"And level 1"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1u53irp">
+        <inputEntry id="UnaryTests_1gzsvja">
+          <text>"Level 3"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02fesxn">
+          <text>"Day occupancy only"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03owx98">
+          <text>"On all levels"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1896tki">
+          <text>"And level 2"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0718pvv">
+        <inputEntry id="UnaryTests_0ol65to">
+          <text>"Level 3"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_150m4oj">
+          <text>"Day occupancy only"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00pxh3i">
+          <text>"Not on all levels"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0tiwbp2">
+          <text>"And level 1"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_0k8kvma" name="verify floor levels connected to interior staircase">
+    <informationRequirement id="InformationRequirement_1b0mm93">
+      <requiredDecision href="#Decision_01jlmkx" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1l2tfsl">
+      <requiredInput href="#FloorLevelsConnectedToInteriorStaircase" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0ghoh43">
+      <input id="InputClause_13rr41t" label="MinimalRequiredEvacuationFloorLevel">
+        <inputExpression id="LiteralExpression_19kiqrk" typeRef="string">
+          <text>MinimalRequiredEvacuationFloorLevel</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0apfpd9" label="OtherRequiredEvacuationLevels">
+        <inputExpression id="LiteralExpression_0l7dxf0" typeRef="string">
+          <text>OtherRequiredEvacuationLevels</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1emhyui" label="FloorLevelsConnectedToInteriorStaircase">
+        <inputExpression id="LiteralExpression_11193co" typeRef="string">
+          <text>FloorLevelsConnectedToInteriorStaircase</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1l9n1zl" label="ConnectionTriplexToInteriorStaircaseSuccess" name="ConnectionTriplexToInteriorStaircaseSuccess" typeRef="boolean" biodi:width="228" />
+      <rule id="DecisionRule_1bkyq6k">
+        <inputEntry id="UnaryTests_0n4pxbt">
+          <text>"Level 1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ujvzlo">
+          <text>"And level 2"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vhs3hm">
+          <text>"Level 1 and level 2","Level 1 and level 2 and level 3"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0qkqa6l">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0f5wctl">
+        <inputEntry id="UnaryTests_1e0wnlv">
+          <text>"Level 1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1h8cb4x">
+          <text>"And level 2"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dkqnbk">
+          <text>"Level 2 and level 3","Level 1 and level 3"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_00523os">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_130isov">
+        <inputEntry id="UnaryTests_0yh9jlg">
+          <text>"Level 1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ots9o6">
+          <text>"And level 2 or level 3"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0p88van">
+          <text>"Level 1 and level 2","Level 1 and level 2 and level 3","Level 1 and level 3"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1efeslg">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_00phbfv">
+        <inputEntry id="UnaryTests_09pg4fa">
+          <text>"Level 1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fe4ch9">
+          <text>"And level 2 or level 3"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09jgdlc">
+          <text>"Level 2 and level 3"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0b81cze">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_13vdtnd">
+        <inputEntry id="UnaryTests_08hk4ba">
+          <text>"Level 2"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04bs6b5">
+          <text>"None"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0i15wu1">
+          <text>"Level 1 and level 2","Level 1 and level 2 and level 3","Level 2 and level 3"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_09jf50n">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1w8742y">
+        <inputEntry id="UnaryTests_0jm8l1e">
+          <text>"Level 2"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0u6gc7r">
+          <text>"None"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0c7wj4k">
+          <text>"Level 1 and level 3"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0e33zku">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0wfagul">
+        <inputEntry id="UnaryTests_0mmr6mr">
+          <text>"Level 2"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kj4sm8">
+          <text>"And level 1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1bb9btw">
+          <text>"Level 1 and level 2","Level 1 and level 2 and level 3"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ylcasg">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1wv9627">
+        <inputEntry id="UnaryTests_0151ccm">
+          <text>"Level 2"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0aautzg">
+          <text>"And level 1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ponz33">
+          <text>"Level 2 and level 3","Level 1 and level 3"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1cylahe">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_08v5pd2">
+        <inputEntry id="UnaryTests_1hottmo">
+          <text>"Level 3"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1imscap">
+          <text>"And level 2"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07b9vdz">
+          <text>"Level 1 and level 2 and level 3","Level 2 and level 3"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_19sztjz">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0jo112o">
+        <inputEntry id="UnaryTests_177oyx0">
+          <text>"Level 3"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bz6xfz">
+          <text>"And level 2"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qa7v29">
+          <text>"Level 1 and level 2","Level 1 and level 3"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1k0ci95">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1gp41c2">
+        <inputEntry id="UnaryTests_1klf0lq">
+          <text>"Level 3"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0iq7zq6">
+          <text>"And level 1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gebdef">
+          <text>"Level 1 and level 2 and level 3","Level 1 and level 3"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1nil3da">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1v5onmj">
+        <inputEntry id="UnaryTests_0mlscft">
+          <text>"Level 3"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0z9apei">
+          <text>"And level 1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0tlozbk">
+          <text>"Level 2 and level 3","Level 1 and level 2"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0vu28fd">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="TriplexAreaFirstFloor" name="TriplexAreaFirstFloor" />
+  <inputData id="TriplexAreaSecondFloor" name="TriplexAreaSecondFloor" />
+  <inputData id="TriplexAreaThirdFloor" name="TriplexAreaThirdFloor" />
+  <inputData id="OccupancyTime" name="OccupancyTime" />
+  <inputData id="DayOccupancyLevel" name="DayOccupancyLevel" />
+  <inputData id="FloorLevelsConnectedToInteriorStaircase" name="FloorLevelsConnectedToInteriorStaircase" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1hfc9zo">
+        <dc:Bounds height="80" width="180" x="360" y="410" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0m96fjo" dmnElementRef="Decision_01jlmkx">
+        <dc:Bounds height="80" width="180" x="360" y="240" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1yt6f7c" dmnElementRef="InformationRequirement_034uawr">
+        <di:waypoint x="450" y="410" />
+        <di:waypoint x="450" y="340" />
+        <di:waypoint x="450" y="320" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_18245ri" dmnElementRef="Decision_0k8kvma">
+        <dc:Bounds height="80" width="180" x="360" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0y1l60d" dmnElementRef="InformationRequirement_1b0mm93">
+        <di:waypoint x="450" y="240" />
+        <di:waypoint x="450" y="180" />
+        <di:waypoint x="450" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_007k0ym" dmnElementRef="TriplexAreaFirstFloor">
+        <dc:Bounds height="45" width="125" x="158" y="427" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1gxzj4s" dmnElementRef="InformationRequirement_0wn4o0p">
+        <di:waypoint x="283" y="450" />
+        <di:waypoint x="340" y="450" />
+        <di:waypoint x="360" y="450" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_14dv6w8" dmnElementRef="TriplexAreaSecondFloor">
+        <dc:Bounds height="45" width="125" x="387" y="567" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0jm166u" dmnElementRef="InformationRequirement_1s5ik00">
+        <di:waypoint x="450" y="567" />
+        <di:waypoint x="450" y="510" />
+        <di:waypoint x="450" y="490" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_08hb2md" dmnElementRef="TriplexAreaThirdFloor">
+        <dc:Bounds height="45" width="125" x="598" y="428" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0ntcssj" dmnElementRef="InformationRequirement_0qro5en">
+        <di:waypoint x="598" y="451" />
+        <di:waypoint x="560" y="450" />
+        <di:waypoint x="540" y="450" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0l6wxxw" dmnElementRef="OccupancyTime">
+        <dc:Bounds height="45" width="125" x="159" y="258" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_197saks" dmnElementRef="InformationRequirement_0c7tv7a">
+        <di:waypoint x="284" y="281" />
+        <di:waypoint x="340" y="280" />
+        <di:waypoint x="360" y="280" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1gzptnp" dmnElementRef="DayOccupancyLevel">
+        <dc:Bounds height="45" width="125" x="599" y="258" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_128wd3k" dmnElementRef="InformationRequirement_0t7o31x">
+        <di:waypoint x="599" y="281" />
+        <di:waypoint x="560" y="280" />
+        <di:waypoint x="540" y="280" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1vhkaco" dmnElementRef="FloorLevelsConnectedToInteriorStaircase">
+        <dc:Bounds height="45" width="125" x="159" y="98" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0x83r88" dmnElementRef="InformationRequirement_1l2tfsl">
+        <di:waypoint x="284" y="121" />
+        <di:waypoint x="340" y="120" />
+        <di:waypoint x="360" y="120" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

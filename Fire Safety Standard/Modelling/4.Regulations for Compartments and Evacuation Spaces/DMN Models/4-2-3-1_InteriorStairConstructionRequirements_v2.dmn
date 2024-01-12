@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0c0hjqc" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_0ydgum9" name="Stair requirement verification">
+    <informationRequirement id="InformationRequirement_1aw86ht">
+      <requiredInput href="#StairRiserType" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1nho7p5">
+      <requiredDecision href="#Decision_1u92mvm" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0n2uf39">
+      <requiredDecision href="#Decision_0src3h1" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0c6p2gb">
+      <input id="Input_1" label="FireResistanceStairSuccess">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>FireResistanceStairSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0yhwdab" label="StairRiserType">
+        <inputExpression id="LiteralExpression_1rqhm1g" typeRef="string">
+          <text>StairRiserType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0lagjdf" label="AllStairElementRailingSuccess">
+        <inputExpression id="LiteralExpression_05dw9nb" typeRef="boolean">
+          <text>AllStairElementRailingSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0ddaxqu" label="StairGeometrySuccess">
+        <inputExpression id="LiteralExpression_11niys5" typeRef="boolean">
+          <text>StairGeometrySuccess</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="StairRequirementSuccess" name="StairRequirementSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_10v9wqh">
+        <description></description>
+        <inputEntry id="UnaryTests_13glzhi">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xhpe0x">
+          <text>"Solid riser"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cllbhb">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03wxo2m">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0yxhanf">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_13lk8cz">
+        <description></description>
+        <inputEntry id="UnaryTests_1ij28r2">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19h2zq6">
+          <text>"Solid riser"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xao6cs">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05zkmdd">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ctm81v">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1m4v3qq">
+        <description></description>
+        <inputEntry id="UnaryTests_17bmo39">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07f6z3d">
+          <text>"Solid riser"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1owqdj2">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qg3du1">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0rcwqe6">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0680yz0">
+        <inputEntry id="UnaryTests_0bd0sc5">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vsxqlp">
+          <text>"Solid riser"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ezppdz">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19wv4jv">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_08563yf">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0b9rp9l">
+        <inputEntry id="UnaryTests_0t4yrjw">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0aztgjz">
+          <text>"Open riser"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0efjfn1">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1iwipug">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0t2b60c">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_05mhr2s">
+        <inputEntry id="UnaryTests_1cfjatm">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_128ph92">
+          <text>"Open riser","Solid riser"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jdai6i">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1r9vfbi">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_156baxs">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="StairType" name="StairType" />
+  <inputData id="FireResistanceStair" name="FireResistanceStair" />
+  <inputData id="StairRiserType" name="StairRiserType" />
+  <inputData id="StairTread" name="StairTread" />
+  <inputData id="StairRiser" name="StairRiser" />
+  <inputData id="StairSlope" name="StairSlope" />
+  <decision id="Decision_1u92mvm" name="Verify stair geometry">
+    <informationRequirement id="InformationRequirement_0w5iy9f">
+      <requiredInput href="#StairSlope" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_125sbqu">
+      <requiredInput href="#StairType" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1boqgyf">
+      <requiredInput href="#StairTread" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1swrmj9">
+      <requiredInput href="#StairRiser" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0u9wimq" hitPolicy="FIRST">
+      <input id="InputClause_0ngulky" label="StairType">
+        <inputExpression id="LiteralExpression_0u8vovn" typeRef="string">
+          <text>StairType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_17jkczf" label="StairTread">
+        <inputExpression id="LiteralExpression_13nadl2" typeRef="double">
+          <text>StairTread</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1yqf2fs" label="StairRiser">
+        <inputExpression id="LiteralExpression_1udun79" typeRef="double">
+          <text>StairRiser</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_09xp46e" label="StairSlope">
+        <inputExpression id="LiteralExpression_00gwsl0" typeRef="double">
+          <text>StairSlope</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_07ggzr2" label="StairGeometrySuccess" name="StairGeometrySuccess" typeRef="boolean" />
+      <rule id="DecisionRule_10fkhc0">
+        <inputEntry id="UnaryTests_06kko8p">
+          <text>"Straight stair type"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ax3pqs">
+          <text>&gt;= 0.2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ws1e99">
+          <text>&lt;= 0.18</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0e6kgip">
+          <text>&lt; 37</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1kxiesz">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ye21fk">
+        <inputEntry id="UnaryTests_0dimkfp">
+          <text>"Straight stair type"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1s8ywv4">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zhn0ft">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1f55orx">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0yo8foh">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1evtwuj">
+        <inputEntry id="UnaryTests_1pruq1l">
+          <text>"Spiral staircase"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0du9196">
+          <text>&gt;= 0.24</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15lrm2f">
+          <text>&lt;= 0.18</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kgoy1q">
+          <text>&lt;37</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_00ldoj3">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0l6qo27">
+        <inputEntry id="UnaryTests_06qittq">
+          <text>"Spiral staircase"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_032a43h">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ts46pp">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vaspdo">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ixtp0f">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_0src3h1" name="Verify fire resistance stair">
+    <informationRequirement id="InformationRequirement_1dqdsv6">
+      <requiredInput href="#FireResistanceStair" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0go46r4">
+      <input id="InputClause_1xquddz" label="FireResistanceStair">
+        <inputExpression id="LiteralExpression_1tggw37" typeRef="string">
+          <text>FireResistanceStair</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1ylwjdk" label="FireResistanceStairSuccess" name="FireResistanceStairSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_0kdbas8">
+        <inputEntry id="UnaryTests_07cx6ne">
+          <text>"R 10","R 15","R 20","R 30","R 45"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1rt8sj6">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ssquah">
+        <inputEntry id="UnaryTests_02lgorj">
+          <text>"R 60","R 90","R 120","R 180","R 240","R 300","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0w4pyyg">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_0ydgum9">
+        <dc:Bounds height="80" width="180" x="610" y="140" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0kew3o3" dmnElementRef="StairType">
+        <dc:Bounds height="45" width="125" x="417" y="287" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1if8e95" dmnElementRef="FireResistanceStair">
+        <dc:Bounds height="45" width="125" x="157" y="157" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0ldwq8w" dmnElementRef="StairRiserType">
+        <dc:Bounds height="45" width="125" x="637" y="37" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0qmc3v3" dmnElementRef="InformationRequirement_1aw86ht">
+        <di:waypoint x="700" y="82" />
+        <di:waypoint x="700" y="120" />
+        <di:waypoint x="700" y="140" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1e0xv9m" dmnElementRef="StairTread">
+        <dc:Bounds height="45" width="125" x="847" y="287" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_04q4ju4" dmnElementRef="StairRiser">
+        <dc:Bounds height="45" width="125" x="847" y="357" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_05jsuzf" dmnElementRef="StairSlope">
+        <dc:Bounds height="45" width="125" x="417" y="347" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_17g1j6e" dmnElementRef="Decision_1u92mvm">
+        <dc:Bounds height="80" width="180" x="610" y="300" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_00jjk9z" dmnElementRef="InformationRequirement_1nho7p5">
+        <di:waypoint x="700" y="300" />
+        <di:waypoint x="700" y="240" />
+        <di:waypoint x="700" y="220" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1uovth1" dmnElementRef="InformationRequirement_0w5iy9f">
+        <di:waypoint x="542" y="370" />
+        <di:waypoint x="590" y="353" />
+        <di:waypoint x="610" y="353" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1tla4u8" dmnElementRef="InformationRequirement_125sbqu">
+        <di:waypoint x="542" y="310" />
+        <di:waypoint x="590" y="327" />
+        <di:waypoint x="610" y="327" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0twfpmu" dmnElementRef="InformationRequirement_1boqgyf">
+        <di:waypoint x="847" y="310" />
+        <di:waypoint x="810" y="327" />
+        <di:waypoint x="790" y="327" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0xewrca" dmnElementRef="InformationRequirement_1swrmj9">
+        <di:waypoint x="847" y="380" />
+        <di:waypoint x="810" y="353" />
+        <di:waypoint x="790" y="353" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0zrn4oy" dmnElementRef="Decision_0src3h1">
+        <dc:Bounds height="80" width="180" x="350" y="140" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_18fusb9" dmnElementRef="InformationRequirement_1dqdsv6">
+        <di:waypoint x="282" y="180" />
+        <di:waypoint x="330" y="180" />
+        <di:waypoint x="350" y="180" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0y1979k" dmnElementRef="InformationRequirement_0n2uf39">
+        <di:waypoint x="530" y="180" />
+        <di:waypoint x="590" y="180" />
+        <di:waypoint x="610" y="180" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

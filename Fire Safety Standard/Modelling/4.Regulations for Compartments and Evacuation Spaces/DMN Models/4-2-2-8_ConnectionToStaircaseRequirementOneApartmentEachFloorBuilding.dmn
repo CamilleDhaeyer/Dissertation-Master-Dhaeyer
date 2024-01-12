@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_1iwehrq" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_16gtzb4" name="ConnectionEvacuationRouteAndStaircaseVerification">
+    <informationRequirement id="InformationRequirement_144dg56">
+      <requiredDecision href="#Decision_1p4u28l" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0i8xbc2">
+      <requiredInput href="#ConnectionApartmentAndInteriorStaircaseSuccess" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0omzqg4">
+      <input id="InputClause_0mdfo4k" label="ConnectionApartmentAndInteriorStaircaseSuccess">
+        <inputExpression id="LiteralExpression_0fau6pq" typeRef="boolean">
+          <text>ConnectionApartmentAndInteriorStaircaseSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1tty01r" label="AutomaticFireDetectionSystemSuccess">
+        <inputExpression id="LiteralExpression_1g6sjct" typeRef="boolean">
+          <text>AutomaticFireDetectionSystemSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="ConnectionStaircaseSuccess" name="ConnectionStaircaseSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_080ads1">
+        <inputEntry id="UnaryTests_0opusme">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0oolfog">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1n7ro2o">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0qyjg2b">
+        <inputEntry id="UnaryTests_14qcg59">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ibqn0q">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_09ygxk3">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1lxhkr5">
+        <inputEntry id="UnaryTests_0jrd0cq">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rw4q06">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_11f42jx">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1wqpas0">
+        <inputEntry id="UnaryTests_1jd21he">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kugddt">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1fiku5i">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_1p4u28l" name="Determine requirements of fire detection system">
+    <informationRequirement id="InformationRequirement_0ualup9">
+      <requiredInput href="#AutomaticFireDetectionSystemPresentInBuilding" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0wg1ce3">
+      <requiredInput href="#ZonesGuardedByFireDetectionSystem" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0kxt52d">
+      <requiredInput href="#FireDetectionSystemIndicatesFire" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0ht3abw">
+      <requiredInput href="#FireDetectionSensorsSpecificToRisks" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0ztm76i">
+      <input id="InputClause_08zoft0" label="AutomaticFireDetectionSystemPresentInBuilding">
+        <inputExpression id="LiteralExpression_1dlqzhh" typeRef="boolean">
+          <text>AutomaticFireDetectionSystemPresentInBuilding</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0dll91v" label="ZonesGuardedByFireDetectionSystem">
+        <inputExpression id="LiteralExpression_17js2u2" typeRef="string">
+          <text>ZonesGuardedByFireDetectionSystem</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1j4uvj9" label="FireDetectionSystemIndicatesFire">
+        <inputExpression id="LiteralExpression_0t8ay8n" typeRef="boolean">
+          <text>FireDetectionSystemIndicatesFire</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1tyfs2c" label="FireDetectionSensorsSpecificToRisks">
+        <inputExpression id="LiteralExpression_0cgzdf3" typeRef="boolean">
+          <text>FireDetectionSensorsSpecificToRisks</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1nerokt" label="AutomaticFireDetectionSystemSuccess" name="AutomaticFireDetectionSystemSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_1wfmnwy">
+        <inputEntry id="UnaryTests_0twrf2m">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0r90u0e">
+          <text>"No zone is guarded"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qx5o5w">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05u52cr">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0vedu21">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1vtgq5u">
+        <inputEntry id="UnaryTests_1aju1y8">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ha6cpi">
+          <text>"Interior staircase and apartment exterior door towards staircase"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1376xbt">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04erojk">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_03jo22o">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_05s0xp9">
+        <inputEntry id="UnaryTests_1wq3ibp">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0x0algz">
+          <text>"Interior staircase and apartment exterior door towards staircase"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19tcuom">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_183hsmf">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1vrlayw">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1c4mus3">
+        <inputEntry id="UnaryTests_1hcsqjn">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1props3">
+          <text>"Interior staircase and apartment exterior door towards staircase"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1s81wfl">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0o62zut">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_00pifxh">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_11ygwb4">
+        <inputEntry id="UnaryTests_130wa9m">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15jjsgt">
+          <text>"Interior staircase and apartment exterior door towards staircase"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09ugq27">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yhzjgt">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1e231u5">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="AutomaticFireDetectionSystemPresentInBuilding" name="AutomaticFireDetectionSystemPresentInBuilding" />
+  <inputData id="ZonesGuardedByFireDetectionSystem" name="ZonesGuardedByFireDetectionSystem" />
+  <inputData id="FireDetectionSystemIndicatesFire" name="FireDetectionSystemIndicatesFire" />
+  <inputData id="FireDetectionSensorsSpecificToRisks" name="FireDetectionSensorsSpecificToRisks" />
+  <inputData id="ConnectionApartmentAndInteriorStaircaseSuccess" name="ConnectionApartmentAndInteriorStaircaseSuccess" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_16gtzb4">
+        <dc:Bounds height="80" width="180" x="340" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1kuu0hb" dmnElementRef="Decision_1p4u28l">
+        <dc:Bounds height="80" width="180" x="340" y="240" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_06owup8" dmnElementRef="AutomaticFireDetectionSystemPresentInBuilding">
+        <dc:Bounds height="45" width="125" x="158" y="368" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0hwibkt" dmnElementRef="InformationRequirement_0ualup9">
+        <di:waypoint x="221" y="368" />
+        <di:waypoint x="376" y="340" />
+        <di:waypoint x="376" y="320" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1g3iw6s" dmnElementRef="ZonesGuardedByFireDetectionSystem">
+        <dc:Bounds height="45" width="125" x="298" y="368" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_04xf6lu" dmnElementRef="InformationRequirement_0wg1ce3">
+        <di:waypoint x="361" y="368" />
+        <di:waypoint x="412" y="340" />
+        <di:waypoint x="412" y="320" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1yh5tkh" dmnElementRef="FireDetectionSystemIndicatesFire">
+        <dc:Bounds height="45" width="125" x="438" y="368" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1ok7yzj" dmnElementRef="InformationRequirement_0kxt52d">
+        <di:waypoint x="501" y="368" />
+        <di:waypoint x="448" y="340" />
+        <di:waypoint x="448" y="320" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1k23vsm" dmnElementRef="FireDetectionSensorsSpecificToRisks">
+        <dc:Bounds height="45" width="125" x="578" y="368" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_02kcdky" dmnElementRef="InformationRequirement_0ht3abw">
+        <di:waypoint x="641" y="368" />
+        <di:waypoint x="484" y="340" />
+        <di:waypoint x="484" y="320" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0xku2f2" dmnElementRef="InformationRequirement_144dg56">
+        <di:waypoint x="430" y="240" />
+        <di:waypoint x="430" y="180" />
+        <di:waypoint x="430" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1ll4uvq" dmnElementRef="ConnectionApartmentAndInteriorStaircaseSuccess">
+        <dc:Bounds height="45" width="125" x="158" y="97" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1qshhhk" dmnElementRef="InformationRequirement_0i8xbc2">
+        <di:waypoint x="283" y="120" />
+        <di:waypoint x="320" y="120" />
+        <di:waypoint x="340" y="120" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_1vq8qkj" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_18n258c" name="ExteriorStaircaseConnectionToCompartment verification">
+    <informationRequirement id="InformationRequirement_0cvg26o">
+      <requiredInput href="#ExteriorStaircaseConnectionToCompartment" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0avy6x6">
+      <input id="Input_1" label="ExteriorStaircaseConnectionToCompartmentBy">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>ExteriorStaircaseConnectionToCompartmentBy</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="ExteriorStaircaseConnectionToCompartmentSuccess" name="ExteriorStaircaseConnectionToCompartmentSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_04jrrtc">
+        <inputEntry id="UnaryTests_0r09eji">
+          <text>"Door"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_13r8mma">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0dewi1u">
+        <inputEntry id="UnaryTests_1ddmbkm">
+          <text>"Emergency terrace"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1pgey7u">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1g8neuh">
+        <inputEntry id="UnaryTests_11qtodb">
+          <text>"Other connection element"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0fu8sll">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="ExteriorStaircaseConnectionToCompartment" name="ExteriorStaircaseConnectionToCompartment" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_18n258c">
+        <dc:Bounds height="80" width="180" x="161" y="70" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0b1glwz" dmnElementRef="ExteriorStaircaseConnectionToCompartment">
+        <dc:Bounds height="45" width="125" x="188" y="208" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_168dtxh" dmnElementRef="InformationRequirement_0cvg26o">
+        <di:waypoint x="251" y="208" />
+        <di:waypoint x="251" y="170" />
+        <di:waypoint x="251" y="150" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

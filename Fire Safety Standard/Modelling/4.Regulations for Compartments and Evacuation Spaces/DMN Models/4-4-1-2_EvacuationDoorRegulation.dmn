@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_0gowsgj" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_04d95rp" name="Evacuation door requirement">
+    <informationRequirement id="InformationRequirement_1qpj1hc">
+      <requiredInput href="#LockSystemPresentOnEvacuationDoor" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1o6ljt6">
+      <input id="Input_1" label="LockSystemPresentOnEvacuationDoor">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text>LockSystemPresentOnEvacuationDoor</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="EvacuationDoorRegulationSuccess" name="EvacuationDoorRegulationSuccess" typeRef="boolean" biodi:width="218" />
+      <rule id="DecisionRule_169f857">
+        <inputEntry id="UnaryTests_1qsghjm">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1b7aahc">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ks2rqs">
+        <inputEntry id="UnaryTests_1sq7b31">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0c2ue54">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="LockSystemPresentOnEvacuationDoor" name="LockSystemPresentOnEvacuationDoor" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_04d95rp">
+        <dc:Bounds height="80" width="180" x="150" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1ioky85" dmnElementRef="LockSystemPresentOnEvacuationDoor">
+        <dc:Bounds height="45" width="125" x="178" y="238" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_03gtzxt" dmnElementRef="InformationRequirement_1qpj1hc">
+        <di:waypoint x="241" y="238" />
+        <di:waypoint x="240" y="180" />
+        <di:waypoint x="240" y="160" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

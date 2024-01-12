@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_1ou54sb" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_187981t" name="Verify distance of furthest point in compartment to exit">
+    <informationRequirement id="InformationRequirement_0f0njrg">
+      <requiredInput href="#OccupancyTime" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_15ngxk4">
+      <requiredInput href="#DistanceFurthestPointToEvacuationRoute" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0jnfrre">
+      <requiredInput href="#DistanceFurthestPointToNearestStairOrExit" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1pq138t">
+      <requiredInput href="#DistanceFurthestPointToSecondStairOrExit" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_16gozy5">
+      <requiredInput href="#InputData_0fzl7ig" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0sm9ads">
+      <input id="InputClause_0g5gt0q" label="SpaceType">
+        <inputExpression id="LiteralExpression_1q9bze2" typeRef="string">
+          <text>SpaceType</text>
+        </inputExpression>
+      </input>
+      <input id="Input_1" label="OccupancyTime" biodi:width="196">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>OccupancyTime</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0r6aqr9" label="DistanceFurthestPointToEvacuationRoute">
+        <inputExpression id="LiteralExpression_15rscp3" typeRef="double">
+          <text>DistanceFurthestPointToEvacuationRoute</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_166j5er" label="DistanceFurthestPointToNearestStairOrExit">
+        <inputExpression id="LiteralExpression_0rlp4tj" typeRef="double">
+          <text>DistanceFurthestPointToNearestStairOrExit</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1efb0em" label="DistanceFurthestPointToSecondStairOrExit">
+        <inputExpression id="LiteralExpression_1c30fbg" typeRef="double">
+          <text>DistanceFurthestPointToSecondStairOrExit</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="FurthestPointInCompartmentSuccess" name="FurthestPointInCompartmentSuccess" typeRef="boolean" biodi:width="192" />
+      <rule id="DecisionRule_1wn96sg">
+        <inputEntry id="UnaryTests_0432o8i">
+          <text>"Compartment"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0of40jq">
+          <text>"Day occupancy only"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ejllka">
+          <text>&lt;= 30</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xqrofy">
+          <text>&lt;= 45</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0y03q2j">
+          <text>&lt;= 80</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0n3hwj9">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0zsj3w3">
+        <inputEntry id="UnaryTests_0w0rkpk">
+          <text>"Compartment"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ptgy1y">
+          <text>"Day occupancy only"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02rnrnf">
+          <text>&gt; 30</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1b3kzrg">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_054km3c">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1fb58ow">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0cgjx5y">
+        <inputEntry id="UnaryTests_0ixidby">
+          <text>"Compartment"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pti8yn">
+          <text>"Day occupancy only"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0z9720c">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cpsj47">
+          <text>&gt; 45</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1h54zta">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0jjosq3">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1jhavvt">
+        <inputEntry id="UnaryTests_14r15le">
+          <text>"Compartment"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ayrbot">
+          <text>"Day occupancy only"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14515hh">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17i5r8b">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0f5t7r3">
+          <text>&gt; 80</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0r34ksj">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0y1l67a">
+        <inputEntry id="UnaryTests_1ca7tbh">
+          <text>"Compartment"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qkifff">
+          <text>"Night occupancy only"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0euv85z">
+          <text>&lt;= 20</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18tzf7i">
+          <text>&lt;= 30</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02mz2no">
+          <text>&lt;= 60</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0uoxq04">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1heu3rk">
+        <inputEntry id="UnaryTests_0yanlzf">
+          <text>"Compartment"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1t21cmc">
+          <text>"Night occupancy only"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0v2ffcw">
+          <text>&gt; 20</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18vgjur">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02pm893">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0bt8hji">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0dyol17">
+        <inputEntry id="UnaryTests_05eqdze">
+          <text>"Compartment"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1q2u10e">
+          <text>"Night occupancy only"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1w3s31b">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_191igco">
+          <text>&gt; 30</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1yekl9y">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0wpukiq">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1cfu4p8">
+        <inputEntry id="UnaryTests_00wba3t">
+          <text>"Compartment"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1y0q9is">
+          <text>"Night occupancy only"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1x7jlzj">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09uav6j">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13mmcc9">
+          <text>&gt; 60</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1rxxfez">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_01v4j8o">
+        <description>The variable  DistanceFurthestPointToEvacuationRoute means the route between the two exits in case of a technical compartment</description>
+        <inputEntry id="UnaryTests_0chypvc">
+          <text>"Technical compartment"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1bhi6c8">
+          <text>"Night occupancy only","Day occupancy only","Day and night occupancy"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01zwi68">
+          <text>&lt;= 45</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hrpvzj">
+          <text>&lt;= 60</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03403b0">
+          <text>&lt;= 100</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_045hcsl">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1mcy9fp">
+        <description></description>
+        <inputEntry id="UnaryTests_0g2uh6b">
+          <text>"Technical compartment"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0s6bxh1">
+          <text>"Night occupancy only","Day occupancy only","Day and night occupancy"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15qlb79">
+          <text>&gt; 45</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xeitvm">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0m8qplu">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1txj6ur">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_14f8j8s">
+        <inputEntry id="UnaryTests_02f1tex">
+          <text>"Technical compartment"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gcl7f5">
+          <text>"Night occupancy only","Day occupancy only","Day and night occupancy"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pfew5z">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hg7wk5">
+          <text>&gt; 60</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1e13ki0">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_077h98n">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1dnzdre">
+        <inputEntry id="UnaryTests_1ewe7g6">
+          <text>"Technical compartment"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1sua7uq">
+          <text>"Night occupancy only","Day occupancy only","Day and night occupancy"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1sue301">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10rfjxy">
+          <text>&lt;= 60</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0x03xqs">
+          <text>&gt; 100</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0dzdgk2">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="OccupancyTime" name="OccupancyTime" />
+  <inputData id="DistanceFurthestPointToEvacuationRoute" name="DistanceFurthestPointToEvacuationRoute" />
+  <inputData id="DistanceFurthestPointToNearestStairOrExit" name="DistanceFurthestPointToNearestStairOrExit" />
+  <inputData id="DistanceFurthestPointToSecondStairOrExit" name="DistanceFurthestPointToSecondStairOrExit" />
+  <inputData id="InputData_0fzl7ig" name="SpaceType" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_187981t">
+        <dc:Bounds height="80" width="180" x="320" y="210" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_069zko5" dmnElementRef="OccupancyTime">
+        <dc:Bounds height="45" width="125" x="158" y="348" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0jqibbt" dmnElementRef="DistanceFurthestPointToEvacuationRoute">
+        <dc:Bounds height="45" width="125" x="288" y="349" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0x9q0ol" dmnElementRef="DistanceFurthestPointToNearestStairOrExit">
+        <dc:Bounds height="45" width="125" x="418" y="349" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0fsvlpm" dmnElementRef="DistanceFurthestPointToSecondStairOrExit">
+        <dc:Bounds height="45" width="125" x="548" y="349" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0gzrtzp" dmnElementRef="InformationRequirement_0f0njrg">
+        <di:waypoint x="221" y="348" />
+        <di:waypoint x="356" y="310" />
+        <di:waypoint x="356" y="290" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0ga6t23" dmnElementRef="InformationRequirement_15ngxk4">
+        <di:waypoint x="351" y="349" />
+        <di:waypoint x="392" y="310" />
+        <di:waypoint x="392" y="290" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_074hekg" dmnElementRef="InformationRequirement_0jnfrre">
+        <di:waypoint x="481" y="349" />
+        <di:waypoint x="428" y="310" />
+        <di:waypoint x="428" y="290" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0xqqbnk" dmnElementRef="InformationRequirement_1pq138t">
+        <di:waypoint x="611" y="349" />
+        <di:waypoint x="464" y="310" />
+        <di:waypoint x="464" y="290" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1jciucp" dmnElementRef="InputData_0fzl7ig">
+        <dc:Bounds height="45" width="125" x="347" y="117" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0tqeuua" dmnElementRef="InformationRequirement_16gozy5">
+        <di:waypoint x="410" y="162" />
+        <di:waypoint x="410" y="190" />
+        <di:waypoint x="410" y="210" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

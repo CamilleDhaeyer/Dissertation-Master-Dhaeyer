@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_1yxs6sa" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_144noz0" name="Verify if ventilation hatch on staircase is necessary">
+    <informationRequirement id="InformationRequirement_1nufh11">
+      <requiredInput href="#StaircaseType" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0nyo6fu">
+      <requiredInput href="#VentilationOpeningPresentAboveStaircase" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_035gjgf">
+      <requiredInput href="#VentilationOpeningDirectConnectedToOpenAir" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0nyi4m2">
+      <requiredInput href="#AreaOfVentilationOpening" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0djhzhi">
+      <requiredInput href="#ManualOperationOfVentilationOpeningFromEvacuationLevel" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1c6v2x2" hitPolicy="FIRST">
+      <input id="Input_1" label="StaircaseType">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>StaircaseType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1k10j7h" label="StaircaseLocation">
+        <inputExpression id="LiteralExpression_1i6bt8x" typeRef="string">
+          <text>StaircaseLocation</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1qe8h04" label="VentilationOpeningPresentAboveStaircase">
+        <inputExpression id="LiteralExpression_0119vd4" typeRef="boolean">
+          <text>VentilationOpeningPresentAboveStaircase</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1jguo97" label="VentilationOpeningDirectConnectedToOpenAir">
+        <inputExpression id="LiteralExpression_19h6ggj" typeRef="boolean">
+          <text>VentilationOpeningDirectConnectedToOpenAir</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0v3z7na" label="AreaOfVentilationOpening">
+        <inputExpression id="LiteralExpression_0pkvqvk" typeRef="double">
+          <text>AreaOfVentilationOpening</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1ugdk55" label="ManualOperationOfVentilationOpeningFromEvacuationLevel">
+        <inputExpression id="LiteralExpression_08wns0z" typeRef="boolean">
+          <text>ManualOperationOfVentilationOpeningFromEvacuationLevel</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="StaircaseVentilationSuccess" name="StaircaseVentilationSuccess" typeRef="boolean" biodi:width="221" />
+      <rule id="DecisionRule_1l6d8h6">
+        <inputEntry id="UnaryTests_1r6m8xr">
+          <text>"Interior staircase"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06l584n">
+          <text>"Under ground"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02fm2as">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1knebia">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0luocs8">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1mown6z">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1psegoz">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_02dkavt">
+        <inputEntry id="UnaryTests_0d104rj">
+          <text>"Interior staircase"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fnkf5r">
+          <text>"Above ground"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yuy8dj">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1udjrd3">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lf9usd">
+          <text>&gt;= 1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yq7wbe">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0p57df0">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0xbm32x">
+        <inputEntry id="UnaryTests_0pa89to">
+          <text>"Interior staircase"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ldtcqa">
+          <text>"Above ground"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0y80f15">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0a3rkbd">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0dclsfa">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_025nqeq">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1inbv1f">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="StaircaseType" name="StaircaseType" />
+  <inputData id="VentilationOpeningPresentAboveStaircase" name="VentilationOpeningPresentAboveStaircase" />
+  <inputData id="VentilationOpeningDirectConnectedToOpenAir" name="VentilationOpeningDirectConnectedToOpenAir" />
+  <inputData id="AreaOfVentilationOpening" name="AreaOfVentilationOpening" />
+  <inputData id="ManualOperationOfVentilationOpeningFromEvacuationLevel" name="ManualOperationOfVentilationOpeningFromEvacuationLevel" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_144noz0">
+        <dc:Bounds height="80" width="180" x="370" y="200" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1y8roy9" dmnElementRef="StaircaseType">
+        <dc:Bounds height="45" width="125" x="158" y="218" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_155rfn6" dmnElementRef="InformationRequirement_1nufh11">
+        <di:waypoint x="283" y="241" />
+        <di:waypoint x="350" y="240" />
+        <di:waypoint x="370" y="240" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0ko2mws" dmnElementRef="VentilationOpeningPresentAboveStaircase">
+        <dc:Bounds height="45" width="125" x="277" y="338" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0y9uk3v" dmnElementRef="InformationRequirement_0nyo6fu">
+        <di:waypoint x="340" y="338" />
+        <di:waypoint x="430" y="300" />
+        <di:waypoint x="430" y="280" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_05imwv9" dmnElementRef="VentilationOpeningDirectConnectedToOpenAir">
+        <dc:Bounds height="45" width="125" x="507" y="338" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0ytsfim" dmnElementRef="InformationRequirement_035gjgf">
+        <di:waypoint x="570" y="338" />
+        <di:waypoint x="490" y="300" />
+        <di:waypoint x="490" y="280" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_12sa6xd" dmnElementRef="AreaOfVentilationOpening">
+        <dc:Bounds height="45" width="125" x="397" y="107" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0kjvars" dmnElementRef="InformationRequirement_0nyi4m2">
+        <di:waypoint x="460" y="152" />
+        <di:waypoint x="460" y="180" />
+        <di:waypoint x="460" y="200" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_157mbt3" dmnElementRef="ManualOperationOfVentilationOpeningFromEvacuationLevel">
+        <dc:Bounds height="45" width="125" x="628" y="218" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_01uz3s0" dmnElementRef="InformationRequirement_0djhzhi">
+        <di:waypoint x="628" y="241" />
+        <di:waypoint x="570" y="240" />
+        <di:waypoint x="550" y="240" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

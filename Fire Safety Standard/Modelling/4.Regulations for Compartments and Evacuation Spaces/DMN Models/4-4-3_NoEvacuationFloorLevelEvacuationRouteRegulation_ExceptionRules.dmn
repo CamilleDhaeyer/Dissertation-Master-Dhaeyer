@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_1ff2svd" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_1ldnhl6" name="ExceptionToRequirements verification">
+    <informationRequirement id="InformationRequirement_1l3zsjz">
+      <requiredDecision href="#Decision_1bd92br" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1ir75y6">
+      <requiredInput href="#OccupancyTime" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_019y4g5">
+      <requiredInput href="#AreaOfCompartment" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1i48b8y">
+      <input id="InputClause_1ikz53x" label="OccupancyTime">
+        <inputExpression id="LiteralExpression_0aki3xp" typeRef="string">
+          <text>OccupancyTime</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1cnzvax" label="AreaOfCompartment">
+        <inputExpression id="LiteralExpression_1wffpxv" typeRef="double">
+          <text>AreaOfCompartment</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1ls5nnm" label="DayOccupancyCompartmentRuleSuccess" biodi:width="228">
+        <inputExpression id="LiteralExpression_0hpf2ls" typeRef="boolean">
+          <text>DayOccupancyCompartmentRuleSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_195zq8a" label="ExceptionToFireResistanceRequirementsSuccess" name="ExceptionToFireResistanceRequirementsSuccess" typeRef="boolean" biodi:width="222" />
+      <rule id="DecisionRule_1dj7l25">
+        <inputEntry id="UnaryTests_0i5qw8e">
+          <text>"Day occupancy only"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0n64x0d">
+          <text>&lt; 1250</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dbcgn8">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ingaeo">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1jzdesm">
+        <inputEntry id="UnaryTests_0rxu3lr">
+          <text>"Day occupancy only"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0a7ei7o">
+          <text>&lt; 2500</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lzrsg2">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0hpkx9t">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0mc9tg0">
+        <inputEntry id="UnaryTests_03pmmuy">
+          <text>"Day occupancy only"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0k0ev0v">
+          <text>&lt; 2500</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0whv8ev">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0u4y3el">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1w8m43m">
+        <inputEntry id="UnaryTests_1l4f630">
+          <text>"Night occupancy only","Day and night occupancy"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ggymn4">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17rdsu8">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0n9zue3">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_1bd92br" name="ExceptionTwoRequirementSucces">
+    <informationRequirement id="InformationRequirement_0flfxvx">
+      <requiredInput href="#CompartmentHasAutomaticExtinguishingSystem" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0gov0ia">
+      <requiredInput href="#AutomaticExtinguishingSystemType" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_13xmqmw">
+      <requiredInput href="#AutomaticFireDetectionInstallationInBuilding" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_09c2l8o">
+      <requiredInput href="#FireDetectionInstallationType" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_08m8f6o">
+      <requiredInput href="#FireDetectionInstallationSensorType" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1e5utf5">
+      <requiredInput href="#MaterialsInCompartmentFireResistanceSufficient" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_026hihb" hitPolicy="FIRST">
+      <input id="InputClause_0b9kow7" label="CompartmentHasAutomaticExtinguishingSystem" biodi:width="206">
+        <inputExpression id="LiteralExpression_1no74uv" typeRef="boolean">
+          <text>CompartmentHasAutomaticExtinguishingSystem</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_01emqa8" label="AutomaticExtinguishingSystemType">
+        <inputExpression id="LiteralExpression_13d6kpp" typeRef="string">
+          <text>AutomaticExtinguishingSystemType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1abjnxq" label="AutomaticFireDetectionInstallationInBuilding">
+        <inputExpression id="LiteralExpression_0c3837c" typeRef="boolean">
+          <text>AutomaticFireDetectionInstallationInBuilding</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1bgwygh" label="FireDetectionInstallationType" biodi:width="203">
+        <inputExpression id="LiteralExpression_0kl6pqe" typeRef="string">
+          <text>FireDetectionInstallationType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_12b03vb" label="FireDetectionInstallationSensorType">
+        <inputExpression id="LiteralExpression_0nuetuf" typeRef="string">
+          <text>FireDetectionInstallationSensorType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0zhnjy2" label="MaterialsInCompartmentFireResistanceSufficient" biodi:width="204">
+        <inputExpression id="LiteralExpression_0zsb8mo" typeRef="boolean">
+          <text>MaterialsInCompartmentFireResistanceSufficient</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_13xfwdz" label="DayOccupancyCompartmentRuleSuccess" name="DayOccupancyCompartmentRuleSuccess" typeRef="boolean" biodi:width="235" />
+      <rule id="DecisionRule_0ymtu1a">
+        <inputEntry id="UnaryTests_1819hmj">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_127yv15">
+          <text>"Sprinkler type"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13nrmtx">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1v3k3qd">
+          <text>"Total surveillance with automatic fire notification"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1t5zlj8">
+          <text>"Sensors according to risks present"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cibnyk">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1fnzjrl">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0qq0h5g">
+        <inputEntry id="UnaryTests_0p9vfzi">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14vx7ya">
+          <text>"Sprinkler type","Other extinguishing system type"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_174tigx">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06oyog1">
+          <text>"Total surveillance with automatic fire notification","Other fire detection installation type"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0u5f17q">
+          <text>"Sensors according to risks present","Other fire detection installation sensor type"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1d0funv">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1wnidlp">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="CompartmentHasAutomaticExtinguishingSystem" name="CompartmentHasAutomaticExtinguishingSystem" />
+  <inputData id="AutomaticExtinguishingSystemType" name="AutomaticExtinguishingSystemType" />
+  <inputData id="AutomaticFireDetectionInstallationInBuilding" name="AutomaticFireDetectionInstallationInBuilding" />
+  <inputData id="FireDetectionInstallationType" name="FireDetectionInstallationType" />
+  <inputData id="FireDetectionInstallationSensorType" name="FireDetectionInstallationSensorType" />
+  <inputData id="MaterialsInCompartmentFireResistanceSufficient" name="MaterialsInCompartmentFireResistanceSufficient" />
+  <inputData id="OccupancyTime" name="OccupancyTime" />
+  <inputData id="AreaOfCompartment" name="AreaOfCompartment" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_0makqct" dmnElementRef="Decision_1ldnhl6">
+        <dc:Bounds height="80" width="180" x="350" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_17n22xt" dmnElementRef="Decision_1bd92br">
+        <dc:Bounds height="80" width="180" x="350" y="220" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0nlijlo" dmnElementRef="InformationRequirement_1l3zsjz">
+        <di:waypoint x="440" y="220" />
+        <di:waypoint x="440" y="180" />
+        <di:waypoint x="440" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_12x20pq" dmnElementRef="CompartmentHasAutomaticExtinguishingSystem">
+        <dc:Bounds height="45" width="125" x="157" y="207" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1tjcyhy" dmnElementRef="InformationRequirement_0flfxvx">
+        <di:waypoint x="282" y="230" />
+        <di:waypoint x="330" y="247" />
+        <di:waypoint x="350" y="247" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0vk8fon" dmnElementRef="AutomaticExtinguishingSystemType">
+        <dc:Bounds height="45" width="125" x="157" y="267" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_02gm6nc" dmnElementRef="InformationRequirement_0gov0ia">
+        <di:waypoint x="282" y="290" />
+        <di:waypoint x="330" y="273" />
+        <di:waypoint x="350" y="273" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0hvnwbf" dmnElementRef="AutomaticFireDetectionInstallationInBuilding">
+        <dc:Bounds height="45" width="125" x="218" y="358" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_08u0nru" dmnElementRef="InformationRequirement_13xmqmw">
+        <di:waypoint x="281" y="358" />
+        <di:waypoint x="395" y="320" />
+        <di:waypoint x="395" y="300" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1duq3fk" dmnElementRef="FireDetectionInstallationType">
+        <dc:Bounds height="45" width="125" x="377" y="358" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1x9xu4n" dmnElementRef="InformationRequirement_09c2l8o">
+        <di:waypoint x="440" y="358" />
+        <di:waypoint x="440" y="320" />
+        <di:waypoint x="440" y="300" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0i2hjek" dmnElementRef="FireDetectionInstallationSensorType">
+        <dc:Bounds height="45" width="125" x="538" y="359" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0l3ucem" dmnElementRef="InformationRequirement_08m8f6o">
+        <di:waypoint x="601" y="359" />
+        <di:waypoint x="485" y="320" />
+        <di:waypoint x="485" y="300" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1izkdyn" dmnElementRef="MaterialsInCompartmentFireResistanceSufficient">
+        <dc:Bounds height="45" width="125" x="598" y="238" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1sw9ioa" dmnElementRef="InformationRequirement_1e5utf5">
+        <di:waypoint x="598" y="261" />
+        <di:waypoint x="550" y="260" />
+        <di:waypoint x="530" y="260" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0b697uw" dmnElementRef="OccupancyTime">
+        <dc:Bounds height="45" width="125" x="598" y="97" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_00tqezc" dmnElementRef="InformationRequirement_1ir75y6">
+        <di:waypoint x="598" y="120" />
+        <di:waypoint x="550" y="120" />
+        <di:waypoint x="530" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_00t7lgu" dmnElementRef="AreaOfCompartment">
+        <dc:Bounds height="45" width="125" x="157" y="97" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_19xjso7" dmnElementRef="InformationRequirement_019y4g5">
+        <di:waypoint x="282" y="120" />
+        <di:waypoint x="330" y="120" />
+        <di:waypoint x="350" y="120" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

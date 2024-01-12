@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_16bhu09" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_10mc4se" name="define passageway unit">
+    <informationRequirement id="InformationRequirement_1b2tyii">
+      <requiredDecision href="#Decision_0y8k2s5" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0s9a13o">
+      <input id="Input_1" label="CompleteTheoreticalEffectiveWidth">
+        <inputExpression id="InputExpression_1" typeRef="double">
+          <text>CompleteTheoreticalEffectiveWidth</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="PassagewayUnit" name="PassagewayUnit" typeRef="double" />
+      <rule id="DecisionRule_0lhd4ql">
+        <inputEntry id="UnaryTests_0nykri0">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0cly2x7">
+          <text>CompleteTheoreticalEffectiveWidth/0.6</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_0y8k2s5" name="Calculate complete theoretical effective width">
+    <decisionTable id="DecisionTable_1q34lzq">
+      <input id="InputClause_1xjq7zw" label="MaximalValueInUserTotal" biodi:width="220">
+        <inputExpression id="LiteralExpression_0eq7kuu" typeRef="integer">
+          <text>MaximalValueInUserTotal</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1dsez93" label="TypeOfEscapeWay">
+        <inputExpression id="LiteralExpression_0gexqtr" typeRef="string">
+          <text>TypeOfEscapeWay</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_14rko9k" label="CompleteTheoreticalEffectiveWidth" name="CompleteTheoreticalEffectiveWidth" typeRef="double" />
+      <rule id="DecisionRule_1m7hx74">
+        <description>MaximalValueInUserTotal from all compartments using the evacuation route</description>
+        <inputEntry id="UnaryTests_1xd2opf">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05q1ith">
+          <text>"Evacuation route","Door", "Escape terrace", "Sloping access"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1cdtkx1">
+          <text>MaximalValueInUserTotal*0.01</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ce91a4">
+        <inputEntry id="UnaryTests_0mzi9a6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fj0rlw">
+          <text>"Stair descending towards exit"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ovcay9">
+          <text>MaximalValueInUserTotal*0.0125</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0mvhvu9">
+        <inputEntry id="UnaryTests_1gl40p4">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vjfowt">
+          <text>"Stair ascending towards exit"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0wc2d43">
+          <text>MaximalValueInUserTotal*0.02</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_10mc4se">
+        <dc:Bounds height="80" width="180" x="160" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1ruk77x" dmnElementRef="Decision_0y8k2s5">
+        <dc:Bounds height="80" width="180" x="160" y="190" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_024fudb" dmnElementRef="InformationRequirement_1b2tyii">
+        <di:waypoint x="250" y="190" />
+        <di:waypoint x="250" y="180" />
+        <di:waypoint x="250" y="160" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

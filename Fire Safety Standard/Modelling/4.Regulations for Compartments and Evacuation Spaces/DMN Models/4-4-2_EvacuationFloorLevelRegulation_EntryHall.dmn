@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_1u4cdao" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_17tsqy2" name="Entry hall requirements">
+    <informationRequirement id="InformationRequirement_1364wn7">
+      <requiredDecision href="#Decision_0j3zxad" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0wxfm0y">
+      <requiredInput href="#AccesToOpenGatheringRoomFromEntryHall" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1805o2r">
+      <requiredInput href="#EvacuationRouteIncludesEntryHall" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1v43jsy">
+      <input id="InputClause_069i5x4" label="EvacuationRouteIncludesEntryHall" biodi:width="213">
+        <inputExpression id="LiteralExpression_19733r2" typeRef="boolean">
+          <text>EvacuationRouteIncludesEntryHall</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1ubzd9s" label="AccessToOpenGatheringRoomFromEntryHall">
+        <inputExpression id="LiteralExpression_1gjky3t" typeRef="boolean">
+          <text>AccessToOpenGatheringRoomFromEntryHall</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0dz5fol" label="GatheringRoomRulesSuccess">
+        <inputExpression id="LiteralExpression_0oi1y5s" typeRef="boolean">
+          <text>GatheringRoomRulesSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1ha7gh6" label="EntryHallRequirementSuccess" name="EntryHallRequirementSuccess" typeRef="boolean" biodi:width="183" />
+      <rule id="DecisionRule_0kzck74">
+        <inputEntry id="UnaryTests_07kfwjk">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xa1ir5">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16ndt70">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07fqho5">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0q6o0n8">
+        <inputEntry id="UnaryTests_0tk0e1s">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ksimgx">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0604h29">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_02aptn8">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_00cunbv">
+        <inputEntry id="UnaryTests_1pk0zvl">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1n54h2i">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ip43ce">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_10ji5lq">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_01xsj6i">
+        <inputEntry id="UnaryTests_1dx1r5s">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05gai8n">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07o5hv7">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1sz7k5t">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_0j3zxad" name="GatheringRoomRules">
+    <informationRequirement id="InformationRequirement_11g0sx5">
+      <requiredInput href="#GatheringRoomType" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_07q0qp6">
+      <input id="InputClause_1e2mlj9" label="GatheringRoomType">
+        <inputExpression id="LiteralExpression_16sraij" typeRef="string">
+          <text>GatheringRoomType</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0bdznbw" label="GatheringRoomRulesSuccess" name="GatheringRoomRulesSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_0sunq0m">
+        <inputEntry id="UnaryTests_0rf7r4j">
+          <text>"Other type of gathering room"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_03yym8i">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0irlm62">
+        <inputEntry id="UnaryTests_0i5rod8">
+          <text>"Room with restaurant purposes","Room with bar purposes"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1gltkky">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="GatheringRoomType" name="GatheringRoomType" />
+  <inputData id="AccesToOpenGatheringRoomFromEntryHall" name="AccesToOpenGatheringRoomFromEntryHall" />
+  <inputData id="EvacuationRouteIncludesEntryHall" name="EvacuationRouteIncludesEntryHall" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_17z2act" dmnElementRef="Decision_17tsqy2">
+        <dc:Bounds height="80" width="180" x="360" y="100" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1cq0862" dmnElementRef="Decision_0j3zxad">
+        <dc:Bounds height="80" width="180" x="360" y="240" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1ldns7h" dmnElementRef="InformationRequirement_1364wn7">
+        <di:waypoint x="450" y="240" />
+        <di:waypoint x="450" y="200" />
+        <di:waypoint x="450" y="180" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0ngbv4v" dmnElementRef="GatheringRoomType">
+        <dc:Bounds height="45" width="125" x="387" y="357" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0p3gl2i" dmnElementRef="InformationRequirement_11g0sx5">
+        <di:waypoint x="450" y="357" />
+        <di:waypoint x="450" y="340" />
+        <di:waypoint x="450" y="320" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0gm2kuu" dmnElementRef="AccesToOpenGatheringRoomFromEntryHall">
+        <dc:Bounds height="45" width="125" x="627" y="117" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_17lmq2h" dmnElementRef="InformationRequirement_0wxfm0y">
+        <di:waypoint x="627" y="140" />
+        <di:waypoint x="560" y="140" />
+        <di:waypoint x="540" y="140" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_15ud99u">
+        <dc:Bounds height="45" width="125" x="158" y="118" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_000za4p" dmnElementRef="EvacuationRouteIncludesEntryHall">
+        <dc:Bounds height="45" width="125" x="148" y="118" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1fs96b6" dmnElementRef="InformationRequirement_1805o2r">
+        <di:waypoint x="273" y="141" />
+        <di:waypoint x="340" y="140" />
+        <di:waypoint x="360" y="140" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

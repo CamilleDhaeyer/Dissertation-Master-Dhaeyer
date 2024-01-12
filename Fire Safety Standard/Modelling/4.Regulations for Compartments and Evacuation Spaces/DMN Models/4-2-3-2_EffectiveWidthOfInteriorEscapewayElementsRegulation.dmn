@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_07bq7vr" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_16srmb2" name="Verify effective width of staircase element ">
+    <informationRequirement id="InformationRequirement_1a9c8a8">
+      <requiredInput href="#InputData_0d853o8" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_014nci0">
+      <requiredInput href="#InputData_0q4x0se" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0fmjr4k">
+      <input id="InputClause_1vdvx8r" label="ElementEffectiveWidth">
+        <inputExpression id="LiteralExpression_0hjabab" typeRef="double">
+          <text>ElementEffectiveWidth</text>
+        </inputExpression>
+      </input>
+      <input id="Input_1" label="RequiredEffectiveWidth" biodi:width="216">
+        <inputExpression id="InputExpression_1" typeRef="double">
+          <text>RequiredEffectiveWidth</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="ElementEffectiveWidthSuccess" name="ElementEffectiveWidthSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_0orwq9o">
+        <inputEntry id="UnaryTests_15wo7dy">
+          <text>&lt; 0.8</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1f4n1yo">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0x2spmj">
+          <text>False</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1sfxtwg">
+        <inputEntry id="UnaryTests_1ah05pw">
+          <text>&gt;= 0.8</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0w0xs7h">
+          <text>&gt; ElementEffectiveWidth</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0bbs2mc">
+          <text>False</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1f31zux">
+        <inputEntry id="UnaryTests_1w34skg">
+          <text>&gt;= 0.8</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0koeob9">
+          <text>&lt;= ElementEffectiveWidth</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1kf6t59">
+          <text>True</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_0d853o8" name="ElementEffectiveWidth" />
+  <inputData id="InputData_0q4x0se" name="RequiredEffectiveWidth" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_16srmb2">
+        <dc:Bounds height="80" width="180" x="230" y="40" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0wi8s0c" dmnElementRef="InputData_0d853o8">
+        <dc:Bounds height="45" width="125" x="158" y="228" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_090ftaj" dmnElementRef="InputData_0q4x0se">
+        <dc:Bounds height="45" width="125" x="338" y="229" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1o1anel" dmnElementRef="InformationRequirement_1a9c8a8">
+        <di:waypoint x="221" y="228" />
+        <di:waypoint x="290" y="140" />
+        <di:waypoint x="290" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0flcq4k" dmnElementRef="InformationRequirement_014nci0">
+        <di:waypoint x="401" y="229" />
+        <di:waypoint x="350" y="140" />
+        <di:waypoint x="350" y="120" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

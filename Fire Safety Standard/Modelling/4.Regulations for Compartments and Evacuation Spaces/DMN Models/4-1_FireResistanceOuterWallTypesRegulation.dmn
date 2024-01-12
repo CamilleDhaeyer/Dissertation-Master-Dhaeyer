@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0m3wppg" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_08ftryf" name="Interior wall between compartments fire resistance rule">
+    <informationRequirement id="InformationRequirement_1r869h9">
+      <requiredInput href="#WallClass" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1vqltn9">
+      <requiredInput href="#FireResistanceWall" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_16zunw2">
+      <requiredInput href="#SpaceType" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1vhvirf">
+      <input id="InputClause_0ys7hrj" label="SpaceType">
+        <inputExpression id="LiteralExpression_1qdlaop" typeRef="string">
+          <text>SpaceType</text>
+        </inputExpression>
+      </input>
+      <input id="Input_1" label="WallClass">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>WallClass</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_076px4o" label="FireResistanceWall">
+        <inputExpression id="LiteralExpression_116o9wu" typeRef="string">
+          <text>FireResistanceWall</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0nys9uj" label="FireResistanceWallSuccess" name="FireResistanceWallSuccess" typeRef="boolean" />
+      <output id="Output_1" label="FacadeMessage" name="FacadeMessage" typeRef="string" />
+      <rule id="DecisionRule_0eix7os">
+        <description>"Outer wall" is seen as the boundary wall of a compartment</description>
+        <inputEntry id="UnaryTests_1hds8pz">
+          <text>"Compartment"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0d59b81">
+          <text>"Outer wall"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yf60g5">
+          <text>"EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_00jhuqe">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_13asxwh">
+          <text>"Not applicable"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0mzmd7r">
+        <inputEntry id="UnaryTests_1loa6jf">
+          <text>"Compartment"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_078bgeh">
+          <text>"Outer wall"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16276c9">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0zs6t4n">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0k3nzn9">
+          <text>"Not applicable"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0bb2s52">
+        <description>A common wall between buildings</description>
+        <inputEntry id="UnaryTests_0n77imk">
+          <text>"Building"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rgui7d">
+          <text>"Outer wall"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sucsdq">
+          <text>"EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_071icy7">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_15d66zj">
+          <text>"Not applicable"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0he0bf5">
+        <inputEntry id="UnaryTests_0f0yi3z">
+          <text>"Building"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0i4x11b">
+          <text>"Outer wall"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1y27m69">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1q24609">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1tlgpdd">
+          <text>"Not applicable"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0lrw1xn">
+        <inputEntry id="UnaryTests_1ratvht">
+          <text>"Building"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wnqa3c">
+          <text>"Facade"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ot3omp">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1yn1sd6">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0vtacwk">
+          <text>"Verify facade with DMNs of 3_5"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="WallClass" name="WallClass" />
+  <inputData id="FireResistanceWall" name="FireResistanceWall" />
+  <inputData id="SpaceType" name="SpaceType" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_08ftryf">
+        <dc:Bounds height="80" width="180" x="350" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_17carn4" dmnElementRef="WallClass">
+        <dc:Bounds height="45" width="125" x="377" y="207" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1ptfbi7" dmnElementRef="FireResistanceWall">
+        <dc:Bounds height="45" width="125" x="587" y="97" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_167gpl4" dmnElementRef="InformationRequirement_1r869h9">
+        <di:waypoint x="440" y="207" />
+        <di:waypoint x="440" y="180" />
+        <di:waypoint x="440" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_066a7xz" dmnElementRef="InformationRequirement_1vqltn9">
+        <di:waypoint x="587" y="120" />
+        <di:waypoint x="550" y="120" />
+        <di:waypoint x="530" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1jv01vc" dmnElementRef="SpaceType">
+        <dc:Bounds height="45" width="125" x="158" y="98" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0x45vip" dmnElementRef="InformationRequirement_16zunw2">
+        <di:waypoint x="283" y="121" />
+        <di:waypoint x="330" y="120" />
+        <di:waypoint x="350" y="120" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

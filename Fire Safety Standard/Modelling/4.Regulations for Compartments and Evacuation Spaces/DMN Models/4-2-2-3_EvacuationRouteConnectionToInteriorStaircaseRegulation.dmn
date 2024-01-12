@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_1iwehrq" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_0yb0clu" name="ConnectionDoorRegulation">
+    <informationRequirement id="InformationRequirement_1vg5cqx">
+      <requiredInput href="#DoorTurningDirection" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_03ce8g6">
+      <requiredInput href="#DoorIsEquippedWithLockingSystem" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_08yk18y">
+      <requiredInput href="#DoorEffectiveWidth" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_12v6hcv">
+      <requiredInput href="#DoorSuccess" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_01mfcpp" hitPolicy="FIRST">
+      <input id="InputClause_0sbz8xf" label="DoorSuccess">
+        <inputExpression id="LiteralExpression_1kkp5us" typeRef="boolean">
+          <text>DoorSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1n44v66" label="DoorTurningDirection">
+        <inputExpression id="LiteralExpression_1ypfk49" typeRef="string">
+          <text>DoorTurningDirection</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1paqckt" label="DoorIsEquippedWithLockingSystem">
+        <inputExpression id="LiteralExpression_00apsut" typeRef="boolean">
+          <text>DoorIsEquippedWithLockingSystem</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_137megb" label="DoorEffectiveWidth">
+        <inputExpression id="LiteralExpression_01p5rf7" typeRef="double">
+          <text>DoorEffectiveWidth</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1e3b0ff" label="ConnectionEvacuationRouteAndInteriorStaircaseSuccess" name="ConnectionEvacuationRouteAndInteriorStaircaseSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_0v82w5l">
+        <inputEntry id="UnaryTests_1kb3csx">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_190bais">
+          <text>"Turns with escape direction","Turns against escape direction"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0v93fkj">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17ff8z3">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07mnw5u">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1gnu0qz">
+        <inputEntry id="UnaryTests_05kbmrv">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1i1xfaa">
+          <text>"Turns with escape direction"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1c6trab">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jd3p0m">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_049uhu7">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1clh2nm">
+        <inputEntry id="UnaryTests_1i377r1">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vt9mr8">
+          <text>"Turns with escape direction"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0azerz2">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ki8lwx">
+          <text>&lt; 0.8</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1pg3omj">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_18ivvub">
+        <inputEntry id="UnaryTests_0q7wvdb">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08xuf69">
+          <text>"Turns with escape direction"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pufmry">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nsr1a0">
+          <text>&gt;= 0.8</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0805pb6">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0884fap">
+        <inputEntry id="UnaryTests_0vk85gh">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ctxia1">
+          <text>"Turns against escape direction"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1luakjx">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0dyen9y">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1rru9lr">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="DoorTurningDirection" name="DoorTurningDirection" />
+  <inputData id="DoorIsEquippedWithLockingSystem" name="DoorIsEquippedWithLockingSystem" />
+  <inputData id="DoorEffectiveWidth" name="DoorEffectiveWidth" />
+  <inputData id="DoorSuccess" name="DoorSuccess" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_0ee7s10" dmnElementRef="Decision_0yb0clu">
+        <dc:Bounds height="80" width="180" x="270" y="180" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_00m3ll1" dmnElementRef="DoorTurningDirection">
+        <dc:Bounds height="45" width="125" x="157" y="328" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0ttxdel" dmnElementRef="InformationRequirement_1vg5cqx">
+        <di:waypoint x="220" y="328" />
+        <di:waypoint x="315" y="280" />
+        <di:waypoint x="315" y="260" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0iit6ze" dmnElementRef="DoorIsEquippedWithLockingSystem">
+        <dc:Bounds height="45" width="125" x="297" y="328" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_10n2aio" dmnElementRef="InformationRequirement_03ce8g6">
+        <di:waypoint x="360" y="328" />
+        <di:waypoint x="360" y="280" />
+        <di:waypoint x="360" y="260" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0mgqa9y" dmnElementRef="DoorEffectiveWidth">
+        <dc:Bounds height="45" width="125" x="438" y="329" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0aq0j9r" dmnElementRef="InformationRequirement_08yk18y">
+        <di:waypoint x="501" y="329" />
+        <di:waypoint x="405" y="280" />
+        <di:waypoint x="405" y="260" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0jtzvdf" dmnElementRef="DoorSuccess">
+        <dc:Bounds height="45" width="125" x="297" y="77" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1brp8qx" dmnElementRef="InformationRequirement_12v6hcv">
+        <di:waypoint x="360" y="122" />
+        <di:waypoint x="360" y="160" />
+        <di:waypoint x="360" y="180" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

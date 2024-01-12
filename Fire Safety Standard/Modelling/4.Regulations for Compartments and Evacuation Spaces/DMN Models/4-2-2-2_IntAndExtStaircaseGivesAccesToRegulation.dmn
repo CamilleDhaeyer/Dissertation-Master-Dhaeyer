@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_0har7x1" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_1li6f6p" name="StaircaseAccesTo verification">
+    <informationRequirement id="InformationRequirement_02u2r89">
+      <requiredInput href="#StaircaseConnectedWithAnEvacuationLevel" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0v9v3hc">
+      <requiredInput href="#StaircaseAllowsAccesToUpperFloorLevels" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0rjf5el">
+      <input id="Input_1" label="StaircaseConnectedWithAnEvacuationLevel">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text>StaircaseConnectedWithAnEvacuationLevel</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1rpwkjv" label="StaircaseAllowsAccesToUpperFloorLevels" biodi:width="181">
+        <inputExpression id="LiteralExpression_0ezynlk" typeRef="boolean">
+          <text>StaircaseAllowsAccesToUpperFloorLevels</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="StaircaseAccesToSuccess" name="StaircaseAccesToSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_1joiw1c">
+        <inputEntry id="UnaryTests_1euwyoo">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07gomsr">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1w6g3bp">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0v4txba">
+        <inputEntry id="UnaryTests_19haa9d">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ddzms0">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_13cnjv9">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_17bmgte">
+        <inputEntry id="UnaryTests_05ppp6c">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qfxsnb">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0dc5ebm">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1dlbrj8">
+        <inputEntry id="UnaryTests_0bey8lr">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0tjoz7w">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1b8nrhj">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="StaircaseConnectedWithAnEvacuationLevel" name="StaircaseConnectedWithAnEvacuationLevel" />
+  <inputData id="StaircaseAllowsAccesToUpperFloorLevels" name="StaircaseAllowsAccesToUpperFloorLevels" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1li6f6p">
+        <dc:Bounds height="80" width="180" x="220" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1ia6yxs" dmnElementRef="StaircaseConnectedWithAnEvacuationLevel">
+        <dc:Bounds height="45" width="125" x="157" y="218" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_090ioce" dmnElementRef="StaircaseAllowsAccesToUpperFloorLevels">
+        <dc:Bounds height="45" width="125" x="328" y="219" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_06klo0i" dmnElementRef="InformationRequirement_02u2r89">
+        <di:waypoint x="220" y="218" />
+        <di:waypoint x="280" y="180" />
+        <di:waypoint x="280" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0zjgf0o" dmnElementRef="InformationRequirement_0v9v3hc">
+        <di:waypoint x="391" y="219" />
+        <di:waypoint x="340" y="180" />
+        <di:waypoint x="340" y="160" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

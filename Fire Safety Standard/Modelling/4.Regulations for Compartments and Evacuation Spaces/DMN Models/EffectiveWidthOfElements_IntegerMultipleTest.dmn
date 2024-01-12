@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_16bhu09" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_10mc4se" name="define passageway unit">
+    <informationRequirement id="InformationRequirement_1b2tyii">
+      <requiredDecision href="#Decision_0y8k2s5" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0s9a13o">
+      <input id="Input_1" label="CompleteTheoreticalEffectiveWidth">
+        <inputExpression id="InputExpression_1" typeRef="double">
+          <text>CompleteTheoreticalEffectiveWidth</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="PassagewayUnit" name="PassagewayUnit" typeRef="double" />
+      <rule id="DecisionRule_0lhd4ql">
+        <inputEntry id="UnaryTests_0nykri0">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0cly2x7">
+          <text>CompleteTheoreticalEffectiveWidth/0.6</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_0faugxj" name="Define the integer multiple">
+    <informationRequirement id="InformationRequirement_0s5z3ka">
+      <requiredDecision href="#Decision_10mc4se" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1yxcfad" hitPolicy="FIRST">
+      <input id="InputClause_09g4txr" label="PassagewayUnit">
+        <inputExpression id="LiteralExpression_1eiby60" typeRef="double">
+          <text>PassagewayUnit</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_078rn98" label="IntegerMultiple" name="IntegerMultiple" typeRef="integer" />
+      <rule id="DecisionRule_1pj52vm">
+        <description>ceiling(PassagewayUnit) not able to be processed</description>
+        <inputEntry id="UnaryTests_0c6yvhq">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_03vkn81">
+          <text>ceiling(PassagewayUnit)</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_1p9cah5" name="Calculate complete effective width">
+    <informationRequirement id="InformationRequirement_1c78y4y">
+      <requiredDecision href="#Decision_0faugxj" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_15p6r8i">
+      <input id="InputClause_01wx57u" label="IntegerMultiple">
+        <inputExpression id="LiteralExpression_0o4vo0i" typeRef="integer">
+          <text>IntegerMultiple</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1tsqo27" label="CompleteRequiredEffectiveWidth" name="CompleteRequiredEffectiveWidth" typeRef="double" />
+      <rule id="DecisionRule_1dr0fr6">
+        <inputEntry id="UnaryTests_0ypt9pf">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1aoxz0c">
+          <text>IntegerMultiple*0.6</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_0spqp8d" name="Verify total effective width">
+    <informationRequirement id="InformationRequirement_1houcwn">
+      <requiredDecision href="#Decision_1p9cah5" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0wk72la">
+      <input id="InputClause_0h8atj6" label="CompleteRequiredEffectiveWidth">
+        <inputExpression id="LiteralExpression_0wsu2vp" typeRef="double">
+          <text>CompleteRequiredEffectiveWidth</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0cby3wc" label="TotalActualEffectiveWidth" biodi:width="210">
+        <inputExpression id="LiteralExpression_1nuo4jc" typeRef="double">
+          <text>TotalActualEffectiveWidth</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0547wjw" label="CompartmentEffectiveWidthRegulationSuccess" name="CompartmentEffectiveWidthRegulationSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_1jwskck">
+        <inputEntry id="UnaryTests_0q82nfm">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05txpj5">
+          <text>&lt;CompleteRequiredEffectiveWidth</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0yjy8bo">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0oovr54">
+        <inputEntry id="UnaryTests_01nzfy3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15q2v0l">
+          <text>CompleteRequiredEffectiveWidth</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0armpy0">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_05cu3z1">
+        <inputEntry id="UnaryTests_0xy6fw2">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13ay1ip">
+          <text>&gt;CompleteRequiredEffectiveWidth</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_035wmul">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_0y8k2s5" name="Calculate complete theoretical effective width">
+    <decisionTable id="DecisionTable_1q34lzq">
+      <input id="InputClause_1xjq7zw" label="MaximalValueInUserTotal" biodi:width="220">
+        <inputExpression id="LiteralExpression_0eq7kuu" typeRef="integer">
+          <text>MaximalValueInUserTotal</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1dsez93" label="TypeOfEscapeWay">
+        <inputExpression id="LiteralExpression_0gexqtr" typeRef="string">
+          <text>TypeOfEscapeWay</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_14rko9k" label="CompleteTheoreticalEffectiveWidth" name="CompleteTheoreticalEffectiveWidth" typeRef="double" />
+      <rule id="DecisionRule_1m7hx74">
+        <description>MaximalValueInUserTotal from all compartments using the evacuation route</description>
+        <inputEntry id="UnaryTests_1xd2opf">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05q1ith">
+          <text>"Evacuation route","Door", "Escape terrace", "Sloping access"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1cdtkx1">
+          <text>MaximalValueInUserTotal*0.01</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ce91a4">
+        <inputEntry id="UnaryTests_0mzi9a6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fj0rlw">
+          <text>"Stair descending towards exit"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ovcay9">
+          <text>MaximalValueInUserTotal*0.0125</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0mvhvu9">
+        <inputEntry id="UnaryTests_1gl40p4">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vjfowt">
+          <text>"Stair ascending towards exit"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0wc2d43">
+          <text>MaximalValueInUserTotal*0.02</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_10mc4se">
+        <dc:Bounds height="80" width="180" x="160" y="410" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0cjnoz5" dmnElementRef="InformationRequirement_0s5z3ka">
+        <di:waypoint x="250" y="410" />
+        <di:waypoint x="250" y="400" />
+        <di:waypoint x="250" y="380" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0elear5" dmnElementRef="Decision_0faugxj">
+        <dc:Bounds height="80" width="180" x="160" y="300" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0v6v64c" dmnElementRef="InformationRequirement_1c78y4y">
+        <di:waypoint x="250" y="300" />
+        <di:waypoint x="250" y="290" />
+        <di:waypoint x="250" y="270" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0bzh2q7" dmnElementRef="Decision_1p9cah5">
+        <dc:Bounds height="80" width="180" x="160" y="190" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1lag9k2" dmnElementRef="InformationRequirement_1houcwn">
+        <di:waypoint x="250" y="190" />
+        <di:waypoint x="250" y="180" />
+        <di:waypoint x="250" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0opp8p0" dmnElementRef="Decision_0spqp8d">
+        <dc:Bounds height="80" width="180" x="160" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1ruk77x" dmnElementRef="Decision_0y8k2s5">
+        <dc:Bounds height="80" width="180" x="160" y="520" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_024fudb" dmnElementRef="InformationRequirement_1b2tyii">
+        <di:waypoint x="250" y="520" />
+        <di:waypoint x="250" y="510" />
+        <di:waypoint x="250" y="490" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

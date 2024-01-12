@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_1ou54sb" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_1gonjam" name="DeadEndingEvacuationRouteLengthSuccess">
+    <informationRequirement id="InformationRequirement_1qvi2dt">
+      <requiredInput href="#EscapewayElement" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_07cm96g">
+      <requiredInput href="#DeadEnds" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1bi169j">
+      <requiredInput href="#LengthEscapewayElement" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1wgwiey">
+      <input id="InputClause_0ba40sk" label="EscapewayElement">
+        <inputExpression id="LiteralExpression_0v3jsju" typeRef="string">
+          <text>EscapewayElement</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_09xt3cb" label="DeadEnds">
+        <inputExpression id="LiteralExpression_0jdk7ex" typeRef="boolean">
+          <text>DeadEnds</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1u0i5ze" label="LengthEscapewayElement" biodi:width="214">
+        <inputExpression id="LiteralExpression_0bf63g4" typeRef="double">
+          <text>LengthEscapewayElement</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_19fa8wt" label="DeadEndingEvacuationRouteLengthSuccess" name="DeadEndingEvacuationRouteLengthSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_1rrxuh0">
+        <inputEntry id="UnaryTests_0mn1zha">
+          <text>"Evacuation route"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16bamkv">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1sh6y19">
+          <text>&lt;= 15</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0zch14h">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1kshv3c">
+        <inputEntry id="UnaryTests_0ujj4ze">
+          <text>"Evacuation route"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03311nf">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zwvb1u">
+          <text>&gt; 15</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_095q44p">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0so5uhe">
+        <inputEntry id="UnaryTests_0e3qn41">
+          <text>"Evacuation route"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ij5fdv">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hbdrm0">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1piajp1">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="EscapewayElement" name="EscapewayElement" />
+  <inputData id="DeadEnds" name="DeadEnds" />
+  <inputData id="LengthEscapewayElement" name="LengthEscapewayElement" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_1eerdrl" dmnElementRef="Decision_1gonjam">
+        <dc:Bounds height="80" width="180" x="280" y="40" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0jgwo9f" dmnElementRef="EscapewayElement">
+        <dc:Bounds height="45" width="125" x="158" y="208" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_169rzmq" dmnElementRef="InformationRequirement_1qvi2dt">
+        <di:waypoint x="221" y="208" />
+        <di:waypoint x="325" y="140" />
+        <di:waypoint x="325" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0b0zslm" dmnElementRef="DeadEnds">
+        <dc:Bounds height="45" width="125" x="308" y="209" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_03wpj0t" dmnElementRef="InformationRequirement_07cm96g">
+        <di:waypoint x="371" y="209" />
+        <di:waypoint x="370" y="140" />
+        <di:waypoint x="370" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0pftimd" dmnElementRef="LengthEscapewayElement">
+        <dc:Bounds height="45" width="125" x="468" y="209" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0q1s983" dmnElementRef="InformationRequirement_1bi169j">
+        <di:waypoint x="531" y="209" />
+        <di:waypoint x="415" y="140" />
+        <di:waypoint x="415" y="120" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

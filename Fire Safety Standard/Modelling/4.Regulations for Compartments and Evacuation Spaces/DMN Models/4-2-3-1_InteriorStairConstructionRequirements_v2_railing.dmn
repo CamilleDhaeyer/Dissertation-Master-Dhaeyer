@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0c0hjqc" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_10gv1gq" name="railing verification">
+    <informationRequirement id="InformationRequirement_04eayx0">
+      <requiredInput href="#DangerRiskIfOnlyOneRailing" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_13a38tb">
+      <requiredInput href="#StairElementEffectiveWidth" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_19qh8yb">
+      <requiredInput href="#StairElementRailingPosition" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0fl2u44">
+      <input id="InputClause_1c0e340" label="StairElementEffectiveWidth">
+        <inputExpression id="LiteralExpression_062zags" typeRef="double">
+          <text>StairElementEffectiveWidth</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_12hekff" label="StairElementRailingPosition">
+        <inputExpression id="LiteralExpression_15i0lo7" typeRef="string">
+          <text>StairElementRailingPosition</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0i8lrip" label="DangerRiskIfOnlyOneRailing">
+        <inputExpression id="LiteralExpression_1ary3ro" typeRef="string">
+          <text>DangerRiskIfOnlyOneRailing</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1wzuam5" label="StairElementRailingSuccess" name="StairElementRailingSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_1b2t407">
+        <inputEntry id="UnaryTests_11wd96l">
+          <text>&lt; 1.2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rgoo1d">
+          <text>"One side only"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cfyb84">
+          <text>"No risk"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0a4ejr2">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0faq9re">
+        <inputEntry id="UnaryTests_1v715s9">
+          <text>&lt; 1.2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07lxj0f">
+          <text>"One side only"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1s16qh0">
+          <text>"Risk"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1w996jd">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0yjw7w7">
+        <inputEntry id="UnaryTests_08oisf1">
+          <text>&lt; 1.2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00im06w">
+          <text>"Two sides"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bv5nb2">
+          <text>"No risk"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1wc1i0g">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1l19x2q">
+        <inputEntry id="UnaryTests_1kby17w">
+          <text>&lt; 1.2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ceqqly">
+          <text>"Two sides"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qcep6w">
+          <text>"Risk"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0vxtjo8">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1uxe4m0">
+        <inputEntry id="UnaryTests_1886bpj">
+          <text>&gt;= 1.2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_178m1n6">
+          <text>"One side only"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1mdzrv2">
+          <text>"Risk","No risk"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_12vig6o">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ejn96b">
+        <inputEntry id="UnaryTests_1a9z73e">
+          <text>&gt;= 1.2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dinh0s">
+          <text>"Two sides"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0whjhyg">
+          <text>"No risk"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qabyzn">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_032oguf">
+        <inputEntry id="UnaryTests_1wks2dm">
+          <text>&gt;= 1.2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19kepym">
+          <text>"Two sides"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gtxb1v">
+          <text>"Risk"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1m92n96">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="StairElementRailingPosition" name="StairElementRailingPosition" />
+  <inputData id="StairElementEffectiveWidth" name="StairElementEffectiveWidth" />
+  <inputData id="DangerRiskIfOnlyOneRailing" name="DangerRiskIfOnlyOneRailing" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_1tewtzr" dmnElementRef="Decision_10gv1gq">
+        <dc:Bounds height="80" width="180" x="260" y="60" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1lko96a" dmnElementRef="StairElementRailingPosition">
+        <dc:Bounds height="45" width="125" x="157" y="257" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1f8etks" dmnElementRef="StairElementEffectiveWidth">
+        <dc:Bounds height="45" width="125" x="287" y="257" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1xkmhyh" dmnElementRef="DangerRiskIfOnlyOneRailing">
+        <dc:Bounds height="45" width="125" x="417" y="257" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1vjkt0s" dmnElementRef="InformationRequirement_04eayx0">
+        <di:waypoint x="480" y="257" />
+        <di:waypoint x="395" y="160" />
+        <di:waypoint x="395" y="140" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1q1ln8l" dmnElementRef="InformationRequirement_13a38tb">
+        <di:waypoint x="350" y="257" />
+        <di:waypoint x="350" y="160" />
+        <di:waypoint x="350" y="140" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1ik7rrj" dmnElementRef="InformationRequirement_19qh8yb">
+        <di:waypoint x="220" y="257" />
+        <di:waypoint x="305" y="160" />
+        <di:waypoint x="305" y="140" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

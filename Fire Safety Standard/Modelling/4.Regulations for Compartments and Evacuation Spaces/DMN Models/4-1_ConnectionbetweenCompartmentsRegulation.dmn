@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0ggq6fn" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_0fvp4jy" name="Connection of Compartments Requirements">
+    <informationRequirement id="InformationRequirement_0taw5dn">
+      <requiredInput href="#ConnectionThroughAirlock" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1of51wo">
+      <requiredInput href="#InputData_1iwkjbo" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_09f1pdj">
+      <input id="Input_1" label="ConnectionThroughAirlock" biodi:width="171">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text>ConnectionThroughAirlock</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1084k9s" label="AirlockRegulationSuccess">
+        <inputExpression id="LiteralExpression_08dji2f" typeRef="boolean">
+          <text>AirlockRegulationSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="ConnectionCompartmentsRequirementSucces" name="ConnectionCompartmentsRequirementSucces" typeRef="boolean" />
+      <rule id="DecisionRule_1nuypyu">
+        <inputEntry id="UnaryTests_0q0gdnr">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18zslnh">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0nvo8h3">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ri8ui6">
+        <inputEntry id="UnaryTests_1jthp1c">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0juzz8j">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1wbdm8w">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0o0fgf2">
+        <inputEntry id="UnaryTests_1sipu89">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19xwgvj">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0870zvc">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1vzjiqo">
+        <description>impossible</description>
+        <inputEntry id="UnaryTests_0m00reh">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15z5z91">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0qtun85">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="ConnectionThroughAirlock" name="ConnectionThroughAirlock" />
+  <inputData id="InputData_1iwkjbo" name="AirlockRegulationSuccess" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_0fvp4jy">
+        <dc:Bounds height="80" width="180" x="350" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0xxbvm3" dmnElementRef="ConnectionThroughAirlock">
+        <dc:Bounds height="45" width="125" x="158" y="98" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0z75clq" dmnElementRef="InformationRequirement_0taw5dn">
+        <di:waypoint x="283" y="121" />
+        <di:waypoint x="330" y="120" />
+        <di:waypoint x="350" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_08qv7qs" dmnElementRef="InputData_1iwkjbo">
+        <dc:Bounds height="45" width="125" x="378" y="218" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_12riflb" dmnElementRef="InformationRequirement_1of51wo">
+        <di:waypoint x="441" y="218" />
+        <di:waypoint x="440" y="180" />
+        <di:waypoint x="440" y="160" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

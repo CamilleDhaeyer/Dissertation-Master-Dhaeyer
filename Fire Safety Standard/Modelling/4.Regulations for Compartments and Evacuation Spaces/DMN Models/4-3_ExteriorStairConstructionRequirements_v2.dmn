@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_0c0hjqc" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_0ydgum9" name="Stair requirement verification">
+    <informationRequirement id="InformationRequirement_1nho7p5">
+      <requiredDecision href="#Decision_1u92mvm" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0p1qq19">
+      <requiredInput href="#StairMaterialClass" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1txkj06">
+      <requiredInput href="#AllStairElementRailingSuccess" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0c6p2gb">
+      <input id="InputClause_06qw603" label="StairMaterialClass">
+        <inputExpression id="LiteralExpression_09flnda" typeRef="string">
+          <text>StairMaterialClass</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0lagjdf" label="AllStairElementRailingSuccess">
+        <inputExpression id="LiteralExpression_05dw9nb" typeRef="boolean">
+          <text>AllStairElementRailingSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0ddaxqu" label="StairGeometrySuccess">
+        <inputExpression id="LiteralExpression_11niys5" typeRef="boolean">
+          <text>StairGeometrySuccess</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="StairRequirementSuccess" name="StairRequirementSuccess" typeRef="boolean" biodi:width="230" />
+      <rule id="DecisionRule_10v9wqh">
+        <description></description>
+        <inputEntry id="UnaryTests_0p1s3t2">
+          <text>"Class A1","Class higher than A1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cllbhb">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03wxo2m">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0yxhanf">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_13lk8cz">
+        <description></description>
+        <inputEntry id="UnaryTests_06yesvt">
+          <text>"Class A1","Class higher than A1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xao6cs">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05zkmdd">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ctm81v">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1m4v3qq">
+        <description></description>
+        <inputEntry id="UnaryTests_0tamzf0">
+          <text>"Class A1","Class higher than A1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1owqdj2">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qg3du1">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0rcwqe6">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0680yz0">
+        <inputEntry id="UnaryTests_0ixal86">
+          <text>"Class A1","Class higher than A1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ezppdz">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19wv4jv">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_08563yf">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0stzx7u">
+        <inputEntry id="UnaryTests_0pi86l2">
+          <text>"Class lower than A1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04084jf">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gqkmze">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ilzn51">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="StairType" name="StairType" />
+  <inputData id="StairTread" name="StairTread" />
+  <inputData id="StairRiser" name="StairRiser" />
+  <inputData id="StairSlope" name="StairSlope" />
+  <decision id="Decision_1u92mvm" name="Verify stair geometry">
+    <informationRequirement id="InformationRequirement_0w5iy9f">
+      <requiredInput href="#StairSlope" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_125sbqu">
+      <requiredInput href="#StairType" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1boqgyf">
+      <requiredInput href="#StairTread" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1swrmj9">
+      <requiredInput href="#StairRiser" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0u9wimq" hitPolicy="FIRST">
+      <input id="InputClause_0ngulky" label="StairType">
+        <inputExpression id="LiteralExpression_0u8vovn" typeRef="string">
+          <text>StairType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_17jkczf" label="StairTread">
+        <inputExpression id="LiteralExpression_13nadl2" typeRef="double">
+          <text>StairTread</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1yqf2fs" label="StairRiser">
+        <inputExpression id="LiteralExpression_1udun79" typeRef="double">
+          <text>StairRiser</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_09xp46e" label="StairSlope" biodi:width="150">
+        <inputExpression id="LiteralExpression_00gwsl0" typeRef="double">
+          <text>StairSlope</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0lmj2s3" label="StairWidth">
+        <inputExpression id="LiteralExpression_05lttlv" typeRef="double">
+          <text>StairWidth</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_07ggzr2" label="StairGeometrySuccess" name="StairGeometrySuccess" typeRef="boolean" biodi:width="192" />
+      <rule id="DecisionRule_10fkhc0">
+        <inputEntry id="UnaryTests_06kko8p">
+          <text>"Straight stair type"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ax3pqs">
+          <text>&gt;= 0.1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ws1e99">
+          <text>&lt;= 0.2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0e6kgip">
+          <text>&lt; 45</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ovam1d">
+          <text>&gt;= 0.6</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1kxiesz">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ye21fk">
+        <inputEntry id="UnaryTests_0dimkfp">
+          <text>"Straight stair type"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1s8ywv4">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zhn0ft">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1f55orx">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04oovrl">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0yo8foh">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1evtwuj">
+        <inputEntry id="UnaryTests_1pruq1l">
+          <text>"Spiral staircase"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0du9196">
+          <text>&gt;= 0.24</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15lrm2f">
+          <text>&lt;= 0.18</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kgoy1q">
+          <text>&lt; 37</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ltf46b">
+          <text>&gt;= 0.6</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_00ldoj3">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0l6qo27">
+        <inputEntry id="UnaryTests_06qittq">
+          <text>"Spiral staircase"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_032a43h">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ts46pp">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vaspdo">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cr7dpp">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ixtp0f">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="StairMaterialClass" name="StairMaterialClass" />
+  <inputData id="AllStairElementRailingSuccess" name="AllStairElementRailingSuccess" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_0ydgum9">
+        <dc:Bounds height="80" width="180" x="350" y="60" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0kew3o3" dmnElementRef="StairType">
+        <dc:Bounds height="45" width="125" x="157" y="227" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1e0xv9m" dmnElementRef="StairTread">
+        <dc:Bounds height="45" width="125" x="587" y="227" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_04q4ju4" dmnElementRef="StairRiser">
+        <dc:Bounds height="45" width="125" x="587" y="297" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_05jsuzf" dmnElementRef="StairSlope">
+        <dc:Bounds height="45" width="125" x="157" y="287" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_17g1j6e" dmnElementRef="Decision_1u92mvm">
+        <dc:Bounds height="80" width="180" x="350" y="240" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_00jjk9z" dmnElementRef="InformationRequirement_1nho7p5">
+        <di:waypoint x="440" y="240" />
+        <di:waypoint x="440" y="160" />
+        <di:waypoint x="440" y="140" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1uovth1" dmnElementRef="InformationRequirement_0w5iy9f">
+        <di:waypoint x="282" y="310" />
+        <di:waypoint x="330" y="293" />
+        <di:waypoint x="350" y="293" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1tla4u8" dmnElementRef="InformationRequirement_125sbqu">
+        <di:waypoint x="282" y="250" />
+        <di:waypoint x="330" y="267" />
+        <di:waypoint x="350" y="267" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0twfpmu" dmnElementRef="InformationRequirement_1boqgyf">
+        <di:waypoint x="587" y="250" />
+        <di:waypoint x="550" y="267" />
+        <di:waypoint x="530" y="267" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0xewrca" dmnElementRef="InformationRequirement_1swrmj9">
+        <di:waypoint x="587" y="320" />
+        <di:waypoint x="550" y="293" />
+        <di:waypoint x="530" y="293" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_00wcv82" dmnElementRef="StairMaterialClass">
+        <dc:Bounds height="45" width="125" x="158" y="78" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_008q0ua" dmnElementRef="InformationRequirement_0p1qq19">
+        <di:waypoint x="283" y="101" />
+        <di:waypoint x="330" y="100" />
+        <di:waypoint x="350" y="100" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_12epeje" dmnElementRef="AllStairElementRailingSuccess">
+        <dc:Bounds height="45" width="125" x="587" y="77" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0mowtjw" dmnElementRef="InformationRequirement_1txkj06">
+        <di:waypoint x="587" y="100" />
+        <di:waypoint x="550" y="100" />
+        <di:waypoint x="530" y="100" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_00eq59y" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_0xlwoiq" name="ConnectionDuplexToStaircase requirement">
+    <informationRequirement id="InformationRequirement_1de8k2w">
+      <requiredDecision href="#Decision_1wz9kj9" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0sgm9sc">
+      <requiredInput href="#DirectConnectionOfBothDuplexLevelsToStaircase" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_121imy6">
+      <input id="Input_1" label="DirectConnectionOfBothDuplexLevelsToStaircase">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text>DirectConnectionOfBothDuplexLevelsToStaircase</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1xbz14k" label="IsEvacuationConnectionToBothDuplexLevelsNecessary">
+        <inputExpression id="LiteralExpression_130iszv" typeRef="boolean">
+          <text>IsEvacuationConnectionToBothDuplexLevelsNecessary</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="ConnectionDuplexToInteriorStaircaseSuccess" name="ConnectionDuplexToInteriorStaircaseSuccess" typeRef="boolean" biodi:width="215" />
+      <rule id="DecisionRule_0mlz95z">
+        <inputEntry id="UnaryTests_0hcc3j6">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11yy6oi">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1uh4lfc">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0lh6ptq">
+        <inputEntry id="UnaryTests_11i1dlr">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1mivdy6">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0uyagcw">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1kac8h0">
+        <inputEntry id="UnaryTests_1id11wq">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14ywjky">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0zy1bbm">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_04ccqy9">
+        <inputEntry id="UnaryTests_1n9ow8k">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11henqo">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_14ry68d">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_1wz9kj9" name="Verify if both floor levels of duplex need direct connection">
+    <informationRequirement id="InformationRequirement_1xtc3mn">
+      <requiredDecision href="#Decision_03mtupf" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0f02pdr" hitPolicy="FIRST">
+      <input id="InputClause_0qezxev" label="CumulatedAreaOfDuplex">
+        <inputExpression id="LiteralExpression_0e4i8dd" typeRef="double">
+          <text>CumulatedAreaOfDuplex</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_19kf89r" label="DuplexOneEvacuationLevelSuccess" biodi:width="186">
+        <inputExpression id="LiteralExpression_119wtph" typeRef="boolean">
+          <text>DuplexOneEvacuationLevelSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_19yek6r" label="IsEvacuationConnectionToBothDuplexLevelsNecessary" name="IsEvacuationConnectionToBothDuplexLevelsNecessary" typeRef="boolean" />
+      <output id="OutputClause_0lpanis" label="EvacuationLevelMessage" name="EvacuationLevelMessage" typeRef="string" biodi:width="178" />
+      <rule id="DecisionRule_1nqxtam">
+        <inputEntry id="UnaryTests_1l6h12m">
+          <text>&lt;= 300</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ouuyr7">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07ppld0">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1ay1eni">
+          <text>"Interior staircase connected to correct duplex floor level"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_146uc4f">
+        <inputEntry id="UnaryTests_0thqst0">
+          <text>&lt;= 300</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jpt0o7">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0oginml">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0lir38q">
+          <text>"Interior staircase connected to incorrect duplex floor level"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0vrsox6">
+        <inputEntry id="UnaryTests_0gkqh3o">
+          <text>&gt; 300</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dxde6p">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_18gqmjd">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_00o45c9">
+          <text>"Interior staircase must be connected to both duplex floor levels"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_03mtupf" name="Verify which floor level is larger">
+    <informationRequirement id="InformationRequirement_0aiwvql">
+      <requiredInput href="#EvacuationFloorLevel" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0vtge82">
+      <requiredInput href="#DuplexAreaFirstFloor" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0cdyzjm">
+      <requiredInput href="#DuplexAreaSecondFloor" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1o9gwls">
+      <input id="InputClause_1erik9n" label="DuplexAreaFirstFloor">
+        <inputExpression id="LiteralExpression_1p3tj4c" typeRef="double">
+          <text>DuplexAreaFirstFloor</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1wy4nrd" label="DuplexAreaSecondFloor" biodi:width="204">
+        <inputExpression id="LiteralExpression_1lt4ufw" typeRef="double">
+          <text>DuplexAreaSecondFloor</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1kysnvw" label="EvacuationFloorLevel">
+        <inputExpression id="LiteralExpression_10hmt6r" typeRef="string">
+          <text>EvacuationFloorLevel</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0urjm8h" label="DuplexOneEvacuationLevelSuccess" name="DuplexOneEvacuationLevelSuccess" typeRef="boolean" biodi:width="188" />
+      <output id="OutputClause_0hzyz8j" label="CumulatedAreaOfDuplex" name="CumulatedAreaOfDuplex" typeRef="double" />
+      <rule id="DecisionRule_1dnhdi3">
+        <inputEntry id="UnaryTests_06h0ew7">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0swk420">
+          <text>&lt;DuplexAreaFirstFloor</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15hvuut">
+          <text>"Level 1"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ksrtek">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0koc4ix">
+          <text>DuplexAreaFirstFloor+DuplexAreaSecondFloor</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_084exn3">
+        <inputEntry id="UnaryTests_1q2u8l6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0eu8h4s">
+          <text>&lt;DuplexAreaFirstFloor</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mmve8k">
+          <text>"Level 2"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_10r78px">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0l0gerv">
+          <text>DuplexAreaFirstFloor+DuplexAreaSecondFloor</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0cndb4f">
+        <inputEntry id="UnaryTests_0o4u5ii">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0h8s3r3">
+          <text>DuplexAreaFirstFloor</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03zr4br">
+          <text>"Level 1","Level 2"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1n2z1rs">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_10sysb5">
+          <text>DuplexAreaFirstFloor+DuplexAreaSecondFloor</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0z16fu9">
+        <inputEntry id="UnaryTests_0eck08o">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qlhncj">
+          <text>&gt;DuplexAreaFirstFloor</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1uesbyn">
+          <text>"Level 2"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1y2gw42">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_16fplyd">
+          <text>DuplexAreaFirstFloor+DuplexAreaSecondFloor</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_18l3j1d">
+        <inputEntry id="UnaryTests_1mmyxw2">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02rhcgo">
+          <text>&gt;DuplexAreaFirstFloor</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0dcliyo">
+          <text>"Level 1"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0u2hvbn">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0i3eonz">
+          <text>DuplexAreaFirstFloor+DuplexAreaSecondFloor</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="EvacuationFloorLevel" name="EvacuationFloorLevel" />
+  <inputData id="DirectConnectionOfBothDuplexLevelsToStaircase" name="DirectConnectionOfBothDuplexLevelsToStaircase" />
+  <inputData id="DuplexAreaFirstFloor" name="DuplexAreaFirstFloor" />
+  <inputData id="DuplexAreaSecondFloor" name="DuplexAreaSecondFloor" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_0xlwoiq">
+        <dc:Bounds height="80" width="180" x="340" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_13bp4yw" dmnElementRef="Decision_1wz9kj9">
+        <dc:Bounds height="80" width="180" x="340" y="200" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_03bvf7v" dmnElementRef="Decision_03mtupf">
+        <dc:Bounds height="80" width="180" x="340" y="330" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1o2mk5y" dmnElementRef="EvacuationFloorLevel">
+        <dc:Bounds height="45" width="125" x="368" y="468" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1hrtu9s" dmnElementRef="InformationRequirement_0aiwvql">
+        <di:waypoint x="431" y="468" />
+        <di:waypoint x="430" y="430" />
+        <di:waypoint x="430" y="410" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0p2woxt" dmnElementRef="InformationRequirement_1xtc3mn">
+        <di:waypoint x="430" y="330" />
+        <di:waypoint x="430" y="300" />
+        <di:waypoint x="430" y="280" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_16m1fgc" dmnElementRef="InformationRequirement_1de8k2w">
+        <di:waypoint x="430" y="200" />
+        <di:waypoint x="430" y="180" />
+        <di:waypoint x="430" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1eeotk4" dmnElementRef="DirectConnectionOfBothDuplexLevelsToStaircase">
+        <dc:Bounds height="45" width="125" x="157" y="97" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1en71mh" dmnElementRef="InformationRequirement_0sgm9sc">
+        <di:waypoint x="282" y="120" />
+        <di:waypoint x="320" y="120" />
+        <di:waypoint x="340" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0qlb496" dmnElementRef="DuplexAreaFirstFloor">
+        <dc:Bounds height="45" width="125" x="157" y="347" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_02mi36s" dmnElementRef="DuplexAreaSecondFloor">
+        <dc:Bounds height="45" width="125" x="567" y="347" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0o4gv3o" dmnElementRef="InformationRequirement_0vtge82">
+        <di:waypoint x="282" y="370" />
+        <di:waypoint x="320" y="370" />
+        <di:waypoint x="340" y="370" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0kvdb85" dmnElementRef="InformationRequirement_0cdyzjm">
+        <di:waypoint x="567" y="370" />
+        <di:waypoint x="540" y="370" />
+        <di:waypoint x="520" y="370" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
