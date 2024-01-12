@@ -1,0 +1,910 @@
+{
+  "Uuid": "00a4924e-23c5-46a7-82c2-6ab4d70edf8c",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Dynamo_Wall_By_Room",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "\"Rooms\";",
+      "Id": "ad3313c5cd784231ac5879825dcb283a",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "6dcf674dbda140f9b2857b75b9fb8304",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Category.ByName@string",
+      "Id": "53e513968add475981cf29936a12539d",
+      "Inputs": [
+        {
+          "Id": "1e906d9e3cf340a9afe694472c112770",
+          "Name": "name",
+          "Description": "The built in category name.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "94961f9af58f4f8496add243babf7fc6",
+          "Name": "Category",
+          "Description": "Category",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Gets a Revit category by the built-in category name.\n\nCategory.ByName (name: string): Category"
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.ElementsOfCategory, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "Id": "0c89e5f0ee2944c1a4d7761b2a6044b4",
+      "Inputs": [
+        {
+          "Id": "8f22f5e6e9944727a079b2f8f1123161",
+          "Name": "Category",
+          "Description": "The Category",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "2b5e985ab68a4dc58bbc30a1d89f26cc",
+          "Name": "Elements",
+          "Description": "An element class.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Get all elements of the specified category from the model."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Room.CoreBoundary",
+      "Id": "f02c9d9774ba495e9a83bee69dc775ce",
+      "Inputs": [
+        {
+          "Id": "94f31e94dc4f4f378fd8ffb5a3d9f9ce",
+          "Name": "room",
+          "Description": "Revit.Elements.Room",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "468a52a69a5b4a9a88dd3dec1bd089c7",
+          "Name": "Curve[][]",
+          "Description": "Curve[][]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Core boundary\n\nRoom.CoreBoundary: Curve[][]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Flatten@var[]..[],int",
+      "Id": "ef403501be344622a87f51dfe0663b1c",
+      "Inputs": [
+        {
+          "Id": "573f4ec971a44f69a8886fa497dd3356",
+          "Name": "list",
+          "Description": "List to flatten.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3f61bc3001ae4b59bf8c20e45622dbeb",
+          "Name": "amount",
+          "Description": "Layers of list nesting to remove (-1 will remove all list nestings)\n\nint\nDefault value : -1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a04e52a41b78457aafad576fe9e6c165",
+          "Name": "list",
+          "Description": "Flattened list by amount",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Flattens a nested list of lists by a certain amount.\n\nList.Flatten (list: var[]..[], amount: int = -1): var[]..[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "51f7de78d90f4b06bd352ef6bf76d8e5",
+      "Inputs": [
+        {
+          "Id": "677ef545b58d46faa2604e93c2de90b1",
+          "Name": "",
+          "Description": "Node to show output from",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "1431703cea5847949978892a75b39086",
+          "Name": "",
+          "Description": "Node output",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualize the node's output"
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "# Import required libraries\r\nimport clr\r\nclr.AddReference('RevitAPI')\r\nfrom Autodesk.Revit.DB import *\r\n\r\n# Input port: Room.CoreBoundary output\r\ncoreBoundaries =IN[0]\r\n\r\n# Initialize an empty list to store the processed data\r\nprocessed_data = []\r\n\r\n\r\n# Loop through each curve (line) in the core boundaries\r\nfor room in coreBoundaries:\r\n    for boundaries in room:\r\n        for line in boundaries:\r\n            #line_data = line.AsCurve()\r\n            #startpoint = line_data.GetEndPoint(0)\r\n            #endpoint = line_data.GetEndPoint(1)\r\n            #direction = line_date.Direction  # Computing direction\r\n\r\n            #processed_data.append([startpoint, endpoint, direction])\r\n            processed_data.append(line)\r\nOUT = processed_data",
+      "Engine": "CPython3",
+      "VariableInputPorts": true,
+      "Id": "b66eb9a17950470a98bd0a5148570a95",
+      "Inputs": [
+        {
+          "Id": "8f8ff71dc227459894aa8378fbb1c7c6",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "7b6995538c2548e69fba383eb631bf99",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded Python script."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "\"Walls\";",
+      "Id": "877f282de37b4e2e9eb3d1dc7efe79ef",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "360c514d100b46b8b8d385dd33762714",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Category.ByName@string",
+      "Id": "772b9a5d43e848bd9832b371fdd9961b",
+      "Inputs": [
+        {
+          "Id": "c70c1e6f04434c0da5e901f5931e0573",
+          "Name": "name",
+          "Description": "The built in category name.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c9cd8546b30e4a0e8276d8b5bd69c198",
+          "Name": "Category",
+          "Description": "Category",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Gets a Revit category by the built-in category name.\n\nCategory.ByName (name: string): Category"
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.ElementsOfCategory, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "Id": "8b79bb5df13440ee95c4f7d2bcdffabf",
+      "Inputs": [
+        {
+          "Id": "46f5cdb5a6b64b5f8b6ace5eb532c37d",
+          "Name": "Category",
+          "Description": "The Category",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "f5e3be8f30274e40b01044a9c71a6404",
+          "Name": "Elements",
+          "Description": "An element class.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Get all elements of the specified category from the model."
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "# Enable access to Revit API\r\nimport clr\r\nclr.AddReference('RevitAPI')\r\nfrom Autodesk.Revit.DB import *\r\n\r\n# Import DocumentManager and TransactionManager\r\nclr.AddReference(\"RevitServices\")\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\n\r\n# Access the current Revit document\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\n\r\n# Input port: list of walls\r\nwalls = UnwrapElement(IN[0])  # Unwrap Dynamo elements to Revit elements\r\n\r\n# Get the ground floor level\r\nlevel_collector = FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Levels).WhereElementIsNotElementType()\r\nground_level = [lvl for lvl in level_collector if lvl.Name == \"groundfloor\"]\r\n\r\n# Initialize an empty list to store walls on the ground floor\r\nwalls_on_ground_floor = []\r\n\r\n# Loop through each wall\r\nfor wall in walls:\r\n    # Get the wall's associated level\r\n    wall_level = doc.GetElement(wall.LevelId)\r\n    if wall_level is not None and wall_level.Name == \"groundfloor\":\r\n        walls_on_ground_floor.append(wall)\r\n\r\n# Output the list of walls on the ground floor\r\nOUT = walls_on_ground_floor",
+      "Engine": "CPython3",
+      "VariableInputPorts": true,
+      "Id": "bab066e8d1dd45468a121b464d5c562e",
+      "Inputs": [
+        {
+          "Id": "4a0aef604cbe4dca834c6d75bc9a661c",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a340b301e17642ecb6412a6e7a7082f4",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded Python script."
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "import clr\r\nclr.AddReference('RevitAPI')\r\nfrom Autodesk.Revit.DB import *\r\n\r\n# Import DocumentManager and TransactionManager\r\nclr.AddReference(\"RevitServices\")\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\n\r\nfrom Autodesk.Revit.DB import XYZ\r\n\r\n# Access the current Revit document\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\n\r\n# Input port: list of walls\r\nwalls = UnwrapElement(IN[0])  # Unwrap Dynamo elements to Revit elements\r\n\r\n# Initialize an empty list to store wall data\r\nwall_data = []\r\n\r\ndef feet_to_mm(x_feet, y_feet, z_feet):\r\n    # Conversion factor from feet to millimeters\r\n    conversion_factor = 304.8\r\n    # Apply the offset of -200 mm to X and Y values if positive, else +200 mm\r\n    x_mm = x_feet * conversion_factor - 200 if x_feet >= 0 else x_feet * conversion_factor + 200\r\n    y_mm = y_feet * conversion_factor - 200 if y_feet >= 0 else y_feet * conversion_factor + 200\r\n    z_mm = z_feet * conversion_factor\r\n    return (x_mm, y_mm, z_mm)\r\n    \r\n    \r\n# Loop through each wall\r\nfor wall in walls:\r\n    # Get the wall's location\r\n    location = wall.Location\r\n    \r\n    if isinstance(location, LocationCurve):\r\n        # For straight walls (LocationCurve type)\r\n        curve = location.Curve\r\n        # Get start point, end point, and direction\r\n        start_point = curve.GetEndPoint(0)\r\n        end_point = curve.GetEndPoint(1)\r\n        direction = curve.Direction\r\n        \r\n         # Convert XYZ values from feet to millimeters\r\n        start_point_mm = feet_to_mm(start_point.X, start_point.Y, start_point.Z)\r\n        end_point_mm = feet_to_mm(end_point.X, end_point.Y, end_point.Z)\r\n        \r\n      \r\n        SP = XYZ(start_point_mm[0],start_point_mm[1],start_point_mm[2])\r\n        EP = XYZ(end_point_mm[0],end_point_mm[1],end_point_mm[2])\r\n        line = Line.CreateBound(SP, EP)\r\n        wall_data.append(line)\r\n        # Append wall data to the list\r\n        #wall_data.append([start_point_mm, end_point_mm, direction])\r\n        \r\n\r\n    else:\r\n        # Handle other types of walls as needed\r\n        wall_data.append(None)  # Append None for walls without a valid LocationCurve\r\n\r\n# Output the list of wall data (start point, end point, direction)\r\nOUT = wall_data",
+      "Engine": "CPython3",
+      "VariableInputPorts": true,
+      "Id": "600f88a107ac4b058b415c4f5504c841",
+      "Inputs": [
+        {
+          "Id": "56c611eccdc741f7bb6f135285bfacfb",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "1bba7f8044db493ab1f8b1010317be07",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded Python script."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "AnalyticalAutomation.RevitElements.Element.GetActualLocation@Revit.Elements.Element",
+      "Id": "ca5dc34d1a874254b0312d23f104e34b",
+      "Inputs": [
+        {
+          "Id": "8d946be850cc4c51b911f7f482537574",
+          "Name": "element",
+          "Description": "Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "f789dd17d0e246998401a592d1a13acc",
+          "Name": "Geometry",
+          "Description": "Geometry",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Gets a geometric representation of the actual position of a Revit model element (StructuralFraming, Column, Floor, or Wall). This method, in opposite to the standard Element.GetLocation, considers element's parameters that affects its position (e.g., Geometric Position parameters). It returns a Curve for StructuralFramings and Columns, and a PolySurface for Floors and Walls. The output geometry may be a base for creating AnalyticalElements. [check this node Help to see examples and restrictions]\n\nElement.GetActualLocation (element: Element): Geometry"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "d7535e026c07455ea37d32bbdcf20120",
+      "Inputs": [
+        {
+          "Id": "d61e42359e2d4517b52565bea526dd77",
+          "Name": "",
+          "Description": "Node to show output from",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "5fa90fc34ec04249a82234b923335fba",
+          "Name": "",
+          "Description": "Node output",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualize the node's output"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.GetLocation",
+      "Id": "d0f05bd4f31b48b78cf1f7c153afe842",
+      "Inputs": [
+        {
+          "Id": "72bcfaf6add8470399fe3a8a23856ccc",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "645abcc097a2409293ff2345efea104d",
+          "Name": "Geometry",
+          "Description": "Location Geometry",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get an existing element's location\n\nElement.GetLocation ( ): Geometry"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "d8aec013c36348b08891582abd12ef87",
+      "Inputs": [
+        {
+          "Id": "7c7594f6acf843e9a1b0a080d3eeb59e",
+          "Name": "",
+          "Description": "Node to show output from",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "5d1353c579364c3cbd3561cc3bddf840",
+          "Name": "",
+          "Description": "Node output",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualize the node's output"
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "# Enable access to Revit API\r\nimport clr\r\nclr.AddReference('RevitAPI')\r\nfrom Autodesk.Revit.DB import *\r\n\r\n# Import DocumentManager and TransactionManager\r\nclr.AddReference(\"RevitServices\")\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\n\r\n# Access the current Revit document\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\n\r\n# Input port: list of walls\r\nwalls = UnwrapElement(IN[0])  # Unwrap Dynamo elements to Revit elements\r\n\r\n# Input port: list of rooms\r\nrooms = UnwrapElement(IN[1])  # Unwrap Dynamo elements to Revit elements\r\n\r\n# Initialize an empty list to store nested walls data\r\nnested_walls_list = []\r\n\r\n# Loop through each room\r\nfor room in rooms:\r\n    # Get the boundaries of the room\r\n    boundaries = room.GetBoundarySegments(SpatialElementBoundaryOptions())\r\n    \r\n    # Initialize a sublist to store walls for each room\r\n    room_walls = []\r\n    \r\n    if boundaries:\r\n        # Collect curves representing the room's boundary\r\n        room_curves = []\r\n        for boundary in boundaries:\r\n            for segment in boundary:\r\n                curve = segment.GetCurve()\r\n                room_curves.append(curve)\r\n        \r\n        # Loop through each wall\r\n        for wall in walls:\r\n            # Get the geometry of the wall\r\n            wall_geometry = wall.Location.Curve\r\n            \r\n            # Check if wall's geometry intersects with the room boundary\r\n            for room_curve in room_curves:\r\n                if wall_geometry.Intersect(room_curve) != SetComparisonResult.Disjoint:\r\n                    if wall not in room_walls:\r\n                        room_walls.append(wall)\r\n    \r\n    # Append the sublist of walls for the room to the nested list\r\n    nested_walls_list.append(room_walls)\r\n\r\n# Output the nested list of walls bordering each room\r\nOUT = nested_walls_list\r\n",
+      "Engine": "CPython3",
+      "VariableInputPorts": true,
+      "Id": "fcee8669cd904d7995e819ca2dbc42fe",
+      "Inputs": [
+        {
+          "Id": "f8c1d6c7b9ec4548a5b629b560ff7535",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "26978af9c4e74f2dbb10873088a77124",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "51bb19cfd9574b5ab130da5aa18ae706",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded Python script."
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "# Enable access to Revit API\r\nimport clr\r\nclr.AddReference('RevitAPI')\r\nfrom Autodesk.Revit.DB import *\r\n\r\n# Import DocumentManager and TransactionManager\r\nclr.AddReference(\"RevitServices\")\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\n\r\n# Access the current Revit document\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\n\r\n# Input port: list of walls\r\nwalls = UnwrapElement(IN[0])  # Unwrap Dynamo elements to Revit elements\r\n\r\n# Input port: list of rooms\r\nrooms = UnwrapElement(IN[1])  # Unwrap Dynamo elements to Revit elements\r\n\r\n# Initialize an empty list to store nested walls data\r\nnested_walls_list = []\r\n\r\n# Loop through each room\r\nfor room in rooms:\r\n    # Get the boundaries of the room\r\n    boundaries = room.GetBoundarySegments(SpatialElementBoundaryOptions())\r\n    \r\n    # Initialize a sublist to store walls for each room\r\n    room_walls = []\r\n    \r\n    if boundaries:\r\n        # Collect curves representing the room's boundary\r\n        room_curves = [seg.GetCurve() for boundary in boundaries for seg in boundary]\r\n        \r\n        # Loop through each wall\r\n        for wall in walls:\r\n            # Get the geometry of the wall\r\n            wall_geometry = wall.Location.Curve\r\n            \r\n            # Check if any part of wall's geometry intersects with the room boundary\r\n            intersects = any(wall_geometry.Intersect(curve) != SetComparisonResult.Disjoint for curve in room_curves)\r\n            if intersects:\r\n                room_walls.append(wall)\r\n    \r\n    # Append the sublist of walls for the room to the nested list\r\n    nested_walls_list.append(room_walls)\r\n\r\n# Output the nested list of walls bordering each room\r\nOUT = nested_walls_list",
+      "Engine": "CPython3",
+      "VariableInputPorts": true,
+      "Id": "5bf6c13337ae4c6d8e2b6f81212f11f1",
+      "Inputs": [
+        {
+          "Id": "db9854063b70427786831fde3c0be24b",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e4ec91091bf8466fa806b962557f8434",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "13e7acc241af442db637761042edf4ed",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded Python script."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "6dcf674dbda140f9b2857b75b9fb8304",
+      "End": "1e906d9e3cf340a9afe694472c112770",
+      "Id": "8418cb91e6b04e4db0316db5842d5583",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "94961f9af58f4f8496add243babf7fc6",
+      "End": "8f22f5e6e9944727a079b2f8f1123161",
+      "Id": "cbcd08fb17024b85bdf2f99814066273",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "2b5e985ab68a4dc58bbc30a1d89f26cc",
+      "End": "94f31e94dc4f4f378fd8ffb5a3d9f9ce",
+      "Id": "2b36a49f30e4429db395cbc20874e469",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "2b5e985ab68a4dc58bbc30a1d89f26cc",
+      "End": "26978af9c4e74f2dbb10873088a77124",
+      "Id": "0006f4855c614ca7b67333e418d945c7",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "2b5e985ab68a4dc58bbc30a1d89f26cc",
+      "End": "e4ec91091bf8466fa806b962557f8434",
+      "Id": "47b2ad2890c747fbb3f4f54cf5a9124a",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "468a52a69a5b4a9a88dd3dec1bd089c7",
+      "End": "573f4ec971a44f69a8886fa497dd3356",
+      "Id": "4f5909e9bff5456fada110ab4271d6ab",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "468a52a69a5b4a9a88dd3dec1bd089c7",
+      "End": "8f8ff71dc227459894aa8378fbb1c7c6",
+      "Id": "0c3e457e16034be3ba63b3a3f49b0201",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "a04e52a41b78457aafad576fe9e6c165",
+      "End": "677ef545b58d46faa2604e93c2de90b1",
+      "Id": "80b4543b4f764c35a925603bf65dc03d",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "360c514d100b46b8b8d385dd33762714",
+      "End": "c70c1e6f04434c0da5e901f5931e0573",
+      "Id": "5501307b276e4cde8a74f2b83194ca35",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "c9cd8546b30e4a0e8276d8b5bd69c198",
+      "End": "46f5cdb5a6b64b5f8b6ace5eb532c37d",
+      "Id": "1b45f914de1448ee94a1445acc63a561",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "f5e3be8f30274e40b01044a9c71a6404",
+      "End": "4a0aef604cbe4dca834c6d75bc9a661c",
+      "Id": "098beecd778846fb89ce8e56795955e9",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "a340b301e17642ecb6412a6e7a7082f4",
+      "End": "56c611eccdc741f7bb6f135285bfacfb",
+      "Id": "7929494afcef4afd9c4e3919f72a236e",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "a340b301e17642ecb6412a6e7a7082f4",
+      "End": "8d946be850cc4c51b911f7f482537574",
+      "Id": "25c2f8e189b54c59ae2b74c70baec21e",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "a340b301e17642ecb6412a6e7a7082f4",
+      "End": "72bcfaf6add8470399fe3a8a23856ccc",
+      "Id": "028adb0f12f846c4818e6da7ff9ec0a7",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "a340b301e17642ecb6412a6e7a7082f4",
+      "End": "f8c1d6c7b9ec4548a5b629b560ff7535",
+      "Id": "20f9ac532423457faecc065b51371749",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "a340b301e17642ecb6412a6e7a7082f4",
+      "End": "db9854063b70427786831fde3c0be24b",
+      "Id": "57c3ef4674dd4b1caac00b270b635496",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "f789dd17d0e246998401a592d1a13acc",
+      "End": "d61e42359e2d4517b52565bea526dd77",
+      "Id": "6c3d1fa5b653410ea1015ae4bae1e30e",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "645abcc097a2409293ff2345efea104d",
+      "End": "7c7594f6acf843e9a1b0a080d3eeb59e",
+      "Id": "8760fd5914324ff9bd5d32a2dc1af501",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.13",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "2.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.13.1.3887",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "ad3313c5cd784231ac5879825dcb283a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 570.85371213907717,
+        "Y": 476.44861355475507
+      },
+      {
+        "Name": "Category.ByName",
+        "ShowGeometry": true,
+        "Id": "53e513968add475981cf29936a12539d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 784.45371213907708,
+        "Y": 478.84861355475505
+      },
+      {
+        "Name": "All Elements of Category",
+        "ShowGeometry": true,
+        "Id": "0c89e5f0ee2944c1a4d7761b2a6044b4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1042.8537121390773,
+        "Y": 480.44861355475507
+      },
+      {
+        "Name": "Room.CoreBoundary",
+        "ShowGeometry": true,
+        "Id": "f02c9d9774ba495e9a83bee69dc775ce",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1419.4524272265023,
+        "Y": 52.260171219054428
+      },
+      {
+        "Name": "List.Flatten",
+        "ShowGeometry": true,
+        "Id": "ef403501be344622a87f51dfe0663b1c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1837.7132958943548,
+        "Y": -187.76052113872856
+      },
+      {
+        "Name": "Watch",
+        "ShowGeometry": true,
+        "Id": "51f7de78d90f4b06bd352ef6bf76d8e5",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2165.3174140540627,
+        "Y": -191.30154819229978
+      },
+      {
+        "Name": "Python Script",
+        "ShowGeometry": true,
+        "Id": "b66eb9a17950470a98bd0a5148570a95",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1814.800061307026,
+        "Y": 43.841349170526485
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "877f282de37b4e2e9eb3d1dc7efe79ef",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 469.23515679566344,
+        "Y": 789.17868222167044
+      },
+      {
+        "Name": "Category.ByName",
+        "ShowGeometry": true,
+        "Id": "772b9a5d43e848bd9832b371fdd9961b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 734.45908556113386,
+        "Y": 786.29581343074119
+      },
+      {
+        "Name": "All Elements of Category",
+        "ShowGeometry": true,
+        "Id": "8b79bb5df13440ee95c4f7d2bcdffabf",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1034.2774398177523,
+        "Y": 787.73724782620616
+      },
+      {
+        "Name": "Python Script",
+        "ShowGeometry": true,
+        "Id": "bab066e8d1dd45468a121b464d5c562e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1485.9968529293485,
+        "Y": 790.93607560899932
+      },
+      {
+        "Name": "Python Script",
+        "ShowGeometry": true,
+        "Id": "600f88a107ac4b058b415c4f5504c841",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1909.3711078303784,
+        "Y": 1188.3780611608458
+      },
+      {
+        "Name": "Element.GetActualLocation",
+        "ShowGeometry": true,
+        "Id": "ca5dc34d1a874254b0312d23f104e34b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1817.74082932984,
+        "Y": 546.85211040410866
+      },
+      {
+        "Name": "Watch",
+        "ShowGeometry": true,
+        "Id": "d7535e026c07455ea37d32bbdcf20120",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2168.211337263207,
+        "Y": 471.13228913523443
+      },
+      {
+        "Name": "Element.GetLocation",
+        "ShowGeometry": true,
+        "Id": "d0f05bd4f31b48b78cf1f7c153afe842",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1862.4377529859814,
+        "Y": 812.15091647611962
+      },
+      {
+        "Name": "Watch",
+        "ShowGeometry": true,
+        "Id": "d8aec013c36348b08891582abd12ef87",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2180.3314615195609,
+        "Y": 815.8824902048716
+      },
+      {
+        "Name": "Python Script",
+        "ShowGeometry": true,
+        "Id": "fcee8669cd904d7995e819ca2dbc42fe",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1928.9111476825933,
+        "Y": 1549.7507893017212
+      },
+      {
+        "Name": "Python Script",
+        "ShowGeometry": true,
+        "Id": "5bf6c13337ae4c6d8e2b6f81212f11f1",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1928.9111476825935,
+        "Y": 1863.2127590707587
+      }
+    ],
+    "Annotations": [],
+    "X": 51.230316636633404,
+    "Y": 91.165488253105082,
+    "Zoom": 0.22549629257360704
+  }
+}
