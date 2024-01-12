@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_0hje2gn" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_11tt41t" name="FacadeOpeningFireResistanceSuccess">
+    <informationRequirement id="InformationRequirement_1p8479o">
+      <requiredDecision href="#Decision_06vudoz" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0fzwv96">
+      <requiredDecision href="#Decision_0shgeym" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_08e3pz5">
+      <requiredInput href="#HeightOfOpeningFromRoof" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0e3b0ur">
+      <requiredInput href="#OpeningInFacadePresent" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0lg8u9v">
+      <requiredInput href="#OpeningsTotalArea" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1plymx5">
+      <input id="Input_1" label="HeightOfOpeningFromRoof">
+        <inputExpression id="InputExpression_1" typeRef="double">
+          <text>HeightOfOpeningFromRoof</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0ymhjtq" label="OpeningInFacadePresent">
+        <inputExpression id="LiteralExpression_0wh4rce" typeRef="boolean">
+          <text>OpeningInFacadePresent</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0wi1udv" label="FireResistanceOpeningFacadeSuccess">
+        <inputExpression id="LiteralExpression_0lsja1v" typeRef="boolean">
+          <text>FireResistanceOpeningFacadeSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1piohax" label="FireResistanceProtectiveElementSuccess">
+        <inputExpression id="LiteralExpression_0h73u8r" typeRef="boolean">
+          <text>FireResistanceProtectiveElementSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_10mac76" label="OpeningsTotalArea">
+        <inputExpression id="LiteralExpression_0rfcjiq" typeRef="double">
+          <text>OpeningsTotalArea</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="FacadeOpeningFireResistanceSuccess" name="FacadeOpeningFireResistanceSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_1romh1c">
+        <inputEntry id="UnaryTests_0fdi41i">
+          <text>&gt;= 0</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0x0593u">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18jgaul">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lz8yva">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08p6zsj">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0b44ls6">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1athc5t">
+        <inputEntry id="UnaryTests_07fameq">
+          <text>[0..8]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lhhl2r">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04jcd1p">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wsit8e">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06bp1lj">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0psnl86">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1uxmu7b">
+        <inputEntry id="UnaryTests_1piu2hu">
+          <text>[0..8]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1w811nv">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1o1zbkj">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0b1kjhk">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gbwefq">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0wuabgz">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_146o9u0">
+        <inputEntry id="UnaryTests_15pw4ca">
+          <text>[0..8]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_168qzc3">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wm24mc">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_030vx3i">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03vonn2">
+          <text>[0..0.1]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0m0oigb">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_02t5ql5">
+        <inputEntry id="UnaryTests_05gtfaj">
+          <text>[0..8]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04r82f2">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11qb07w">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1elfrll">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0q9hvv6">
+          <text>&gt; 0.1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1gx32zp">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1wn36la">
+        <inputEntry id="UnaryTests_1apnb3e">
+          <text>&gt; 8</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xszdui">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08zzypz">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tif4et">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_088g21q">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ou7bpp">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_06vudoz" name="FireResistanceOpeningFacadeSuccess">
+    <informationRequirement id="InformationRequirement_093jaan">
+      <requiredInput href="#OpeningElementProvidedFireResistance" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_067p4c8">
+      <requiredInput href="#HeightOfOpeningFromRoof" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1k8lm57">
+      <input id="InputClause_1gl30es" label="HeightOfOpeningFromRoof">
+        <inputExpression id="LiteralExpression_01z8rn2" typeRef="double">
+          <text>HeightOfOpeningFromRoof</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0mkzt0u" label="OpeningElementProvidedFireResistance">
+        <inputExpression id="LiteralExpression_1bwcqk5" typeRef="string">
+          <text>OpeningElementProvidedFireResistance</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0uriklm" label="FireResistanceOpeningFacadeSuccess" name="FireResistanceOpeningFacadeSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_1eqsc2f">
+        <inputEntry id="UnaryTests_1gi1prt">
+          <text>[0..3]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0n5jjq2">
+          <text>"Element in opening is EI 60 or higher"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_08cxuao">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1xx76rz">
+        <inputEntry id="UnaryTests_0fxly3s">
+          <text>[0..3]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wlf67a">
+          <text>"Element in opening is lower than EI 60"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0cabw8f">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_03g7v6q">
+        <inputEntry id="UnaryTests_1sre6u4">
+          <text>]3..8]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jvkiod">
+          <text>"Element in opening is E 60 or higher"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1q2848d">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0q99isa">
+        <inputEntry id="UnaryTests_1fp25nv">
+          <text>]3..8]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12u0bcn">
+          <text>"Element in opening is lower than E 60"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1h68f29">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1xmrg6q">
+        <inputEntry id="UnaryTests_1o5n35r">
+          <text>&gt; 8</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rkphv2">
+          <text>"Element in opening can have any fire resistance"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1j324mv">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0rlnxv8">
+        <inputEntry id="UnaryTests_14rpqvb">
+          <text>&gt;= 0</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0f11elz">
+          <text>"No opening present in facade"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0asna3o">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="OpeningElementProvidedFireResistance" name="OpeningElementProvidedFireResistance" />
+  <decision id="Decision_0shgeym" name="FireResistanceProtectiveElementSuccess">
+    <informationRequirement id="InformationRequirement_08ogjwh">
+      <requiredInput href="#HorizontalDistanceFromFacade" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0lgfgr0">
+      <requiredInput href="#ProvidedFRProtectiveElement" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0aeu7e7">
+      <input id="InputClause_0aw7945" label="HorizontalDistanceFromFacade">
+        <inputExpression id="LiteralExpression_1v94oxf" typeRef="double">
+          <text>HorizontalDistanceFromFacade</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1mj8rr8" label="ProtectiveElementProvidedFireResistance" biodi:width="196">
+        <inputExpression id="LiteralExpression_09otwyl" typeRef="string">
+          <text>ProtectiveElementProvidedFireResistance</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0eo8jdj" label="FireResistanceProtectiveElementSuccess" name="FireResistanceProtectiveElementSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_0n0afol">
+        <inputEntry id="UnaryTests_1ofgf6q">
+          <text>[0..1]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xmlgyt">
+          <text>"Protective element is EI 60 or higher"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ud7g02">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1dz6ozq">
+        <inputEntry id="UnaryTests_1sentmd">
+          <text>[0..1]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_010pz3f">
+          <text>"Protective element is lower than EI 60"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0wbt83h">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1w6n5qo">
+        <inputEntry id="UnaryTests_165k7td">
+          <text>]1..5]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_150p5k2">
+          <text>"Protective element is E 60 or higher"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0fdg2ne">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1soye3f">
+        <inputEntry id="UnaryTests_1uevgkp">
+          <text>]1..5]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wkp2fm">
+          <text>"Protective element is lower than E 60"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_01fus6a">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_08li6e0">
+        <inputEntry id="UnaryTests_1131p7s">
+          <text>&gt; 5</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ekrg4o">
+          <text>"Protective element can have any fire resistance"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1mbjktl">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0kwevow">
+        <inputEntry id="UnaryTests_1qouy3l">
+          <text>&gt;= 0</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1laobgq">
+          <text>"No protective element provided"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0i1ujew">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="HorizontalDistanceFromFacade" name="HorizontalDistanceFromFacade" />
+  <inputData id="ProvidedFRProtectiveElement" name="ProvidedFRProtectiveElement" />
+  <inputData id="HeightOfOpeningFromRoof" name="HeightOfOpeningFromRoof" />
+  <inputData id="OpeningInFacadePresent" name="OpeningInFacadePresent" />
+  <inputData id="OpeningsTotalArea" name="OpeningsTotalArea" />
+  <textAnnotation id="TextAnnotation_10pyjs5">
+    <text>vensters, 
+luchtverversers, rookuitlaten en openingen</text>
+  </textAnnotation>
+  <association id="Association_01rxkfs">
+    <sourceRef href="#TextAnnotation_10pyjs5" />
+    <targetRef href="#OpeningInFacadePresent" />
+  </association>
+  <textAnnotation id="TextAnnotation_1fbbsby">
+    <text>on roof</text>
+  </textAnnotation>
+  <association id="Association_07orvg4">
+    <sourceRef href="#TextAnnotation_1fbbsby" />
+    <targetRef href="#Decision_0shgeym" />
+  </association>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_11tt41t">
+        <dc:Bounds height="80" width="180" x="360" y="330" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_013cjz3" dmnElementRef="InformationRequirement_1p8479o">
+        <di:waypoint x="300" y="550" />
+        <di:waypoint x="420" y="430" />
+        <di:waypoint x="420" y="410" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_16poqw7" dmnElementRef="Decision_06vudoz">
+        <dc:Bounds height="80" width="180" x="210" y="550" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0je8q8g" dmnElementRef="OpeningElementProvidedFireResistance">
+        <dc:Bounds height="45" width="125" x="237" y="787" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0y303di" dmnElementRef="InformationRequirement_093jaan">
+        <di:waypoint x="300" y="787" />
+        <di:waypoint x="300" y="650" />
+        <di:waypoint x="300" y="630" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_187r6zr" dmnElementRef="InformationRequirement_0fzwv96">
+        <di:waypoint x="590" y="550" />
+        <di:waypoint x="480" y="430" />
+        <di:waypoint x="480" y="410" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_00frkfy" dmnElementRef="Decision_0shgeym">
+        <dc:Bounds height="80" width="180" x="500" y="550" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0b3l3q8" dmnElementRef="HorizontalDistanceFromFacade">
+        <dc:Bounds height="45" width="125" x="447" y="787" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0z3c4ht" dmnElementRef="InformationRequirement_08ogjwh">
+        <di:waypoint x="510" y="787" />
+        <di:waypoint x="560" y="650" />
+        <di:waypoint x="560" y="630" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1l9pz9l" dmnElementRef="ProvidedFRProtectiveElement">
+        <dc:Bounds height="45" width="125" x="607" y="787" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1obht8k" dmnElementRef="InformationRequirement_0lgfgr0">
+        <di:waypoint x="670" y="787" />
+        <di:waypoint x="620" y="650" />
+        <di:waypoint x="620" y="630" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_08h5h4d" dmnElementRef="HeightOfOpeningFromRoof">
+        <dc:Bounds height="45" width="125" x="157" y="347" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_18z9q17" dmnElementRef="InformationRequirement_08e3pz5">
+        <di:waypoint x="282" y="370" />
+        <di:waypoint x="340" y="370" />
+        <di:waypoint x="360" y="370" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_18ximt1" dmnElementRef="OpeningInFacadePresent">
+        <dc:Bounds height="45" width="125" x="387" y="227" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_078i38y" dmnElementRef="InformationRequirement_0e3b0ur">
+        <di:waypoint x="450" y="272" />
+        <di:waypoint x="450" y="310" />
+        <di:waypoint x="450" y="330" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0gc53di" dmnElementRef="OpeningsTotalArea">
+        <dc:Bounds height="45" width="125" x="607" y="347" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_05pl7bu" dmnElementRef="InformationRequirement_0lg8u9v">
+        <di:waypoint x="607" y="370" />
+        <di:waypoint x="560" y="370" />
+        <di:waypoint x="540" y="370" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_15y1efg" dmnElementRef="InformationRequirement_067p4c8">
+        <di:waypoint x="220" y="392" />
+        <di:waypoint x="300" y="530" />
+        <di:waypoint x="300" y="550" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0j0j4kn" dmnElementRef="TextAnnotation_10pyjs5">
+        <dc:Bounds height="80" width="100" x="512" y="77" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1q5m07k" dmnElementRef="Association_01rxkfs">
+        <di:waypoint x="522" y="157" />
+        <di:waypoint x="473" y="227" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1v171w6" dmnElementRef="TextAnnotation_1fbbsby">
+        <dc:Bounds height="30" width="100" x="680" y="470" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_11fzebe" dmnElementRef="Association_07orvg4">
+        <di:waypoint x="710" y="500" />
+        <di:waypoint x="643" y="550" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_1h3l0vh" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_1kt8o79" name="GlazedFacadeAboveBuildingSegmentSucces">
+    <informationRequirement id="InformationRequirement_1auox4w">
+      <requiredDecision href="#Decision_1uff1mp" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1sigr64">
+      <requiredDecision href="#Decision_0n85nke" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0k65vb9">
+      <input id="InputClause_0of3elo" label="FireResistanceBuildingSegmentRoofSuccess">
+        <inputExpression id="LiteralExpression_1idgqhp" typeRef="boolean">
+          <text>FireResistanceBuildingSegmentRoofSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0g3elfv" label="FireResistanceBuildingFacadeSuccess">
+        <inputExpression id="LiteralExpression_0q9t18f" typeRef="boolean">
+          <text>FireResistanceBuildingFacadeSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="GlazedFacadeAboveBuildingSuccess" name="GlazedFacadeAboveBuildingSuccess" typeRef="string" />
+      <rule id="DecisionRule_1it7reu">
+        <inputEntry id="UnaryTests_028h665">
+          <text>True</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0supvo8">
+          <text>True</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_14fv4zw">
+          <text>"The glazed facade of the building can extend above another building segment"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0yn6qjn">
+        <inputEntry id="UnaryTests_1byafv5">
+          <text>True</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zdcapi">
+          <text>False</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1g6jda2">
+          <text>"The glazed facade of the building can extend above another building segment"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ke7fsa">
+        <inputEntry id="UnaryTests_02axvv3">
+          <text>False</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18ujoxr">
+          <text>True</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_08kwl31">
+          <text>"The glazed facade of the building can extend above another building segment"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1sc6l53">
+        <inputEntry id="UnaryTests_02az7zv">
+          <text>False</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0f4hnq0">
+          <text>False</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1baos4g">
+          <text>"The glazed facade of the building can not extend above another building segment"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_1uff1mp" name="FireResistanceBuildingFacadeSuccess">
+    <informationRequirement id="InformationRequirement_04o86gl">
+      <requiredInput href="#ProvidedFireResistanceFacade" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1o8qap6">
+      <requiredInput href="#HeightFromRoof" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_076lulx" hitPolicy="FIRST">
+      <input id="InputClause_1xk1zwh" label="HeightFromRoof">
+        <inputExpression id="LiteralExpression_0zlfl0x" typeRef="double">
+          <text>HeightFromRoof</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1kerfdz" label="FireResistanceFacade">
+        <inputExpression id="LiteralExpression_1kxki3o" typeRef="string">
+          <text>FireResistanceFacade</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1iqylpv" label="FireResistanceBuildingFacadeSuccess" name="FireResistanceBuildingFacadeSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_0vy2d4u">
+        <inputEntry id="UnaryTests_1pi4li7">
+          <text>[0..3]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fcgtkz">
+          <text>"EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 360"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1mr94yi">
+          <text>True</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0wehtyq">
+        <inputEntry id="UnaryTests_0nsnnqc">
+          <text>[0..3]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1w3alg0">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_10ho1dt">
+          <text>False</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0r3iezk">
+        <inputEntry id="UnaryTests_1wx8ish">
+          <text>]3..8]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1c9ukyz">
+          <text>"E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 360"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0esd243">
+          <text>True</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_09m8e0l">
+        <inputEntry id="UnaryTests_0c0eusc">
+          <text>]3..8]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1unv55y">
+          <text>"E 10","E 15","E 20","E 30","E 45"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0yoyi79">
+          <text>False</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0knx3cv">
+        <inputEntry id="UnaryTests_0o9osr7">
+          <text>&gt; 8</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1r3dhjc">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 360"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1o2uqu0">
+          <text>True</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_0n85nke" name="FireResistanceBuildingSegmentRoofSuccess">
+    <informationRequirement id="InformationRequirement_1minm7q">
+      <requiredInput href="#HorizontalDistanceFromFacade" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_13znmsa">
+      <requiredInput href="#ProvidedFireResistanceRoof" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0fass0d" hitPolicy="FIRST">
+      <input id="InputClause_1f99um4" label="HorizontalDistanceFromFacade">
+        <inputExpression id="LiteralExpression_17f8uyo" typeRef="double">
+          <text>HorizontalDistanceFromFacade</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0kook85" label="FireResistanceRoof">
+        <inputExpression id="LiteralExpression_1kim4yf" typeRef="string">
+          <text>FireResistanceRoof</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1mv87wm" label="FireResistanceBuildingSegmentRoofSuccess" name="FireResistanceBuildingSegmentRoofSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_077i5w2">
+        <inputEntry id="UnaryTests_0lfpgog">
+          <text>[0..1]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00hy4a4">
+          <text>"EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 360"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_14c38qj">
+          <text>True</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0uqhe4w">
+        <inputEntry id="UnaryTests_1j9rip2">
+          <text>[0..1]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0a0t90y">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1vtg7ek">
+          <text>False</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ikxp5i">
+        <inputEntry id="UnaryTests_089ra54">
+          <text>]1..5]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jfsc3w">
+          <text>"E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 360"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1b6lw41">
+          <text>True</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0wklm2x">
+        <inputEntry id="UnaryTests_037izbs">
+          <text>]1..5]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vz5288">
+          <text>"E 10","E 15","E 20","E 30","E 45"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0hkno3b">
+          <text>False</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_17wr5im">
+        <inputEntry id="UnaryTests_1vtm9pt">
+          <text>&gt; 5</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1df8pr5">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 360"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_199cr2b">
+          <text>True</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="HeightFromRoof" name="HeightFromRoof" />
+  <inputData id="ProvidedFireResistanceFacade" name="ProvidedFireResistanceFacade" />
+  <inputData id="HorizontalDistanceFromFacade" name="HorizontalDistanceFromFacade" />
+  <inputData id="ProvidedFireResistanceRoof" name="ProvidedFireResistanceRoof" />
+  <textAnnotation id="TextAnnotation_11u60k3">
+    <text>1.2 Outbuildings, projecting roofs, canopies, etc., are allowed only if they do not jeopardize evacuation, user safety, or hinder the action of the fire department.</text>
+  </textAnnotation>
+  <association id="Association_1j985yl">
+    <sourceRef href="#TextAnnotation_11u60k3" />
+    <targetRef href="#Decision_1kt8o79" />
+  </association>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1kt8o79">
+        <dc:Bounds height="80" width="180" x="420" y="340" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_12s6m5s" dmnElementRef="InformationRequirement_1auox4w">
+        <di:waypoint x="710" y="500" />
+        <di:waypoint x="540" y="440" />
+        <di:waypoint x="540" y="420" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1k7k7nz" dmnElementRef="InformationRequirement_1sigr64">
+        <di:waypoint x="330" y="500" />
+        <di:waypoint x="480" y="440" />
+        <di:waypoint x="480" y="420" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0xvpspw" dmnElementRef="Decision_1uff1mp">
+        <dc:Bounds height="80" width="180" x="620" y="500" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0bsuado" dmnElementRef="Decision_0n85nke">
+        <dc:Bounds height="80" width="180" x="240" y="500" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0vquwbq" dmnElementRef="HeightFromRoof">
+        <dc:Bounds height="45" width="125" x="537" y="668" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1hkt46b" dmnElementRef="ProvidedFireResistanceFacade">
+        <dc:Bounds height="45" width="125" x="727" y="669" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1mb8zt6" dmnElementRef="InformationRequirement_04o86gl">
+        <di:waypoint x="790" y="669" />
+        <di:waypoint x="740" y="600" />
+        <di:waypoint x="740" y="580" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1p5xnum" dmnElementRef="InformationRequirement_1o8qap6">
+        <di:waypoint x="600" y="668" />
+        <di:waypoint x="680" y="600" />
+        <di:waypoint x="680" y="580" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0m640vb" dmnElementRef="HorizontalDistanceFromFacade">
+        <dc:Bounds height="45" width="125" x="158" y="669" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0yyj9by" dmnElementRef="ProvidedFireResistanceRoof">
+        <dc:Bounds height="45" width="125" x="348" y="669" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_12aiu8b" dmnElementRef="InformationRequirement_1minm7q">
+        <di:waypoint x="221" y="669" />
+        <di:waypoint x="300" y="600" />
+        <di:waypoint x="300" y="580" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0r6xcsq" dmnElementRef="InformationRequirement_13znmsa">
+        <di:waypoint x="411" y="669" />
+        <di:waypoint x="360" y="600" />
+        <di:waypoint x="360" y="580" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0zudiqp" dmnElementRef="TextAnnotation_11u60k3">
+        <dc:Bounds height="70" width="230" x="485" y="125" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0vsqbc0" dmnElementRef="Association_1j985yl">
+        <di:waypoint x="583" y="195" />
+        <di:waypoint x="446" y="340" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_0h9dlry" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_0snjtma" name="AccessibilityFacadeOpening">
+    <informationRequirement id="InformationRequirement_0ph2tmz">
+      <requiredInput href="#DistanceEdgeOfTheAccesRoadToPlaneOfFacade" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1sr7jrs">
+      <requiredInput href="#DistanceEdgeOfTheRoadToPlaneOfFacade" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_07gcyrt">
+      <input id="InputClause_03teelp" label="DistanceEdgeOfTheRoadToPlaneOfFacade" biodi:width="192">
+        <inputExpression id="LiteralExpression_1qrqov7" typeRef="double">
+          <text>DistanceEdgeOfTheRoadToPlaneOfFacade</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1p0v9s4" label="AccessibilityFacadeOpening" name="AccessibilityFacadeOpening" typeRef="string" />
+      <rule id="DecisionRule_08zs3rx">
+        <inputEntry id="UnaryTests_180f46v">
+          <text>[0..4[</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ef88o4">
+          <text>"Facade openings are accessible"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0721mt8">
+        <inputEntry id="UnaryTests_1ix2fbx">
+          <text>[4..10]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_02nuti8">
+          <text>"Facade openings are accessible"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_028amhy">
+        <inputEntry id="UnaryTests_1hfh8ke">
+          <text>&gt; 10</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0q1jbyi">
+          <text>"Facade openings are inaccessible"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="DistanceEdgeOfTheRoadToPlaneOfFacade" name="DistanceEdgeOfTheRoadToPlaneOfFacade" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_11fkflz" dmnElementRef="Decision_0snjtma">
+        <dc:Bounds height="80" width="180" x="160" y="110" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1owl1jf" dmnElementRef="DistanceEdgeOfTheRoadToPlaneOfFacade">
+        <dc:Bounds height="45" width="125" x="187" y="257" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0oto0u1" dmnElementRef="InformationRequirement_0ph2tmz">
+        <di:waypoint x="1290" y="377" />
+        <di:waypoint x="1290" y="310" />
+        <di:waypoint x="1290" y="290" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_10qjmnh" dmnElementRef="InformationRequirement_1sr7jrs">
+        <di:waypoint x="250" y="257" />
+        <di:waypoint x="250" y="210" />
+        <di:waypoint x="250" y="190" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_09uulyp" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_035piwl" name="FreeDistanceMBfromOBSucces">
+    <informationRequirement id="InformationRequirement_17d5bmm">
+      <requiredInput href="#InputData_1eu8nzj" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0jffxnr">
+      <requiredInput href="#PresencePublicDomainElementBetweenMBandOB" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0y1b7o5">
+      <requiredDecision href="#Decision_0en507i" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_09ffa6a">
+      <requiredDecision href="#Decision_1tnin93" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0oxndsq">
+      <input id="InputClause_0cj27ca" label="PresencePublicDomainElementBetweenMBandOB">
+        <inputExpression id="LiteralExpression_1smjqqu" typeRef="boolean">
+          <text>PresencePublicDomainElementBetweenMBandOB</text>
+        </inputExpression>
+      </input>
+      <input id="Input_1" label="MBdistanceOB [m]">
+        <inputExpression id="InputExpression_1" typeRef="double">
+          <text>MBdistanceOB</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1wjuyyy" label="FRWallMBSuccess">
+        <inputExpression id="LiteralExpression_0qugakf" typeRef="boolean">
+          <text>FRWallMBSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_18d8qdu" label="FRWallOBSuccess">
+        <inputExpression id="LiteralExpression_0qcm1ei" typeRef="boolean">
+          <text>FRWallOBSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="FreeDistanceMBfromOBSuccess" name="FreeDistanceMBfromOBSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_0r35ss1">
+        <inputEntry id="UnaryTests_1xnebum">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1g7275a">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10d0kcz">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vfbu23">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1bf0xdi">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_01sf959">
+        <inputEntry id="UnaryTests_1093q99">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fbbt0a">
+          <text>&gt;= 8</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nkxirh">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ygoszd">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1tkx3hg">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_05sd5kv">
+        <inputEntry id="UnaryTests_12ty8i9">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00bd5mi">
+          <text>[0..8[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_193tld1">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ks8mhn">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_06u78yj">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0mbnz8u">
+        <inputEntry id="UnaryTests_19oud6e">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1p9st70">
+          <text>[0..8[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1bngmpu">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hhikwf">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0lh4686">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1mk7vx1">
+        <inputEntry id="UnaryTests_03d7b9g">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0o0b8iz">
+          <text>[0..8[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_152ur6d">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1q1wltz">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1e6hbwk">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0aj4qi7">
+        <inputEntry id="UnaryTests_0k1i0f9">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_027q6sj">
+          <text>[0..8[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lsrhie">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kaywk2">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0xuyp9j">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_1eu8nzj" name="MBdistanceOB" />
+  <inputData id="ResistanceWallMB" name="ResistanceWallMB" />
+  <inputData id="InputData_05eviak" name="IsWallMBLoadbearing" />
+  <inputData id="InputData_0twsxdh" name="IsWallOBLoadbearing" />
+  <inputData id="PresencePublicDomainElementBetweenMBandOB" name="PresencePublicDomainElementBetweenMBandOB" />
+  <decision id="Decision_0en507i" name="FRWallMBSuccess">
+    <informationRequirement id="InformationRequirement_1klesrd">
+      <requiredInput href="#InputData_05eviak" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1nl0q5b">
+      <requiredInput href="#ResistanceWallMB" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0tzj28n">
+      <input id="InputClause_1755kku" label="IsWallMBLoadbearing">
+        <inputExpression id="LiteralExpression_08slkhb" typeRef="boolean">
+          <text>IsWallMBLoadbearing</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0tvi9k9" label="ResistanceWallMB">
+        <inputExpression id="LiteralExpression_0j5qvsg" typeRef="string">
+          <text>ResistanceWallMB</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_01q5zba" label="FRWallMBSuccess" name="FRWallMBSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_02wgn0r">
+        <inputEntry id="UnaryTests_0f9l062">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_155n7s3">
+          <text>"MB Wall is REI 120 or higher"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0wdibyy">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1pqe9qe">
+        <inputEntry id="UnaryTests_0j5m6ke">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0knz4c2">
+          <text>"MB Wall is lower than REI 120"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_15ma0ml">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1w2ql44">
+        <inputEntry id="UnaryTests_1yx3seh">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gs9dfp">
+          <text>"MB Wall is E 120 or higher"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0q8ghst">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_047j562">
+        <inputEntry id="UnaryTests_02puhoa">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0laafld">
+          <text>"MB Wall is lower than E 120"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0d3bfyj">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_1tnin93" name="FRWallOBSuccess">
+    <informationRequirement id="InformationRequirement_1ohicv1">
+      <requiredInput href="#InputData_0twsxdh" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1vxloaa">
+      <requiredInput href="#ResistanceWallOB" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0nj9qag">
+      <input id="InputClause_175b7j4" label="IsWallOBLoadbearing">
+        <inputExpression id="LiteralExpression_0870jr7" typeRef="boolean">
+          <text>IsWallOBLoadbearing</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_01v0sp4" label="ResistanceWallOB">
+        <inputExpression id="LiteralExpression_109680p" typeRef="string">
+          <text>ResistanceWallOB</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0bizp1f" label="FRWallOBSuccess" name="FRWallOBSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_0oa1clf">
+        <inputEntry id="UnaryTests_0o2hq8j">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0dw272f">
+          <text>"OB Wall is REI 120 or higher"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0n3z69n">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0htu7ke">
+        <inputEntry id="UnaryTests_1lnc42a">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14rr8as">
+          <text>"OB Wall is lower than REI 120"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1w3f16v">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1htivb9">
+        <inputEntry id="UnaryTests_0v3ctap">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12t0qf8">
+          <text>"OB Wall is E 120 or higher"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0nw4tzk">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0y1jr6m">
+        <inputEntry id="UnaryTests_07xxujc">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zmyrmd">
+          <text>"OB Wall is lower than E 120"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0o3299j">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="ResistanceWallOB" name="ResistanceWallOB" />
+  <textAnnotation id="TextAnnotation_0dq6w70">
+    <text>1.3 De horizontale afstand, vrij van elk brandbaar 
+element en gelegen tussen een MG en een tegenoverstaand gebouw, moet ten minste 8 m bedragen, tenzij één van de twee tegenoverstaande wanden voldoet aan de voorwaarden zoals bepaald voor aangrenzende gebouwen</text>
+  </textAnnotation>
+  <textAnnotation id="TextAnnotation_1govqsb">
+    <text>MB=mid high building
+
+OB=other building</text>
+  </textAnnotation>
+  <textAnnotation id="TextAnnotation_1c7cocg">
+    <text>Airlock = Sas</text>
+  </textAnnotation>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_035piwl">
+        <dc:Bounds height="80" width="180" x="530" y="380" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0xl3hdt" dmnElementRef="TextAnnotation_0dq6w70">
+        <dc:Bounds height="100" width="310" x="195" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1a3h3jq" dmnElementRef="InputData_1eu8nzj">
+        <dc:Bounds height="45" width="125" x="557" y="267" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_10em3qk" dmnElementRef="TextAnnotation_1govqsb">
+        <dc:Bounds height="80" width="100" x="200" y="190" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1c8tpbr" dmnElementRef="ResistanceWallMB">
+        <dc:Bounds height="45" width="125" x="477" y="697" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1upzvco" dmnElementRef="InputData_05eviak">
+        <dc:Bounds height="45" width="125" x="307" y="697" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1jjy6e7" dmnElementRef="InputData_0twsxdh">
+        <dc:Bounds height="45" width="125" x="777" y="697" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1jqveiw" dmnElementRef="TextAnnotation_1c7cocg">
+        <dc:Bounds height="22" width="100" x="200" y="289" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1koakuw" dmnElementRef="PresencePublicDomainElementBetweenMBandOB">
+        <dc:Bounds height="45" width="125" x="407" y="267" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1tazc29" dmnElementRef="InformationRequirement_1klesrd">
+        <di:waypoint x="370" y="697" />
+        <di:waypoint x="420" y="660" />
+        <di:waypoint x="420" y="640" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1v1e691" dmnElementRef="InformationRequirement_1ohicv1">
+        <di:waypoint x="840" y="697" />
+        <di:waypoint x="800" y="660" />
+        <di:waypoint x="800" y="640" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1rieadw" dmnElementRef="Decision_0en507i">
+        <dc:Bounds height="80" width="180" x="360" y="560" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0n7oenl" dmnElementRef="Decision_1tnin93">
+        <dc:Bounds height="80" width="180" x="680" y="560" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0oxx89w" dmnElementRef="InformationRequirement_17d5bmm">
+        <di:waypoint x="620" y="312" />
+        <di:waypoint x="650" y="360" />
+        <di:waypoint x="650" y="380" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_13ikrt5" dmnElementRef="InformationRequirement_0jffxnr">
+        <di:waypoint x="470" y="312" />
+        <di:waypoint x="590" y="360" />
+        <di:waypoint x="590" y="380" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1nbyze3" dmnElementRef="InformationRequirement_0y1b7o5">
+        <di:waypoint x="450" y="560" />
+        <di:waypoint x="590" y="480" />
+        <di:waypoint x="590" y="460" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0f50zkc" dmnElementRef="InformationRequirement_09ffa6a">
+        <di:waypoint x="770" y="560" />
+        <di:waypoint x="650" y="480" />
+        <di:waypoint x="650" y="460" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1svim7y" dmnElementRef="InformationRequirement_1nl0q5b">
+        <di:waypoint x="540" y="697" />
+        <di:waypoint x="480" y="660" />
+        <di:waypoint x="480" y="640" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0dtt3d8" dmnElementRef="ResistanceWallOB">
+        <dc:Bounds height="45" width="125" x="618" y="698" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1q1gc0i" dmnElementRef="InformationRequirement_1vxloaa">
+        <di:waypoint x="681" y="698" />
+        <di:waypoint x="740" y="660" />
+        <di:waypoint x="740" y="640" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_09uulyp" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <inputData id="FireResistanceDoor" name="FireResistanceDoor" />
+  <decision id="Decision_1m9e0fr" name="Verify fire resistance door EI 30">
+    <informationRequirement id="InformationRequirement_0da33fh">
+      <requiredInput href="#FireResistanceDoor" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1wrrb5h">
+      <input id="InputClause_14894wh" label="FireResistanceDoor" biodi:width="466">
+        <inputExpression id="LiteralExpression_0hohxt6" typeRef="string">
+          <text>FireResistanceDoor</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1k58win" label="FireResistanceDoorSuccess" name="FireResistanceDoorSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_0mdh1jl">
+        <inputEntry id="UnaryTests_11y0rng">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_17nqn8e">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1igcknr">
+        <inputEntry id="UnaryTests_0loph9v">
+          <text>"EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 360"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0wy6a0k">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_1clwgf7" dmnElementRef="FireResistanceDoor">
+        <dc:Bounds height="45" width="125" x="187" y="227" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1w7l1a2" dmnElementRef="Decision_1m9e0fr">
+        <dc:Bounds height="80" width="180" x="160" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_07ro270" dmnElementRef="InformationRequirement_0da33fh">
+        <di:waypoint x="250" y="227" />
+        <di:waypoint x="250" y="180" />
+        <di:waypoint x="250" y="160" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

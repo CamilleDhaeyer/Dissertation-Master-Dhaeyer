@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_09uulyp" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_1jml5sg" name="Verify airlock regulations">
+    <decisionTable id="DecisionTable_171zend">
+      <input id="InputClause_1b6op5n" label="AreaOfAirlock" biodi:width="150">
+        <inputExpression id="LiteralExpression_1hpq5lp" typeRef="double">
+          <text>AreaOfAirlock</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1op6y5u" label="AirlockWallFireResistance" biodi:width="150">
+        <inputExpression id="LiteralExpression_1nltx0u" typeRef="string">
+          <text>AirlockWallFireResistance</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1j1omhy" label="AirlockDoorFireResistance" biodi:width="150">
+        <inputExpression id="LiteralExpression_0tvdrdt" typeRef="string">
+          <text>AirlockDoorFireResistance</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_09w3t15" label="DoorType" biodi:width="163">
+        <inputExpression id="LiteralExpression_17kvggz" typeRef="string">
+          <text>DoorType</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0iyc3o5" label="AirlockRegulationSuccess" name="AirlockRegulationSuccess" typeRef="boolean" biodi:width="152" />
+      <rule id="DecisionRule_14fkyf5">
+        <inputEntry id="UnaryTests_0cyysea">
+          <text>[0..2[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ckaga7">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vl2ive">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0c9kwjx">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_11y2u26">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1axwxg6">
+        <inputEntry id="UnaryTests_0mhu8n9">
+          <text>&gt;= 2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0q1sz37">
+          <text>"EI 30","EI 45"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vqs1x7">
+          <text>"EI 15","EI 20"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12zmn7t">
+          <text>"Selfclosing"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1b1yj7y">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0xwxey4">
+        <inputEntry id="UnaryTests_0rqnz90">
+          <text>&gt;= 2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10fb8u4">
+          <text>"EI 30","EI 45"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gvpm30">
+          <text>"EI 15","EI 20"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0u4aivz">
+          <text>"Not selfclosing"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1u35fc8">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0mkobyc">
+        <inputEntry id="UnaryTests_11nwe3u">
+          <text>&gt;= 2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gr2ryy">
+          <text>"EI 30","EI 45"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wrt620">
+          <text>"EI 30","EI 45"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1eh3vvz">
+          <text>"Selfclosing"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0bssiku">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_096k06w">
+        <inputEntry id="UnaryTests_1i5ea67">
+          <text>&gt;= 2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1luo949">
+          <text>"EI 30","EI 45"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0w05p9e">
+          <text>"EI 30","EI 45"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0d6b4p6">
+          <text>"Not selfclosing"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1p7230f">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0c8w4al">
+        <inputEntry id="UnaryTests_0iuxjb7">
+          <text>&gt;= 2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pchvja">
+          <text>"EI 60","EI 90"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wvu6wd">
+          <text>"EI 15","EI 20"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_139cet2">
+          <text>"Selfclosing"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0gj8onp">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1m7iml5">
+        <inputEntry id="UnaryTests_1lx1pdt">
+          <text>&gt;= 2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cdqmme">
+          <text>"EI 60","EI 90"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1oume5b">
+          <text>"EI 15","EI 20"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qr6wvm">
+          <text>"Not selfclosing"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1rxtrpn">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0hoi6qm">
+        <inputEntry id="UnaryTests_10stnpn">
+          <text>&gt;= 2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0riq54z">
+          <text>"EI 60","EI 90"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0uw6y5l">
+          <text>"EI 30","EI 45"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01t4c2q">
+          <text>"Selfclosing"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_08vbewf">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0hq1vr0">
+        <inputEntry id="UnaryTests_0yc0y8u">
+          <text>&gt;= 2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07d853v">
+          <text>"EI 60","EI 90"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02nozfx">
+          <text>"EI 30","EI 45"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16jtytb">
+          <text>"Not selfclosing"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0u4jo61">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_1jdbvou" dmnElementRef="Decision_1jml5sg">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

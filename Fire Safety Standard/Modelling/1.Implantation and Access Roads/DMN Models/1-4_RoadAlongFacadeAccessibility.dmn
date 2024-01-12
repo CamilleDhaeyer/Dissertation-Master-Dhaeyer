@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0h9dlry" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <inputData id="NumberOfPrincipleFacadesAlongRoad" name="NumberOfPrincipleFacadesAlongRoad" />
+  <inputData id="PrincipleFacadeHasMainEntrance" name="PrincipleFacadeHasMainEntrance" />
+  <inputData id="NumberOfOtherFacadesAlongRoad" name="NumberOfOtherFacadesAlongRoad" />
+  <inputData id="OtherFacadeHasMainEntrance" name="OtherFacadeHasMainEntrance" />
+  <decision id="Decision_1j2f3e4" name="RoadAlongFacadeSuccess">
+    <informationRequirement id="InformationRequirement_1gsxw28">
+      <requiredInput href="#NumberOfPrincipleFacadesAlongRoad" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1823z47">
+      <requiredInput href="#PrincipleFacadeHasMainEntrance" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0k4x944">
+      <requiredInput href="#NumberOfOtherFacadesAlongRoad" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1vvlmsb">
+      <requiredInput href="#OtherFacadeHasMainEntrance" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1y5ucvb">
+      <requiredInput href="#BuildingAccessible" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_06ltf5c">
+      <input id="InputClause_1wz5mtc" label="BuildingAccessible">
+        <inputExpression id="LiteralExpression_0ne41to" typeRef="string">
+          <text>BuildingAccessible</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1b6z69y" label="NumberOfPrincipleFacadesAlongRoad">
+        <inputExpression id="LiteralExpression_0pye8yz" typeRef="integer">
+          <text>NumberOfPrincipleFacadesAlongRoad</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1g79nsg" label="PrincipleFacadeHasMainEntrance">
+        <inputExpression id="LiteralExpression_0sqfd9v" typeRef="boolean">
+          <text>PrincipleFacadeHasMainEntrance</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_10idqy8" label="NumberOfOtherFacadesAlongRoad">
+        <inputExpression id="LiteralExpression_0kxdiy9" typeRef="integer">
+          <text>NumberOfOtherFacadesAlongRoad</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0gbmspi" label="OtherFacadeHasMainEntrance">
+        <inputExpression id="LiteralExpression_0rsanhs" typeRef="boolean">
+          <text>OtherFacadeHasMainEntrance</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_02gsavi" label="RoadAlongFacadeSuccess" name="RoadAlongFacadeSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_0w0jgkp">
+        <inputEntry id="UnaryTests_13zuoft">
+          <text>"Building is continuously accessible to motor vehicles"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pytinr">
+          <text>&gt;= 1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05vmdo7">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1urqwh1">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10wfgjc">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0is1dfe">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1bz8cih">
+        <inputEntry id="UnaryTests_1bbwyi8">
+          <text>"Building is continuously accessible to motor vehicles"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11y6gz0">
+          <text>&gt;= 1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1b2bixe">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01kpxfm">
+          <text>&gt;= 1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0nh7u9z">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1lyytea">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_015m8fj">
+        <inputEntry id="UnaryTests_1bpge1f">
+          <text>"Building is continuously accessible to motor vehicles"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1sjxbny">
+          <text>&gt;= 1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vixap4">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16w9i6p">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hui27i">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1von1z2">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_19b6egi">
+        <inputEntry id="UnaryTests_0ukm6k9">
+          <text>"Building is continuously accessible to motor vehicles"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11srqls">
+          <text>0</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xj7ye8">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qd6rc7">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1yxngpi">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1dyipag">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="BuildingAccessible" name="BuildingAccessible" />
+  <textAnnotation id="TextAnnotation_0xs5dsg">
+    <text>Principal Facade= Een lange gevel van het gebouw</text>
+  </textAnnotation>
+  <textAnnotation id="TextAnnotation_070n5nr">
+    <text>Secundary Facade = Een andere gevel van het gebouw</text>
+  </textAnnotation>
+  <textAnnotation id="TextAnnotation_1frvkro">
+    <text>Van 1 1 BuildingAccessibility</text>
+  </textAnnotation>
+  <association id="Association_14r2s5b">
+    <sourceRef href="#TextAnnotation_1frvkro" />
+    <targetRef href="#BuildingAccessible" />
+  </association>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_0kd7qzd" dmnElementRef="TextAnnotation_0xs5dsg">
+        <dc:Bounds height="80" width="100" x="160" y="390" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0be51af" dmnElementRef="TextAnnotation_070n5nr">
+        <dc:Bounds height="80" width="100" x="160" y="480" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0o1l6nl" dmnElementRef="NumberOfPrincipleFacadesAlongRoad">
+        <dc:Bounds height="45" width="125" x="407" y="588" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_170bzss" dmnElementRef="PrincipleFacadeHasMainEntrance">
+        <dc:Bounds height="45" width="125" x="557" y="587" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1tz0d0j" dmnElementRef="NumberOfOtherFacadesAlongRoad">
+        <dc:Bounds height="45" width="125" x="707" y="587" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0f39ivo" dmnElementRef="OtherFacadeHasMainEntrance">
+        <dc:Bounds height="45" width="125" x="858" y="588" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_09caexp" dmnElementRef="Decision_1j2f3e4">
+        <dc:Bounds height="80" width="180" x="600" y="420" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0twl5v7" dmnElementRef="InformationRequirement_1gsxw28">
+        <di:waypoint x="470" y="588" />
+        <di:waypoint x="636" y="520" />
+        <di:waypoint x="636" y="500" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0fql0ba" dmnElementRef="InformationRequirement_1823z47">
+        <di:waypoint x="620" y="587" />
+        <di:waypoint x="672" y="520" />
+        <di:waypoint x="672" y="500" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_16e8sad" dmnElementRef="InformationRequirement_0k4x944">
+        <di:waypoint x="770" y="587" />
+        <di:waypoint x="708" y="520" />
+        <di:waypoint x="708" y="500" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1ou226u" dmnElementRef="InformationRequirement_1vvlmsb">
+        <di:waypoint x="921" y="588" />
+        <di:waypoint x="744" y="520" />
+        <di:waypoint x="744" y="500" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0oto0u1">
+        <di:waypoint x="1290" y="377" />
+        <di:waypoint x="1290" y="310" />
+        <di:waypoint x="1290" y="290" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1rgd49e" dmnElementRef="BuildingAccessible">
+        <dc:Bounds height="45" width="125" x="627" y="307" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_13tlnqt" dmnElementRef="InformationRequirement_1y5ucvb">
+        <di:waypoint x="690" y="352" />
+        <di:waypoint x="690" y="400" />
+        <di:waypoint x="690" y="420" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0cu82up" dmnElementRef="TextAnnotation_1frvkro">
+        <dc:Bounds height="22" width="231" x="752" y="78" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1objm27" dmnElementRef="Association_14r2s5b">
+        <di:waypoint x="801" y="100" />
+        <di:waypoint x="710" y="307" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

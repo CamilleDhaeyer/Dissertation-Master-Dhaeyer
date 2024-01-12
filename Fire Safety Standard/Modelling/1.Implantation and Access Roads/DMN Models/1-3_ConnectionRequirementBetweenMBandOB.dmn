@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_09uulyp" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <inputData id="ConnectionWithAirlock" name="ConnectionWithAirlock" />
+  <inputData id="AirlockConnectsToStaircase" name="AirlockConnectsToStaircase" />
+  <decision id="Decision_0etpbf7" name="Verify connection between MB and OB">
+    <informationRequirement id="InformationRequirement_09r1izz">
+      <requiredInput href="#ConnectionWithAirlock" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1qq1w2n">
+      <requiredInput href="#AirlockConnectsToStaircase" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_14xlkec">
+      <input id="InputClause_1loiikr" label="ConnectionWithAirlock">
+        <inputExpression id="LiteralExpression_0laafdw" typeRef="boolean">
+          <text>ConnectionWithAirlock</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1r044rt" label="AirlockRegulationSuccess" biodi:width="150">
+        <inputExpression id="LiteralExpression_16fc0ff" typeRef="boolean">
+          <text>AirlockRegulationSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1ih77ph" label="AirlockConnectsToStaircase" biodi:width="157">
+        <inputExpression id="LiteralExpression_1x81nqf" typeRef="boolean">
+          <text>AirlockConnectsToStaircase</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_16qyd44" label="ConnectionMBandOBSuccess" name="ConnectionMBandOBSuccess" typeRef="boolean" biodi:width="183" />
+      <rule id="DecisionRule_0ymsios">
+        <inputEntry id="UnaryTests_0rgg0nk">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11kt3xr">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0m5wd74">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_16hx28k">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ak2yei">
+        <inputEntry id="UnaryTests_063lo6m">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ycwfho">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1aapxt9">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_06ki48b">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1o25qt1">
+        <inputEntry id="UnaryTests_0p96po0">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07jl40y">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ypxjpe">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1dgvano">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0j57fjc">
+        <inputEntry id="UnaryTests_0fg1p3t">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jzprjb">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ysnrec">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0hpmwsy">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_0hulgc6" dmnElementRef="ConnectionWithAirlock">
+        <dc:Bounds height="45" width="125" x="157" y="97" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_09w7xhc" dmnElementRef="AirlockConnectsToStaircase">
+        <dc:Bounds height="45" width="125" x="627" y="97" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1xq206g" dmnElementRef="Decision_0etpbf7">
+        <dc:Bounds height="80" width="180" x="350" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_06xd3xu" dmnElementRef="InformationRequirement_09r1izz">
+        <di:waypoint x="282" y="120" />
+        <di:waypoint x="330" y="120" />
+        <di:waypoint x="350" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0fo9h5w" dmnElementRef="InformationRequirement_1qq1w2n">
+        <di:waypoint x="627" y="120" />
+        <di:waypoint x="550" y="120" />
+        <di:waypoint x="530" y="120" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

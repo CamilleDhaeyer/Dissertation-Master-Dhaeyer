@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_09uulyp" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <inputData id="AreaOfAirlock" name="AreaOfAirlock" />
+  <decision id="Decision_0oq82z5" name="Area Of Airlock verification">
+    <informationRequirement id="InformationRequirement_1s5s089">
+      <requiredInput href="#AreaOfAirlock" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0vdkqhf">
+      <input id="InputClause_1xmltaa" label="AreaOfAirlock" biodi:width="156">
+        <inputExpression id="LiteralExpression_1nvksu8" typeRef="double">
+          <text>AreaOfAirlock</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0kal7qz" label="AreaOfAirlockSuccess" name="AreaOfAirlockSuccess" typeRef="boolean" biodi:width="184" />
+      <rule id="DecisionRule_0kcv1xd">
+        <inputEntry id="UnaryTests_0qv9zka">
+          <text>[0..2[</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0q8lsf7">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0v4397b">
+        <inputEntry id="UnaryTests_0fe7fuq">
+          <text>&gt;= 2</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0a386o0">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_1p75xtx" name="Verify airlock regulations">
+    <informationRequirement id="InformationRequirement_12u3nhx">
+      <requiredDecision href="#Decision_0oq82z5" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0pbp6l9">
+      <input id="InputClause_0oxx128" label="AreaOfAirlockSuccess" biodi:width="178">
+        <inputExpression id="LiteralExpression_0zm42m0" typeRef="boolean">
+          <text>AreaOfAirlockSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_05p94hy" label="AirlockAllWallSuccess" biodi:width="182">
+        <inputExpression id="LiteralExpression_1iass5y" typeRef="boolean">
+          <text>AirlockAllWallSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_02u9cr4" label="AirlockAllDoorSuccess" biodi:width="189">
+        <inputExpression id="LiteralExpression_1ewlvqd" typeRef="boolean">
+          <text>AirlockAllDoorSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0uq8ipb" label="AirlockRegulationSuccess" name="AirlockRegulationSuccess" typeRef="boolean" biodi:width="157" />
+      <rule id="DecisionRule_0wd39l6">
+        <inputEntry id="UnaryTests_04e6dtp">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00xbcrw">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0elurlw">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1dg6vgu">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0x3b2d5">
+        <inputEntry id="UnaryTests_1h39ekp">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0w0bo2w">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0v8s3bh">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1exqycz">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_042p35k">
+        <inputEntry id="UnaryTests_1kvalbu">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1bmbs6d">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0v7ri8k">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_15maa0e">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1hb5ett">
+        <inputEntry id="UnaryTests_1963snf">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_067ae6o">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1w80fj3">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0lsa1gn">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1davskh">
+        <inputEntry id="UnaryTests_0f2wftx">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0458p1h">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1t5fjki">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0g47o2u">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ef2jgf">
+        <inputEntry id="UnaryTests_1ywq84m">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1q5hdgn">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fmtxlg">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0vyf2d3">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0g6soub">
+        <inputEntry id="UnaryTests_0llbs2j">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wf9pfa">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1uxkx2l">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_142izxw">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0dd2lhh">
+        <inputEntry id="UnaryTests_04ltdj0">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00ckacy">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vbqhxf">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ulpecj">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_1m37wvz" dmnElementRef="AreaOfAirlock">
+        <dc:Bounds height="45" width="125" x="187" y="387" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1nif7us" dmnElementRef="Decision_0oq82z5">
+        <dc:Bounds height="80" width="180" x="160" y="230" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1x9x7wt" dmnElementRef="InformationRequirement_1s5s089">
+        <di:waypoint x="250" y="387" />
+        <di:waypoint x="250" y="330" />
+        <di:waypoint x="250" y="310" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1l31h8s" dmnElementRef="Decision_1p75xtx">
+        <dc:Bounds height="80" width="180" x="160" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1hpgxhb" dmnElementRef="InformationRequirement_12u3nhx">
+        <di:waypoint x="250" y="230" />
+        <di:waypoint x="250" y="180" />
+        <di:waypoint x="250" y="160" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

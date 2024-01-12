@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_1ekeij5" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_10e74p8" name="Verify door type">
+    <informationRequirement id="InformationRequirement_14tz547">
+      <requiredInput href="#TypeOfBuilding" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1fn7fyr">
+      <requiredInput href="#RoomType" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0kjimnt">
+      <requiredInput href="#DoorType" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0qd8jx1">
+      <input id="InputClause_1cmuge6" label="TypeOfBuilding" biodi:width="231">
+        <inputExpression id="LiteralExpression_0i70w9n" typeRef="string">
+          <text>TypeOfBuilding</text>
+        </inputExpression>
+      </input>
+      <input id="Input_1" label="RoomType" biodi:width="490">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>RoomType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_196nhbz" label="DoorType" biodi:width="173">
+        <inputExpression id="LiteralExpression_03djfqg" typeRef="string">
+          <text>DoorType</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="DoorTypeSuccess" name="DoorTypeSuccess" typeRef="boolean" biodi:width="150" />
+      <rule id="DecisionRule_0sul1tr">
+        <inputEntry id="UnaryTests_1iug7o9">
+          <text>"Other Building","BuildingWithOnly1ApartmentPerFloorLevel"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0p15in2">
+          <text>"Airlock","Interior staircase","Evacuation route on evacuation floor level","Waste disposal room","Large room","Collective kitchen","Non residential premises","Machine room","Elevator airlock room","Escalator staircase","Building layer"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kvoqk1">
+          <text>"Selfclosing door"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1b8dfx8">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0zc1zu2">
+        <inputEntry id="UnaryTests_0t8jcgv">
+          <text>"Other Building"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fgnl72">
+          <text>"Archive room"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1bdkgcm">
+          <text>"Selfclosing door"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1esjaew">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1g5h057">
+        <inputEntry id="UnaryTests_0f2pugi">
+          <text>"Other Building","BuildingWithOnly1ApartmentPerFloorLevel"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1062qs1">
+          <text>"Airlock","Archive room","Interior staircase","Evacuation route on evacuation floor level","Waste disposal room","Large room","Collective kitchen","Non residential premises","Machine room","Elevator airlock room","Escalator staircase","Building layer"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0eziti7">
+          <text>"Standard door"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0v9l03v">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_11fe4bo">
+        <inputEntry id="UnaryTests_0b8l3fj">
+          <text>"Other Building"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1agerzk">
+          <text>"Archive room","Airlock","Large room","Collective kitchen","Elevator airlock room"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01tehmu">
+          <text>"Selfclosing door during fire"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_13kf60f">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0gf20q4">
+        <inputEntry id="UnaryTests_1660ish">
+          <text>"BuildingWithOnly1ApartmentPerFloorLevel"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lpx5l1">
+          <text>"Apartment","Large room","Collective kitchen","Elevator airlock room"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13z5ghg">
+          <text>"Selfclosing door during fire"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0x0lbnt">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1qd2yak">
+        <inputEntry id="UnaryTests_1al7i52">
+          <text>"Other Building","BuildingWithOnly1ApartmentPerFloorLevel"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0dp7vx0">
+          <text>"Evacuation route on evacuation floor level","Waste disposal room","Non residential premises","Machine room","Escalator staircase","Building layer"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02cqvoq">
+          <text>"Selfclosing door during fire"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1pjygfw">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_04acqqs">
+        <inputEntry id="UnaryTests_0kdpuew">
+          <text>"BuildingWithOnly1ApartmentPerFloorLevel"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1y78g8w">
+          <text>"Apartment"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ut6uh9">
+          <text>"Selfclosing door","Standard door"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1eif1rq">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="TypeOfBuilding" name="TypeOfBuilding" />
+  <inputData id="RoomType" name="RoomType" />
+  <inputData id="DoorType" name="DoorType" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_10e74p8">
+        <dc:Bounds height="80" width="180" x="280" y="50" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0rub5ml" dmnElementRef="TypeOfBuilding">
+        <dc:Bounds height="45" width="125" x="157" y="218" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0k5b181" dmnElementRef="InformationRequirement_14tz547">
+        <di:waypoint x="220" y="218" />
+        <di:waypoint x="325" y="150" />
+        <di:waypoint x="325" y="130" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_09tggoz" dmnElementRef="RoomType">
+        <dc:Bounds height="45" width="125" x="308" y="218" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0pvoftw" dmnElementRef="InformationRequirement_1fn7fyr">
+        <di:waypoint x="371" y="218" />
+        <di:waypoint x="370" y="150" />
+        <di:waypoint x="370" y="130" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_13xp7xp" dmnElementRef="DoorType">
+        <dc:Bounds height="45" width="125" x="467" y="218" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1f3i16q" dmnElementRef="InformationRequirement_0kjimnt">
+        <di:waypoint x="530" y="218" />
+        <di:waypoint x="415" y="150" />
+        <di:waypoint x="415" y="130" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

@@ -1,0 +1,670 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_1bkugwz" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.18.0">
+  <decision id="Decision_1oefdnw" name="BuildingAccessibility">
+    <informationRequirement id="InformationRequirement_0hdgd9e">
+      <requiredInput href="#RoadType" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1lhe896">
+      <requiredInput href="#RoadAllowsParkingFacilitiesToMotorVehicles" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_116efvm">
+      <requiredInput href="#RoadAllowsMotorVehicleAccess" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1nomcea">
+      <requiredDecision href="#Decision_010b7ya" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1vd8lfb">
+      <requiredDecision href="#Decision_1pzhjmn" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1if9egw">
+      <input id="Input_1" label="RoadType">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>RoadType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1sp2awn" label="RoadAllowsMotorVehicleAccess">
+        <inputExpression id="LiteralExpression_01uy51o" typeRef="boolean">
+          <text>RoadAllowsMotorVehicleAccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1bsxogy" label="RoadAllowsParkingFacilitiesToMotorVehicles">
+        <inputExpression id="LiteralExpression_174u8xl" typeRef="boolean">
+          <text>RoadAllowsParkingFacilitiesToMotorVehicles</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0sxzp5l" label="AccessRoadRegulationSuccess">
+        <inputExpression id="LiteralExpression_1rvp512" typeRef="boolean">
+          <text>AccessRoadRegulationSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0aua8sr" label="BuildingOnAccesRoadRegulationSuccess">
+        <inputExpression id="LiteralExpression_0m2bb1q" typeRef="boolean">
+          <text>BuildingOnAccesRoadRegulationSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="BuildingAccessible" name="BuildingAccessible" typeRef="string" />
+      <rule id="DecisionRule_090xbtl">
+        <inputEntry id="UnaryTests_1pbphb6">
+          <text>"Drivable roadway of the public road"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13qyazm">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04rmetq">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11te8hb">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0arxyts">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0yhbkhd">
+          <text>"Building is continuously accessible to motor vehicles"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ge0fjt">
+        <inputEntry id="UnaryTests_1l1fyob">
+          <text>"Drivable roadway of the public road"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ej5zk4">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hzen2r">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01utbqi">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jv4g39">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0g4cgui">
+          <text>"Building is not continuously accessible to motor vehicles"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0jt8a67">
+        <inputEntry id="UnaryTests_0u3qixa">
+          <text>"Drivable roadway of the public road"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0onznkj">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1garmpc">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wm57z5">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cqqblh">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ntbf5t">
+          <text>"Building is not continuously accessible to motor vehicles"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_13o677v">
+        <inputEntry id="UnaryTests_0h2f7zz">
+          <text>"Drivable roadway of the public road"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gv491i">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04wln3f">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_113jvpg">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0livbv9">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1077bmg">
+          <text>"Building is not continuously accessible to motor vehicles"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1j2y7he">
+        <inputEntry id="UnaryTests_0762rso">
+          <text>"Acces road from the drivable roadway of the public road"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07xuv59">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0at6pu3">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0dzkg0f">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qp4k0z">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1jfrldv">
+          <text>"Building is continuously accessible to motor vehicles"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1r2euez">
+        <inputEntry id="UnaryTests_06tal6l">
+          <text>"Acces road from the drivable roadway of the public road"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05p4mig">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16mj0xn">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0z1pvsg">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lnujf1">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_03nnvsa">
+          <text>"Building is not continuously accessible to motor vehicles"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_03goi58">
+        <inputEntry id="UnaryTests_1rja9jm">
+          <text>"Acces road from the drivable roadway of the public road"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02s84dc">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1b0d1dp">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ukljd3">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ibnw2e">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1nhuxtz">
+          <text>"Building is not continuously accessible to motor vehicles"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1sexq72">
+        <inputEntry id="UnaryTests_1jcvfrp">
+          <text>"Acces road from the drivable roadway of the public road"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1p1am9a">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02oelxe">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0stexda">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0y7pj1n">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_17vi3sz">
+          <text>"Building is not continuously accessible to motor vehicles"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_00oqu1f">
+        <inputEntry id="UnaryTests_02nofw9">
+          <text>"Acces road from the drivable roadway of the public road"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0byo1bw">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05oitao">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0i3b8yu">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1j21thh">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0o1g4ji">
+          <text>"Building is not continuously accessible to motor vehicles"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ac852x">
+        <inputEntry id="UnaryTests_0nm3k56">
+          <text>"Acces road from the drivable roadway of the public road"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xw23yl">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sj3mf2">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vn6nf8">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dzbw0q">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1iu3a98">
+          <text>"Building is not continuously accessible to motor vehicles"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0b1kjuj">
+        <inputEntry id="UnaryTests_1ccicot">
+          <text>"Acces road from the drivable roadway of the public road"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1e22fv8">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1egby1w">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00zaxlv">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tqylca">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0gee0ac">
+          <text>"Building is not continuously accessible to motor vehicles"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1nb95k3">
+        <inputEntry id="UnaryTests_0tf65bx">
+          <text>"Acces road from the drivable roadway of the public road"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11qm7my">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jwqa0t">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00ihf5a">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1j8mt66">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_177ocff">
+          <text>"Building is not continuously accessible to motor vehicles"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0zx019n">
+        <inputEntry id="UnaryTests_15ki8ot">
+          <text>"Acces road from the drivable roadway of the public road"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_144xhs1">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hb169q">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pzyje3">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0u7m42p">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0yepx35">
+          <text>"Building is not continuously accessible to motor vehicles"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_010b7ya" name="AccesRoadRegulation">
+    <informationRequirement id="InformationRequirement_1n5s7uk">
+      <requiredDecision href="#Decision_0o838za" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_141ak0v">
+      <requiredInput href="#WidthClearance" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1hifk9e">
+      <requiredInput href="#TurnCircleInside" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0mnj9hd">
+      <requiredInput href="#TurnCircleOutside" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0xc9j4x">
+      <requiredInput href="#HeightClearance" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1ao3qfr">
+      <requiredInput href="#Slope" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_13lrf1v">
+      <requiredInput href="#TonnageCapacity" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_09rpcec">
+      <input id="InputClause_0msmuh8" label="WidthClearance" biodi:width="150">
+        <inputExpression id="LiteralExpression_1i2vpgp" typeRef="double">
+          <text>WidthClearance</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0nkgp6v" label="DeadEnds" biodi:width="150">
+        <inputExpression id="LiteralExpression_1p8d9be" typeRef="boolean">
+          <text>DeadEnds</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1vd7d0c" label="TurnCircleInside" biodi:width="150">
+        <inputExpression id="LiteralExpression_109uxhr" typeRef="double">
+          <text>TurnCircleInside</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0pg6y9x" label="TurnCircleOutside" biodi:width="150">
+        <inputExpression id="LiteralExpression_0wdg50z" typeRef="double">
+          <text>TurnCircleOutside</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1dvyqce" label="HeightClearance" biodi:width="150">
+        <inputExpression id="LiteralExpression_1sjktoj" typeRef="double">
+          <text>HeightClearance</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1kts7vf" label="Slope" biodi:width="155">
+        <inputExpression id="LiteralExpression_1xddtd7" typeRef="double">
+          <text>Slope</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1ij6uxf" label="TonnageCapacity" biodi:width="158">
+        <inputExpression id="LiteralExpression_1lujqo5" typeRef="double">
+          <text>TonnageCapacity</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0342kpg" label="AccessRoadRegulationSuccess" name="AccessRoadRegulationSuccess" typeRef="boolean" biodi:width="193" />
+      <rule id="DecisionRule_15zay4s">
+        <inputEntry id="UnaryTests_1sod4qa">
+          <text>&gt;= 4</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ko2zib">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ipue6z">
+          <text>&gt;= 11</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1n9e5hp">
+          <text>&gt;= 15</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lsek8p">
+          <text>&gt;= 4</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0t8got3">
+          <text>&lt;= 6</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0r72fnd">
+          <text>&gt;= 13</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0klwmup">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0aei7pd">
+        <inputEntry id="UnaryTests_0jfbszr">
+          <text>&gt;= 8</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1p5y3qn">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1f0472c">
+          <text>&gt;= 11</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vyqia1">
+          <text>&gt;= 15</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0414uad">
+          <text>&gt;= 4</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rucx9v">
+          <text>&lt;= 6</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wmfdvg">
+          <text>&gt;= 13</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_18dzsg3">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0muin66">
+        <inputEntry id="UnaryTests_0fvey65">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ik3a0m">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wkxsjj">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0uqts5n">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1uepioa">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_115qgnt">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_137g63m">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1tpww5y">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_0o838za" name="DeadEndSuccess">
+    <informationRequirement id="InformationRequirement_1qzsohm">
+      <requiredInput href="#DoesAccessRoadDeadEnd" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0ho4pn5">
+      <input id="InputClause_0eo2qir" label="DoesAccessRoadDeadEnd">
+        <inputExpression id="LiteralExpression_1bb1n76" typeRef="string">
+          <text>DoesAccessRoadDeadEnd</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0pr1lpn" label="DeadEnds" name="DeadEnds" typeRef="boolean" />
+      <rule id="DecisionRule_1ywkcnj">
+        <inputEntry id="UnaryTests_104eqk4">
+          <text>"No dead end"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_08ardz8">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_106wtud">
+        <inputEntry id="UnaryTests_11tu3y3">
+          <text>"Dead end"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ot2vhp">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="DoesAccessRoadDeadEnd" name="DoesAccessRoadDeadEnd" />
+  <inputData id="WidthClearance" name="WidthClearance" />
+  <inputData id="TurnCircleInside" name="TurnCircleInside" />
+  <inputData id="TurnCircleOutside" name="TurnCircleOutside" />
+  <inputData id="HeightClearance" name="HeightClearance" />
+  <inputData id="Slope" name="Slope" />
+  <inputData id="TonnageCapacity" name="TonnageCapacity" />
+  <inputData id="RoadType" name="RoadType" />
+  <inputData id="RoadAllowsMotorVehicleAccess" name="RoadAllowsMotorVehicleAccess" />
+  <inputData id="RoadAllowsParkingFacilitiesToMotorVehicles" name="RoadAllowsParkingFacilitiesToMotorVehicles" />
+  <decision id="Decision_1pzhjmn" name="BuildingOnAccesRoadAccessibilityRegulation">
+    <informationRequirement id="InformationRequirement_1m5y5s8">
+      <requiredInput href="#DistanceEdgeOfTheRoadToPlaneOfFacade" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1h0r869">
+      <requiredInput href="#BuildingCanSupport3MotorVehiclesOf15t" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_01107li">
+      <input id="InputClause_17yl329" label="DistanceEdgeOfTheRoadToPlaneOfFacade" biodi:width="207">
+        <inputExpression id="LiteralExpression_0zhwkto" typeRef="double">
+          <text>DistanceEdgeOfTheRoadToPlaneOfFacade</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_01f4lqe" label="BuildingCanSupport3MotorVehiclesOf15t">
+        <inputExpression id="LiteralExpression_1gm3mai" typeRef="boolean">
+          <text>BuildingCanSupport3MotorVehiclesOf15t</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1sddh8w" label="BuildingOnAccessRoadRegulationSuccess" name="BuildingOnAccessRoadRegulationSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_0rpj7y0">
+        <description>NBN B 03-101</description>
+        <inputEntry id="UnaryTests_18arfxo">
+          <text>[0..4[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12ycjvz">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0zap6ni">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1dgvdw7">
+        <inputEntry id="UnaryTests_1bynlwf">
+          <text>[4..10]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0faleco">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0yzo1k6">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1axqk7y">
+        <inputEntry id="UnaryTests_1fjk4ik">
+          <text>&gt; 10</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tn8kcn">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_06qo9n2">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="DistanceEdgeOfTheRoadToPlaneOfFacade" name="DistanceEdgeOfTheRoadToPlaneOfFacade" />
+  <inputData id="BuildingCanSupport3MotorVehiclesOf15t" name="BuildingCanSupport3MotorVehiclesOf15t" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1oefdnw">
+        <dc:Bounds height="80" width="180" x="490" y="310" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0f8465e" dmnElementRef="Decision_010b7ya">
+        <dc:Bounds height="80" width="180" x="490" y="530" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0kjm2jw" dmnElementRef="InformationRequirement_1n5s7uk">
+        <di:waypoint x="580" y="750" />
+        <di:waypoint x="580" y="630" />
+        <di:waypoint x="580" y="610" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0t36dm1" dmnElementRef="Decision_0o838za">
+        <dc:Bounds height="80" width="180" x="490" y="750" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1ifoht0" dmnElementRef="DoesAccessRoadDeadEnd">
+        <dc:Bounds height="45" width="125" x="857" y="767" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_16q9kc3" dmnElementRef="InformationRequirement_1qzsohm">
+        <di:waypoint x="857" y="790" />
+        <di:waypoint x="690" y="790" />
+        <di:waypoint x="670" y="790" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_12joijy" dmnElementRef="WidthClearance">
+        <dc:Bounds height="45" width="125" x="837" y="607" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0os04bb" dmnElementRef="InformationRequirement_141ak0v">
+        <di:waypoint x="837" y="630" />
+        <di:waypoint x="690" y="590" />
+        <di:waypoint x="670" y="590" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1a96m9e" dmnElementRef="TurnCircleInside">
+        <dc:Bounds height="45" width="125" x="157" y="607" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1gbs227" dmnElementRef="InformationRequirement_1hifk9e">
+        <di:waypoint x="282" y="630" />
+        <di:waypoint x="470" y="590" />
+        <di:waypoint x="490" y="590" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1puu4yl" dmnElementRef="TurnCircleOutside">
+        <dc:Bounds height="45" width="125" x="837" y="547" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1cs2hvy" dmnElementRef="InformationRequirement_0mnj9hd">
+        <di:waypoint x="837" y="570" />
+        <di:waypoint x="690" y="570" />
+        <di:waypoint x="670" y="570" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_07r9j22" dmnElementRef="HeightClearance">
+        <dc:Bounds height="45" width="125" x="157" y="547" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0r7kvaa" dmnElementRef="InformationRequirement_0xc9j4x">
+        <di:waypoint x="282" y="570" />
+        <di:waypoint x="470" y="570" />
+        <di:waypoint x="490" y="570" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0p8hnki" dmnElementRef="Slope">
+        <dc:Bounds height="45" width="125" x="837" y="487" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_00591sj" dmnElementRef="InformationRequirement_1ao3qfr">
+        <di:waypoint x="837" y="510" />
+        <di:waypoint x="690" y="550" />
+        <di:waypoint x="670" y="550" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1qzyz4g" dmnElementRef="TonnageCapacity">
+        <dc:Bounds height="45" width="125" x="157" y="487" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_173au7o" dmnElementRef="InformationRequirement_13lrf1v">
+        <di:waypoint x="282" y="510" />
+        <di:waypoint x="470" y="550" />
+        <di:waypoint x="490" y="550" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_17udalq" dmnElementRef="RoadType">
+        <dc:Bounds height="45" width="125" x="837" y="327" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_11ovf0g" dmnElementRef="InformationRequirement_0hdgd9e">
+        <di:waypoint x="837" y="350" />
+        <di:waypoint x="690" y="350" />
+        <di:waypoint x="670" y="350" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0j1pvib" dmnElementRef="RoadAllowsMotorVehicleAccess">
+        <dc:Bounds height="45" width="125" x="208" y="278" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_18xqjpe" dmnElementRef="RoadAllowsParkingFacilitiesToMotorVehicles">
+        <dc:Bounds height="45" width="125" x="208" y="358" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1t42zdu" dmnElementRef="InformationRequirement_1lhe896">
+        <di:waypoint x="333" y="381" />
+        <di:waypoint x="470" y="363" />
+        <di:waypoint x="490" y="363" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1y6c0pp" dmnElementRef="InformationRequirement_116efvm">
+        <di:waypoint x="333" y="301" />
+        <di:waypoint x="470" y="337" />
+        <di:waypoint x="490" y="337" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0ezyi0x" dmnElementRef="InformationRequirement_1nomcea">
+        <di:waypoint x="580" y="530" />
+        <di:waypoint x="580" y="410" />
+        <di:waypoint x="580" y="390" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0lybahp" dmnElementRef="Decision_1pzhjmn">
+        <dc:Bounds height="80" width="180" x="490" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1se2y8m" dmnElementRef="InformationRequirement_1vd8lfb">
+        <di:waypoint x="580" y="160" />
+        <di:waypoint x="580" y="290" />
+        <di:waypoint x="580" y="310" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0h5g5m8" dmnElementRef="DistanceEdgeOfTheRoadToPlaneOfFacade">
+        <dc:Bounds height="45" width="125" x="209" y="98" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0kjfgs0" dmnElementRef="InformationRequirement_1m5y5s8">
+        <di:waypoint x="334" y="121" />
+        <di:waypoint x="470" y="120" />
+        <di:waypoint x="490" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_071h48a" dmnElementRef="BuildingCanSupport3MotorVehiclesOf15t">
+        <dc:Bounds height="45" width="125" x="838" y="98" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1eyhi3j" dmnElementRef="InformationRequirement_1h0r869">
+        <di:waypoint x="838" y="121" />
+        <di:waypoint x="690" y="120" />
+        <di:waypoint x="670" y="120" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
