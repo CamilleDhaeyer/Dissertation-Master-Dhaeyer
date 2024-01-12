@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_1sbj3ip" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_1kocqda" name="Verify if recirculation is possible in same room">
+    <informationRequirement id="InformationRequirement_0ea7nok">
+      <requiredInput href="#RecyclingDuctHasSmokeDamper" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0gz4k71">
+      <requiredInput href="#SmokeDamperRegulationSuccess" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0y7isk8">
+      <requiredInput href="#AirRecycleVolume" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0cg2u6z">
+      <input id="InputClause_1ns2fnh" label="RecyclingDuctHasSmokeDamper" biodi:width="207">
+        <inputExpression id="LiteralExpression_1uc8hsc" typeRef="boolean">
+          <text>RecyclingDuctHasSmokeDamper</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0c4bema" label="SmokeDamperRegulationSuccess" biodi:width="167">
+        <inputExpression id="LiteralExpression_11dryhs" typeRef="boolean">
+          <text>SmokeDamperRegulationSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_159o0x9" label="AirRecycleVolume">
+        <inputExpression id="LiteralExpression_06fr30e" typeRef="double">
+          <text>AirRecycleVolume</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1u8ung1" label="SameRoomAirRecirculationSuccess" name="SameRoomAirRecirculationSuccess" typeRef="boolean" biodi:width="222" />
+      <rule id="DecisionRule_19bb9et">
+        <description>DamperComplianceSucces sectie 6.7.5</description>
+        <inputEntry id="UnaryTests_1szlhvc">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0o2d2oh">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1opmjgs">
+          <text>&lt;= 5000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ndw0rl">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1doiytw">
+        <description></description>
+        <inputEntry id="UnaryTests_0v6n2mg">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hqn6ie">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00cmlmn">
+          <text>&gt; 5000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_171eyat">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0oucy9k">
+        <inputEntry id="UnaryTests_0b34jw3">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1mcdpww">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1b31kl3">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1x09oi9">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0qtd4c3">
+        <inputEntry id="UnaryTests_0rchvgw">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0z9j2rf">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00vjeqg">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0pezflo">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1toalf1">
+        <inputEntry id="UnaryTests_1betkca">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fdx85x">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_195l2gt">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ar79pd">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="RecyclingDuctHasSmokeDamper" name="RecyclingDuctHasSmokeDamper" />
+  <inputData id="SmokeDamperRegulationSuccess" name="SmokeDamperRegulationSuccess" />
+  <inputData id="AirRecycleVolume" name="AirRecycleVolume" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_0r7hh62" dmnElementRef="Decision_1kocqda">
+        <dc:Bounds height="80" width="180" x="400" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_12zl964" dmnElementRef="RecyclingDuctHasSmokeDamper">
+        <dc:Bounds height="45" width="125" x="177" y="97" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_07nm5h3" dmnElementRef="InformationRequirement_0ea7nok">
+        <di:waypoint x="302" y="120" />
+        <di:waypoint x="380" y="120" />
+        <di:waypoint x="400" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_018n51j" dmnElementRef="SmokeDamperRegulationSuccess">
+        <dc:Bounds height="45" width="125" x="427" y="247" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_150xd3d" dmnElementRef="InformationRequirement_0gz4k71">
+        <di:waypoint x="490" y="247" />
+        <di:waypoint x="490" y="180" />
+        <di:waypoint x="490" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0cidube" dmnElementRef="AirRecycleVolume">
+        <dc:Bounds height="45" width="125" x="658" y="98" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1jpn25h" dmnElementRef="InformationRequirement_0y7isk8">
+        <di:waypoint x="658" y="121" />
+        <di:waypoint x="600" y="120" />
+        <di:waypoint x="580" y="120" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

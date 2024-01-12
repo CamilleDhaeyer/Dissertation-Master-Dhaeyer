@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_06yt9ah" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_0lnfgsw" name="Verify if compliance is need for wall passage of air ducts">
+    <informationRequirement id="InformationRequirement_0ephuvg">
+      <requiredInput href="#FireResistanceWall" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0m2ocus">
+      <requiredInput href="#DuctMaterialClass" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_17hg4e6">
+      <requiredInput href="#DuctLength" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_035qa9f">
+      <requiredInput href="#IsDuctConnectedToAirVentInEvacuationRoute" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0y2m7yl">
+      <requiredInput href="#OccupancyTime" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_120e0fn" hitPolicy="FIRST">
+      <input id="Input_1" label="FireResistanceWall">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>FireResistanceWall</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_06xb03i" label="DuctMaterialClass">
+        <inputExpression id="LiteralExpression_1aewci5" typeRef="string">
+          <text>DuctMaterialClass</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1hjoepp" label="DuctLength">
+        <inputExpression id="LiteralExpression_0gigb3e" typeRef="double">
+          <text>DuctLength</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0fwypq6" label="IsDuctConnectedToAirVentInEvacuationRoute">
+        <inputExpression id="LiteralExpression_1wb6bdd" typeRef="boolean">
+          <text>IsDuctConnectedToAirVentInEvacuationRoute</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1tdp7ea" label="OccupancyTime">
+        <inputExpression id="LiteralExpression_0i06ije" typeRef="string">
+          <text>OccupancyTime</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="DuctRegulationExceptionSuccess" name="DuctRegulationExceptionSuccess" typeRef="boolean" />
+      <output id="OutputClause_0yd05mm" label="DuctThroughWallMessage" name="DuctThroughWallMessage" typeRef="string" />
+      <rule id="DecisionRule_0b4tho4">
+        <description>OccupancyTime of the corresponding compartment of the wall</description>
+        <inputEntry id="UnaryTests_0lo8x1c">
+          <text>"EI 30"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wvdfz0">
+          <text>"Class A1 or higher"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bloh2o">
+          <text>&gt; 1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0673fp6">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kankjw">
+          <text>"Day occupancy only"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0n96zab">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1e5id3c">
+          <text>"No further specification needed"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1pa7g1v">
+        <inputEntry id="UnaryTests_17qs49j">
+          <text>"EI 30"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gsst7k">
+          <text>"Lower than class A1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0npzs0s">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1f6s4fk">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gkpmob">
+          <text>"Day occupancy only","Night occupancy only","Day and night occupancy"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0z4d4bu">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1rdaux8">
+          <text>"Verify section 3.1 for wall passage of air ducts compliance"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1cmdjzm">
+        <inputEntry id="UnaryTests_1q803h6">
+          <text>"EI 30"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gc4zsk">
+          <text>"Class A1 or higher","Lower than class A1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ktqa1r">
+          <text>&lt;= 1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cec4la">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dfiw7s">
+          <text>"Day occupancy only","Night occupancy only","Day and night occupancy"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0wro1bk">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1cw0j6o">
+          <text>"Verify section 3.1 for wall passage of air ducts compliance"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1i0zeow">
+        <description></description>
+        <inputEntry id="UnaryTests_0r9jun6">
+          <text>"EI 30"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1n6r4i8">
+          <text>"Class A1 or higher","Lower than class A1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pk04v9">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01s3tih">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0y8o2hd">
+          <text>"Day occupancy only","Night occupancy only","Day and night occupancy"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0z2n9ok">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0n1wx0t">
+          <text>"Verify section 3.1 for wall passage of air ducts compliance"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_171mp9i">
+        <inputEntry id="UnaryTests_01rl8zr">
+          <text>"EI 30"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1sp64s8">
+          <text>"Class A1 or higher","Lower than class A1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qfo8c3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1b4nb4f">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05rk5cf">
+          <text>"Night occupancy only","Day and night occupancy"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0e8r2ei">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1bw7nct">
+          <text>"Verify section 3.1 for wall passage of air ducts compliance"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1b8lngt">
+        <inputEntry id="UnaryTests_1maykuu">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_001l37k">
+          <text>"Class A1 or higher","Lower than class A1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gbaex0">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sya9h8">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16jvi8e">
+          <text>"Day occupancy only","Night occupancy only","Day and night occupancy"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0zz62ye">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_11boxei">
+          <text>"Verify section 3.1 for wall passage of air ducts compliance"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="FireResistanceWall" name="FireResistanceWall" />
+  <inputData id="DuctMaterialClass" name="DuctMaterialClass" />
+  <inputData id="DuctLength" name="DuctLength" />
+  <inputData id="IsDuctConnectedToAirVentInEvacuationRoute" name="IsDuctConnectedToAirVentInEvacuationRoute" />
+  <inputData id="OccupancyTime" name="OccupancyTime" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_0lnfgsw">
+        <dc:Bounds height="80" width="180" x="390" y="210" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1cbvthp" dmnElementRef="FireResistanceWall">
+        <dc:Bounds height="45" width="125" x="158" y="228" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1rv4zpk" dmnElementRef="InformationRequirement_0ephuvg">
+        <di:waypoint x="283" y="251" />
+        <di:waypoint x="370" y="250" />
+        <di:waypoint x="390" y="250" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1dfy2lr" dmnElementRef="DuctMaterialClass">
+        <dc:Bounds height="45" width="125" x="418" y="358" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0tsp6hp" dmnElementRef="InformationRequirement_0m2ocus">
+        <di:waypoint x="481" y="358" />
+        <di:waypoint x="480" y="310" />
+        <di:waypoint x="480" y="290" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1cazs9w" dmnElementRef="DuctLength">
+        <dc:Bounds height="45" width="125" x="667" y="227" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_09gaqaa" dmnElementRef="InformationRequirement_17hg4e6">
+        <di:waypoint x="667" y="250" />
+        <di:waypoint x="590" y="250" />
+        <di:waypoint x="570" y="250" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0p4ignp" dmnElementRef="IsDuctConnectedToAirVentInEvacuationRoute">
+        <dc:Bounds height="45" width="125" x="318" y="78" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0m1g1vx" dmnElementRef="InformationRequirement_035qa9f">
+        <di:waypoint x="381" y="123" />
+        <di:waypoint x="450" y="190" />
+        <di:waypoint x="450" y="210" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0lhx5xt" dmnElementRef="OccupancyTime">
+        <dc:Bounds height="45" width="125" x="488" y="78" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1fub1p6" dmnElementRef="InformationRequirement_0y2m7yl">
+        <di:waypoint x="551" y="123" />
+        <di:waypoint x="510" y="190" />
+        <di:waypoint x="510" y="210" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

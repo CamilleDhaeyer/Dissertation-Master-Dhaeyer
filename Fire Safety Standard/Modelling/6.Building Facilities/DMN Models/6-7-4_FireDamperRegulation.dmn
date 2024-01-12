@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_0xqmlcv" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_1l56ed9" name="Verify fire resistant damper type">
+    <informationRequirement id="InformationRequirement_1q0i6fq">
+      <requiredInput href="#DamperClosingCondition" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_18yznt1">
+      <requiredInput href="#DamperCanBeRemotelyClosed" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_13901lk">
+      <input id="Input_1" label="DamperClosingCondition" biodi:width="210">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>DamperClosingCondition</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1y376hv" label="DamperCanBeRemotelyClosed" biodi:width="254">
+        <inputExpression id="LiteralExpression_1uiof3o" typeRef="boolean">
+          <text>DamperCanBeRemotelyClosed</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="FireDamperTypeSuccess" name="FireDamperTypeSuccess" typeRef="string" biodi:width="211" />
+      <rule id="DecisionRule_1gfu7db">
+        <inputEntry id="UnaryTests_1bwapin">
+          <text>"Fire resistant damper closes automatically after temperature threshold"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gfz8n1">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0vtijx7">
+          <text>"Type A"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0czyh6j">
+        <inputEntry id="UnaryTests_1xnmd7q">
+          <text>"Fire resistant damper closes automatically after temperature threshold"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wn4frk">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0wuujjr">
+          <text>"Type B"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_1bnssy2" name="Verify damper operation regulation">
+    <informationRequirement id="InformationRequirement_1fl9bpb">
+      <requiredDecision href="#Decision_1l56ed9" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_00d2mke">
+      <requiredInput href="#FireDetectionInstallationMandatoryInBuilding" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0lz507i">
+      <requiredInput href="#WallType" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1xzobuy" hitPolicy="FIRST">
+      <input id="InputClause_1hc1avz" label="FireDetectionInstallationMandatoryInBuilding" biodi:width="200">
+        <inputExpression id="LiteralExpression_0bsmqdj" typeRef="boolean">
+          <text>FireDetectionInstallationMandatoryInBuilding</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1m6duxo" label="WallType">
+        <inputExpression id="LiteralExpression_1va5nyd" typeRef="string">
+          <text>WallType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1fog5wo" label="FireDamperTypeSuccess" biodi:width="209">
+        <inputExpression id="LiteralExpression_13e6hzn" typeRef="string">
+          <text>FireDamperTypeSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_09arxx9" label="DamperTypeSuccess" name="DamperTypeSuccess" typeRef="boolean" biodi:width="184" />
+      <rule id="DecisionRule_1pqaiy2">
+        <description>WallType of wall which has a fire resistant damper</description>
+        <inputEntry id="UnaryTests_0j5y7gi">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mjmrti">
+          <text>"Separating wall between 2 compartments","Wall of service duct","wall between compartment and the staircase"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18sqifj">
+          <text>"Type B"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1a4dt0k">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1cnyjz9">
+        <description></description>
+        <inputEntry id="UnaryTests_0zns10y">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rim95n">
+          <text>"Separating wall between 2 compartments","Wall of service duct","wall between compartment and the staircase"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00q1ezz">
+          <text>"Type A"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ifdti3">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_03t3p9c">
+        <description></description>
+        <inputEntry id="UnaryTests_1q60zan">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08qnh9r">
+          <text>"Separating wall between 2 compartments","Wall of service duct","wall between compartment and the staircase"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0z4jfyb">
+          <text>"Type B","Type A"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1n3zfut">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1nia7ch">
+        <inputEntry id="UnaryTests_1axo1rm">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mugrqv">
+          <text>"Other wall type"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1oxrrm6">
+          <text>"Type A","Type B"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1bcrwnj">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_1rhz1kf" name="Verify if damper and wall have the same fire resistance">
+    <informationRequirement id="InformationRequirement_0cuwx1u">
+      <requiredInput href="#FireResistanceWallDuplicate" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1ix6daq">
+      <requiredInput href="#DamperFireResistance" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0fqxxqf">
+      <input id="InputClause_0q2umss" label="FireResistanceWallDuplicate">
+        <inputExpression id="LiteralExpression_1aeyxhe" typeRef="string">
+          <text>FireResistanceWallDuplicate</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0jm5ws4" label="FireResistanceDamper">
+        <inputExpression id="LiteralExpression_05r3ln8" typeRef="string">
+          <text>FireResistanceDamper</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1vxzu4a" label="DamperFireResistanceSuccess" name="DamperFireResistanceSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_1e4bk9u">
+        <inputEntry id="UnaryTests_0yaf6il">
+          <text>"Wall is EI 30"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jczdrm">
+          <text>"EI 30"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1hdrq0k">
+          <text>True</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ianc60">
+        <inputEntry id="UnaryTests_1k6hb2l">
+          <text>"Wall is EI 60"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_070royx">
+          <text>"EI 60"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0bunb8n">
+          <text>True</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1glrd6u">
+        <inputEntry id="UnaryTests_14nuoh4">
+          <text>"Wall is EI 120"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1v184xl">
+          <text>"EI 120"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1fgoxgk">
+          <text>True</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_1hzxw7y" name="Verify all damper requirements">
+    <informationRequirement id="InformationRequirement_1buyz2u">
+      <requiredDecision href="#Decision_1bnssy2" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_106qgej">
+      <requiredDecision href="#Decision_1rhz1kf" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1159k1g">
+      <input id="InputClause_108idcf" label="DamperTypeSuccess">
+        <inputExpression id="LiteralExpression_0khll7k" typeRef="boolean">
+          <text>DamperTypeSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1mr4nsp" label="DamperFireResistanceSuccess">
+        <inputExpression id="LiteralExpression_1yf2s9s" typeRef="boolean">
+          <text>DamperFireResistanceSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0qww5k8" label="FireDamperRegulationSuccess" name="FireDamperRegulationSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_1rwv717">
+        <inputEntry id="UnaryTests_0daq98a">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17o05ep">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0o6ngmq">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0tx03ba">
+        <inputEntry id="UnaryTests_0qdlycg">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cp83nv">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0n0zaqx">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_12lkzve">
+        <inputEntry id="UnaryTests_0b7z2ti">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0c88rqq">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1k2emld">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_14gsg1d">
+        <inputEntry id="UnaryTests_04thz7f">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1is8z5s">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_18b77n3">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="DamperClosingCondition" name="DamperClosingCondition" />
+  <inputData id="DamperCanBeRemotelyClosed" name="DamperCanBeRemotelyClosed" />
+  <inputData id="FireDetectionInstallationMandatoryInBuilding" name="FireDetectionInstallationMandatoryInBuilding" />
+  <inputData id="WallType" name="WallType" />
+  <inputData id="FireResistanceWallDuplicate" name="FireResistanceWallDuplicate" />
+  <inputData id="DamperFireResistance" name="DamperFireResistance" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1l56ed9">
+        <dc:Bounds height="80" width="180" x="350" y="460" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0u3q1rj" dmnElementRef="Decision_1bnssy2">
+        <dc:Bounds height="80" width="180" x="350" y="270" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0fg62mt" dmnElementRef="InformationRequirement_1fl9bpb">
+        <di:waypoint x="440" y="460" />
+        <di:waypoint x="440" y="370" />
+        <di:waypoint x="440" y="350" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0smjmxg" dmnElementRef="Decision_1rhz1kf">
+        <dc:Bounds height="80" width="180" x="660" y="270" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1shbuvn" dmnElementRef="Decision_1hzxw7y">
+        <dc:Bounds height="80" width="180" x="510" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_15wjnqv" dmnElementRef="InformationRequirement_1buyz2u">
+        <di:waypoint x="440" y="270" />
+        <di:waypoint x="570" y="180" />
+        <di:waypoint x="570" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1qmsilo" dmnElementRef="InformationRequirement_106qgej">
+        <di:waypoint x="750" y="270" />
+        <di:waypoint x="630" y="180" />
+        <di:waypoint x="630" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1fruz5d" dmnElementRef="DamperClosingCondition">
+        <dc:Bounds height="45" width="125" x="158" y="478" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1wkn9gi" dmnElementRef="InformationRequirement_1q0i6fq">
+        <di:waypoint x="283" y="501" />
+        <di:waypoint x="330" y="500" />
+        <di:waypoint x="350" y="500" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0326qh1" dmnElementRef="DamperCanBeRemotelyClosed">
+        <dc:Bounds height="45" width="125" x="378" y="588" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0joknum" dmnElementRef="InformationRequirement_18yznt1">
+        <di:waypoint x="441" y="588" />
+        <di:waypoint x="440" y="560" />
+        <di:waypoint x="440" y="540" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0vftr6y" dmnElementRef="FireDetectionInstallationMandatoryInBuilding">
+        <dc:Bounds height="45" width="125" x="158" y="248" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0fvsqeo" dmnElementRef="InformationRequirement_00d2mke">
+        <di:waypoint x="283" y="271" />
+        <di:waypoint x="330" y="297" />
+        <di:waypoint x="350" y="297" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_18eeogx" dmnElementRef="WallType">
+        <dc:Bounds height="45" width="125" x="159" y="308" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0okzujb" dmnElementRef="InformationRequirement_0lz507i">
+        <di:waypoint x="284" y="331" />
+        <di:waypoint x="330" y="323" />
+        <di:waypoint x="350" y="323" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1r7o5no" dmnElementRef="FireResistanceWallDuplicate">
+        <dc:Bounds height="45" width="125" x="687" y="417" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_09lwg6h" dmnElementRef="InformationRequirement_0cuwx1u">
+        <di:waypoint x="750" y="417" />
+        <di:waypoint x="750" y="370" />
+        <di:waypoint x="750" y="350" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1rhbj5i" dmnElementRef="DamperFireResistance">
+        <dc:Bounds height="45" width="125" x="907" y="287" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1ew9or4" dmnElementRef="InformationRequirement_1ix6daq">
+        <di:waypoint x="907" y="310" />
+        <di:waypoint x="860" y="310" />
+        <di:waypoint x="840" y="310" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

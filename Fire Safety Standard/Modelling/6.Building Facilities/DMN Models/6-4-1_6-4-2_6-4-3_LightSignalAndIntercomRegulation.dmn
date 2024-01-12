@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0g54ovh" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_18lb8fe" name="Verify light signal and intercom regulation">
+    <informationRequirement id="InformationRequirement_1pf8s26">
+      <requiredInput href="#After31may2017" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0s14fk4">
+      <requiredInput href="#LightSignalPresentInElevator" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0t7js08">
+      <requiredInput href="#WidthLightSignal" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0vlhz8n">
+      <requiredInput href="#LengthLightSignal" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0qp29j5">
+      <requiredInput href="#LightSignalLocation" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1t2vvci">
+      <requiredInput href="#HeightLightSignalFromFloor" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0afimp8">
+      <requiredInput href="#NumberOfBuildingLayersConnectedByElevator" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1vi69j5">
+      <requiredInput href="#LimitedMobilityElevatorHasIntercomSystem" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0dduiq5" hitPolicy="FIRST">
+      <input id="InputClause_0wxviwg" label="After31may2017">
+        <inputExpression id="LiteralExpression_1tzol7z" typeRef="boolean">
+          <text>After31may2017</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_167psvd" label="LightSignalPresentInElevator">
+        <inputExpression id="LiteralExpression_1s9e6hj" typeRef="boolean">
+          <text>LightSignalPresentInElevator</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_09oxz8s" label="WidthLightSignal">
+        <inputExpression id="LiteralExpression_1yaxc3n" typeRef="double">
+          <text>WidthLightSignal</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0zm76s4" label="LengthLightSignal">
+        <inputExpression id="LiteralExpression_0pa9gbi" typeRef="double">
+          <text>LengthLightSignal</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1q270tc" label="LightSignalLocation">
+        <inputExpression id="LiteralExpression_0gciibp" typeRef="string">
+          <text>LightSignalLocation</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0jdy55u" label="HeightLightSignalFromFloor">
+        <inputExpression id="LiteralExpression_1aq4sat" typeRef="double">
+          <text>HeightLightSignalFromFloor</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1qlj1xs" label="NumberOfBuildingLayersConnectedByElevator">
+        <inputExpression id="LiteralExpression_090xplo" typeRef="integer">
+          <text>NumberOfBuildingLayersConnectedByElevator</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0vtfi9m" label="LimitedMobilityElevatorHasIntercomSystem">
+        <inputExpression id="LiteralExpression_13otbt6" typeRef="boolean">
+          <text>LimitedMobilityElevatorHasIntercomSystem</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1foi3h6" label="ElevatorLightSignalAndIntercomRegulationSuccess" name="ElevatorLightSignalAndIntercomRegulationSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_17y8wu3">
+        <inputEntry id="UnaryTests_1v10etp">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1witano">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16xywa0">
+          <text>&gt;= 0.06</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nqi24k">
+          <text>&gt;= 0.03</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14u6xwj">
+          <text>"Above shaft door"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_048ihe9">
+          <text>[1.8..2.5]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05lqtdb">
+          <text>&gt; 2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10yam8s">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0t3tga4">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1wm2d52">
+        <inputEntry id="UnaryTests_1ee9u83">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17688kj">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wmb9et">
+          <text>&gt;= 0.06</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mxgqyd">
+          <text>&gt;= 0.03</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1yxk961">
+          <text>"Above shaft door"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0e83u30">
+          <text>[1.8..2.5]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1n7wdyu">
+          <text>&lt;= 2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10sitib">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0d19n6f">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1y5ah2m">
+        <inputEntry id="UnaryTests_0vqnqcm">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1k5079l">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0oc29r9">
+          <text>&gt;= 0.06</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19l5p5u">
+          <text>&gt;= 0.03</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09gflyc">
+          <text>"Inside elevator cage"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0q2eyql">
+          <text>[1.6..1.8]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0o7aths">
+          <text>&gt; 2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_189gl5p">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1sc2swc">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1mveku8">
+        <inputEntry id="UnaryTests_1cxr65w">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08ady23">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cepy00">
+          <text>&gt;= 0.06</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1atllfw">
+          <text>&gt;= 0.03</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12w237m">
+          <text>"Inside elevator cage"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ou5ob5">
+          <text>[1.6..1.8]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1mu167b">
+          <text>&lt;= 2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ybjq73">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_02ahfvg">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_00s4fom">
+        <inputEntry id="UnaryTests_1eyxetw">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ckfvc9">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1uc26n1">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ydzekh">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1emfkhu">
+          <text>"Above shaft door","Inside elevator cage"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qjgisd">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0aejn70">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0419v4l">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0t1ang8">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1xnndwm">
+        <inputEntry id="UnaryTests_14e59x5">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1425f7i">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_164z6jn">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0iahg33">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cvcpr6">
+          <text>"Above shaft door","Inside elevator cage"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14p53pk">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ji9qwg">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0dd3qtl">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_04ngjzg">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_07i1ja0">
+        <inputEntry id="UnaryTests_1e0bicy">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zmynb1">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ao574r">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0aj1evo">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gghgoc">
+          <text>"Above shaft door","Inside elevator cage"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0c9frc1">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02f4rry">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_177qp3c">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_181i6rr">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="After31may2017" name="After31may2017" />
+  <inputData id="LightSignalPresentInElevator" name="LightSignalPresentInElevator" />
+  <inputData id="WidthLightSignal" name="WidthLightSignal" />
+  <inputData id="LengthLightSignal" name="LengthLightSignal" />
+  <inputData id="LightSignalLocation" name="LightSignalLocation" />
+  <inputData id="HeightLightSignalFromFloor" name="HeightLightSignalFromFloor" />
+  <inputData id="NumberOfBuildingLayersConnectedByElevator" name="NumberOfBuildingLayersConnectedByElevator" />
+  <inputData id="LimitedMobilityElevatorHasIntercomSystem" name="LimitedMobilityElevatorHasIntercomSystem" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_1ofazok" dmnElementRef="Decision_18lb8fe">
+        <dc:Bounds height="80" width="180" x="410" y="200" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0f8wlsd" dmnElementRef="After31may2017">
+        <dc:Bounds height="45" width="125" x="197" y="217" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0n2iyp1" dmnElementRef="InformationRequirement_1pf8s26">
+        <di:waypoint x="322" y="240" />
+        <di:waypoint x="390" y="240" />
+        <di:waypoint x="410" y="240" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0m9nxdi" dmnElementRef="LightSignalPresentInElevator">
+        <dc:Bounds height="45" width="125" x="438" y="358" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0wnfsqt" dmnElementRef="InformationRequirement_0s14fk4">
+        <di:waypoint x="501" y="358" />
+        <di:waypoint x="500" y="300" />
+        <di:waypoint x="500" y="280" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1mrpgs2" dmnElementRef="WidthLightSignal">
+        <dc:Bounds height="45" width="125" x="676" y="181" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1hmn72c" dmnElementRef="InformationRequirement_0t7js08">
+        <di:waypoint x="676" y="204" />
+        <di:waypoint x="610" y="227" />
+        <di:waypoint x="590" y="227" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_12cn5yk" dmnElementRef="LengthLightSignal">
+        <dc:Bounds height="45" width="125" x="677" y="238" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1chigpt" dmnElementRef="InformationRequirement_0vlhz8n">
+        <di:waypoint x="677" y="261" />
+        <di:waypoint x="610" y="253" />
+        <di:waypoint x="590" y="253" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0gmjyot" dmnElementRef="LightSignalLocation">
+        <dc:Bounds height="45" width="125" x="268" y="78" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1oct2k6" dmnElementRef="InformationRequirement_0qp29j5">
+        <di:waypoint x="331" y="123" />
+        <di:waypoint x="446" y="180" />
+        <di:waypoint x="446" y="200" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1rjzaii" dmnElementRef="HeightLightSignalFromFloor">
+        <dc:Bounds height="45" width="125" x="398" y="79" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0khhroy" dmnElementRef="InformationRequirement_1t2vvci">
+        <di:waypoint x="461" y="124" />
+        <di:waypoint x="482" y="180" />
+        <di:waypoint x="482" y="200" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1vjnz9i" dmnElementRef="NumberOfBuildingLayersConnectedByElevator">
+        <dc:Bounds height="45" width="125" x="528" y="79" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0r7u9ne" dmnElementRef="InformationRequirement_0afimp8">
+        <di:waypoint x="591" y="124" />
+        <di:waypoint x="518" y="180" />
+        <di:waypoint x="518" y="200" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0mkn5t1" dmnElementRef="LimitedMobilityElevatorHasIntercomSystem">
+        <dc:Bounds height="45" width="125" x="658" y="79" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_19xd428" dmnElementRef="InformationRequirement_1vi69j5">
+        <di:waypoint x="721" y="124" />
+        <di:waypoint x="554" y="180" />
+        <di:waypoint x="554" y="200" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

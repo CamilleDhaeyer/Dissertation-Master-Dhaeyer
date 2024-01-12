@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_1sbj3ip" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_0uoadgc" name="Verify if recirculation is possible to other room">
+    <informationRequirement id="InformationRequirement_1almz32">
+      <requiredInput href="#OtherRoomHasDirectExteriorExhaust" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1mhrrxb">
+      <requiredInput href="#ExhaustDuctHasSmokeDamper" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1xzj4um">
+      <requiredInput href="#ExhaustDuctHasSmokeDetectionInstallation" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0mbb6og">
+      <requiredInput href="#AirRecycleVolume" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_12rmboz" hitPolicy="FIRST">
+      <input id="InputClause_1wuiroz" label="OtherRoomHasDirectExteriorExhaust" biodi:width="181">
+        <inputExpression id="LiteralExpression_1w4kta1" typeRef="boolean">
+          <text>OtherRoomHasDirectExteriorExhaust</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0hvd1nk" label="ExhaustDuctHasSmokeDamper">
+        <inputExpression id="LiteralExpression_1ns5rdn" typeRef="boolean">
+          <text>ExhaustDuctHasSmokeDamper</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0gk973s" label="ExhaustDuctHasSmokeDetectionInstallation">
+        <inputExpression id="LiteralExpression_1rswfny" typeRef="boolean">
+          <text>ExhaustDuctHasSmokeDetectionInstallation</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1oarcvu" label="AirRecycleVolume">
+        <inputExpression id="LiteralExpression_1t0x9ez" typeRef="double">
+          <text>AirRecycleVolume</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_037jbcv" label="OtherRoomAirRecirculationSuccess" name="OtherRoomAirRecirculationSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_1w4g7r3">
+        <inputEntry id="UnaryTests_02vsdy3">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gqy0bq">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0b68n06">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18foo35">
+          <text>&lt;= 5000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_00bygsa">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_14d8gyt">
+        <inputEntry id="UnaryTests_09f2l08">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mu7u2n">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0w73sey">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1mkmhz6">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1jr9i1i">
+          <text>fase</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="OtherRoomHasDirectExteriorExhaust" name="OtherRoomHasDirectExteriorExhaust" />
+  <inputData id="ExhaustDuctHasSmokeDamper" name="ExhaustDuctHasSmokeDamper" />
+  <inputData id="ExhaustDuctHasSmokeDetectionInstallation" name="ExhaustDuctHasSmokeDetectionInstallation" />
+  <inputData id="AirRecycleVolume" name="AirRecycleVolume" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_0kf227b" dmnElementRef="Decision_0uoadgc">
+        <dc:Bounds height="80" width="180" x="380" y="220" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_01a9dqa" dmnElementRef="OtherRoomHasDirectExteriorExhaust">
+        <dc:Bounds height="45" width="125" x="158" y="238" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0hes4hx" dmnElementRef="InformationRequirement_1almz32">
+        <di:waypoint x="283" y="261" />
+        <di:waypoint x="360" y="260" />
+        <di:waypoint x="380" y="260" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_19nni7q" dmnElementRef="ExhaustDuctHasSmokeDamper">
+        <dc:Bounds height="45" width="125" x="408" y="378" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0e1unrc" dmnElementRef="InformationRequirement_1mhrrxb">
+        <di:waypoint x="471" y="378" />
+        <di:waypoint x="470" y="320" />
+        <di:waypoint x="470" y="300" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_14y1n6h" dmnElementRef="ExhaustDuctHasSmokeDetectionInstallation">
+        <dc:Bounds height="45" width="125" x="408" y="78" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0kwxfbt" dmnElementRef="InformationRequirement_1xzj4um">
+        <di:waypoint x="471" y="123" />
+        <di:waypoint x="470" y="200" />
+        <di:waypoint x="470" y="220" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0cxxhdv" dmnElementRef="AirRecycleVolume">
+        <dc:Bounds height="45" width="125" x="658" y="238" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1gwjbbx" dmnElementRef="InformationRequirement_0mbb6og">
+        <di:waypoint x="658" y="261" />
+        <di:waypoint x="580" y="260" />
+        <di:waypoint x="560" y="260" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

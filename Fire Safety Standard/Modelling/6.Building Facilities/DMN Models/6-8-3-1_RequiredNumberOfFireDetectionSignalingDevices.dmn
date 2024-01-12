@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0irqfvi" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_0csqdm5" name="Define the required number of fire detection signaling devices">
+    <informationRequirement id="InformationRequirement_1lehin5">
+      <requiredInput href="#AllAreaOfBuildingLayerSuccess" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_14fyc6k">
+      <input id="InputClause_0ff332d" label="AllAreaOfBuildingLayerSuccess">
+        <inputExpression id="LiteralExpression_02k5sa0" typeRef="boolean">
+          <text>AllAreaOfBuildingLayerSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1jb0azr" label="RequiredNumberOfFireDetectionSignalingDevices" name="RequiredNumberOfFireDetectionSignalingDevices" typeRef="string" />
+      <rule id="DecisionRule_0xl6wl3">
+        <inputEntry id="UnaryTests_0wvoeov">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07ptieb">
+          <text>"One fire detection signaling device is enough for the whole building"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1h0pl18">
+        <inputEntry id="UnaryTests_0pvz7ah">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1s7qc8t">
+          <text>"One fire detection signaling device is required in each compartment"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="AllAreaOfBuildingLayerSuccess" name="AllAreaOfBuildingLayerSuccess" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_0c6sfit" dmnElementRef="Decision_0csqdm5">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0rul3zl" dmnElementRef="AllAreaOfBuildingLayerSuccess">
+        <dc:Bounds height="45" width="125" x="187" y="237" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_17cbr4a" dmnElementRef="InformationRequirement_1lehin5">
+        <di:waypoint x="250" y="237" />
+        <di:waypoint x="250" y="200" />
+        <di:waypoint x="250" y="180" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_19g0ca0" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_1si2zfq" name="Verify wall mounted reel regulation">
+    <informationRequirement id="InformationRequirement_0op7b5h">
+      <requiredDecision href="#Decision_1pjojl2" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0owjbzf">
+      <requiredInput href="#ProvidedNumberOfWallMountedReels" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1i8yl3x">
+      <requiredInput href="#CanWaterJetReachEachPointInCompartment" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_17op8y6">
+      <input id="InputClause_0octmjg" label="ProvidedNumberOfWallMountedReels">
+        <inputExpression id="LiteralExpression_1hmjnnl" typeRef="integer">
+          <text>ProvidedNumberOfWallMountedReels</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0uo9v7l" label="CanWaterJetReachEachPointInCompartment" biodi:width="201">
+        <inputExpression id="LiteralExpression_1qwx4ld" typeRef="boolean">
+          <text>CanWaterJetReachEachPointInCompartment</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0o1to67" label="WallMountedReelJetRegulationSuccess" name="WallMountedReelJetRegulationSuccess" typeRef="boolean" biodi:width="181" />
+      <rule id="DecisionRule_0qgwnnu">
+        <inputEntry id="UnaryTests_1ufp9sk">
+          <text>&lt;MinimalRequiredNumberOfWallMountedReels</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19tkd74">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1mluyqx">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_09b5z9p">
+        <inputEntry id="UnaryTests_1g3piz6">
+          <text>&gt;=MinimalRequiredNumberOfWallMountedReels</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15ruihg">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_15y1udd">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0xx8yje">
+        <inputEntry id="UnaryTests_14850dk">
+          <text>&gt;=MinimalRequiredNumberOfWallMountedReels</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_003dnhq">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1hy5mw4">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_1pjojl2" name="Verify required number of reels in a compartment">
+    <informationRequirement id="InformationRequirement_0j2z23p">
+      <requiredInput href="#AreaOfCompartment" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0vap9lu">
+      <input id="InputClause_1vhyqqx" label="AreaOfCompartment">
+        <inputExpression id="LiteralExpression_0o1wy0s" typeRef="double">
+          <text>AreaOfCompartment</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1ch8t8g" label="MinimalRequiredNumberOfWallMountedReels" name="MinimalRequiredNumberOfWallMountedReels" typeRef="integer" biodi:width="202" />
+      <rule id="DecisionRule_1m6lwbf">
+        <inputEntry id="UnaryTests_06dbhnk">
+          <text>&lt; 500</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1t6hn3c">
+          <text>0</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1o4qojb">
+        <inputEntry id="UnaryTests_0kiqjcy">
+          <text>&gt;= 500</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1yi4fy3">
+          <text>1</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="AreaOfCompartment" name="AreaOfCompartment" />
+  <inputData id="ProvidedNumberOfWallMountedReels" name="ProvidedNumberOfWallMountedReels" />
+  <inputData id="CanWaterJetReachEachPointInCompartment" name="CanWaterJetReachEachPointInCompartment" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_1fucs49" dmnElementRef="Decision_1si2zfq">
+        <dc:Bounds height="80" width="180" x="360" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_00e2gjs" dmnElementRef="Decision_1pjojl2">
+        <dc:Bounds height="80" width="180" x="360" y="240" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1n1wojw" dmnElementRef="InformationRequirement_0op7b5h">
+        <di:waypoint x="450" y="240" />
+        <di:waypoint x="450" y="180" />
+        <di:waypoint x="450" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1kt3pbg" dmnElementRef="AreaOfCompartment">
+        <dc:Bounds height="45" width="125" x="388" y="378" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0lbsblc" dmnElementRef="InformationRequirement_0j2z23p">
+        <di:waypoint x="451" y="378" />
+        <di:waypoint x="450" y="340" />
+        <di:waypoint x="450" y="320" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0ale6ek" dmnElementRef="ProvidedNumberOfWallMountedReels">
+        <dc:Bounds height="45" width="125" x="158" y="98" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1lwvr5m" dmnElementRef="InformationRequirement_0owjbzf">
+        <di:waypoint x="283" y="121" />
+        <di:waypoint x="340" y="120" />
+        <di:waypoint x="360" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_064f2bb" dmnElementRef="CanWaterJetReachEachPointInCompartment">
+        <dc:Bounds height="45" width="125" x="628" y="98" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_04befey" dmnElementRef="InformationRequirement_1i8yl3x">
+        <di:waypoint x="628" y="121" />
+        <di:waypoint x="560" y="120" />
+        <di:waypoint x="540" y="120" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

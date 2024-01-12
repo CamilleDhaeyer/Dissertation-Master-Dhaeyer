@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0q70mpp" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_1f2wqdm" name="Verify the method to control the opening of motorized ventilation dampers">
+    <informationRequirement id="InformationRequirement_11n8frn">
+      <requiredInput href="#ControlCondition" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1kolwxc">
+      <requiredInput href="#ControlMethod" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1bqvsrq" hitPolicy="FIRST">
+      <input id="InputClause_1gw3poy" label="ControlCondition">
+        <inputExpression id="LiteralExpression_0qc1bp0" typeRef="string">
+          <text>ControlCondition</text>
+        </inputExpression>
+      </input>
+      <input id="Input_1" label="ControlMethod">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>ControlMethod</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="VentilationDamperControlMethodSuccess" name="VentilationDamperControlMethodSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_1gpc86c">
+        <inputEntry id="UnaryTests_0081eb2">
+          <text>"In case of inadequate ventilation for elevator user"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kql039">
+          <text>"Automatic"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ed6e6a">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_00uoris">
+        <inputEntry id="UnaryTests_0m4i5r0">
+          <text>"In case of abnormal temperature rise of elevator or control devices"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0li6147">
+          <text>"Automatic"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0zjpst7">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1hgdv0c">
+        <inputEntry id="UnaryTests_14gxqfj">
+          <text>"In case of fire in the elevator shaft or machine room"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12tsknw">
+          <text>"Automatic"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_066jaa4">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_06th9h0">
+        <inputEntry id="UnaryTests_0pkiivd">
+          <text>"In case of fire in the building"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mpz0bx">
+          <text>"Automatic"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1e9ewt6">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_10hs2rz">
+        <inputEntry id="UnaryTests_0y2nl4o">
+          <text>"In case of power source failure"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13fcrge">
+          <text>"Automatic"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1w8sukd">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1dun829">
+        <inputEntry id="UnaryTests_1rhekop">
+          <text>"Operating device on an evacuation level"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1t6nnup">
+          <text>"Manual"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_11u057b">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1g1xozi">
+        <inputEntry id="UnaryTests_0hshu2q">
+          <text>"No condition"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0c8ft90">
+          <text>"Automatic","Manual"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_081wbmq">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="ControlCondition" name="ControlCondition" />
+  <inputData id="ControlMethod" name="ControlMethod" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1f2wqdm">
+        <dc:Bounds height="80" width="180" x="380" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_08l3utk" dmnElementRef="ControlCondition">
+        <dc:Bounds height="45" width="125" x="177" y="97" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0rfqmu7" dmnElementRef="InformationRequirement_11n8frn">
+        <di:waypoint x="302" y="120" />
+        <di:waypoint x="360" y="120" />
+        <di:waypoint x="380" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_003mnsx" dmnElementRef="ControlMethod">
+        <dc:Bounds height="45" width="125" x="647" y="97" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1gw08jh" dmnElementRef="InformationRequirement_1kolwxc">
+        <di:waypoint x="647" y="120" />
+        <di:waypoint x="580" y="120" />
+        <di:waypoint x="560" y="120" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

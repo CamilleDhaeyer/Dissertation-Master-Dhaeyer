@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0g54ovh" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_0nbaimd" name="Additional conditions for limited mobility elevator shaft doors">
+    <informationRequirement id="InformationRequirement_1kkw477">
+      <requiredInput href="#After1April2017" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_17lva5k">
+      <requiredInput href="#ElevatorType" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1ndrchz">
+      <requiredInput href="#ShaftDoorEffectiveWidth" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1p1yhak">
+      <input id="InputClause_0nartx0" label="After1April2017">
+        <inputExpression id="LiteralExpression_1lxed2q" typeRef="boolean">
+          <text>After1April2017</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0s8sa5k" label="ElevatorType">
+        <inputExpression id="LiteralExpression_0t1jl4f" typeRef="string">
+          <text>ElevatorType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1grx56h" label="ShaftDoorEffectiveWidth">
+        <inputExpression id="LiteralExpression_06bp4rh" typeRef="double">
+          <text>ShaftDoorEffectiveWidth</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1c90zzc" label="ElevatorShaftDoorExtraRegulationSuccess" name="ElevatorShaftDoorExtraRegulationSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_1gecio4">
+        <description></description>
+        <inputEntry id="UnaryTests_13c9jm3">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0c0gqjd">
+          <text>"Limited mobility elevator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tcfmes">
+          <text>&gt;= 0.9</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0nhebgb">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ql37lf">
+        <description></description>
+        <inputEntry id="UnaryTests_0asbqps">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07jil14">
+          <text>"Limited mobility elevator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00wqd0m">
+          <text>&gt;= 0.8</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1vxqrgd">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_15gehzn">
+        <inputEntry id="UnaryTests_0xny35n">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pmp24x">
+          <text>"Limited mobility elevator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0o4gdmg">
+          <text>&lt; 0.9</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0y74rpa">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0wshzl0">
+        <inputEntry id="UnaryTests_18xqt4i">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vtzoxh">
+          <text>"Limited mobility elevator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08ivkhx">
+          <text>&lt; 0.8</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0sq6n82">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_15kb1gy">
+        <inputEntry id="UnaryTests_1tdg8ba">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1bpbm7p">
+          <text>"Fire brigade elevator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1n5m3df">
+          <text>&gt;= 0.8</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1fazphi">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0kma1ww">
+        <inputEntry id="UnaryTests_0a4hq4u">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0m12j3w">
+          <text>"Fire brigade elevator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xgogxr">
+          <text>&lt; 0.8</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qymc75">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1sqkl43">
+        <inputEntry id="UnaryTests_1bnr8jy">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1a0w6b1">
+          <text>"Fire brigade elevator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pc9olx">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0l1895b">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="After1April2017" name="After1April2017" />
+  <inputData id="ElevatorType" name="ElevatorType" />
+  <inputData id="ShaftDoorEffectiveWidth" name="ShaftDoorEffectiveWidth" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_02ueyb7" dmnElementRef="Decision_0nbaimd">
+        <dc:Bounds height="80" width="180" x="410" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1j41nnu" dmnElementRef="After1April2017">
+        <dc:Bounds height="45" width="125" x="158" y="98" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1vic7m4" dmnElementRef="InformationRequirement_1kkw477">
+        <di:waypoint x="283" y="121" />
+        <di:waypoint x="390" y="120" />
+        <di:waypoint x="410" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_060x6da" dmnElementRef="ElevatorType">
+        <dc:Bounds height="45" width="125" x="438" y="228" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1ly9ryf" dmnElementRef="InformationRequirement_17lva5k">
+        <di:waypoint x="501" y="228" />
+        <di:waypoint x="500" y="180" />
+        <di:waypoint x="500" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1tcazrn" dmnElementRef="ShaftDoorEffectiveWidth">
+        <dc:Bounds height="45" width="125" x="698" y="98" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_12fpdwv" dmnElementRef="InformationRequirement_1ndrchz">
+        <di:waypoint x="698" y="121" />
+        <di:waypoint x="610" y="120" />
+        <di:waypoint x="590" y="120" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

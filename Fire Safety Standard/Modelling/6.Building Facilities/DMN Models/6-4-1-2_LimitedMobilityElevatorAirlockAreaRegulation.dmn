@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_00adxwj" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_0o5d35p" name="Airlock area verification for limited mobility elevator">
+    <informationRequirement id="InformationRequirement_044168y">
+      <requiredInput href="#AreaOfAirlock" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1qqkceg">
+      <requiredInput href="#AreaOfElevatorCage" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1evkx5l">
+      <input id="Input_1" label="AreaOfAirlock">
+        <inputExpression id="InputExpression_1" typeRef="double">
+          <text>AreaOfAirlock</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_047uhe3" label="AreaOfElevatorCage">
+        <inputExpression id="LiteralExpression_1lj97fy" typeRef="double">
+          <text>AreaOfElevatorCage</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="LimitedMobilityElevatorAirlockAreaSuccess" name="LimitedMobilityElevatorAirlockAreaSuccess" typeRef="boolean" biodi:width="197" />
+      <rule id="DecisionRule_0cg01cd">
+        <inputEntry id="UnaryTests_0btrj8d">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0dyi9bi">
+          <text>&lt;=AreaOfAirlock</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0focuva">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1rx77t7">
+        <inputEntry id="UnaryTests_1avudow">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gt3z0j">
+          <text>&gt;AreaOfAirlock</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_11ww904">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="AreaOfAirlock" name="AreaOfAirlock" />
+  <inputData id="AreaOfElevatorCage" name="AreaOfElevatorCage" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_0o5d35p">
+        <dc:Bounds height="80" width="180" x="350" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_09rknqs" dmnElementRef="AreaOfAirlock">
+        <dc:Bounds height="45" width="125" x="157" y="97" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_15doc8u" dmnElementRef="InformationRequirement_044168y">
+        <di:waypoint x="282" y="120" />
+        <di:waypoint x="330" y="120" />
+        <di:waypoint x="350" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1grdbpm" dmnElementRef="AreaOfElevatorCage">
+        <dc:Bounds height="45" width="125" x="597" y="97" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_10fkk0d" dmnElementRef="InformationRequirement_1qqkceg">
+        <di:waypoint x="597" y="120" />
+        <di:waypoint x="550" y="120" />
+        <di:waypoint x="530" y="120" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_1sbj3ip" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_1kqptdu" name="Verify if a space can be part of the air network">
+    <informationRequirement id="InformationRequirement_1mfa2a9">
+      <requiredInput href="#RoomType" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0jx0awi">
+      <requiredInput href="#RoomCompliesWithDuctRegulation" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1wfduva">
+      <input id="Input_1" label="RoomType">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>RoomType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0is74sj" label="RoomCompliesWithDuctRegulation" biodi:width="197">
+        <inputExpression id="LiteralExpression_1jr16pf" typeRef="boolean">
+          <text>RoomCompliesWithDuctRegulation</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="SpaceCanBeIntegratedInAirNetwork" name="SpaceCanBeIntegratedInAirNetwork" typeRef="boolean" />
+      <rule id="DecisionRule_1v24g5f">
+        <inputEntry id="UnaryTests_1eto8xr">
+          <text>"Room"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lb3euq">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_16iyts9">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0rexnx1">
+        <inputEntry id="UnaryTests_1cukihg">
+          <text>"Room"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13llkh4">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1nyuo3r">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1yd7m96">
+        <inputEntry id="UnaryTests_1oqx2jc">
+          <text>"Enclosed space"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wmc8c5">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_04ruye2">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1sv6htn">
+        <inputEntry id="UnaryTests_05a3s58">
+          <text>"Enclosed space"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01imtgn">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1i7ddis">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0m8iam0">
+        <inputEntry id="UnaryTests_0uw0ro8">
+          <text>"Staircase"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15bkt29">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0obacy9">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="RoomType" name="RoomType" />
+  <inputData id="RoomCompliesWithDuctRegulation" name="RoomCompliesWithDuctRegulation" />
+  <textAnnotation id="TextAnnotation_0iy933q">
+    <text>via 6-7-2 and python</text>
+  </textAnnotation>
+  <association id="Association_0p7g5uo">
+    <sourceRef href="#TextAnnotation_0iy933q" />
+    <targetRef href="#RoomCompliesWithDuctRegulation" />
+  </association>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1kqptdu">
+        <dc:Bounds height="80" width="180" x="370" y="190" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1xiuum6" dmnElementRef="RoomType">
+        <dc:Bounds height="45" width="125" x="158" y="208" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0ye6rv9" dmnElementRef="InformationRequirement_1mfa2a9">
+        <di:waypoint x="283" y="231" />
+        <di:waypoint x="350" y="230" />
+        <di:waypoint x="370" y="230" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_19hqk69" dmnElementRef="RoomCompliesWithDuctRegulation">
+        <dc:Bounds height="45" width="125" x="648" y="208" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0p8fhzp" dmnElementRef="InformationRequirement_0jx0awi">
+        <di:waypoint x="648" y="231" />
+        <di:waypoint x="570" y="230" />
+        <di:waypoint x="550" y="230" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_030zy71" dmnElementRef="TextAnnotation_0iy933q">
+        <dc:Bounds height="52" width="100" x="773" y="78" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0tubp75" dmnElementRef="Association_0p7g5uo">
+        <di:waypoint x="811" y="130" />
+        <di:waypoint x="734" y="208" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

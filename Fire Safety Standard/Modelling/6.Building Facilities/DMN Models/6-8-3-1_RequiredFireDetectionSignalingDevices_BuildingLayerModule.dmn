@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_0irqfvi" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_1jfilqn" name="Verify area of building layer for section 6.8.3.1">
+    <informationRequirement id="InformationRequirement_1845rup">
+      <requiredInput href="#AreaOfBuildingLayer" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1e2ezch">
+      <input id="Input_1" label="AreaOfBuildingLayer">
+        <inputExpression id="InputExpression_1" typeRef="double">
+          <text>AreaOfBuildingLayer</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="AreaOfBuildingLayerSuccess" name="AreaOfBuildingLayerSuccess" typeRef="boolean" biodi:width="243" />
+      <rule id="DecisionRule_1gnj8s2">
+        <description></description>
+        <inputEntry id="UnaryTests_0vttq39">
+          <text>&lt; 500</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0wi89qd">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0mu5219">
+        <inputEntry id="UnaryTests_1tz5a0h">
+          <text>&gt;= 500</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1u9c2fg">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="AreaOfBuildingLayer" name="AreaOfBuildingLayer" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1jfilqn">
+        <dc:Bounds height="80" width="180" x="160" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0e9yp1w" dmnElementRef="AreaOfBuildingLayer">
+        <dc:Bounds height="45" width="125" x="188" y="218" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0q1cx16" dmnElementRef="InformationRequirement_1845rup">
+        <di:waypoint x="251" y="218" />
+        <di:waypoint x="250" y="180" />
+        <di:waypoint x="250" y="160" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

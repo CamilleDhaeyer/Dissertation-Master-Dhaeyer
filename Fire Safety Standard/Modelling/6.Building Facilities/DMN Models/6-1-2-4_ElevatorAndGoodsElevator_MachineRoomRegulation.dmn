@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_1wxv8kp" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_0cr0c0n" name="Verify General machine room rules">
+    <informationRequirement id="InformationRequirement_1h9yrmq">
+      <requiredInput href="#FireResistanceAllWallSuccess" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_10d8467">
+      <requiredInput href="#FireResistanceAccessSuccess" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1abhbel">
+      <input id="InputClause_1rfne9e" label="FireResistanceAllWallSuccess" biodi:width="318">
+        <inputExpression id="LiteralExpression_02q61v9" typeRef="boolean">
+          <text>FireResistanceAllWallSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0mex394" label="FireResistanceAccessSuccess" biodi:width="199">
+        <inputExpression id="LiteralExpression_1jqiv1v" typeRef="boolean">
+          <text>FireResistanceAccessSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_01gn5vx" label="MachineRoomRegulationSuccess" name="MachineRoomRegulationSuccess" typeRef="boolean" biodi:width="209" />
+      <rule id="DecisionRule_0q5eims">
+        <description></description>
+        <inputEntry id="UnaryTests_08frx35">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1otuqnb">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_19oovvi">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_06sfp1p">
+        <description></description>
+        <inputEntry id="UnaryTests_0y5ex97">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1f2q124">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1sk16kv">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0mf2292">
+        <inputEntry id="UnaryTests_1236dd2">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13kpxzv">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_05sl3k6">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_09bfm1x">
+        <inputEntry id="UnaryTests_0qce9d5">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hm1aw4">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0i21ovr">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="FireResistanceAllWallSuccess" name="FireResistanceAllWallSuccess" />
+  <inputData id="FireResistanceAccessSuccess" name="FireResistanceAccessSuccess" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_02kpi81" dmnElementRef="Decision_0cr0c0n">
+        <dc:Bounds height="80" width="180" x="390" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0e0ezmw" dmnElementRef="FireResistanceAllWallSuccess">
+        <dc:Bounds height="45" width="125" x="158" y="98" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1yj5f14" dmnElementRef="InformationRequirement_1h9yrmq">
+        <di:waypoint x="283" y="121" />
+        <di:waypoint x="370" y="120" />
+        <di:waypoint x="390" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1vso0z0" dmnElementRef="FireResistanceAccessSuccess">
+        <dc:Bounds height="45" width="125" x="658" y="98" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1vz43pk" dmnElementRef="InformationRequirement_10d8467">
+        <di:waypoint x="658" y="121" />
+        <di:waypoint x="590" y="120" />
+        <di:waypoint x="570" y="120" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

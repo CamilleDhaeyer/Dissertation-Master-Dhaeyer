@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_04olxrs" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_1tzg1yl" name="Verify different duct regulations">
+    <informationRequirement id="InformationRequirement_10kwzu3">
+      <requiredInput href="#DuctLocation" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_13drmwe">
+      <requiredInput href="#DuctElementType" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1m19bm9">
+      <requiredInput href="#ElementMaterialClass" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1nghzhr">
+      <requiredInput href="#ElementLength" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_06fcwak" hitPolicy="FIRST">
+      <input id="Input_1" label="DuctLocation">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>DuctLocation</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0j4huzh" label="DuctElementType" biodi:width="204">
+        <inputExpression id="LiteralExpression_1edyjkg" typeRef="string">
+          <text>DuctElementType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1rrne5c" label="ElementMaterialClass">
+        <inputExpression id="LiteralExpression_0shxznt" typeRef="string">
+          <text>ElementMaterialClass</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1imrlf7" label="ElementLength">
+        <inputExpression id="LiteralExpression_0ucditt" typeRef="double">
+          <text>ElementLength</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="DuctElementRegulationSuccess" name="DuctElementRegulationSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_1r91cgq">
+        <inputEntry id="UnaryTests_00a37sf">
+          <text>"Duct in evacuation route","Duct in technical shaft","Duct in unaccessible location after building completion"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07r41hc">
+          <text>"Air duct"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1q90jfa">
+          <text>"Class A1 or higher"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0y8pc94">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ees9er">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0fk4aui">
+        <inputEntry id="UnaryTests_0vommkl">
+          <text>"Duct in evacuation route","Duct in technical shaft","Duct in unaccessible location after building completion"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fa0p1q">
+          <text>"Air duct"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1psosnc">
+          <text>"Lower than Class A1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0w6u6pm">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ux5jg0">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1rd3qwk">
+        <inputEntry id="UnaryTests_1bodbhc">
+          <text>"Duct in evacuation route","Duct in technical shaft","Duct in unaccessible location after building completion"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wrr289">
+          <text>"Isolation product"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ptg05b">
+          <text>"Class A2 s1 d0 or higher"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0icmal3">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1pstu3k">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_180jif5">
+        <inputEntry id="UnaryTests_1tw8vuk">
+          <text>"Duct in evacuation route","Duct in technical shaft","Duct in unaccessible location after building completion"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1bjjdfg">
+          <text>"Isolation product"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18v49g3">
+          <text>"Lower than Class A2 s1 d0"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1s7e4wv">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1o99ai7">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0rsglxh">
+        <inputEntry id="UnaryTests_1d89h13">
+          <text>"Duct in evacuation route","Duct in technical shaft","Duct in unaccessible location after building completion"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19139nh">
+          <text>"Flexible pipe"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1txq6us">
+          <text>"Class B s1 d0 or higher"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nx35og">
+          <text>&lt;= 1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0eb5x85">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1nxen3w">
+        <inputEntry id="UnaryTests_1tx0k7i">
+          <text>"Duct in evacuation route","Duct in technical shaft","Duct in unaccessible location after building completion"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1an5gsw">
+          <text>"Flexible pipe"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rxm2mg">
+          <text>"Class B s1 d0 or higher"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gge75o">
+          <text>&gt; 1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1axsj7d">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1kxt7kl">
+        <inputEntry id="UnaryTests_1n6ah3d">
+          <text>"Duct in evacuation route","Duct in technical shaft","Duct in unaccessible location after building completion"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1yrh75h">
+          <text>"Flexible pipe"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1yahxai">
+          <text>"Lower than Class B s1 d0"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12x6ynr">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1i5554c">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="DuctLocation" name="DuctLocation" />
+  <inputData id="DuctElementType" name="DuctElementType" />
+  <inputData id="ElementMaterialClass" name="ElementMaterialClass" />
+  <inputData id="ElementLength" name="ElementLength" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1tzg1yl">
+        <dc:Bounds height="80" width="180" x="390" y="200" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1cu0u9t" dmnElementRef="DuctLocation">
+        <dc:Bounds height="45" width="125" x="158" y="218" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1luzmt9" dmnElementRef="InformationRequirement_10kwzu3">
+        <di:waypoint x="283" y="241" />
+        <di:waypoint x="370" y="240" />
+        <di:waypoint x="390" y="240" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0jsoq10" dmnElementRef="DuctElementType">
+        <dc:Bounds height="45" width="125" x="417" y="57" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0ao4hgp" dmnElementRef="InformationRequirement_13drmwe">
+        <di:waypoint x="480" y="102" />
+        <di:waypoint x="480" y="180" />
+        <di:waypoint x="480" y="200" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0e5800x" dmnElementRef="ElementMaterialClass">
+        <dc:Bounds height="45" width="125" x="418" y="368" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_14njr2w" dmnElementRef="InformationRequirement_1m19bm9">
+        <di:waypoint x="481" y="368" />
+        <di:waypoint x="480" y="300" />
+        <di:waypoint x="480" y="280" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_11w41ha" dmnElementRef="ElementLength">
+        <dc:Bounds height="45" width="125" x="668" y="219" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0eb34jo" dmnElementRef="InformationRequirement_1nghzhr">
+        <di:waypoint x="668" y="242" />
+        <di:waypoint x="590" y="240" />
+        <di:waypoint x="570" y="240" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

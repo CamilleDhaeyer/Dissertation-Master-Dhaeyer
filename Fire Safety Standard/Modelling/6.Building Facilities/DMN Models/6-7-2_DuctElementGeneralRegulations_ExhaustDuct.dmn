@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_04olxrs" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_0f7gh9c" name="Verify fireresistance regulation for exhaust ducts">
+    <decisionTable id="DecisionTable_06pvu2p" hitPolicy="FIRST">
+      <input id="InputClause_1vralcm" label="DuctLocation">
+        <inputExpression id="LiteralExpression_0b7xmdv" typeRef="string">
+          <text>DuctLocation</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1tsl1t8" label="FireResistanceDuctAllWallSuccess" biodi:width="203">
+        <inputExpression id="LiteralExpression_184wydc" typeRef="boolean">
+          <text>FireResistanceDuctAllWallSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1xbsue2" label="FireResistanceDuctSuspensionSuccess" biodi:width="165">
+        <inputExpression id="LiteralExpression_1pv98j8" typeRef="boolean">
+          <text>FireResistanceDuctSuspensionSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_113gqur" label="FireResistanceDuctShaftAllWallSuccess">
+        <inputExpression id="LiteralExpression_10m8kzo" typeRef="boolean">
+          <text>FireResistanceDuctShaftAllWallSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_019evmk" label="FireResistanceExhaustDuctSuccess" name="FireResistanceExhaustDuctSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_19km36u">
+        <description></description>
+        <inputEntry id="UnaryTests_04je7y2">
+          <text>"Duct in evacuation route","Duct inside of collective kitchen"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nj01s2">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1soi9cp">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12rcyb4">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0sl19df">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_06gqu1p">
+        <description>EI30 modules</description>
+        <inputEntry id="UnaryTests_0oz9byx">
+          <text>"Duct in evacuation route","Duct inside of collective kitchen"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1sq51o2">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02p0yuw">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qcxl3h">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_18w4m98">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_06t1nof">
+        <inputEntry id="UnaryTests_14d1hso">
+          <text>"Duct in evacuation route","Duct inside of collective kitchen"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1am51df">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1oz11ae">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08z25fr">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1xrx8qw">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_12oxp5u">
+        <inputEntry id="UnaryTests_1rlbvmf">
+          <text>"Duct in evacuation route","Duct inside of collective kitchen"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0tih83f">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kdlywu">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0d4fx2v">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_119rxpf">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_06mxxcy">
+        <description>EI 60 modules</description>
+        <inputEntry id="UnaryTests_1n20ue3">
+          <text>"Duct coming from collective kitchen"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08s7wz2">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_131wh4w">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14k1088">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1fzyvi8">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1yxyqlu">
+        <inputEntry id="UnaryTests_0wzvvpv">
+          <text>"Duct coming from collective kitchen"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10piv5o">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_100jswf">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06r5y8x">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ir1sv2">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1efdhhl">
+        <inputEntry id="UnaryTests_0gpn2fs">
+          <text>"Duct coming from collective kitchen"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1iw4bid">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_132fdy3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_162ig6k">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1fw97np">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0jlc8od">
+        <inputEntry id="UnaryTests_0mi6zq9">
+          <text>"Duct coming from collective kitchen"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hkwn3h">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ygjzko">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1n02ufu">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0cqtryb">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0sneukx">
+        <inputEntry id="UnaryTests_056dfkp">
+          <text>"Duct outside of collective kitchen"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0uh820r">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18kgv2o">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1j8k2ic">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_157p95v">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_0brkzso" name="Verify suspension regulation">
+    <decisionTable id="DecisionTable_0il3hhf" hitPolicy="FIRST">
+      <input id="InputClause_1tk2lmi" label="DuctLocation">
+        <inputExpression id="LiteralExpression_1kqb1s8" typeRef="string">
+          <text>DuctLocation</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1a6lw6l" label="SuspensionMaterial">
+        <inputExpression id="LiteralExpression_047tm78" typeRef="string">
+          <text>SuspensionMaterial</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0x0d9ol" label="DistanceBetweenSuspensionAxes">
+        <inputExpression id="LiteralExpression_1k6u17h" typeRef="double">
+          <text>DistanceBetweenSuspensionAxes</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1dghelh" label="DistanceDuctAndSuspension">
+        <inputExpression id="LiteralExpression_0tb90zo" typeRef="double">
+          <text>DistanceDuctAndSuspension</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_02vs72q" label="ForceOfSuspensionPoint">
+        <inputExpression id="LiteralExpression_07ug5gp" typeRef="double">
+          <text>ForceOfSuspensionPoint</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1m4aev0" label="StressesInSuspension">
+        <inputExpression id="LiteralExpression_13itbfv" typeRef="double">
+          <text>StressesInSuspension</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_15fg1gj" label="ShearStressInSuspension">
+        <inputExpression id="LiteralExpression_10joubi" typeRef="double">
+          <text>ShearStressInSuspension</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1e48n7u" label="SuspensionRegulationSuccess" name="SuspensionRegulationSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_1hzm0lw">
+        <inputEntry id="UnaryTests_111o08i">
+          <text>"Duct in evacuation route","Duct inside of collective kitchen"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rn34yn">
+          <text>"Steel"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0noh62i">
+          <text>&lt;= 1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0p6nvfd">
+          <text>&lt;= 0.05</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ftbtbt">
+          <text>&lt;= 500</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0y53tne">
+          <text>&lt;= 18</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06icrav">
+          <text>&lt;= 10</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0xp2xhd">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0m3ih4e">
+        <inputEntry id="UnaryTests_10b5kzg">
+          <text>"Duct in evacuation route","Duct inside of collective kitchen"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0tc1n9f">
+          <text>"Steel","Other"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_156svg0">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17fwpc2">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07spor1">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03d89jx">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11qpgwi">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0pcd8za">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0pieofz">
+        <inputEntry id="UnaryTests_08h3nq3">
+          <text>"Duct outside of collective kitchen","Duct coming from collective kitchen"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1a7pbf5">
+          <text>"Steel","Other"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qofo8s">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1evwu1n">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1aotklv">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1o6p0mi">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18o9yl9">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0a6v1op">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_14sdqqw" name="Verify exhaust duct regulation">
+    <informationRequirement id="InformationRequirement_1j0pepj">
+      <requiredDecision href="#Decision_0f7gh9c" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0h64tmo">
+      <requiredDecision href="#Decision_0brkzso" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1fzp1py">
+      <input id="InputClause_12xzhof" label="FireResistanceExhaustDuctSuccess">
+        <inputExpression id="LiteralExpression_1e8vr9h" typeRef="boolean">
+          <text>FireResistanceExhaustDuctSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0ntdg4q" label="SuspensionRegulationSuccess" biodi:width="185">
+        <inputExpression id="LiteralExpression_135pspt" typeRef="boolean">
+          <text>SuspensionRegulationSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_04no1re" label="ExhaustDuctRegulationSuccess" name="ExhaustDuctRegulationSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_0k9094b">
+        <inputEntry id="UnaryTests_176h21t">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1boormj">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qsd1f7">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_07714r0">
+        <inputEntry id="UnaryTests_1deigic">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tc53af">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0wmtf2s">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0p42klv">
+        <inputEntry id="UnaryTests_0typt86">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00hxjnb">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_05kk0zt">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1x3mpkc">
+        <inputEntry id="UnaryTests_1h7b9r8">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1u1sa56">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ed4d82">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_02ppk1w" name="Verify different duct regulations">
+    <informationRequirement id="InformationRequirement_0ztbanz">
+      <requiredDecision href="#Decision_14sdqqw" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0r0hm1t">
+      <input id="InputClause_0pp1sss" label="DuctLocation">
+        <inputExpression id="LiteralExpression_1smulvz" typeRef="string">
+          <text>DuctLocation</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0b4j2iv" label="DuctElementType">
+        <inputExpression id="LiteralExpression_1g4kvk7" typeRef="string">
+          <text>DuctElementType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0p8i4i6" label="ElementMaterialClass">
+        <inputExpression id="LiteralExpression_12d0dj1" typeRef="string">
+          <text>ElementMaterialClass</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1cqppys" label="ExhaustDuctRegulationSuccess">
+        <inputExpression id="LiteralExpression_0aomdwo" typeRef="boolean">
+          <text>ExhaustDuctRegulationSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1qzgyvv" label="ExhaustDuctLocationSuccess" name="ExhaustDuctLocationSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_0s5cmot">
+        <inputEntry id="UnaryTests_0j19qlq">
+          <text>"Duct in evacuation route"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04j8xyh">
+          <text>"Exhaust duct"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_089i3qn">
+          <text>"Class A1 or higher","Class B s1 d0 or higher","Other material class","Lower than Class A1","Lower than Class B s1 d0"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wxso5a">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1vnu12p">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_079r52t">
+        <inputEntry id="UnaryTests_1bjii3n">
+          <text>"Duct in evacuation route"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1371g0y">
+          <text>"Exhaust duct"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17tejoe">
+          <text>"Class A1 or higher","Class B s1 d0 or higher","Other material class","Lower than Class A1","Lower than Class B s1 d0"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0r5xuhn">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_00wt4i9">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0utzdfr">
+        <inputEntry id="UnaryTests_05ecfas">
+          <text>"Duct outside of collective kitchen"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1li0r29">
+          <text>"Exhaust duct"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0k5e9ah">
+          <text>"Class A1 or higher"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1q0v0yi">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_15zhe3m">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0c7cb2w">
+        <inputEntry id="UnaryTests_1jgskx1">
+          <text>"Duct outside of collective kitchen"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hgj0rz">
+          <text>"Exhaust duct"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_049u1qf">
+          <text>"Lower than Class A1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rjvoq8">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0y2mvzl">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1vtjpuf">
+        <inputEntry id="UnaryTests_1k2cnro">
+          <text>"Duct coming from collective kitchen"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05jxs0r">
+          <text>"Exhaust duct"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ighcd8">
+          <text>"Class A1 or higher","Class B s1 d0 or higher","Other material class"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1c4wrso">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qeve41">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_16fymec">
+        <inputEntry id="UnaryTests_0ru9cin">
+          <text>"Duct coming from collective kitchen"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wupsq5">
+          <text>"Exhaust duct"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1u0t4mt">
+          <text>"Class A1 or higher","Class B s1 d0 or higher","Other material class"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nqovrm">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1iw8rtf">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0iju7yz">
+        <inputEntry id="UnaryTests_0w0slnd">
+          <text>"Duct inside of collective kitchen"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xf0dpc">
+          <text>"Exhaust duct"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07c72ej">
+          <text>"Class A1 or higher","Class B s1 d0 or higher","Other material class"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08c6iu1">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1t0nng2">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1u9h5a5">
+        <inputEntry id="UnaryTests_1ukje0f">
+          <text>"Duct inside of collective kitchen"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tf57dn">
+          <text>"Exhaust duct"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vzo31o">
+          <text>"Class A1 or higher","Class B s1 d0 or higher","Other material class"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07zjm8r">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_15uwtdb">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_1qlnzfm" dmnElementRef="Decision_0f7gh9c">
+        <dc:Bounds height="80" width="180" x="160" y="450" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1a2m1ez" dmnElementRef="Decision_0brkzso">
+        <dc:Bounds height="80" width="180" x="420" y="450" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_19xy18j" dmnElementRef="Decision_14sdqqw">
+        <dc:Bounds height="80" width="180" x="280" y="260" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0y416eu" dmnElementRef="InformationRequirement_1j0pepj">
+        <di:waypoint x="250" y="450" />
+        <di:waypoint x="340" y="360" />
+        <di:waypoint x="340" y="340" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1vex3kt" dmnElementRef="InformationRequirement_0h64tmo">
+        <di:waypoint x="510" y="450" />
+        <di:waypoint x="400" y="360" />
+        <di:waypoint x="400" y="340" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_00y8cix" dmnElementRef="Decision_02ppk1w">
+        <dc:Bounds height="80" width="180" x="280" y="110" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0nrzrqi" dmnElementRef="InformationRequirement_0ztbanz">
+        <di:waypoint x="370" y="260" />
+        <di:waypoint x="370" y="210" />
+        <di:waypoint x="370" y="190" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0d20qot" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_18wj3v9" name="Verify the manner of ventilation">
+    <informationRequirement id="InformationRequirement_0yezbyt">
+      <requiredInput href="#ElevatorDrivingSystem" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_095nk4n">
+      <requiredInput href="#VentilatedElements" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0e3455u">
+      <requiredInput href="#VentilationOption" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1wjcxs8">
+      <requiredInput href="#InputData_0q11ugs" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0bs86s7" hitPolicy="FIRST">
+      <input id="InputClause_1jo1403" label="ElevatorDrivingSystem">
+        <inputExpression id="LiteralExpression_0ojuato" typeRef="string">
+          <text>ElevatorDrivingSystem</text>
+        </inputExpression>
+      </input>
+      <input id="Input_1" label="VentilatedElements">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>VentilatedElements</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0h8yp5g" label="VentilationOption">
+        <inputExpression id="LiteralExpression_12k4swu" typeRef="string">
+          <text>VentilationOption</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_00ehlag" label="ElevatorConfiguration" biodi:width="244">
+        <inputExpression id="LiteralExpression_07kyh19" typeRef="string">
+          <text>ElevatorConfiguration</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="VentilationOptionSuccess" name="VentilationOptionSuccess" typeRef="boolean" biodi:width="210" />
+      <rule id="DecisionRule_0kf7hv5">
+        <inputEntry id="UnaryTests_033rgyu">
+          <text>"Non oleo hydraulic elevator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0q1isva">
+          <text>"Elevator shaft alone","Machine room alone","Elevator shaft and machine room together"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14ljjvi">
+          <text>"Natural ventilation through outdoor air vents"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0l5taif">
+          <text>"Not applicable","Configuration a","Configuration b"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ecczig">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1vi6d9i">
+        <inputEntry id="UnaryTests_03is0g3">
+          <text>"Non oleo hydraulic elevator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pnwei8">
+          <text>"Elevator shaft alone","Elevator shaft and machine room together"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ao1llb">
+          <text>"Ventilation through indoor air vents"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kvv43u">
+          <text>"Configuration a","Configuration b"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_16pytln">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0mboewo">
+        <inputEntry id="UnaryTests_15hy730">
+          <text>"Oleo hydraulic elevator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11ioccf">
+          <text>"Elevator shaft alone","Machine room alone"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kiu2vp">
+          <text>"Natural ventilation through outdoor air vents"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nd1yw1">
+          <text>"Not applicable","Configuration a","Configuration b"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0qpd8j7">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0f37s7r">
+        <inputEntry id="UnaryTests_073iq0e">
+          <text>"Oleo hydraulic elevator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vzdnf7">
+          <text>"Elevator shaft alone"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xn3jfc">
+          <text>"Ventilation through indoor air vents"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17vqbgb">
+          <text>"Configuration a","Configuration b"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1coub4z">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1qwwjea">
+        <inputEntry id="UnaryTests_0zrcriv">
+          <text>"Oleo hydraulic elevator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0z94xbq">
+          <text>"Elevator shaft and machine room together"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kr0tv2">
+          <text>"Natural ventilation through outdoor air vents or ventilation through indoor air vents must be seperate"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1snbqsh">
+          <text>"Not applicable","Configuration a","Configuration b"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0hkliav">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="ElevatorDrivingSystem" name="ElevatorDrivingSystem" />
+  <inputData id="VentilatedElements" name="VentilatedElements" />
+  <inputData id="VentilationOption" name="VentilationOption" />
+  <inputData id="InputData_0q11ugs" name="ElevatorConfiguration" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_18wj3v9">
+        <dc:Bounds height="80" width="180" x="390" y="180" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0p8g75z" dmnElementRef="ElevatorDrivingSystem">
+        <dc:Bounds height="45" width="125" x="187" y="197" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0z78wqo" dmnElementRef="InformationRequirement_0yezbyt">
+        <di:waypoint x="312" y="220" />
+        <di:waypoint x="370" y="220" />
+        <di:waypoint x="390" y="220" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_09oup9s" dmnElementRef="VentilatedElements">
+        <dc:Bounds height="45" width="125" x="657" y="197" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0xhdzxs" dmnElementRef="InformationRequirement_095nk4n">
+        <di:waypoint x="657" y="220" />
+        <di:waypoint x="590" y="220" />
+        <di:waypoint x="570" y="220" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0jpdf9r" dmnElementRef="VentilationOption">
+        <dc:Bounds height="45" width="125" x="417" y="317" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_08bsyfd" dmnElementRef="InformationRequirement_0e3455u">
+        <di:waypoint x="480" y="317" />
+        <di:waypoint x="480" y="280" />
+        <di:waypoint x="480" y="260" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_15vh2hy" dmnElementRef="InputData_0q11ugs">
+        <dc:Bounds height="45" width="125" x="417" y="77" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0k6z0u0" dmnElementRef="InformationRequirement_1wjcxs8">
+        <di:waypoint x="480" y="122" />
+        <di:waypoint x="480" y="160" />
+        <di:waypoint x="480" y="180" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

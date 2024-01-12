@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_1l9aljb" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_1ln8fr5" name="Verify Door if airlock smaller than elevator">
+    <informationRequirement id="InformationRequirement_16ctp1n">
+      <requiredInput href="#InputData_05ao2oz" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_16yzyqn">
+      <requiredInput href="#InputData_0svimpp" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0lw57jk">
+      <requiredInput href="#InputData_09m0oqm" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0g078jg">
+      <requiredInput href="#InputData_1gnkiyo" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_10su31w">
+      <input id="InputClause_12aedf2" label="DoorType">
+        <inputExpression id="LiteralExpression_027ae48" typeRef="string">
+          <text>DoorType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_10w8o08" label="FireResistanceDoor">
+        <inputExpression id="LiteralExpression_0xl1r70" typeRef="string">
+          <text>FireResistanceDoor</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0184v2d" label="HasFireDetectionInstallation" biodi:width="229">
+        <inputExpression id="LiteralExpression_1vywj1i" typeRef="boolean">
+          <text>HasFireDetectionInstallation</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_09zeuyz" label="SmokeDetectionSystemLocation" biodi:width="204">
+        <inputExpression id="LiteralExpression_0nnkb0h" typeRef="string">
+          <text>SmokeDetectionSystemLocation</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1jf2vig" label="DoorSuccess" name="DoorSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_0jkiw0t">
+        <description></description>
+        <inputEntry id="UnaryTests_11wbpaa">
+          <text>"Selfclosing door during fire"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lc9n3c">
+          <text>"EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02irmrp">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05he22y">
+          <text>"Smoke detection system in elevator shaft and in compartment"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ik4v4t">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_10gxftm">
+        <inputEntry id="UnaryTests_0cxij9o">
+          <text>"Selfclosing door during fire"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1m4k2j6">
+          <text>"EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vynena">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0g3l428">
+          <text>"Other"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1pmgijn">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1a6wijo">
+        <inputEntry id="UnaryTests_0peqtv6">
+          <text>"Selfclosing door during fire"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jhkf6v">
+          <text>"EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18yy40o">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rvy55j">
+          <text>"Smoke detection system in elevator shaft and in compartment"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1txzv8q">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0fhvtu3">
+        <description></description>
+        <inputEntry id="UnaryTests_1i4xnzq">
+          <text>"Selfclosing door during fire"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1m9m5yi">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0o86cju">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08occdc">
+          <text>"Smoke detection system in elevator shaft and in compartment","Other"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1v2tkn8">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0enzdex">
+        <description></description>
+        <inputEntry id="UnaryTests_0bno2mg">
+          <text>"Selfclosing door","Standard door"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1oraoh6">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00mbg3k">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0dudubp">
+          <text>"Smoke detection system in elevator shaft and in compartment","Other"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1l2p3uv">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_05ao2oz" name="DoorType" />
+  <inputData id="InputData_09m0oqm" name="FireResistanceDoor" />
+  <inputData id="InputData_1gnkiyo" name="HasFireDetectionInstallation" />
+  <inputData id="InputData_0svimpp" name="SmokeDetectionSystemLocation" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_11aughb" dmnElementRef="Decision_1ln8fr5">
+        <dc:Bounds height="80" width="180" x="390" y="200" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0bx2n4a" dmnElementRef="InputData_05ao2oz">
+        <dc:Bounds height="45" width="125" x="158" y="218" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0tkisqv" dmnElementRef="InputData_09m0oqm">
+        <dc:Bounds height="45" width="125" x="418" y="348" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0ok2ec6" dmnElementRef="InputData_1gnkiyo">
+        <dc:Bounds height="45" width="125" x="658" y="218" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_09g4ekw" dmnElementRef="InputData_0svimpp">
+        <dc:Bounds height="45" width="125" x="417" y="97" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1ijnbxl" dmnElementRef="InformationRequirement_16ctp1n">
+        <di:waypoint x="283" y="241" />
+        <di:waypoint x="370" y="240" />
+        <di:waypoint x="390" y="240" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1lkmvjo" dmnElementRef="InformationRequirement_16yzyqn">
+        <di:waypoint x="480" y="142" />
+        <di:waypoint x="480" y="180" />
+        <di:waypoint x="480" y="200" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1uo3h9r" dmnElementRef="InformationRequirement_0lw57jk">
+        <di:waypoint x="481" y="348" />
+        <di:waypoint x="480" y="300" />
+        <di:waypoint x="480" y="280" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0prff1q" dmnElementRef="InformationRequirement_0g078jg">
+        <di:waypoint x="658" y="241" />
+        <di:waypoint x="590" y="240" />
+        <di:waypoint x="570" y="240" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

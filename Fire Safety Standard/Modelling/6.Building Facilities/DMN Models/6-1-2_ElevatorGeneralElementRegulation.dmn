@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_1l9aljb" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_1tcdyob" name="Verify elevator element regulations">
+    <informationRequirement id="InformationRequirement_02l7qtm">
+      <requiredInput href="#FireResistanceAllWallSuccess" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0bw2sip">
+      <requiredInput href="#AllDoorSuccess" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0zmuaxt">
+      <requiredInput href="#FireResistanceElevatorShaftDoorSuccess" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_034u9ye" hitPolicy="FIRST">
+      <input id="Input_1" label="FireResistanceAllWallSuccess" biodi:width="199">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text>FireResistanceAllWallSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0mgxn1t" label="AllDoorSuccess">
+        <inputExpression id="LiteralExpression_03j0pnk" typeRef="boolean">
+          <text>AllDoorSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1cnkr46" label="FireResistanceElevatorShaftDoorSuccess">
+        <inputExpression id="LiteralExpression_1isphcu" typeRef="boolean">
+          <text>FireResistanceElevatorShaftDoorSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="ElevatorElementRegulationSuccess" name="ElevatorElementRegulationSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_11npmqo">
+        <description></description>
+        <inputEntry id="UnaryTests_0tkehtz">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1u04mmk">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1y8r8xp">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0djdj5z">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_027sd3b">
+        <inputEntry id="UnaryTests_14c911n">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0g69a74">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dbg4ro">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_11db3si">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="FireResistanceAllWallSuccess" name="FireResistanceAllWallSuccess" />
+  <inputData id="AllDoorSuccess" name="AllDoorSuccess" />
+  <inputData id="FireResistanceElevatorShaftDoorSuccess" name="FireResistanceElevatorShaftDoorSuccess" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1tcdyob">
+        <dc:Bounds height="80" width="180" x="410" y="210" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0a7i3vu" dmnElementRef="FireResistanceAllWallSuccess">
+        <dc:Bounds height="45" width="125" x="158" y="228" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_03ftwhw" dmnElementRef="InformationRequirement_02l7qtm">
+        <di:waypoint x="283" y="251" />
+        <di:waypoint x="390" y="250" />
+        <di:waypoint x="410" y="250" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1w2wuus" dmnElementRef="AllDoorSuccess">
+        <dc:Bounds height="45" width="125" x="708" y="228" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1mmho86" dmnElementRef="InformationRequirement_0bw2sip">
+        <di:waypoint x="708" y="251" />
+        <di:waypoint x="610" y="250" />
+        <di:waypoint x="590" y="250" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_04u3wwl" dmnElementRef="FireResistanceElevatorShaftDoorSuccess">
+        <dc:Bounds height="45" width="125" x="438" y="78" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0pucxqq" dmnElementRef="InformationRequirement_0zmuaxt">
+        <di:waypoint x="501" y="123" />
+        <di:waypoint x="500" y="190" />
+        <di:waypoint x="500" y="210" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

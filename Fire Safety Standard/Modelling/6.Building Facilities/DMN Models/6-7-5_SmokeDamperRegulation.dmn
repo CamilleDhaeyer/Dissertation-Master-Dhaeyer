@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_0xrnlcx" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_06mrxc6" name="Verify smoke damper regulations">
+    <informationRequirement id="InformationRequirement_1moylsv">
+      <requiredDecision href="#Decision_0tz6sik" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1ksv8x1">
+      <requiredInput href="#CanGasketWithstandTemperaturFluctuations" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_07b2b9u">
+      <requiredInput href="#ClosingSystemHasPositiveSafetyMeasure" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0in1d0j">
+      <input id="Input_1" label="SmokeDamperDensitySuccess" biodi:width="248">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text>SmokeDamperDensitySuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1ale8av" label="CanGasketWithstandTemperaturFluctuations" biodi:width="258">
+        <inputExpression id="LiteralExpression_0xffonu" typeRef="boolean">
+          <text>CanGasketWithstandTemperaturFluctuations</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1qi2nzo" label="ClosingSystemHasPositiveSafetyMeasure" biodi:width="218">
+        <inputExpression id="LiteralExpression_0jcipup" typeRef="boolean">
+          <text>ClosingSystemHasPositiveSafetyMeasure</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="SmokeDamperRegulationSuccess" name="SmokeDamperRegulationSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_15e697w">
+        <inputEntry id="UnaryTests_0b5nqkn">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09k53kf">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1teomp8">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0u1sj36">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_11ykkw5">
+        <inputEntry id="UnaryTests_0m3l2nt">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ddw4ay">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1o8u456">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_12e5tk3">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_086si5y">
+        <inputEntry id="UnaryTests_11vkj4g">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1r1qdbp">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10d14dz">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0vqhotu">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_17imfxv">
+        <inputEntry id="UnaryTests_0culfwu">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_171jjm9">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1x8xrvu">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1xq3p3s">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0rooh49">
+        <inputEntry id="UnaryTests_1w2lif6">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dz966v">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0oa94cf">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ksh280">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_19t7mpb">
+        <inputEntry id="UnaryTests_1if65og">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00y3mlh">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1h3srxq">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_14w97oe">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_00pc1qc">
+        <inputEntry id="UnaryTests_0oy4bdh">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12wevnh">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03xq3x7">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1as0zn4">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0qehbw7">
+        <inputEntry id="UnaryTests_1uh7zqs">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0d16x9m">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0f4yvzp">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0vh2300">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_0tz6sik" name="Verify density conditions">
+    <informationRequirement id="InformationRequirement_1bwrfb4">
+      <requiredInput href="#AirLeakage" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0jimlt2">
+      <requiredInput href="#SmokeDamperSealClass" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_19wj302" hitPolicy="FIRST">
+      <input id="InputClause_1bi7hgo" label="AirLeakage">
+        <inputExpression id="LiteralExpression_1ho82sy" typeRef="double">
+          <text>AirLeakage</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0borrbe" label="SmokeDamperSealClass" biodi:width="213">
+        <inputExpression id="LiteralExpression_02osj4v" typeRef="string">
+          <text>SmokeDamperSealClass</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1auxvfc" label="SmokeDamperDensitySuccess" name="SmokeDamperDensitySuccess" typeRef="boolean" />
+      <rule id="DecisionRule_0kvuwqe">
+        <description>In the closed position and at a static pressure difference of 500 Pa, the air leakage must not exceed 60 l/s.m².</description>
+        <inputEntry id="UnaryTests_1qhy91x">
+          <text>&lt;= 60</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ynxjla">
+          <text>"Class 3 according to NBN EN 1751"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ym9fjs">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ftu24v">
+        <inputEntry id="UnaryTests_01civra">
+          <text>&lt;= 60</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jhpieb">
+          <text>"Other class than class 3"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ue0j35">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_01ncyfk">
+        <inputEntry id="UnaryTests_1hsou1v">
+          <text>&gt; 60</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0oxc88f">
+          <text>"Class 3 according to NBN EN 1751","Other class than class 3"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0zr730k">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="AirLeakage" name="AirLeakage" />
+  <inputData id="SmokeDamperSealClass" name="SmokeDamperSealClass" />
+  <inputData id="CanGasketWithstandTemperaturFluctuations" name="CanGasketWithstandTemperaturFluctuations" />
+  <inputData id="ClosingSystemHasPositiveSafetyMeasure" name="ClosingSystemHasPositiveSafetyMeasure" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_06mrxc6">
+        <dc:Bounds height="80" width="180" x="360" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0d5cv1x" dmnElementRef="Decision_0tz6sik">
+        <dc:Bounds height="80" width="180" x="360" y="240" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1umdn0l" dmnElementRef="InformationRequirement_1moylsv">
+        <di:waypoint x="450" y="240" />
+        <di:waypoint x="450" y="180" />
+        <di:waypoint x="450" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0v5jdqj" dmnElementRef="AirLeakage">
+        <dc:Bounds height="45" width="125" x="158" y="257" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0i1j3h1" dmnElementRef="InformationRequirement_1bwrfb4">
+        <di:waypoint x="283" y="280" />
+        <di:waypoint x="340" y="280" />
+        <di:waypoint x="360" y="280" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_12d6kb4" dmnElementRef="SmokeDamperSealClass">
+        <dc:Bounds height="45" width="125" x="628" y="258" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_10knytk" dmnElementRef="InformationRequirement_0jimlt2">
+        <di:waypoint x="628" y="281" />
+        <di:waypoint x="560" y="280" />
+        <di:waypoint x="540" y="280" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_01ay4kt" dmnElementRef="CanGasketWithstandTemperaturFluctuations">
+        <dc:Bounds height="45" width="125" x="159" y="98" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0mwcr8b" dmnElementRef="InformationRequirement_1ksv8x1">
+        <di:waypoint x="284" y="121" />
+        <di:waypoint x="340" y="120" />
+        <di:waypoint x="360" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1g2r38n" dmnElementRef="ClosingSystemHasPositiveSafetyMeasure">
+        <dc:Bounds height="45" width="125" x="629" y="98" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0kc4fbp" dmnElementRef="InformationRequirement_07b2b9u">
+        <di:waypoint x="629" y="121" />
+        <di:waypoint x="560" y="120" />
+        <di:waypoint x="540" y="120" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

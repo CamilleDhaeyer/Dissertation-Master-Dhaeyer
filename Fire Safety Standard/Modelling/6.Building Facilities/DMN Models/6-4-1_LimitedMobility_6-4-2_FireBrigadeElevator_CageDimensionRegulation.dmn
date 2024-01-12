@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0g54ovh" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_0ixb1uo" name="verify if minimal elevator cage dimensions are met">
+    <informationRequirement id="InformationRequirement_12dtm3d">
+      <requiredInput href="#InputData_07g7oig" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_14evom0">
+      <requiredInput href="#WidthElevatorCage" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1q3suna">
+      <requiredInput href="#DepthElevatorCage" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0c3y5t0" hitPolicy="FIRST">
+      <input id="InputClause_0h8x93z" label="ElevatorType">
+        <inputExpression id="LiteralExpression_1i5i19d" typeRef="string">
+          <text>ElevatorType</text>
+        </inputExpression>
+      </input>
+      <input id="Input_1" label="WidthElevatorCage">
+        <inputExpression id="InputExpression_1" typeRef="double">
+          <text>WidthElevatorCage</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_05346ky" label="DepthElevatorCage">
+        <inputExpression id="LiteralExpression_0y3c343" typeRef="double">
+          <text>DepthElevatorCage</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="ElevatorCageDimensionSuccess" name="ElevatorCageDimensionSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_0i8uxf5">
+        <inputEntry id="UnaryTests_19idhu0">
+          <text>"Limited mobility elevator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jfqhsc">
+          <text>&gt;= 1.1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00cowbh">
+          <text>&gt;= 1.4</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0q5jsfr">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_04zzr70">
+        <inputEntry id="UnaryTests_0d32fp3">
+          <text>"Limited mobility elevator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18a08b9">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yxwo0a">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0mkzfwl">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_046ckxu">
+        <inputEntry id="UnaryTests_0qdm7sa">
+          <text>"Fire brigade elevator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12bdews">
+          <text>&gt;= 1.1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13gk41i">
+          <text>&gt;= 2.1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0y6e7w3">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0sted6b">
+        <inputEntry id="UnaryTests_0n6y95o">
+          <text>"Fire brigade elevator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15l2s4s">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qg7oa5">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_15t7j4b">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_07g7oig" name="ElevatorType" />
+  <inputData id="WidthElevatorCage" name="WidthElevatorCage" />
+  <inputData id="DepthElevatorCage" name="DepthElevatorCage" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_0ixb1uo">
+        <dc:Bounds height="80" width="180" x="360" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1tadr0v" dmnElementRef="InputData_07g7oig">
+        <dc:Bounds height="45" width="125" x="152" y="97" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1rpnics" dmnElementRef="InformationRequirement_12dtm3d">
+        <di:waypoint x="277" y="120" />
+        <di:waypoint x="340" y="120" />
+        <di:waypoint x="360" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0v1ar4e" dmnElementRef="WidthElevatorCage">
+        <dc:Bounds height="45" width="125" x="388" y="218" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0zu080j" dmnElementRef="InformationRequirement_14evom0">
+        <di:waypoint x="451" y="218" />
+        <di:waypoint x="450" y="180" />
+        <di:waypoint x="450" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1kkplyh" dmnElementRef="DepthElevatorCage">
+        <dc:Bounds height="45" width="125" x="628" y="98" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1lligka" dmnElementRef="InformationRequirement_1q3suna">
+        <di:waypoint x="628" y="121" />
+        <di:waypoint x="560" y="120" />
+        <di:waypoint x="540" y="120" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

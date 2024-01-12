@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_1wxv8kp" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_0apekwo" name="Verify general elevator aspects">
+    <informationRequirement id="InformationRequirement_0u0h4v9">
+      <requiredInput href="#ElevatorType" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0grg2pb">
+      <requiredInput href="#ElevatorDrivingSystem" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0ymxf37">
+      <requiredInput href="#ElevatorDriverSystemLocation" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_15wrcoq">
+      <requiredInput href="#ElevatorOilReservoirLocation" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0umnqu7">
+      <requiredInput href="#ElevatorShaftHasFireFightingEquipmentWithWater" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1dcrobu">
+      <input id="InputClause_0g3lvg9" label="ElevatorType">
+        <inputExpression id="LiteralExpression_17x4wxd" typeRef="string">
+          <text>ElevatorType</text>
+        </inputExpression>
+      </input>
+      <input id="Input_1" label="ElevatorDrivingSystem">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>ElevatorDrivingSystem</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_08t9o9h" label="ElevatorDriverSystemLocation" biodi:width="184">
+        <inputExpression id="LiteralExpression_0vm63db" typeRef="string">
+          <text>ElevatorDriverSystemLocation</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1n33131" label="ElevatorOilReservoirLocation" biodi:width="174">
+        <inputExpression id="LiteralExpression_1wvon5j" typeRef="string">
+          <text>ElevatorOilReservoirLocation</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_053vn86" label="ElevatorShaftHasFireFightingEquipmentWithWater" biodi:width="239">
+        <inputExpression id="LiteralExpression_0cls9f2" typeRef="boolean">
+          <text>ElevatorShaftHasFireFightingEquipmentWithWater</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="ElevatorGeneralRegulationSuccess" name="ElevatorGeneralRegulationSuccess" typeRef="boolean" biodi:width="216" />
+      <rule id="DecisionRule_10fwsor">
+        <inputEntry id="UnaryTests_0rbo4m2">
+          <text>"Elevator", "Goods Elevator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06sv0lv">
+          <text>"Oleo hydraulic elevator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_154m22f">
+          <text>"Machine room"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rqctuw">
+          <text>"Oil reservoir in machine room"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0q779ps">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0kqblwp">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_12db2r1">
+        <inputEntry id="UnaryTests_0oigbs6">
+          <text>"Elevator", "Goods Elevator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mldoga">
+          <text>"Oleo hydraulic elevator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0q93w6j">
+          <text>"Machine room"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0be1jqx">
+          <text>"Oil reservoir in machine room"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fotuxs">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1cazc0v">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0nx4auq">
+        <inputEntry id="UnaryTests_1dwzevn">
+          <text>"Elevator", "Goods Elevator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0dfhn46">
+          <text>"Oleo hydraulic elevator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pcr2dv">
+          <text>"Machine room"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0y6ja7a">
+          <text>"Oil reservoir in machine room"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cem9q1">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0tts59l">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ye6v2j">
+        <inputEntry id="UnaryTests_1r4yab0">
+          <text>"Elevator", "Goods Elevator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1az04vz">
+          <text>"Oleo hydraulic elevator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hsby0m">
+          <text>"Machine room"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0a9yqy3">
+          <text>"Oil reservoir in elevator shaft"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zocwq5">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_03hbzyp">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1paet9f">
+        <inputEntry id="UnaryTests_0mmnyo6">
+          <text>"Elevator", "Goods Elevator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ma96tz">
+          <text>"Oleo hydraulic elevator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_131jug7">
+          <text>"Elevator shaft"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12fbe4l">
+          <text>"Oil reservoir in machine room","Oil reservoir in elevator shaft"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ssbaga">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_08nlw0r">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_04j63vq">
+        <inputEntry id="UnaryTests_1sevbp4">
+          <text>"Elevator", "Goods Elevator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vhk93r">
+          <text>"Non oleo hydraulic elevator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_175ai91">
+          <text>"Machine room","Elevator shaft"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_089qc64">
+          <text>"Oil reservoir in machine room","Oil reservoir in elevator shaft"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08g68mw">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1i4r9j0">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0b8x0q6">
+        <inputEntry id="UnaryTests_1xlbi10">
+          <text>"Elevator", "Goods Elevator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vgto19">
+          <text>"Non oleo hydraulic elevator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0o7yexx">
+          <text>"Machine room","Elevator shaft"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0i3rnsm">
+          <text>"Oil reservoir in machine room","Oil reservoir in elevator shaft"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hvf3rv">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_018lb82">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_02ccb1f">
+        <inputEntry id="UnaryTests_0zp44s3">
+          <text>"Elevator", "Goods Elevator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08z76tk">
+          <text>"Non oleo hydraulic elevator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0n5ifxd">
+          <text>"Machine room","Elevator shaft"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18c019b">
+          <text>"Oil reservoir in machine room","Oil reservoir in elevator shaft"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sh44m2">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_08qwbzd">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="ElevatorType" name="ElevatorType" />
+  <inputData id="ElevatorDrivingSystem" name="ElevatorDrivingSystem" />
+  <inputData id="ElevatorDriverSystemLocation" name="ElevatorDriverSystemLocation" />
+  <inputData id="ElevatorOilReservoirLocation" name="ElevatorOilReservoirLocation" />
+  <inputData id="ElevatorShaftHasFireFightingEquipmentWithWater" name="ElevatorShaftHasFireFightingEquipmentWithWater" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_0apekwo">
+        <dc:Bounds height="80" width="180" x="370" y="200" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1gys5m7" dmnElementRef="ElevatorType">
+        <dc:Bounds height="45" width="125" x="158" y="218" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_08yv280" dmnElementRef="InformationRequirement_0u0h4v9">
+        <di:waypoint x="283" y="241" />
+        <di:waypoint x="350" y="240" />
+        <di:waypoint x="370" y="240" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_01h4q3q" dmnElementRef="ElevatorDrivingSystem">
+        <dc:Bounds height="45" width="125" x="308" y="358" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0vxzqj1" dmnElementRef="InformationRequirement_0grg2pb">
+        <di:waypoint x="371" y="358" />
+        <di:waypoint x="430" y="300" />
+        <di:waypoint x="430" y="280" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_04k1cxu" dmnElementRef="ElevatorDriverSystemLocation">
+        <dc:Bounds height="45" width="125" x="478" y="359" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0eposty" dmnElementRef="InformationRequirement_0ymxf37">
+        <di:waypoint x="541" y="359" />
+        <di:waypoint x="490" y="300" />
+        <di:waypoint x="490" y="280" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0i2khot" dmnElementRef="ElevatorOilReservoirLocation">
+        <dc:Bounds height="45" width="125" x="628" y="218" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0kdf06f" dmnElementRef="InformationRequirement_15wrcoq">
+        <di:waypoint x="628" y="241" />
+        <di:waypoint x="570" y="240" />
+        <di:waypoint x="550" y="240" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0vyvrqe" dmnElementRef="ElevatorShaftHasFireFightingEquipmentWithWater">
+        <dc:Bounds height="45" width="125" x="397" y="47" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0wz0ro6" dmnElementRef="InformationRequirement_0umnqu7">
+        <di:waypoint x="460" y="92" />
+        <di:waypoint x="460" y="180" />
+        <di:waypoint x="460" y="200" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

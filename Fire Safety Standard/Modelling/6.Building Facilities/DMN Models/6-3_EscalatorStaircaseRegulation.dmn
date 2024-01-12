@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_09pw8tv" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_0rc0bp6" name="Verify staircase escalator rules">
+    <informationRequirement id="InformationRequirement_1juaobl">
+      <requiredInput href="#NumberOfCompartmentsConnectedToEscalatorStaircase" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0ykcmax">
+      <requiredInput href="#FireResistanceAllWallSuccess" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_14ub2cq">
+      <requiredInput href="#AllDoorSuccess" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0xi5vc9">
+      <input id="InputClause_02r2v00" label="NumberOfCompartmentsConnectedToEscalatorStaircase" biodi:width="282">
+        <inputExpression id="LiteralExpression_0lmco3f" typeRef="integer">
+          <text>NumberOfCompartmentsConnectedToEscalatorStaircase</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1hplecd" label="FireResistanceAllWallSuccess" biodi:width="221">
+        <inputExpression id="LiteralExpression_0a864x2" typeRef="boolean">
+          <text>FireResistanceAllWallSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_16boset" label="AllDoorSuccess">
+        <inputExpression id="LiteralExpression_0b5ixqa" typeRef="boolean">
+          <text>AllDoorSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0hgmj82" label="EscalatorStaircaseRegulationSuccess" name="EscalatorStaircaseRegulationSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_1a3gpkh">
+        <description></description>
+        <inputEntry id="UnaryTests_1oevydv">
+          <text>&gt; 1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0okzsdz">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ppna3o">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_10gheyi">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1fvv0u0">
+        <inputEntry id="UnaryTests_15m33rt">
+          <text>&gt; 1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zqkm6w">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wp8gkd">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1r55wbs">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0t6c953">
+        <inputEntry id="UnaryTests_1i4u63j">
+          <text>&gt; 1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fiewxy">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0y5tiyv">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1gam50r">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1967en0">
+        <inputEntry id="UnaryTests_11837du">
+          <text>&gt; 1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bhhhjw">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ja4our">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ynza6f">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_16wdt33">
+        <inputEntry id="UnaryTests_0pxcdi9">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bfxnaf">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gr2v8b">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0q5yry9">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="NumberOfCompartmentsConnectedToEscalatorStaircase" name="NumberOfCompartmentsConnectedToEscalatorStaircase" />
+  <inputData id="FireResistanceAllWallSuccess" name="FireResistanceAllWallSuccess" />
+  <inputData id="AllDoorSuccess" name="AllDoorSuccess" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_1b2soow" dmnElementRef="Decision_0rc0bp6">
+        <dc:Bounds height="80" width="180" x="370" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_03vlbvy" dmnElementRef="NumberOfCompartmentsConnectedToEscalatorStaircase">
+        <dc:Bounds height="45" width="125" x="152" y="97" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0al5t9a" dmnElementRef="InformationRequirement_1juaobl">
+        <di:waypoint x="277" y="120" />
+        <di:waypoint x="350" y="120" />
+        <di:waypoint x="370" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0m3c7rg" dmnElementRef="FireResistanceAllWallSuccess">
+        <dc:Bounds height="45" width="125" x="398" y="238" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_037gvr6" dmnElementRef="InformationRequirement_0ykcmax">
+        <di:waypoint x="461" y="238" />
+        <di:waypoint x="460" y="180" />
+        <di:waypoint x="460" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_19s2sxa" dmnElementRef="AllDoorSuccess">
+        <dc:Bounds height="45" width="125" x="658" y="98" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1aysidz" dmnElementRef="InformationRequirement_14ub2cq">
+        <di:waypoint x="658" y="121" />
+        <di:waypoint x="570" y="120" />
+        <di:waypoint x="550" y="120" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

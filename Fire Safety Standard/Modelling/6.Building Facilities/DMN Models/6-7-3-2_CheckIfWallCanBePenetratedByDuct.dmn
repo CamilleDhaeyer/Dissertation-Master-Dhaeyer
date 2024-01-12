@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0z8hkl8" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_12z7pfy" name="Decide if wall can be penetrated by duct">
+    <informationRequirement id="InformationRequirement_12b0cnw">
+      <requiredDecision href="#Decision_02w245a" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0bcve4s">
+      <input id="Input_1" label="PenetratedWallType">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>PenetratedWallType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0yntsbe" label="FireResistancePenetratedWallSuccess" biodi:width="210">
+        <inputExpression id="LiteralExpression_1puwmsx" typeRef="boolean">
+          <text>FireResistancePenetratedWallSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0khlonk" label="AirDuctConditionSuccess" biodi:width="218">
+        <inputExpression id="LiteralExpression_1acfv5w" typeRef="boolean">
+          <text>AirDuctConditionSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="IsPenetrationOfWallByDuctAllowed" name="IsPenetrationOfWallByDuctAllowed" typeRef="boolean" />
+      <rule id="DecisionRule_00plmjn">
+        <inputEntry id="UnaryTests_09yyc15">
+          <text>"Wall"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ovayro">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bqpead">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qug6bs">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0hvdgsm">
+        <inputEntry id="UnaryTests_148xgj5">
+          <text>"Wall"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0aih0sr">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zalvua">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1mqt2zb">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_118lkl7">
+        <inputEntry id="UnaryTests_0kqa2ep">
+          <text>"Shared wall of two compartments"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hwhxye">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03apskh">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_061slck">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0kj29ns">
+        <inputEntry id="UnaryTests_071g5r6">
+          <text>"Shared wall of two compartments"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jkno5g">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tp1c9c">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0foc3l9">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0bpdhok">
+        <inputEntry id="UnaryTests_0ee3kil">
+          <text>"Shared wall of two compartments"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lkptnk">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0s24jnn">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_14n8znp">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1b6fzxt">
+        <inputEntry id="UnaryTests_10o8c5y">
+          <text>"Wall of service duct shaft"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_051zjxa">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hgltm1">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_13268sl">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_09b45s4">
+        <inputEntry id="UnaryTests_0axdwu1">
+          <text>"Wall of service duct shaft"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0tszt4s">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1bkgcb0">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_17w492d">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1habixh">
+        <inputEntry id="UnaryTests_1xkuz3k">
+          <text>"Wall of service duct shaft"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0igwe8h">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0v3fhhk">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_11mms2c">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_02w245a" name="Verify AirDuctConditionSuccess exceptions">
+    <informationRequirement id="InformationRequirement_015egno">
+      <requiredDecision href="#Decision_0wco9fs" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0ser4ij">
+      <requiredDecision href="#Decision_1hepokz" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0s6jxrd">
+      <requiredDecision href="#Decision_1sdfinq" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1ygbmgg" hitPolicy="FIRST">
+      <input id="InputClause_1coi7az" label="FireResistantDamperSuccess">
+        <inputExpression id="LiteralExpression_0htb0z2" typeRef="boolean">
+          <text>FireResistantDamperSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0hi7e7b" label="ChannelRequirement1Success">
+        <inputExpression id="LiteralExpression_0wecfku" typeRef="boolean">
+          <text>ChannelRequirement1Success</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1v0dhxy" label="ChannelRequirement2Success">
+        <inputExpression id="LiteralExpression_1pbwmdh" typeRef="boolean">
+          <text>ChannelRequirement2Success</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_109guut" label="AirDuctConditionSuccess" name="AirDuctConditionSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_1a0g7ht">
+        <inputEntry id="UnaryTests_0crd01v">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mbsxkr">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hlr1ql">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ao86xy">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_03xonjb">
+        <inputEntry id="UnaryTests_1ekg4fe">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09i7pvf">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19yjhne">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ycyowt">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ugi2yp">
+        <inputEntry id="UnaryTests_1p8i5x8">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rkq6o4">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ins7s9">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1pl48o2">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1xorph5">
+        <description></description>
+        <inputEntry id="UnaryTests_1i5bt03">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1sactbx">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ewdrad">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_17ek5u3">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_0wco9fs" name="verify requirements on the fire resistant damper">
+    <decisionTable id="DecisionTable_1rgj15s">
+      <input id="InputClause_1bypcyz" label="ProvidedElementAtWallPassage">
+        <inputExpression id="LiteralExpression_1x8pth9" typeRef="string">
+          <text>ProvidedElementAtWallPassage</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0mj4itm" label="FireResistanceDamperSuccess">
+        <inputExpression id="LiteralExpression_12bdsl3" typeRef="boolean">
+          <text>FireResistanceDamperSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1ednhoq" label="FireDamperRegulationSuccess  ">
+        <inputExpression id="LiteralExpression_1hi26g4" typeRef="boolean">
+          <text>FireDamperRegulationSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0w9efnq" label="FireResistantDamperSuccess" name="FireResistantDamperSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_1ye7wvt">
+        <description>DamperRegulationSuccess of 6_7_4</description>
+        <inputEntry id="UnaryTests_0542hls">
+          <text>"Fire resistant damper"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hqhrui">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dmsba6">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_01lbkh3">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0vp1js0">
+        <inputEntry id="UnaryTests_0l2tkek">
+          <text>"Fire resistant damper"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04r5s5z">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0efe6q4">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ixt8ak">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1kkq35x">
+        <inputEntry id="UnaryTests_00k0i7o">
+          <text>"Fire resistant damper"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0p8cq86">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1k9sup3">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07cb127">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_13zygc2">
+        <inputEntry id="UnaryTests_01iusou">
+          <text>"Fire resistant damper"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bnfoaa">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1adpugy">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1148ve3">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_19go2x7">
+        <inputEntry id="UnaryTests_0a9h0op">
+          <text>"No fire resistant damper provided"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0839zwp">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jqeufw">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1x5e8cp">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_1hepokz" name="Verify channel requirement 1">
+    <decisionTable id="DecisionTable_1l2pfgc">
+      <input id="InputClause_0jtb6b8" label="FireResistanceDuctAllWallSuccess">
+        <inputExpression id="LiteralExpression_1453c9k" typeRef="boolean">
+          <text>FireResistanceDuctAllWallSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0cjpigv" label="FireResistanceDuctShaftAllWallSuccess">
+        <inputExpression id="LiteralExpression_16zluip" typeRef="boolean">
+          <text>FireResistanceDuctShaftAllWallSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1pn51zj" label="ChannelRequirement1Success" name="ChannelRequirement1Success" typeRef="boolean" />
+      <rule id="DecisionRule_0ker3ck">
+        <inputEntry id="UnaryTests_16yoxmx">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qagggx">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_10su51q">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_12s6jxw">
+        <inputEntry id="UnaryTests_1ek7jwc">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19nocer">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_09u3sm9">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ci97bo">
+        <inputEntry id="UnaryTests_17mtdvt">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1he0wmx">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1b82hsu">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ncbniw">
+        <inputEntry id="UnaryTests_0jsa700">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1253hii">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_04ph7aw">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_1sdfinq" name="Verify channel requirement 2">
+    <decisionTable id="DecisionTable_137wq0t">
+      <input id="InputClause_07hdwwz" label="AreaOfPassageOpeningInWall">
+        <inputExpression id="LiteralExpression_13sbdhw" typeRef="double">
+          <text>AreaOfPassageOpeningInWall</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_13itm6d" label="DuctHasFireClosingDevice">
+        <inputExpression id="LiteralExpression_1kinzwy" typeRef="boolean">
+          <text>DuctHasFireClosingDevice</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1e50cff" label="ChannelRequirement2Success" name="ChannelRequirement2Success" typeRef="boolean" />
+      <rule id="DecisionRule_1k7hpzf">
+        <inputEntry id="UnaryTests_0whmxy2">
+          <text>&lt;= 0.0013</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sb694n">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_117lk9j">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0h0k8jv">
+        <inputEntry id="UnaryTests_0upzv93">
+          <text>&lt;= 0.0013</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qvn18b">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_19g08l6">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1mvxxc9">
+        <inputEntry id="UnaryTests_1clsksk">
+          <text>&gt; 0.0013</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1g9ohnz">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1900al5">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_12z7pfy">
+        <dc:Bounds height="80" width="180" x="385" y="100" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0n0l7oi" dmnElementRef="InformationRequirement_12b0cnw">
+        <di:waypoint x="475" y="240" />
+        <di:waypoint x="475" y="200" />
+        <di:waypoint x="475" y="180" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1n7xo3k" dmnElementRef="Decision_02w245a">
+        <dc:Bounds height="80" width="180" x="385" y="240" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0go1d9v" dmnElementRef="InformationRequirement_015egno">
+        <di:waypoint x="250" y="390" />
+        <di:waypoint x="430" y="340" />
+        <di:waypoint x="430" y="320" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0iflyqp" dmnElementRef="Decision_0wco9fs">
+        <dc:Bounds height="80" width="180" x="160" y="390" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1t7f5xc" dmnElementRef="Decision_1hepokz">
+        <dc:Bounds height="80" width="180" x="370" y="390" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0vjbmd0" dmnElementRef="InformationRequirement_0ser4ij">
+        <di:waypoint x="460" y="390" />
+        <di:waypoint x="475" y="340" />
+        <di:waypoint x="475" y="320" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_03gx7qx" dmnElementRef="Decision_1sdfinq">
+        <dc:Bounds height="80" width="180" x="590" y="390" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1s93lg7" dmnElementRef="InformationRequirement_0s6jxrd">
+        <di:waypoint x="680" y="390" />
+        <di:waypoint x="520" y="340" />
+        <di:waypoint x="520" y="320" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

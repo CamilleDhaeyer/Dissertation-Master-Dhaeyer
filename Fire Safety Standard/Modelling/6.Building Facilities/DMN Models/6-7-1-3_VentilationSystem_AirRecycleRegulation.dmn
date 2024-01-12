@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_1sbj3ip" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_07slr2g" name="Verify air recirculation possibility for rooms">
+    <informationRequirement id="InformationRequirement_0q8mtmw">
+      <requiredInput href="#RoomType" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0n35q67">
+      <requiredInput href="#SameRoomAirRecirculationSuccess" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0a70doe">
+      <requiredInput href="#InputData_0gqlqi6" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_12phvsi">
+      <input id="InputClause_03jqzki" label="RoomType">
+        <inputExpression id="LiteralExpression_0myp3ka" typeRef="string">
+          <text>RoomType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0hww6a5" label="SameRoomAirRecirculationSuccess" biodi:width="220">
+        <inputExpression id="LiteralExpression_0r8gvku" typeRef="boolean">
+          <text>SameRoomAirRecirculationSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0o6yy7p" label="OtherRoomAirRecirculationSuccess" biodi:width="225">
+        <inputExpression id="LiteralExpression_0opz8if" typeRef="boolean">
+          <text>OtherRoomAirRecirculationSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0iw58q3" label="SpecificRoomAirRecirculationMessage" name="SpecificRoomAirRecirculationMessage" typeRef="string" biodi:width="238" />
+      <rule id="DecisionRule_0so52mc">
+        <inputEntry id="UnaryTests_1wip6ti">
+          <text>"Room with fire hazards","Storage room for flammable products","Boiler room","kitchen","garage","Parking building","Transformer room","Room for garbage storage"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rpa9rm">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1efe1mc">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ajkvuz">
+          <text>"Air may not be recirculated and must be vented outside"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0pu7uqz">
+        <inputEntry id="UnaryTests_0axm6bp">
+          <text>"Other"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wf2whv">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tk1txb">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_15c1zw0">
+          <text>"Air may be recirculated to the same room and other rooms"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_06wq68i">
+        <inputEntry id="UnaryTests_0obfw0w">
+          <text>"Other"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_079koi2">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1guhzyw">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0wnqxgj">
+          <text>"Air may be recirculated to the same room and other rooms"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1wek4xe">
+        <inputEntry id="UnaryTests_0bzxah3">
+          <text>"Other"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qngx92">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jc6hyh">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_17y2efc">
+          <text>"Air may be recirculated to the same room"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0m04ye5">
+        <inputEntry id="UnaryTests_1ahwemx">
+          <text>"Other"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_196pyjk">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0v4h7nd">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ks6rmi">
+          <text>"Air may not be recirculated and must be vented outside"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="RoomType" name="RoomType" />
+  <inputData id="SameRoomAirRecirculationSuccess" name="SameRoomAirRecirculationSuccess" />
+  <inputData id="InputData_0gqlqi6" name="SameRoomAirRecirculationSuccess" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_081xm0i" dmnElementRef="Decision_07slr2g">
+        <dc:Bounds height="80" width="180" x="350" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_021ipbz" dmnElementRef="RoomType">
+        <dc:Bounds height="45" width="125" x="147" y="97" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0k73qgw" dmnElementRef="InformationRequirement_0q8mtmw">
+        <di:waypoint x="272" y="120" />
+        <di:waypoint x="330" y="120" />
+        <di:waypoint x="350" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_05zrg84" dmnElementRef="SameRoomAirRecirculationSuccess">
+        <dc:Bounds height="45" width="125" x="598" y="48" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0d8zlvy" dmnElementRef="InformationRequirement_0n35q67">
+        <di:waypoint x="598" y="71" />
+        <di:waypoint x="550" y="107" />
+        <di:waypoint x="530" y="107" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0369g85" dmnElementRef="InputData_0gqlqi6">
+        <dc:Bounds height="45" width="125" x="599" y="138" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_05sg31z" dmnElementRef="InformationRequirement_0a70doe">
+        <di:waypoint x="599" y="161" />
+        <di:waypoint x="550" y="133" />
+        <di:waypoint x="530" y="133" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

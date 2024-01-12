@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0xmzdkc" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_1eqbf5r" name="Verify if hydrants need to be provided for the building">
+    <informationRequirement id="InformationRequirement_0jsq3r5">
+      <requiredInput href="#BuildingHasAutomaticExtinguishingSystem" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_01upndy">
+      <requiredInput href="#ExtinguishingSystemType" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0r5mlzg" hitPolicy="FIRST">
+      <input id="Input_1" label="BuildingHasAutomaticExtinguishingSystem" biodi:width="186">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text>BuildingHasAutomaticExtinguishingSystem</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0yeqzur" label="ExtinguishingSystemType" biodi:width="210">
+        <inputExpression id="LiteralExpression_05zfh0j" typeRef="string">
+          <text>ExtinguishingSystemType</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="IsHydrantRequired" name="IsHydrantRequired" typeRef="boolean" />
+      <rule id="DecisionRule_1wgod1g">
+        <inputEntry id="UnaryTests_0e3pscp">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0l9sfgn">
+          <text>"Sprinkler type"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1fra2n7">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1kfqg49">
+        <inputEntry id="UnaryTests_0j2dyjr">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0u9pm98">
+          <text>"Other type"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_171ja4o">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1lk3de6">
+        <inputEntry id="UnaryTests_0thp7oz">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xt0go1">
+          <text>"No system provided"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_01htqy3">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_0dirw0j" name="Hydrant supplier requirement">
+    <informationRequirement id="InformationRequirement_1b09747">
+      <requiredInput href="#PublicWaterSupplyNetworkPipeInnerDiameter" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0m5j35x">
+      <input id="InputClause_0weyj4s" label="PublicWaterSupplyNetworkPipeInnerDiameter" biodi:width="202">
+        <inputExpression id="LiteralExpression_1wc8dc0" typeRef="double">
+          <text>PublicWaterSupplyNetworkPipeInnerDiameter</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1reqb03" label="PublicWaterSupplyNetworkIsSupplier" name="PublicWaterSupplyNetworkIsSupplier" typeRef="boolean" />
+      <output id="OutputClause_09yywud" label="OtherWaterSupplySourceMinimumCapacity" name="OtherWaterSupplySourceMinimumCapacity" typeRef="string" />
+      <rule id="DecisionRule_0ady6bs">
+        <inputEntry id="UnaryTests_0pdlxiu">
+          <text>&gt;= 80</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07an2n7">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_08kyxo4">
+          <text>"No other supply source required"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ntu5ur">
+        <inputEntry id="UnaryTests_1r9c6km">
+          <text>&lt; 80</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ty7bdy">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0nym5d7">
+          <text>"Other supply source required with minimum capacity of 50 cubic meters"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="BuildingHasAutomaticExtinguishingSystem" name="BuildingHasAutomaticExtinguishingSystem" />
+  <inputData id="ExtinguishingSystemType" name="ExtinguishingSystemType" />
+  <inputData id="PublicWaterSupplyNetworkPipeInnerDiameter" name="PublicWaterSupplyNetworkPipeInnerDiameter" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1eqbf5r">
+        <dc:Bounds height="80" width="180" x="250" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0rpp89h" dmnElementRef="Decision_0dirw0j">
+        <dc:Bounds height="80" width="180" x="510" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_09gnryy" dmnElementRef="BuildingHasAutomaticExtinguishingSystem">
+        <dc:Bounds height="45" width="125" x="158" y="218" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1qvqvfu" dmnElementRef="InformationRequirement_0jsq3r5">
+        <di:waypoint x="221" y="218" />
+        <di:waypoint x="310" y="180" />
+        <di:waypoint x="310" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0i1wwwv" dmnElementRef="ExtinguishingSystemType">
+        <dc:Bounds height="45" width="125" x="328" y="219" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1fbsgrh" dmnElementRef="InformationRequirement_01upndy">
+        <di:waypoint x="391" y="219" />
+        <di:waypoint x="370" y="180" />
+        <di:waypoint x="370" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_12mqks9" dmnElementRef="PublicWaterSupplyNetworkPipeInnerDiameter">
+        <dc:Bounds height="45" width="125" x="537" y="218" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_05j765v" dmnElementRef="InformationRequirement_1b09747">
+        <di:waypoint x="600" y="218" />
+        <di:waypoint x="600" y="180" />
+        <di:waypoint x="600" y="160" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

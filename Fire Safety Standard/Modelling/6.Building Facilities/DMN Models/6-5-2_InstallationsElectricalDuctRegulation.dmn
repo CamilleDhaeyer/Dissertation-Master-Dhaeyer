@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_18ihae2" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_1hd682s" name="Verify fire resistance electrical ducts for certain installations">
+    <informationRequirement id="InformationRequirement_0xi8hb1">
+      <requiredInput href="#InstallationWithElectricalDuctRequirements" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0zaah7j">
+      <requiredInput href="#IsOperationOfInstallationAlwaysEnsured" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0aeu7t1">
+      <requiredInput href="#DuctHasIntrinsicFireResistance" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0g1rzv3">
+      <requiredInput href="#DiameterOfDuct" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1sxzwtr">
+      <requiredInput href="#AreaOfDuct" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1li4sjm">
+      <requiredInput href="#FireResistanceDuct" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0uikl8z" hitPolicy="FIRST">
+      <input id="InputClause_1mb1k30" label="InstallationWithElectricalDuctRequirements">
+        <inputExpression id="LiteralExpression_07ub3wy" typeRef="string">
+          <text>InstallationWithElectricalDuctRequirements</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0yjdatt" label="IsOperationOfInstallationAlwaysEnsured">
+        <inputExpression id="LiteralExpression_0i3a66e" typeRef="boolean">
+          <text>IsOperationOfInstallationAlwaysEnsured</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0em8lml" label="DuctHasIntrinsicFireResistance">
+        <inputExpression id="LiteralExpression_0dod22n" typeRef="boolean">
+          <text>DuctHasIntrinsicFireResistance</text>
+        </inputExpression>
+      </input>
+      <input id="Input_1" label="DiameterOfDuct">
+        <inputExpression id="InputExpression_1" typeRef="double">
+          <text>DiameterOfDuct</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_028ie1c" label="AreaOfDuct">
+        <inputExpression id="LiteralExpression_1ao3hwa" typeRef="double">
+          <text>AreaOfDuct</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0ni7om9" label="FireResistanceDuct">
+        <inputExpression id="LiteralExpression_1d7finq" typeRef="string">
+          <text>FireResistanceDuct</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="InstallationElectricalDuctRegulationSuccess" name="InstallationElectricalDuctRegulationSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_008fipo">
+        <inputEntry id="UnaryTests_027oftz">
+          <text>"Safety lighting","Replacement lighting", "Installations for notifications or warning or alarm","Smoke extraction installation","Water pump for firefighting", "Drainage pump","Limited mobility elevator","Fire brigade elevator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nees2p">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dwkvqu">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hv60b5">
+          <text>&lt;= 0.02</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_020xycz">
+          <text>&lt;= 0.000025</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fmn069">
+          <text>"PH 60"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1xy4u1i">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1uk8oeb">
+        <description>volgens add. 3 NBN 713 020</description>
+        <inputEntry id="UnaryTests_07a1tul">
+          <text>"Safety lighting","Replacement lighting", "Installations for notifications or warning or alarm","Smoke extraction installation","Water pump for firefighting", "Drainage pump","Limited mobility elevator","Fire brigade elevator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pjjfa2">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1upe997">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0d6t94m">
+          <text>&gt; 0.02</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1m5bkhx">
+          <text>&gt; 0.000025</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10i9xz6">
+          <text>"Rf 1 h"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ikqu8k">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0pnal9c">
+        <inputEntry id="UnaryTests_16hz9z8">
+          <text>"Safety lighting","Replacement lighting", "Installations for notifications or warning or alarm","Smoke extraction installation","Water pump for firefighting", "Drainage pump","Limited mobility elevator","Fire brigade elevator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xvi6b9">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0klxc0p">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dgh2zp">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dw0z8u">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qju1yr">
+          <text>"Rf 1 h"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ubblty">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1pnnjyv">
+        <inputEntry id="UnaryTests_0hzxsyx">
+          <text>"Safety lighting","Replacement lighting", "Installations for notifications or warning or alarm","Smoke extraction installation","Water pump for firefighting", "Drainage pump","Limited mobility elevator","Fire brigade elevator","Other"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0phffgs">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0o2rwl3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1mu6ppx">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1bg4vxz">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1mv2m3f">
+          <text>"PH 60","Rf 1 h","Other fire resistance"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1kx2heb">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InstallationWithElectricalDuctRequirements" name="InstallationWithElectricalDuctRequirements" />
+  <inputData id="IsOperationOfInstallationAlwaysEnsured" name="IsOperationOfInstallationAlwaysEnsured" />
+  <inputData id="DuctHasIntrinsicFireResistance" name="DuctHasIntrinsicFireResistance" />
+  <inputData id="DiameterOfDuct" name="DiameterOfDuct" />
+  <inputData id="AreaOfDuct" name="AreaOfDuct" />
+  <inputData id="FireResistanceDuct" name="FireResistanceDuct" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1hd682s">
+        <dc:Bounds height="80" width="180" x="370" y="200" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_16xaxmk" dmnElementRef="InstallationWithElectricalDuctRequirements">
+        <dc:Bounds height="45" width="125" x="157" y="217" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1b65qjh" dmnElementRef="InformationRequirement_0xi8hb1">
+        <di:waypoint x="282" y="240" />
+        <di:waypoint x="350" y="240" />
+        <di:waypoint x="370" y="240" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0ds5cu5" dmnElementRef="IsOperationOfInstallationAlwaysEnsured">
+        <dc:Bounds height="45" width="125" x="397" y="397" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0gr3exi" dmnElementRef="InformationRequirement_0zaah7j">
+        <di:waypoint x="460" y="397" />
+        <di:waypoint x="460" y="300" />
+        <di:waypoint x="460" y="280" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1labgmm" dmnElementRef="DuctHasIntrinsicFireResistance">
+        <dc:Bounds height="45" width="125" x="638" y="217" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0obap7h" dmnElementRef="InformationRequirement_0aeu7t1">
+        <di:waypoint x="638" y="240" />
+        <di:waypoint x="570" y="240" />
+        <di:waypoint x="550" y="240" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0iq3zvi" dmnElementRef="DiameterOfDuct">
+        <dc:Bounds height="45" width="125" x="281" y="86" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0xjtu29" dmnElementRef="InformationRequirement_0g1rzv3">
+        <di:waypoint x="344" y="131" />
+        <di:waypoint x="415" y="180" />
+        <di:waypoint x="415" y="200" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1v182aj" dmnElementRef="AreaOfDuct">
+        <dc:Bounds height="45" width="125" x="417" y="86" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0wgylai" dmnElementRef="InformationRequirement_1sxzwtr">
+        <di:waypoint x="480" y="131" />
+        <di:waypoint x="460" y="180" />
+        <di:waypoint x="460" y="200" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_085yq0u" dmnElementRef="FireResistanceDuct">
+        <dc:Bounds height="45" width="125" x="558" y="87" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_04lcmoq" dmnElementRef="InformationRequirement_1li4sjm">
+        <di:waypoint x="621" y="132" />
+        <di:waypoint x="505" y="180" />
+        <di:waypoint x="505" y="200" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

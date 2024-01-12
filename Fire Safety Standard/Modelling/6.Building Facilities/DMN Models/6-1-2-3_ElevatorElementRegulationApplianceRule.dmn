@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_01nqu5w" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_15llmuq" name="Verify if elevator general elements regulation applies">
+    <informationRequirement id="InformationRequirement_1erpmu6">
+      <requiredInput href="#AllBuildingLayersAreFromOneCompartment" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_01izq1j">
+      <requiredInput href="#AreAllBuildingLayersServedByElevatorFromOneCompartment" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0sva9mt">
+      <requiredInput href="#ElevatorElementRegulationCompliesOnOtherBuildingLayers" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1tf8rhk">
+      <requiredInput href="#ElevatorOpensToAirOnBuildingLayer" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0vecfch" hitPolicy="FIRST">
+      <input id="Input_1" label="AllBuildingLayersAreFromOneCompartment" biodi:width="178">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text>AllBuildingLayersAreFromOneCompartment</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0cjooup" label="AreAllBuildingLayersServedByElevatorFromOneCompartment">
+        <inputExpression id="LiteralExpression_08gqm82" typeRef="boolean">
+          <text>AreAllBuildingLayersServedByElevatorFromOneCompartment</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_16jrbvw" label="ElevatorElementRegulationCompliesOnOtherBuildingLayers">
+        <inputExpression id="LiteralExpression_1uynl16" typeRef="boolean">
+          <text>ElevatorElementRegulationCompliesOnOtherBuildingLayers</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1toixrg" label="ElevatorOpensToAirOnBuildingLayer">
+        <inputExpression id="LiteralExpression_105thk6" typeRef="boolean">
+          <text>ElevatorOpensToAirOnBuildingLayer</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="ElevatorElementRegulationNotRequiredSuccess" name="ElevatorElementRegulationNotRequiredSuccess" typeRef="boolean" biodi:width="221" />
+      <output id="OutputClause_0cg5hzt" label="ElevatorConfiguration" name="ElevatorConfiguration" typeRef="string" />
+      <rule id="DecisionRule_11deswa">
+        <inputEntry id="UnaryTests_0cx1abl">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rzem6h">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_077zquw">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0l0bkhh">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_053n5zg">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0myky9a">
+          <text>"Configuration a"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_191jnge">
+        <inputEntry id="UnaryTests_0jbieb3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0u9aogs">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zgujyl">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qpcsxm">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_18jfriw">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0zafi6h">
+          <text>"Configuration b"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1uwencw">
+        <inputEntry id="UnaryTests_10066ml">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0z7smik">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17d43eo">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0i117nj">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ppckr9">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_01rns87">
+          <text>"Configuration c"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1bzrkb9">
+        <inputEntry id="UnaryTests_12fnrmv">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0r2qn99">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1mknwlh">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16cvyyj">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_00enhv4">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0zd4i8c">
+          <text>"Not applicable"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="AllBuildingLayersAreFromOneCompartment" name="AllBuildingLayersAreFromOneCompartment" />
+  <inputData id="AreAllBuildingLayersServedByElevatorFromOneCompartment" name="AreAllBuildingLayersServedByElevatorFromOneCompartment" />
+  <inputData id="ElevatorElementRegulationCompliesOnOtherBuildingLayers" name="ElevatorElementRegulationCompliesOnOtherBuildingLayers" />
+  <inputData id="ElevatorOpensToAirOnBuildingLayer" name="ElevatorOpensToAirOnBuildingLayer" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_15llmuq">
+        <dc:Bounds height="80" width="180" x="400" y="200" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1bouped" dmnElementRef="AllBuildingLayersAreFromOneCompartment">
+        <dc:Bounds height="45" width="125" x="158" y="218" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0vzyijl" dmnElementRef="InformationRequirement_1erpmu6">
+        <di:waypoint x="283" y="241" />
+        <di:waypoint x="380" y="240" />
+        <di:waypoint x="400" y="240" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1a69g0q" dmnElementRef="AreAllBuildingLayersServedByElevatorFromOneCompartment">
+        <dc:Bounds height="45" width="125" x="428" y="328" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_14k2xzy" dmnElementRef="InformationRequirement_01izq1j">
+        <di:waypoint x="491" y="328" />
+        <di:waypoint x="490" y="300" />
+        <di:waypoint x="490" y="280" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0l4m5bc" dmnElementRef="ElevatorElementRegulationCompliesOnOtherBuildingLayers">
+        <dc:Bounds height="45" width="125" x="678" y="218" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_194bg1i" dmnElementRef="InformationRequirement_0sva9mt">
+        <di:waypoint x="678" y="241" />
+        <di:waypoint x="600" y="240" />
+        <di:waypoint x="580" y="240" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0x8iax5" dmnElementRef="ElevatorOpensToAirOnBuildingLayer">
+        <dc:Bounds height="45" width="125" x="427" y="78" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1hqplqy" dmnElementRef="InformationRequirement_1tf8rhk">
+        <di:waypoint x="490" y="123" />
+        <di:waypoint x="490" y="180" />
+        <di:waypoint x="490" y="200" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
