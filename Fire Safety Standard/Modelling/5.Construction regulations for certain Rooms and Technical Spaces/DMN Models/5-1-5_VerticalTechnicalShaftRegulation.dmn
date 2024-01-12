@@ -1,0 +1,1111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_1v2pvi0" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_092kd55" name="Verification vertical technical shaft">
+    <informationRequirement id="InformationRequirement_06semk4">
+      <requiredDecision href="#Decision_0kkxltm" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1hqa2yr">
+      <requiredDecision href="#Decision_1l47v3u" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1er3b9b">
+      <requiredDecision href="#Decision_1xi0vq7" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_11amshj">
+      <input id="InputClause_1bvfilr" label="DoesShaftPenetrateWall" biodi:width="208">
+        <inputExpression id="LiteralExpression_0r1r7o8" typeRef="boolean">
+          <text>DoesShaftPenetrateWall</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0h5lgn8" label="Measure1Success">
+        <inputExpression id="LiteralExpression_1gm7dhw" typeRef="boolean">
+          <text>Measure1Success</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1lg043c" label="Measure2Success">
+        <inputExpression id="LiteralExpression_16hwj7v" typeRef="boolean">
+          <text>Measure2Success</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_187cb68" label="Measure3Success">
+        <inputExpression id="LiteralExpression_177cavb" typeRef="boolean">
+          <text>Measure3Success</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="VerticalTechnicalShaftRegulationSuccess" name="VerticalTechnicalShaftRegulationSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_02hyrxq">
+        <inputEntry id="UnaryTests_14bgpwl">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0es7urt">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fkl92i">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00cwvw0">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_19ni7t2">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_15w72x9">
+        <inputEntry id="UnaryTests_1a1opum">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hkaya8">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0b0d3kt">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zf9ou9">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1t9ahrw">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1jzvwq3">
+        <inputEntry id="UnaryTests_0gdln6c">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1f0y4j8">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0t650hy">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0u0v7sg">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0isiek2">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0yqv8g5">
+        <inputEntry id="UnaryTests_0ai69ey">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_159cpmf">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_186dh3c">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00pr9k5">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_145lrz7">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0j07akv">
+        <inputEntry id="UnaryTests_0rghx05">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0j57y8f">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xw23sw">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1bu9oct">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1l8kq2d">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_0kkxltm" name="Verification measure 1">
+    <decisionTable id="DecisionTable_111ick9">
+      <input id="InputClause_0ga555v" label="FireResistanceAllWallSuccess60">
+        <inputExpression id="LiteralExpression_1yyfgtm" typeRef="boolean">
+          <text>FireResistanceAllWallSuccess60</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1r83qzp" label="FireResistanceAllDoorSuccess60">
+        <inputExpression id="LiteralExpression_1gk24o1" typeRef="boolean">
+          <text>FireResistanceAllDoorSuccess60</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0otyd7a" label="Measure1Success" name="Measure1Success" typeRef="boolean" />
+      <rule id="DecisionRule_0hlhgg9">
+        <description>FireResistanceAllWallSuccess EI60 module</description>
+        <inputEntry id="UnaryTests_1cqnsjq">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0h898tz">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ix2rgc">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1vu7oqq">
+        <description>FireResistanceAllDoorSuccess EI60 module</description>
+        <inputEntry id="UnaryTests_1034y47">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0l4ab22">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_016e4ga">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0umwos6">
+        <inputEntry id="UnaryTests_0ro2607">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_106ufy6">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_18laxjg">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_12r5r1h">
+        <inputEntry id="UnaryTests_0uzu9yt">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1t1u42d">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1dwvqhb">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_1xi0vq7" name="Verification measure 2">
+    <decisionTable id="DecisionTable_10oqi01">
+      <input id="InputClause_1oqg9n2" label="FireResistancePenetratedWall" biodi:width="264">
+        <inputExpression id="LiteralExpression_1kdpy5x" typeRef="string">
+          <text>FireResistancePenetratedWall</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0mrgcxd" label="FireResistanceBuildingElementAtWallPenetration" biodi:width="713">
+        <inputExpression id="LiteralExpression_129gjvs" typeRef="string">
+          <text>FireResistanceBuildingElementAtWallPenetration</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0q11cx7" label="Measure2Success" name="Measure2Success" typeRef="boolean" />
+      <rule id="DecisionRule_0oncbel">
+        <inputEntry id="UnaryTests_0aby5el">
+          <text>"Reference wall is E 10"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18yy9t3">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_034ycwu">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_16d4gbj">
+        <inputEntry id="UnaryTests_04y6zny">
+          <text>"Reference wall is E 15"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dmhu6l">
+          <text>"E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ly7u1f">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_05a16so">
+        <inputEntry id="UnaryTests_1s5xhii">
+          <text>"Reference wall is E 15"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0l7nzoo">
+          <text>"E 10"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0jxj5ed">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_15dpd0h">
+        <inputEntry id="UnaryTests_1br5aak">
+          <text>"Reference wall is E 20"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0svcdar">
+          <text>"E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1259gj4">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_12mouw3">
+        <inputEntry id="UnaryTests_0zi6x14">
+          <text>"Reference wall is E 20"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1r51i3h">
+          <text>"E 10","E 15"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1793dzl">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1hi0hpx">
+        <inputEntry id="UnaryTests_1y2l40h">
+          <text>"Reference wall is E 30"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rxt5ue">
+          <text>"E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1e9xwe0">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0xxi4kp">
+        <inputEntry id="UnaryTests_0k3h7yz">
+          <text>"Reference wall is E 30"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ip20t1">
+          <text>"E 10","E 15","E 20"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1dms6ls">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_06v9c33">
+        <inputEntry id="UnaryTests_1dg3pig">
+          <text>"Reference wall is E 45"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06xw9fz">
+          <text>"E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1emhobe">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0evmnhe">
+        <inputEntry id="UnaryTests_1g7qytb">
+          <text>"Reference wall is E 45"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12jezzr">
+          <text>"E 10","E 15","E 20","E 30"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_110xuqq">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1hat7c6">
+        <description></description>
+        <inputEntry id="UnaryTests_0td5wxd">
+          <text>"Reference wall is E 60"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1llivny">
+          <text>"E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0xfzsei">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_17yrtly">
+        <description></description>
+        <inputEntry id="UnaryTests_1omu1mq">
+          <text>"Reference wall is E 60"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xr8z7c">
+          <text>"E 10","E 15","E 20","E 30","E 45"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ye94bz">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_15mowtv">
+        <inputEntry id="UnaryTests_0iy8idt">
+          <text>"Reference wall is E 90"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pj7hs9">
+          <text>"E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1pbcyqt">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_00cr4gk">
+        <inputEntry id="UnaryTests_1bj4h9v">
+          <text>"Reference wall is E 90"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04hb9wi">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_06qqcy0">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0zuoqot">
+        <inputEntry id="UnaryTests_0j9jacl">
+          <text>"Reference wall is E 120"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1v9obja">
+          <text>"E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1wxj6f3">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_009oth0">
+        <inputEntry id="UnaryTests_0rdy9p4">
+          <text>"Reference wall is E 120"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_052fx4a">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0xw700g">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0k32gtp">
+        <inputEntry id="UnaryTests_1ecj06x">
+          <text>"Reference wall is E 180"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sxm512">
+          <text>"E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0wo0eke">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1d9wnl0">
+        <inputEntry id="UnaryTests_1lzii6c">
+          <text>"Reference wall is E 180"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02lnjfl">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0y2zzxb">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0a6us4g">
+        <inputEntry id="UnaryTests_1nzael8">
+          <text>"Reference wall is E 240"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0biiuru">
+          <text>"E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_128i4lw">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0qk2n71">
+        <inputEntry id="UnaryTests_1c1p99q">
+          <text>"Reference wall is E 240"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mvap03">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_101ph4l">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_138zbkb">
+        <inputEntry id="UnaryTests_09g68i0">
+          <text>"Reference wall is E 300"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_026nttz">
+          <text>"E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_17zcqa8">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_17y4vse">
+        <inputEntry id="UnaryTests_15udl7f">
+          <text>"Reference wall is E 300"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09c29qa">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1cvee92">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_06nbllc">
+        <inputEntry id="UnaryTests_0zzuhmy">
+          <text>"Reference wall is EI 10"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fu7ogr">
+          <text>"EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0to1juy">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0hbq7s6">
+        <inputEntry id="UnaryTests_037yf9g">
+          <text>"Reference wall is EI 10"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1939aay">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_00ihwmg">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1857rzm">
+        <inputEntry id="UnaryTests_13e4354">
+          <text>"Reference wall is EI 15"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_090cu7f">
+          <text>"EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0l8qzi6">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1bh5cv7">
+        <inputEntry id="UnaryTests_1p3yvz9">
+          <text>"Reference wall is EI 15"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17evd8b">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0yyntmz">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_07jba0o">
+        <inputEntry id="UnaryTests_1rpmtij">
+          <text>"Reference wall is EI 20"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0srmgeo">
+          <text>"EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1thflbw">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1qc5lkh">
+        <inputEntry id="UnaryTests_0di9rxq">
+          <text>"Reference wall is EI 20"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0k3knxt">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0xf3rjq">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_02r6ny0">
+        <inputEntry id="UnaryTests_0wd84ha">
+          <text>"Reference wall is EI 30"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_068mibl">
+          <text>"EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ywav6f">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1nplkzn">
+        <inputEntry id="UnaryTests_1i7humr">
+          <text>"Reference wall is EI 30"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10zc6xh">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_14qxik8">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0fj12q1">
+        <inputEntry id="UnaryTests_1yrfpz8">
+          <text>"Reference wall is EI 45"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_014otf1">
+          <text>"EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_086t1u8">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_07feilj">
+        <inputEntry id="UnaryTests_1teky3u">
+          <text>"Reference wall is EI 45"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hg7nz9">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1er574p">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0z0sgim">
+        <inputEntry id="UnaryTests_10r5b97">
+          <text>"Reference wall is EI 60"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jdg217">
+          <text>"EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0bx5hok">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0bk047y">
+        <inputEntry id="UnaryTests_0viipa5">
+          <text>"Reference wall is EI 60"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1oul9fh">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_176v172">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ur26n0">
+        <inputEntry id="UnaryTests_1xefms7">
+          <text>"Reference wall is EI 90"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0q06bby">
+          <text>"EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0nlbymb">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1quivm3">
+        <inputEntry id="UnaryTests_124c2dy">
+          <text>"Reference wall is EI 90"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mlyso4">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0kx8tfi">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_19mw67q">
+        <inputEntry id="UnaryTests_0u9kypd">
+          <text>"Reference wall is EI 120"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15fa0ca">
+          <text>"EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0q4sfx4">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0gqgrr8">
+        <inputEntry id="UnaryTests_1rekpv3">
+          <text>"Reference wall is EI 120"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ufal57">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0t4sy36">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0clbbqf">
+        <inputEntry id="UnaryTests_1ofuplt">
+          <text>"Reference wall is EI 180"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mxpoqn">
+          <text>"EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_00y31a2">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_01er95n">
+        <inputEntry id="UnaryTests_094nwie">
+          <text>"Reference wall is EI 180"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1r9fsp8">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_15epirt">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_17mbvj9">
+        <inputEntry id="UnaryTests_1jvqael">
+          <text>"Reference wall is EI 240"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07uk8rz">
+          <text>"EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0na37at">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0oz3clb">
+        <inputEntry id="UnaryTests_15vgnz5">
+          <text>"Reference wall is EI 240"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qccnba">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0bhfcb1">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0apravd">
+        <inputEntry id="UnaryTests_1y5qp31">
+          <text>"Reference wall is EI 360"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mv3nes">
+          <text>"EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1gdu1a0">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0avp1x5">
+        <inputEntry id="UnaryTests_0ul978j">
+          <text>"Reference wall is EI 360"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0h3e5cc">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0j7z3ka">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_01eywqe">
+        <inputEntry id="UnaryTests_0e0opsz">
+          <text>"Reference wall is REI 10"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0542c27">
+          <text>"REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0w5ijxy">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_01k4ihj">
+        <inputEntry id="UnaryTests_13dnl2o">
+          <text>"Reference wall is REI 10"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fx9es4">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0t0nxha">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0zx78lb">
+        <inputEntry id="UnaryTests_1winl2e">
+          <text>"Reference wall is REI 15"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0o0682n">
+          <text>"REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0gxjpsd">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0z5t2dd">
+        <inputEntry id="UnaryTests_06bkrz6">
+          <text>"Reference wall is REI 15"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1j8zz57">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1e3wmz5">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1prwejs">
+        <inputEntry id="UnaryTests_1we87k6">
+          <text>"Reference wall is REI 20"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11vnlgi">
+          <text>"REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_10wkoh4">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1u0955l">
+        <inputEntry id="UnaryTests_0jluwlz">
+          <text>"Reference wall is REI 20"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0skok98">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_060s58g">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_16kbijd">
+        <inputEntry id="UnaryTests_17p0sql">
+          <text>"Reference wall is REI 30"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14a1u4z">
+          <text>"REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0i5ntou">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ap2wsl">
+        <inputEntry id="UnaryTests_002ldvq">
+          <text>"Reference wall is REI 30"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1l52kw0">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0mnt0yp">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0aedbww">
+        <inputEntry id="UnaryTests_1lk69wn">
+          <text>"Reference wall is REI 45"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08fup05">
+          <text>"REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0newx0r">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0kfpcza">
+        <inputEntry id="UnaryTests_02ie5qf">
+          <text>"Reference wall is REI 45"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0unv0ey">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_10kp4gg">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0cvxhx4">
+        <inputEntry id="UnaryTests_0dlilax">
+          <text>"Reference wall is REI 60"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0e4jd0y">
+          <text>"REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07ddpc1">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1oeo7on">
+        <inputEntry id="UnaryTests_0rlltyx">
+          <text>"Reference wall is REI 60"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1azuixj">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0747bpq">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1jt2pv0">
+        <inputEntry id="UnaryTests_096f2r3">
+          <text>"Reference wall is REI 90"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06efjk0">
+          <text>"REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1hpsu2q">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_027lngz">
+        <inputEntry id="UnaryTests_1lkhsrw">
+          <text>"Reference wall is REI 90"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qb5rp4">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1owzgks">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0v2xatj">
+        <inputEntry id="UnaryTests_1m651vd">
+          <text>"Reference wall is REI 120"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ef1ldg">
+          <text>"REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1pcrkod">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0fy87di">
+        <inputEntry id="UnaryTests_1r2b54y">
+          <text>"Reference wall is REI 120"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1aga8v7">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1knuk12">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_014gxaw">
+        <inputEntry id="UnaryTests_1fpuf0h">
+          <text>"Reference wall is REI 180"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xdxhg9">
+          <text>"REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0bw1jfv">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0riti30">
+        <inputEntry id="UnaryTests_0r6xxhu">
+          <text>"Reference wall is REI 180"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cp4ag2">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_181vw0y">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ct56sa">
+        <inputEntry id="UnaryTests_1s6tajy">
+          <text>"Reference wall is REI 240"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1k68scg">
+          <text>"REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ljb9jz">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ijyn1z">
+        <inputEntry id="UnaryTests_0qu2a27">
+          <text>"Reference wall is REI 240"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02zeib2">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0q6zblg">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1y4wwsb">
+        <inputEntry id="UnaryTests_0krpptt">
+          <text>"Reference wall is REI 300"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01hreiw">
+          <text>"REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1q54qe3">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0mbidj2">
+        <inputEntry id="UnaryTests_1l8d6qr">
+          <text>"Reference wall is REI 300"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0x9dwxn">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0q7l0v6">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_1l47v3u" name="Verification measure 3">
+    <informationRequirement id="InformationRequirement_0482wwr">
+      <requiredDecision href="#Decision_14xqert" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1bnb8be" hitPolicy="FIRST">
+      <input id="InputClause_0nhe173" label="FireResistanceAllWallSuccess30">
+        <inputExpression id="LiteralExpression_1qxp1nm" typeRef="boolean">
+          <text>FireResistanceAllWallSuccess30</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_16iis3f" label="FireResistanceAllDoorSuccess30">
+        <inputExpression id="LiteralExpression_13zk2s8" typeRef="boolean">
+          <text>FireResistanceAllDoorSuccess30</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1kv76xd" label="TechnicalShaftHasHorizontalScreenAtCompartmentIntersection">
+        <inputExpression id="LiteralExpression_1f8rbnw" typeRef="boolean">
+          <text>TechnicalShaftHasHorizontalScreenAtCompartmentIntersection</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0l76w9p" label="HorizontalScreenRegulationSuccess">
+        <inputExpression id="LiteralExpression_00x4meh" typeRef="boolean">
+          <text>HorizontalScreenRegulationSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1qrg2iu" label="Measure3Success" name="Measure3Success" typeRef="boolean" />
+      <rule id="DecisionRule_0l4r6n7">
+        <description>wall and door EI30 modules</description>
+        <inputEntry id="UnaryTests_0pb7iao">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01zwk40">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1b99m4y">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0v8nztg">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ep3ykj">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0kiobr1">
+        <inputEntry id="UnaryTests_1fjdfql">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jrpuaf">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hn5rha">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jcho6e">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0o074fc">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_14xqert" name="Horizontal screen regulation verification">
+    <decisionTable id="DecisionTable_0c65qdq">
+      <input id="InputClause_1s2pyjb" label="HorizontalScreenMaterialClass" biodi:width="207">
+        <inputExpression id="LiteralExpression_0bzprfq" typeRef="string">
+          <text>HorizontalScreenMaterialClass</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1i3h5c6" label="HorizontalScreenCoversFullTechnicalShaftCrossSection" biodi:width="195">
+        <inputExpression id="LiteralExpression_1cgyune" typeRef="boolean">
+          <text>HorizontalScreenCoversFullTechnicalShaftCrossSection</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1yxu31a" label="FireResistanceHorizontalScreenSuccess">
+        <inputExpression id="LiteralExpression_12ohefb" typeRef="boolean">
+          <text>FireResistanceHorizontalScreenSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1yyog4z" label="HorizontalScreenRegulationSuccess" name="HorizontalScreenRegulationSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_1crjons">
+        <inputEntry id="UnaryTests_0bv5enu">
+          <text>"Other class"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_116htza">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fap676">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0x4vth8">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0bb4o7w">
+        <description>EI 30 module</description>
+        <inputEntry id="UnaryTests_1rpe5go">
+          <text>"Class A1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nulg1t">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1770z4v">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0g2wmhg">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_08a8ynh">
+        <description></description>
+        <inputEntry id="UnaryTests_10yuhon">
+          <text>"Class A1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0st93z4">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fkfte7">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0fnmwv7">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1r083xo">
+        <description></description>
+        <inputEntry id="UnaryTests_16orz6i">
+          <text>"Class A1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jcdw79">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ps1a0x">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0569xjy">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0qzoxin">
+        <description></description>
+        <inputEntry id="UnaryTests_0ax52wo">
+          <text>"Class A1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1oemdun">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1e6k6md">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_075n8zd">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_092kd55">
+        <dc:Bounds height="80" width="180" x="400" y="100" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0vkftd4" dmnElementRef="Decision_0kkxltm">
+        <dc:Bounds height="80" width="180" x="160" y="260" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_14zdbk4" dmnElementRef="InformationRequirement_06semk4">
+        <di:waypoint x="250" y="260" />
+        <di:waypoint x="445" y="200" />
+        <di:waypoint x="445" y="180" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0v8bbek" dmnElementRef="Decision_1xi0vq7">
+        <dc:Bounds height="80" width="180" x="400" y="260" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0ameyux" dmnElementRef="Decision_1l47v3u">
+        <dc:Bounds height="80" width="180" x="650" y="260" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1fd6wga" dmnElementRef="Decision_14xqert">
+        <dc:Bounds height="80" width="180" x="650" y="400" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0md7t43" dmnElementRef="InformationRequirement_0482wwr">
+        <di:waypoint x="740" y="400" />
+        <di:waypoint x="740" y="360" />
+        <di:waypoint x="740" y="340" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0ystokb" dmnElementRef="InformationRequirement_1hqa2yr">
+        <di:waypoint x="740" y="260" />
+        <di:waypoint x="535" y="200" />
+        <di:waypoint x="535" y="180" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_08obtkl" dmnElementRef="InformationRequirement_1er3b9b">
+        <di:waypoint x="490" y="260" />
+        <di:waypoint x="490" y="200" />
+        <di:waypoint x="490" y="180" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

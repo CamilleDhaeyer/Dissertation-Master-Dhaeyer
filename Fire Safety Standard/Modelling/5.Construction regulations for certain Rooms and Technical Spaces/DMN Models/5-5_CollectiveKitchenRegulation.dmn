@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_183vm6i" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_09m717o" name="Verify collective kitchen rules">
+    <informationRequirement id="InformationRequirement_1g1r578">
+      <requiredDecision href="#Decision_0sj6dmz" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_11dw734">
+      <input id="Input_1" label="FireResistanceAllWallSuccess" biodi:width="180">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text>FireResistanceAllWallSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_189pc83" label="AllDoorSuccess">
+        <inputExpression id="LiteralExpression_03qaqwm" typeRef="boolean">
+          <text>AllDoorSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="CollectiveKitchenRegulationSuccess" name="CollectiveKitchenRegulationSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_1v5a4qn">
+        <description>AllWallFireResistanceSucces minimal EI 60 en enkel buitenwanden van het compartiment</description>
+        <inputEntry id="UnaryTests_0pv52zp">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0txrhpb">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_04329vu">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0qitwao">
+        <inputEntry id="UnaryTests_02593mc">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1i7f492">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_16bjujg">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1xgmqlj">
+        <inputEntry id="UnaryTests_1q7r03n">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1mq2lno">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_137yb3m">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0o86w0x">
+        <inputEntry id="UnaryTests_00nuouo">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sv1we2">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_10j4uyv">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_0sj6dmz" name="Verify door requirements">
+    <decisionTable id="DecisionTable_0yp0bq3">
+      <input id="InputClause_0jgdbxh" label="AllDoorRotationSuccess">
+        <inputExpression id="LiteralExpression_0zzx931" typeRef="boolean">
+          <text>AllDoorRotationSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_19agwma" label="AllDoorTypeSuccess">
+        <inputExpression id="LiteralExpression_0yv12wq" typeRef="boolean">
+          <text>AllDoorTypeSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0r0mdob" label="FireResistanceAllDoorSuccess">
+        <inputExpression id="LiteralExpression_1bvbaoe" typeRef="boolean">
+          <text>FireResistanceAllDoorSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0fmodwt" label="AllDoorSuccess" name="AllDoorSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_0fzkelx">
+        <description>fireresistance tabel van EI 30 aan linken</description>
+        <inputEntry id="UnaryTests_081u731">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1s0ak3b">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_060xpu4">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_17uosku">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1xc2lf8">
+        <inputEntry id="UnaryTests_1ktfqi0">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1osavhi">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1s8ykrv">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_03oe6ba">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0r1ueo6">
+        <inputEntry id="UnaryTests_0h8dkrf">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xt8nvu">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19zwm6u">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1i2udwt">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_111n83p">
+        <inputEntry id="UnaryTests_10u8tmb">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0f2xrn2">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1t53gum">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ikfvyr">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0hl8i8b">
+        <inputEntry id="UnaryTests_1xo0sat">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0p6qy7l">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1r845x0">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0z6zii4">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0x95w2e">
+        <inputEntry id="UnaryTests_1652sbu">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0uu6f66">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13tayf0">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ltd4um">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1rfwsod">
+        <inputEntry id="UnaryTests_1xgftw2">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kgk0eh">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03g179m">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0rdobrm">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_06q4mt1">
+        <inputEntry id="UnaryTests_0w977tj">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qpdxvy">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vwsmx5">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0dmzuii">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_09m717o">
+        <dc:Bounds height="80" width="180" x="180" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0q630pz" dmnElementRef="Decision_0sj6dmz">
+        <dc:Bounds height="80" width="180" x="180" y="230" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_14o3pta" dmnElementRef="InformationRequirement_1g1r578">
+        <di:waypoint x="270" y="230" />
+        <di:waypoint x="270" y="180" />
+        <di:waypoint x="270" y="160" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

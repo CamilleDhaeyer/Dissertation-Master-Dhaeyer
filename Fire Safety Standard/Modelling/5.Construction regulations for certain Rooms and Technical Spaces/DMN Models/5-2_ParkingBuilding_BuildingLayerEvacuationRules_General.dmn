@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0igpm7j" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_12mwsoz" name="Verify staircase or exterior stair rules">
+    <informationRequirement id="InformationRequirement_1lorf94">
+      <requiredInput href="#NumberOfEvacuationOptionsConnectedToBuildingLayer" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0bqsm00">
+      <requiredInput href="#AllStairsAccessibleEverywhereOnBuildingLayer" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1u38sb7">
+      <requiredInput href="#AllStairsMaximumDistanceSuccess" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_08u3m14">
+      <requiredInput href="#AllStairsEffectiveWidthSuccess" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_03kwyhf">
+      <input id="InputClause_16glqbt" label="NumberOfEvacuationOptionsConnectedToBuildingLayer" biodi:width="233">
+        <inputExpression id="LiteralExpression_0x32v23" typeRef="integer">
+          <text>NumberOfEvacuationOptionsConnectedToBuildingLayer</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0b651q0" label="AllStairsAccessibleEverywhereOnBuildingLayer" biodi:width="249">
+        <inputExpression id="LiteralExpression_0q6mxqj" typeRef="boolean">
+          <text>AllStairsAccessibleEverywhereOnBuildingLayer</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0hp8jva" label="AllStairsMaximumDistanceSuccess" biodi:width="279">
+        <inputExpression id="LiteralExpression_0mt8b0l" typeRef="boolean">
+          <text>AllStairsMaximumDistanceSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_01nyxzs" label="AllStairsEffectiveWidthSuccess" biodi:width="187">
+        <inputExpression id="LiteralExpression_1x96fsa" typeRef="boolean">
+          <text>AllStairsEffectiveWidthSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="BuildingLayerAccessibilitySuccess" name="BuildingLayerAccessibilitySuccess" typeRef="boolean" biodi:width="212" />
+      <rule id="DecisionRule_12slpqq">
+        <description></description>
+        <inputEntry id="UnaryTests_03orqwj">
+          <text>&gt;= 2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1r1ehtk">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1f52849">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09fpn5n">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0zvkp7a">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0uqa0sa">
+        <inputEntry id="UnaryTests_01yj2m8">
+          <text>&gt;= 2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10ch36b">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_086kcmp">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cytlbt">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0kwy2zc">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0mkuccp">
+        <inputEntry id="UnaryTests_18011lr">
+          <text>&gt;= 2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13ozs5a">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nuepta">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gjc1r5">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ocqx9i">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1dbljla">
+        <inputEntry id="UnaryTests_0q8mjrd">
+          <text>&gt;= 2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ryf7oy">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gq1khq">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lk6fua">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0q26sqt">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_02si1qd">
+        <description></description>
+        <inputEntry id="UnaryTests_1sxp2jp">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wthraf">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gg3wjf">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1p7sfrj">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_13110tn">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_11qn2oy">
+        <inputEntry id="UnaryTests_18179lw">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1phc038">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05odwlr">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wz6idc">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1eg9ss6">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ae99rw">
+        <inputEntry id="UnaryTests_0eelc12">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ddlypt">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15mod2o">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ve57s8">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0zf6srf">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="NumberOfEvacuationOptionsConnectedToBuildingLayer" name="NumberOfEvacuationOptionsConnectedToBuildingLayer" />
+  <inputData id="AllStairsAccessibleEverywhereOnBuildingLayer" name="AllStairsAccessibleEverywhereOnBuildingLayer" />
+  <inputData id="AllStairsMaximumDistanceSuccess" name="AllStairsMaximumDistanceSuccess" />
+  <inputData id="AllStairsEffectiveWidthSuccess" name="AllStairsEffectiveWidthSuccess" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_12mwsoz">
+        <dc:Bounds height="80" width="180" x="350" y="200" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1154m1z" dmnElementRef="NumberOfEvacuationOptionsConnectedToBuildingLayer">
+        <dc:Bounds height="45" width="125" x="158" y="218" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0qgbb8x" dmnElementRef="InformationRequirement_1lorf94">
+        <di:waypoint x="283" y="241" />
+        <di:waypoint x="330" y="240" />
+        <di:waypoint x="350" y="240" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_00sc7n4" dmnElementRef="AllStairsAccessibleEverywhereOnBuildingLayer">
+        <dc:Bounds height="45" width="125" x="378" y="348" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0uv8nu5" dmnElementRef="InformationRequirement_0bqsm00">
+        <di:waypoint x="441" y="348" />
+        <di:waypoint x="440" y="300" />
+        <di:waypoint x="440" y="280" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0mreqm6" dmnElementRef="AllStairsMaximumDistanceSuccess">
+        <dc:Bounds height="45" width="125" x="618" y="218" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1ssxrjs" dmnElementRef="InformationRequirement_1u38sb7">
+        <di:waypoint x="618" y="241" />
+        <di:waypoint x="550" y="240" />
+        <di:waypoint x="530" y="240" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0todp6b" dmnElementRef="AllStairsEffectiveWidthSuccess">
+        <dc:Bounds height="45" width="125" x="377" y="87" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0lfcr6i" dmnElementRef="InformationRequirement_08u3m14">
+        <di:waypoint x="440" y="132" />
+        <di:waypoint x="440" y="180" />
+        <di:waypoint x="440" y="200" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

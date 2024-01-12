@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0ggq6fn" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_0x421i1" name="verify technical room exit">
+    <informationRequirement id="InformationRequirement_1vyd8bk">
+      <requiredInput href="#ExitConnectionTo" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_00k58t4">
+      <requiredInput href="#InputData_1nuho8h" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0bgo8jg">
+      <requiredInput href="#AirlockRegulationSuccess" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0vlc76c">
+      <input id="InputClause_04r1wr6" label="ExitConnectionTo">
+        <inputExpression id="LiteralExpression_0aguqup" typeRef="string">
+          <text>ExitConnectionTo</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1s94ftx" label="FireResistanceDoorSuccess">
+        <inputExpression id="LiteralExpression_0hvtad3" typeRef="boolean">
+          <text>FireResistanceDoorSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0co42bv" label="AirlockRegulationSuccess" biodi:width="209">
+        <inputExpression id="LiteralExpression_1ngseu1" typeRef="boolean">
+          <text>AirlockRegulationSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0yo5py8" label="TechnicalRoomExitRegulationSuccess" name="TechnicalRoomExitRegulationSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_09rcras">
+        <description>door EI 60 module</description>
+        <inputEntry id="UnaryTests_0941qwv">
+          <text>"Exit connects to other comparment"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17c1iz0">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ot055q">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_16w1p7s">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0xhqyjq">
+        <description></description>
+        <inputEntry id="UnaryTests_069tdyk">
+          <text>"Exit connects to other comparment"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_050whu6">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11vld1h">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_01rx0fu">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_06ch38d">
+        <inputEntry id="UnaryTests_079esgo">
+          <text>"Exit connects to staircase"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1stihew">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0p6kzbg">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0lgc2n9">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_126qnjx">
+        <inputEntry id="UnaryTests_00a93rh">
+          <text>"Exit connects to staircase"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1g4qawm">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yffr9b">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_14lgsuk">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1wp8147">
+        <inputEntry id="UnaryTests_09strhd">
+          <text>"Exit connects to exterior reaching an evacuation level"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0tx38js">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16ip2r2">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1tws7gy">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="ExitConnectionTo" name="ExitConnectionTo" />
+  <inputData id="InputData_1nuho8h" name="FireResistanceDoorSuccess" />
+  <inputData id="AirlockRegulationSuccess" name="AirlockRegulationSuccess" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_0sjsy1y" dmnElementRef="Decision_0x421i1">
+        <dc:Bounds height="80" width="180" x="360" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_142nujt" dmnElementRef="ExitConnectionTo">
+        <dc:Bounds height="45" width="125" x="387" y="228" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0zxklr6" dmnElementRef="InformationRequirement_1vyd8bk">
+        <di:waypoint x="450" y="228" />
+        <di:waypoint x="450" y="180" />
+        <di:waypoint x="450" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_08hdt5t" dmnElementRef="InputData_1nuho8h">
+        <dc:Bounds height="45" width="125" x="158" y="98" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1h2l0zc" dmnElementRef="InformationRequirement_00k58t4">
+        <di:waypoint x="283" y="121" />
+        <di:waypoint x="340" y="120" />
+        <di:waypoint x="360" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_06p1wd5" dmnElementRef="AirlockRegulationSuccess">
+        <dc:Bounds height="45" width="125" x="617" y="97" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_00kc71s" dmnElementRef="InformationRequirement_0bgo8jg">
+        <di:waypoint x="617" y="120" />
+        <di:waypoint x="560" y="120" />
+        <di:waypoint x="540" y="120" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

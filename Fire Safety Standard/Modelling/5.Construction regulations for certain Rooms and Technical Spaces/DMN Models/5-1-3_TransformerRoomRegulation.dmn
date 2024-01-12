@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_0jhc67y" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_0pamu97" name="General verification transformer room regulations">
+    <informationRequirement id="InformationRequirement_1yw9niz">
+      <requiredInput href="#TechnicalRoomType" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0afggvv">
+      <requiredInput href="#FireResistanceAllWallSuccess" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1asxrzc">
+      <requiredInput href="#FireResistanceAllDoorSuccess" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1saa4jl">
+      <input id="InputClause_1aayjxc" label="TechnicalRoomType">
+        <inputExpression id="LiteralExpression_0e9em9r" typeRef="string">
+          <text>TechnicalRoomType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1hjs43h" label="FireResistanceAllDoorSuccess">
+        <inputExpression id="LiteralExpression_0yykrot" typeRef="boolean">
+          <text>FireResistanceAllDoorSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0fv3988" label="FireResistanceAllWallSuccess">
+        <inputExpression id="LiteralExpression_122hcgo" typeRef="boolean">
+          <text>FireResistanceAllWallSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1p6oqxg" label="TransformerRoomRegulationSuccess" name="TransformerRoomRegulationSuccess" typeRef="boolean" biodi:width="192" />
+      <rule id="DecisionRule_0rggyb6">
+        <inputEntry id="UnaryTests_0sdgs6o">
+          <text>"Transformer room"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_064c88g">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_001b9m4">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0767dl4">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1o95c8o">
+        <inputEntry id="UnaryTests_1jpt3ue">
+          <text>"Transformer room"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05rbuh2">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1c5941s">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1grnhip">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0wji0f4">
+        <inputEntry id="UnaryTests_0wcffqn">
+          <text>"Transformer room"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dhsbxi">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ze87sr">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_02jd0fd">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1u6o490">
+        <inputEntry id="UnaryTests_1horu6t">
+          <text>"Transformer room"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18qx6j8">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zdugk3">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qp2mn4">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1xdbm9j">
+        <inputEntry id="UnaryTests_1c7yhx4">
+          <text>"Other"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05rd2sc">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06uzol4">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_143t0y1">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="TechnicalRoomType" name="TechnicalRoomType" />
+  <inputData id="FireResistanceAllWallSuccess" name="FireResistanceAllWallSuccess" />
+  <inputData id="FireResistanceAllDoorSuccess" name="FireResistanceAllDoorSuccess" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_196s1ba" dmnElementRef="Decision_0pamu97">
+        <dc:Bounds height="80" width="180" x="340" y="90" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_13h36ou" dmnElementRef="TechnicalRoomType">
+        <dc:Bounds height="45" width="125" x="158" y="107" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_19r7jfn" dmnElementRef="InformationRequirement_1yw9niz">
+        <di:waypoint x="283" y="130" />
+        <di:waypoint x="320" y="130" />
+        <di:waypoint x="340" y="130" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_14gib8f" dmnElementRef="FireResistanceAllWallSuccess">
+        <dc:Bounds height="45" width="125" x="368" y="238" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1mfyatj" dmnElementRef="InformationRequirement_0afggvv">
+        <di:waypoint x="431" y="238" />
+        <di:waypoint x="430" y="190" />
+        <di:waypoint x="430" y="170" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0a2t8ck" dmnElementRef="FireResistanceAllDoorSuccess">
+        <dc:Bounds height="45" width="125" x="607" y="107" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1975qqk" dmnElementRef="InformationRequirement_1asxrzc">
+        <di:waypoint x="607" y="130" />
+        <di:waypoint x="540" y="130" />
+        <di:waypoint x="520" y="130" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0igpm7j" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_0kst1rr" name="Determine combination of evacuation possibilities of a floor level ">
+    <informationRequirement id="InformationRequirement_04f9yp9">
+      <requiredInput href="#FloorLevelEvacuationExitsCombination" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1vp3h6q" biodi:annotationsWidth="400">
+      <input id="InputClause_1m90dkq" label="FloorLevelEvacuationExitsCombination" biodi:width="174">
+        <inputExpression id="LiteralExpression_0263l6z" typeRef="string">
+          <text>FloorLevelEvacuationExitsCombination</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0qsjuj4" label="Combination" name="Combination" typeRef="string" />
+      <rule id="DecisionRule_0jkohb1">
+        <inputEntry id="UnaryTests_17qpjzt">
+          <text>"Minimal 2 staircases"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ft0fsd">
+          <text>"Combo 1"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1slag2c">
+        <inputEntry id="UnaryTests_12lqryv">
+          <text>"Minimal 2 exterior stairs"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0zngjul">
+          <text>"Combo 2"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1htm0u1">
+        <inputEntry id="UnaryTests_07jvakd">
+          <text>"Minimal 1 staircase and minimal 1 exterior stair"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0kd0wj0">
+          <text>"Combo 3"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1mv9ih5">
+        <inputEntry id="UnaryTests_1lghzsg">
+          <text>"Minimal 1 staircase and 1 direct exit to exterior"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1nbw6i8">
+          <text>"Combo 4"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0yet69y">
+        <inputEntry id="UnaryTests_15bx9kg">
+          <text>"Minimal 1 exterior stair and 1 direct exit to exterior"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_00i7vvs">
+          <text>"Combo 5"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_08cddwt">
+        <inputEntry id="UnaryTests_1gz9zwl">
+          <text>"Minimal 1 staircase and 1 sloping access road"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_01lfw98">
+          <text>"Combo 6"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ntmipy">
+        <inputEntry id="UnaryTests_0ny889t">
+          <text>"Minimal 1 exterior stair and 1 sloping access road"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_05kamlr">
+          <text>"Combo 7"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_14wf1f7">
+        <inputEntry id="UnaryTests_1d00wrb">
+          <text>"Just 1 staircase"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1wkd3z9">
+          <text>"Combo 8"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0j2752p">
+        <inputEntry id="UnaryTests_0s8iave">
+          <text>"Just 1 exterior stair"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_06tvm7d">
+          <text>"Combo 9"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0rv6zru">
+        <inputEntry id="UnaryTests_1kdxhfg">
+          <text>"Just 1 direct exit to exterior"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1rnqook">
+          <text>"Combo 10"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0e8mwpi">
+        <inputEntry id="UnaryTests_13xzbn8">
+          <text>"Just 1 sloping access road"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_101veoi">
+          <text>"Combo 11"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="FloorLevelEvacuationExitsCombination" name="FloorLevelEvacuationExitsCombination" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_1pdihoz" dmnElementRef="Decision_0kst1rr">
+        <dc:Bounds height="80" width="180" x="160" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1ruwgxa" dmnElementRef="FloorLevelEvacuationExitsCombination">
+        <dc:Bounds height="45" width="125" x="188" y="228" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1savc38" dmnElementRef="InformationRequirement_04f9yp9">
+        <di:waypoint x="251" y="228" />
+        <di:waypoint x="250" y="180" />
+        <di:waypoint x="250" y="160" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

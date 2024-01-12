@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_01vbbc3" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_0jt47xs" name="Verify access regulations to certain rooms in a parking building">
+    <informationRequirement id="InformationRequirement_0pr3ye5">
+      <requiredInput href="#AccessType" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_06he3jn">
+      <requiredInput href="#FireResistanceAllWallSuccess" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1c9onxn">
+      <requiredInput href="#AirlockRegulationSuccess" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0j54v09">
+      <requiredInput href="#DoorSuccess" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0ngnedi">
+      <input id="Input_1" label="AccessType">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>AccessType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0gd50ml" label="FireResistanceAllWallSuccess" biodi:width="184">
+        <inputExpression id="LiteralExpression_1ehvbwa" typeRef="boolean">
+          <text>FireResistanceAllWallSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1djn7xa" label="AirlockRegulationSuccess" biodi:width="209">
+        <inputExpression id="LiteralExpression_0b6utsv" typeRef="boolean">
+          <text>AirlockRegulationSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0bprofc" label="DoorSuccess">
+        <inputExpression id="LiteralExpression_0asvwmf" typeRef="boolean">
+          <text>DoorSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="ParkingBuildingNonResidentialPremisesRegulationSuccess" name="ParkingBuildingNonResidentialPremisesRegulationSuccess" typeRef="boolean" biodi:width="245" />
+      <rule id="DecisionRule_10wdvs6">
+        <inputEntry id="UnaryTests_1vnxebz">
+          <text>"Airlock"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yniuxk">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lfkljm">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0e5ep4o">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1djtar6">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1dudbwg">
+        <inputEntry id="UnaryTests_1q6cin3">
+          <text>"Airlock"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pg7m06">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_166ljy5">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13umgkm">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_14gn7zq">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0t85wc8">
+        <inputEntry id="UnaryTests_16qzu2x">
+          <text>"Airlock"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0f2vf7y">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_069j0br">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0tfisgc">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0lepx9h">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0i3ir7c">
+        <inputEntry id="UnaryTests_1f5xb3p">
+          <text>"Airlock"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12n3akp">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1araj36">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17zngdf">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0uz99bh">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1qscdv6">
+        <inputEntry id="UnaryTests_11t2p87">
+          <text>"Airlock"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lmn036">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0leq6gt">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xoxlbv">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_10beqh6">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0zc3tou">
+        <inputEntry id="UnaryTests_0ad78y0">
+          <text>"Airlock"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1356bxc">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1olwxv4">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15yq1kb">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1awscg4">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0kw9exq">
+        <inputEntry id="UnaryTests_1ed3052">
+          <text>"Airlock"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ciako4">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0l0o5rt">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ohfytv">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_02h2kex">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1xq4g3f">
+        <inputEntry id="UnaryTests_1427jt4">
+          <text>"Airlock"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fqo9ld">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11lploi">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16gvp1w">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0urno6i">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1r1wqyy">
+        <inputEntry id="UnaryTests_040ey90">
+          <text>"Door"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11090r4">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_080ruuq">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ciwfuf">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_16mdqly">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1tkdq9b">
+        <inputEntry id="UnaryTests_1k6al12">
+          <text>"Door"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cq9d1c">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18dq1ey">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0g8swim">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1jp7l6b">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0rxvt7v">
+        <inputEntry id="UnaryTests_178r1jj">
+          <text>"Door"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0olbodj">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1la0hg8">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pr7llo">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ihbvk8">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0xl6ga8">
+        <inputEntry id="UnaryTests_00c3trr">
+          <text>"Door"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0b6e0xz">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fb8gtw">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1b5qeyn">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1izoqxa">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_19e2u2c">
+        <inputEntry id="UnaryTests_0tgnwg7">
+          <text>"Door"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03l6ltp">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ueaiiw">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1byjzn5">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1oigjfs">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1cssh32">
+        <inputEntry id="UnaryTests_08xopjc">
+          <text>"Door"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07oemnx">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0t8qjp2">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12o1aev">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1lba45p">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_00l9nna">
+        <inputEntry id="UnaryTests_1drxwdn">
+          <text>"Door"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gtedv7">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11dgjn1">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lqreon">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0xhvt2l">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1lfn0xo">
+        <inputEntry id="UnaryTests_1s9aupi">
+          <text>"Door"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dgio75">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wmtzqi">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ra159b">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1657l6f">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="AccessType" name="AccessType" />
+  <inputData id="FireResistanceAllWallSuccess" name="FireResistanceAllWallSuccess" />
+  <inputData id="AirlockRegulationSuccess" name="AirlockRegulationSuccess" />
+  <inputData id="DoorSuccess" name="DoorSuccess" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_0jt47xs">
+        <dc:Bounds height="80" width="180" x="370" y="220" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_18ds7pi" dmnElementRef="AccessType">
+        <dc:Bounds height="45" width="125" x="158" y="238" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1kr01ct" dmnElementRef="InformationRequirement_0pr3ye5">
+        <di:waypoint x="283" y="261" />
+        <di:waypoint x="350" y="260" />
+        <di:waypoint x="370" y="260" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1mlh504" dmnElementRef="FireResistanceAllWallSuccess">
+        <dc:Bounds height="45" width="125" x="398" y="388" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1wxjw6o" dmnElementRef="InformationRequirement_06he3jn">
+        <di:waypoint x="461" y="388" />
+        <di:waypoint x="460" y="320" />
+        <di:waypoint x="460" y="300" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_04034al" dmnElementRef="AirlockRegulationSuccess">
+        <dc:Bounds height="45" width="125" x="658" y="237" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0km1b8k" dmnElementRef="InformationRequirement_1c9onxn">
+        <di:waypoint x="658" y="260" />
+        <di:waypoint x="570" y="260" />
+        <di:waypoint x="550" y="260" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1wvu0y0" dmnElementRef="DoorSuccess">
+        <dc:Bounds height="45" width="125" x="398" y="78" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0ekk51e" dmnElementRef="InformationRequirement_0j54v09">
+        <di:waypoint x="461" y="123" />
+        <di:waypoint x="460" y="200" />
+        <di:waypoint x="460" y="220" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

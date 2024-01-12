@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_00ww7rx" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_1ih2udi" name="Verify retail and commercial building requirements">
+    <informationRequirement id="InformationRequirement_0n98b8l">
+      <requiredInput href="#FireResistanceAllOuterWallSuccess" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_05y4z1y">
+      <requiredInput href="#RetailOrCommercialComplexHasSeparateExits" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0i6u9cm">
+      <requiredInput href="#FireResistanceAllInnerWallSuccess" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_177xzdv">
+      <requiredInput href="#AllWallThroughLoweredCeilingSuccess" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1eeo717">
+      <input id="Input_1" label="FireResistanceAllOuterWallSuccess" biodi:width="190">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text>FireResistanceAllOuterWallSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0jlytca" label="RetailOrCommercialComplexHasSeparateExits" biodi:width="236">
+        <inputExpression id="LiteralExpression_1x4v34w" typeRef="boolean">
+          <text>RetailOrCommercialComplexHasSeparateExits</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_07pbvcm" label="FireResistanceAllInnerWallSuccess">
+        <inputExpression id="LiteralExpression_1e691on" typeRef="boolean">
+          <text>FireResistanceAllInnerWallSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0qg4uph" label="AllWallThroughLoweredCeilingSuccess" biodi:width="241">
+        <inputExpression id="LiteralExpression_1u1bl6b" typeRef="boolean">
+          <text>AllWallThroughLoweredCeilingSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="RetailandCommercialComplexRegulationSuccess" name="RetailandCommercialComplexRegulationSuccess" typeRef="boolean" biodi:width="246" />
+      <rule id="DecisionRule_1nkevjq">
+        <description></description>
+        <inputEntry id="UnaryTests_1hvwcjf">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wybeds">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_165zx2i">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0il1qx4">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0rrdt1g">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0s12aic">
+        <description></description>
+        <inputEntry id="UnaryTests_0v4mmz6">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1f8yb6s">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1q04rkw">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0k4dnju">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1jhm5rc">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_16xm50y">
+        <description></description>
+        <inputEntry id="UnaryTests_1dltmle">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0p6ip7m">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1j5p7z4">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02i4zs1">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1jf63wn">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0n0w1xd">
+        <description></description>
+        <inputEntry id="UnaryTests_0g8bqgz">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0go48f1">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1d3d1a3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_130okbr">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1u4r8bo">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_14906c4">
+        <inputEntry id="UnaryTests_1rfe30n">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vywozf">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14jyvek">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10ltz3l">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ooj8ya">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="FireResistanceAllOuterWallSuccess" name="FireResistanceAllOuterWallSuccess" />
+  <inputData id="RetailOrCommercialComplexHasSeparateExits" name="RetailOrCommercialComplexHasSeparateExits" />
+  <inputData id="FireResistanceAllInnerWallSuccess" name="FireResistanceAllInnerWallSuccess" />
+  <inputData id="AllWallThroughLoweredCeilingSuccess" name="AllWallThroughLoweredCeilingSuccess" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1ih2udi">
+        <dc:Bounds height="80" width="180" x="380" y="210" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1hwh0mn" dmnElementRef="FireResistanceAllOuterWallSuccess">
+        <dc:Bounds height="45" width="125" x="158" y="228" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1qpla73" dmnElementRef="InformationRequirement_0n98b8l">
+        <di:waypoint x="283" y="251" />
+        <di:waypoint x="360" y="250" />
+        <di:waypoint x="380" y="250" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0qksmwh" dmnElementRef="RetailOrCommercialComplexHasSeparateExits">
+        <dc:Bounds height="45" width="125" x="408" y="368" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0xt4iqn" dmnElementRef="InformationRequirement_05y4z1y">
+        <di:waypoint x="471" y="368" />
+        <di:waypoint x="470" y="310" />
+        <di:waypoint x="470" y="290" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_18iwg8w" dmnElementRef="FireResistanceAllInnerWallSuccess">
+        <dc:Bounds height="45" width="125" x="648" y="228" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0ez0a18" dmnElementRef="InformationRequirement_0i6u9cm">
+        <di:waypoint x="648" y="251" />
+        <di:waypoint x="580" y="250" />
+        <di:waypoint x="560" y="250" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1x4k3fp" dmnElementRef="AllWallThroughLoweredCeilingSuccess">
+        <dc:Bounds height="45" width="125" x="408" y="78" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0aebnpf" dmnElementRef="InformationRequirement_177xzdv">
+        <di:waypoint x="471" y="123" />
+        <di:waypoint x="470" y="190" />
+        <di:waypoint x="470" y="210" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

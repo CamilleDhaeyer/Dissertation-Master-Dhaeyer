@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_01vbbc3" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_0t7j3ck" name="Verify door rotation ">
+    <informationRequirement id="InformationRequirement_0wi5oqi">
+      <requiredInput href="#DoorRotation" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0834daw">
+      <input id="InputClause_0hcv32d" label="DoorRotation">
+        <inputExpression id="LiteralExpression_1opwndy" typeRef="string">
+          <text>DoorRotation</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0q73psu" label="DoorRotationSuccess" name="DoorRotationSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_1dd7zy4">
+        <inputEntry id="UnaryTests_14zmxy9">
+          <text>"Door rotates in direction of evacuation"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1vh66qf">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1kv4gbx">
+        <inputEntry id="UnaryTests_1pq37rz">
+          <text>"Door rotates against direction of evacuation"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0e07sqj">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="DoorRotation" name="DoorRotation" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_1r34x22" dmnElementRef="Decision_0t7j3ck">
+        <dc:Bounds height="80" width="180" x="150" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_03v0a2h" dmnElementRef="DoorRotation">
+        <dc:Bounds height="45" width="125" x="178" y="228" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1o3gffn" dmnElementRef="InformationRequirement_0wi5oqi">
+        <di:waypoint x="241" y="228" />
+        <di:waypoint x="240" y="180" />
+        <di:waypoint x="240" y="160" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

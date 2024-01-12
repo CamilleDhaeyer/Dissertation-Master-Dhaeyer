@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0ggq6fn" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_0quvntk" name="Decide required number of exits">
+    <informationRequirement id="InformationRequirement_0hyodqg">
+      <requiredInput href="#SpaceType" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_17di23x">
+      <requiredInput href="#AreaOfCompartment" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0rlyudd">
+      <requiredInput href="#DistanceFurthestPointToNearestStairOrExit" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_17ayfba">
+      <input id="InputClause_0g4ajp2" label="SpaceType">
+        <inputExpression id="LiteralExpression_0tnaied" typeRef="string">
+          <text>SpaceType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_04wo2xu" label="AreaOfCompartment">
+        <inputExpression id="LiteralExpression_1duqxnd" typeRef="double">
+          <text>AreaOfCompartment</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0srq7fu" label="DistanceFurthestPointToNearestStairOrExit">
+        <inputExpression id="LiteralExpression_1bgsmbx" typeRef="double">
+          <text>DistanceFurthestPointToNearestStairOrExit</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1bkre4y" label="MinimalRequiredNumberOfExits" name="MinimalRequiredNumberOfExits" typeRef="integer" biodi:width="206" />
+      <rule id="DecisionRule_0h7h9b9">
+        <inputEntry id="UnaryTests_0kwwtkd">
+          <text>"Technical compartment"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gb20w6">
+          <text>&lt;= 1000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zrxpth">
+          <text>&lt;= 60</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_14htjll">
+          <text>1</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_05p03h5">
+        <inputEntry id="UnaryTests_0eayqab">
+          <text>"Technical compartment"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kly0gs">
+          <text>&lt;= 1000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08tnbcc">
+          <text>&gt; 60</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ingrw7">
+          <text>2</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0h6csm1">
+        <inputEntry id="UnaryTests_07a568l">
+          <text>"Technical compartment"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0d2tokx">
+          <text>&gt; 1000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_172li00">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0w32fvv">
+          <text>2</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_1r203ju" name="Verify provided number of exits">
+    <informationRequirement id="InformationRequirement_0t3ee5r">
+      <requiredDecision href="#Decision_0quvntk" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1jxs2j7">
+      <requiredInput href="#InputData_0d8iyq5" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_02qsyb8">
+      <input id="InputClause_19iwiox" label="MinimalRequiredNumberOfExits">
+        <inputExpression id="LiteralExpression_0pkk8ro" typeRef="integer">
+          <text>MinimalRequiredNumberOfExits</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_05l7wd4" label="CompartmentNumberOfExits" biodi:width="201">
+        <inputExpression id="LiteralExpression_024b8mz" typeRef="integer">
+          <text>CompartmentNumberOfExits</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1ld7jna" label="ExitNumberRegulationSuccess" name="ExitNumberRegulationSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_1nwyli3">
+        <inputEntry id="UnaryTests_1jl0xly">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lq7f6h">
+          <text>&gt;= 1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1erzmk5">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0up9aco">
+        <inputEntry id="UnaryTests_05xp9ui">
+          <text>2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0105fg0">
+          <text>1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0dg9yfi">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0vu072k">
+        <inputEntry id="UnaryTests_049rm31">
+          <text>2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17aud01">
+          <text>&gt; 1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0wgqos8">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="SpaceType" name="SpaceType" />
+  <inputData id="AreaOfCompartment" name="AreaOfCompartment" />
+  <inputData id="DistanceFurthestPointToNearestStairOrExit" name="DistanceFurthestPointToNearestStairOrExit" />
+  <inputData id="InputData_0d8iyq5" name="CompartmentNumberOfExits" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_0p5wmj8" dmnElementRef="Decision_0quvntk">
+        <dc:Bounds height="80" width="180" x="360" y="220" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1ftewpm" dmnElementRef="Decision_1r203ju">
+        <dc:Bounds height="80" width="180" x="360" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0heuwtl" dmnElementRef="InformationRequirement_0t3ee5r">
+        <di:waypoint x="450" y="220" />
+        <di:waypoint x="450" y="180" />
+        <di:waypoint x="450" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_09agolm" dmnElementRef="SpaceType">
+        <dc:Bounds height="45" width="125" x="158" y="238" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1te9t89" dmnElementRef="InformationRequirement_0hyodqg">
+        <di:waypoint x="283" y="261" />
+        <di:waypoint x="340" y="260" />
+        <di:waypoint x="360" y="260" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1vlb375" dmnElementRef="AreaOfCompartment">
+        <dc:Bounds height="45" width="125" x="388" y="358" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_06qeanq" dmnElementRef="InformationRequirement_17di23x">
+        <di:waypoint x="451" y="358" />
+        <di:waypoint x="450" y="320" />
+        <di:waypoint x="450" y="300" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0trvrrt" dmnElementRef="DistanceFurthestPointToNearestStairOrExit">
+        <dc:Bounds height="45" width="125" x="608" y="237" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1spoqhq" dmnElementRef="InformationRequirement_0rlyudd">
+        <di:waypoint x="608" y="260" />
+        <di:waypoint x="560" y="260" />
+        <di:waypoint x="540" y="260" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1fja5zg" dmnElementRef="InputData_0d8iyq5">
+        <dc:Bounds height="45" width="125" x="159" y="98" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1pexttz" dmnElementRef="InformationRequirement_1jxs2j7">
+        <di:waypoint x="284" y="121" />
+        <di:waypoint x="340" y="120" />
+        <di:waypoint x="360" y="120" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0igpm7j" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_04fdqtp" name="Verify additional rule if a direct exit is connected to building layer">
+    <informationRequirement id="InformationRequirement_03tb73i">
+      <requiredInput href="#ConnectionEvacuationRouteAndInteriorStaircaseSuccess" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0e8du3m">
+      <requiredInput href="#BuildingLayerLocation" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_06higek">
+      <input id="InputClause_0s8xhal" label="ConnectionEvacuationRouteAndInteriorStaircaseSuccess" biodi:width="245">
+        <inputExpression id="LiteralExpression_1700pya" typeRef="boolean">
+          <text>ConnectionEvacuationRouteAndInteriorStaircaseSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_16j9s2d" label="BuildingLayerLocation">
+        <inputExpression id="LiteralExpression_04919dc" typeRef="string">
+          <text>BuildingLayerLocation</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0emwgnz" label="DirectExitToExteriorRegulationSuccess" name="DirectExitToExteriorRegulationSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_1pqyxk8">
+        <inputEntry id="UnaryTests_00bjjca">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10ayyv6">
+          <text>"Underground"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1pzolps">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1thbmfo">
+        <inputEntry id="UnaryTests_0obm542">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0be4f33">
+          <text>"Aboveground"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_064k0v3">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0xg4tgf">
+        <inputEntry id="UnaryTests_01hgf73">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rveogl">
+          <text>"Aboveground","Underground"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_14v3m76">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="ConnectionEvacuationRouteAndInteriorStaircaseSuccess" name="ConnectionEvacuationRouteAndInteriorStaircaseSuccess" />
+  <inputData id="BuildingLayerLocation" name="BuildingLayerLocation" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_1v4meo9" dmnElementRef="Decision_04fdqtp">
+        <dc:Bounds height="80" width="180" x="360" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_17mg6nl" dmnElementRef="ConnectionEvacuationRouteAndInteriorStaircaseSuccess">
+        <dc:Bounds height="45" width="125" x="158" y="98" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1cwdehs" dmnElementRef="InformationRequirement_03tb73i">
+        <di:waypoint x="283" y="121" />
+        <di:waypoint x="340" y="120" />
+        <di:waypoint x="360" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_09x2so0" dmnElementRef="BuildingLayerLocation">
+        <dc:Bounds height="45" width="125" x="638" y="98" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0nf047v" dmnElementRef="InformationRequirement_0e8du3m">
+        <di:waypoint x="638" y="121" />
+        <di:waypoint x="560" y="120" />
+        <di:waypoint x="540" y="120" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

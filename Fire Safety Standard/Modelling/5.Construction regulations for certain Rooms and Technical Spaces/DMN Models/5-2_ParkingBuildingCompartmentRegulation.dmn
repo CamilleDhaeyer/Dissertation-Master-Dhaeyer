@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0axwj05" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_12kxvwe" name="Define a parking building as one compartment">
+    <informationRequirement id="InformationRequirement_0wdbxoq">
+      <requiredInput href="#ParkingBuildingIsOneCompartment" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1ovmv8h">
+      <input id="Input_1" label="ParkingBuildingIsOneCompartment">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text>ParkingBuildingIsOneCompartment</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="ParkingBuildingCompartmentSuccess" name="ParkingBuildingCompartmentSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_13hu7sz">
+        <inputEntry id="UnaryTests_0kfuz5z">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_045pu1d">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_064i5a3">
+        <inputEntry id="UnaryTests_0aev23e">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1jodoos">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="ParkingBuildingIsOneCompartment" name="ParkingBuildingIsOneCompartment" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_12kxvwe">
+        <dc:Bounds height="80" width="180" x="150" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0h5rr2x" dmnElementRef="ParkingBuildingIsOneCompartment">
+        <dc:Bounds height="45" width="125" x="178" y="228" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1qf9h4n" dmnElementRef="InformationRequirement_0wdbxoq">
+        <di:waypoint x="241" y="228" />
+        <di:waypoint x="240" y="180" />
+        <di:waypoint x="240" y="160" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

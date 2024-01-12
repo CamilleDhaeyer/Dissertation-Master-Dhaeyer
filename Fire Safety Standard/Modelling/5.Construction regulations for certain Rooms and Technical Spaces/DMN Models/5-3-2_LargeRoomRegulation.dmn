@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_19gkasm" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_0p04hma" name="Verify door requirements">
+    <informationRequirement id="InformationRequirement_1698l8h">
+      <requiredInput href="#AllDoorRotationSuccess" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1g2ici2">
+      <requiredInput href="#AllDoorTypeSuccess" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_00909de">
+      <requiredInput href="#FireResistanceAllDoorSuccess" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0yvjix6">
+      <input id="Input_1" label="AllDoorRotationSuccess">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text>AllDoorRotationSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1r57dyc" label="AllDoorTypeSuccess">
+        <inputExpression id="LiteralExpression_0yw4aa8" typeRef="boolean">
+          <text>AllDoorTypeSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1u9r67m" label="FireResistanceAllDoorSuccess" biodi:width="185">
+        <inputExpression id="LiteralExpression_1vnht8e" typeRef="boolean">
+          <text>FireResistanceAllDoorSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="AllDoorSuccess" name="AllDoorSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_13uopmt">
+        <inputEntry id="UnaryTests_1mj97sw">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11uek88">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0uls806">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ksdyrs">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_17n10rk">
+        <inputEntry id="UnaryTests_0xlzbt4">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1bamgkj">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0olvz9f">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_17sx94l">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1a8ik8q">
+        <inputEntry id="UnaryTests_1m5123n">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08wzutr">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wxjkco">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0iit78w">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0xizvse">
+        <inputEntry id="UnaryTests_0seuq1j">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00r9gi9">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fv0gcx">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0o48bk3">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_08h4kiz">
+        <inputEntry id="UnaryTests_0ahehbj">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_148ks2y">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1v2uyyx">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0nyrrci">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0g2mg95">
+        <inputEntry id="UnaryTests_1mtfixo">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10ksw61">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0j24ctu">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1xymcpm">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0v9xidt">
+        <inputEntry id="UnaryTests_03gpuhi">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_004ihxe">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01lniyw">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ujldnp">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_15kf7sw">
+        <inputEntry id="UnaryTests_0mypc1y">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qtsgky">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1d518l9">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1250g7h">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_0898w4z" name="Verification of all element regulations in a large room">
+    <informationRequirement id="InformationRequirement_0iicurb">
+      <requiredDecision href="#Decision_0p04hma" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0y1ye24">
+      <requiredInput href="#FireResistanceAllWallSuccess" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0c4i2wl">
+      <input id="InputClause_1ttsn18" label="AllDoorSuccess">
+        <inputExpression id="LiteralExpression_0isniyk" typeRef="boolean">
+          <text>AllDoorSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_131uqe9" label="FireResistanceAllWallSuccess" biodi:width="239">
+        <inputExpression id="LiteralExpression_07w3c6r" typeRef="boolean">
+          <text>FireResistanceAllWallSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_19nj9eb" label="LargeRoomRegulationSuccess" name="LargeRoomRegulationSuccess" typeRef="boolean" biodi:width="185" />
+      <rule id="DecisionRule_1fxnew6">
+        <inputEntry id="UnaryTests_19qxet6">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1f5m823">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0paj5sg">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0o4hn0d">
+        <inputEntry id="UnaryTests_0waiqxk">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1off2nr">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1g06fs9">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_08owy4r">
+        <inputEntry id="UnaryTests_0fx55cj">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16g4hru">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1haiaog">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0jzugq6">
+        <inputEntry id="UnaryTests_1whmvpm">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06hg7qc">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1vqcr2m">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="AllDoorTypeSuccess" name="AllDoorTypeSuccess" />
+  <inputData id="AllDoorRotationSuccess" name="AllDoorRotationSuccess" />
+  <inputData id="FireResistanceAllDoorSuccess" name="FireResistanceAllDoorSuccess" />
+  <inputData id="FireResistanceAllWallSuccess" name="FireResistanceAllWallSuccess" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_0p04hma">
+        <dc:Bounds height="80" width="180" x="380" y="250" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0v1gf4e" dmnElementRef="Decision_0898w4z">
+        <dc:Bounds height="80" width="180" x="380" y="60" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1cjhsdc" dmnElementRef="InformationRequirement_0iicurb">
+        <di:waypoint x="470" y="250" />
+        <di:waypoint x="470" y="160" />
+        <di:waypoint x="470" y="140" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1fbhejy" dmnElementRef="AllDoorTypeSuccess">
+        <dc:Bounds height="45" width="125" x="408" y="388" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1l5d57x" dmnElementRef="AllDoorRotationSuccess">
+        <dc:Bounds height="45" width="125" x="158" y="268" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0p03886" dmnElementRef="InformationRequirement_1698l8h">
+        <di:waypoint x="283" y="291" />
+        <di:waypoint x="360" y="290" />
+        <di:waypoint x="380" y="290" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1ji1jf8" dmnElementRef="InformationRequirement_1g2ici2">
+        <di:waypoint x="471" y="388" />
+        <di:waypoint x="470" y="350" />
+        <di:waypoint x="470" y="330" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_141y8sz" dmnElementRef="FireResistanceAllDoorSuccess">
+        <dc:Bounds height="45" width="125" x="648" y="269" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0nasagl" dmnElementRef="InformationRequirement_00909de">
+        <di:waypoint x="648" y="292" />
+        <di:waypoint x="580" y="290" />
+        <di:waypoint x="560" y="290" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_061xox7" dmnElementRef="FireResistanceAllWallSuccess">
+        <dc:Bounds height="45" width="125" x="159" y="78" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_08rbv4a" dmnElementRef="InformationRequirement_0y1ye24">
+        <di:waypoint x="284" y="101" />
+        <di:waypoint x="360" y="100" />
+        <di:waypoint x="380" y="100" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

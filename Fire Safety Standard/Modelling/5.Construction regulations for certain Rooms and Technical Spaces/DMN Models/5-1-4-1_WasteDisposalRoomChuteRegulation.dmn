@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_0apqo5r" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_0x2kpyh" name="Waste disposal chute statement">
+    <informationRequirement id="InformationRequirement_0wiz18i">
+      <requiredInput href="#BuildingHasWasteDisposalChute" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1fgrwz8">
+      <input id="Input_1" label="BuildingHasWasteDisposalChute">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text>BuildingHasWasteDisposalChute</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="WasteDisposalChuteMessage" name="WasteDisposalChuteMessage" typeRef="string" biodi:width="183" />
+      <rule id="DecisionRule_1g9sg8i">
+        <inputEntry id="UnaryTests_1wfhn80">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_173h961">
+          <text>"Remove. Waste disposal chutes are prohibited"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1kz42nm">
+        <inputEntry id="UnaryTests_0rtp53e">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1wpient">
+          <text>"Good. Waste disposal chutes are prohibited"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="BuildingHasWasteDisposalChute" name="BuildingHasWasteDisposalChute" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_0x2kpyh">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1f4vh8j" dmnElementRef="BuildingHasWasteDisposalChute">
+        <dc:Bounds height="45" width="125" x="188" y="238" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1641fak" dmnElementRef="InformationRequirement_0wiz18i">
+        <di:waypoint x="251" y="238" />
+        <di:waypoint x="250" y="200" />
+        <di:waypoint x="250" y="180" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

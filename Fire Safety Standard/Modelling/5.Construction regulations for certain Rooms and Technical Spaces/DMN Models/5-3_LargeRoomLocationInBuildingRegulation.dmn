@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_1y8oxvr" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_14dhsm6" name="Verify location of large room in building">
+    <informationRequirement id="InformationRequirement_1fr6muy">
+      <requiredInput href="#RoomLocationInBuilding" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0hsg7jp">
+      <requiredInput href="#OccupancyPerson" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_08pcwdv">
+      <requiredInput href="#DistanceRoomFloorLevelAndNearestEvacuationFloorLevel" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_036blf1">
+      <requiredInput href="#DistanceRoomFloorLevelAndAverageEvacuationFloorLevel" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_02htfnm">
+      <input id="InputClause_17yuh8i" label="RoomLocationInBuilding" biodi:width="208">
+        <inputExpression id="LiteralExpression_0hy9ozd" typeRef="string">
+          <text>RoomLocationInBuilding</text>
+        </inputExpression>
+      </input>
+      <input id="Input_1" label="OccupancyPerson">
+        <inputExpression id="InputExpression_1" typeRef="integer">
+          <text>OccupancyPerson</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_14fxr39" label="DistanceRoomFloorLevelAndNearestEvacuationFloorLevel" biodi:width="232">
+        <inputExpression id="LiteralExpression_0tlwcj6" typeRef="double">
+          <text>DistanceRoomFloorLevelAndNearestEvacuationFloorLevel</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1av4rb8" label="DistanceRoomFloorLevelAndAverageEvacuationFloorLevel" biodi:width="239">
+        <inputExpression id="LiteralExpression_1ucsj9m" typeRef="double">
+          <text>DistanceRoomFloorLevelAndAverageEvacuationFloorLevel</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="LargeRoomLocationRegulationSuccess" name="LargeRoomLocationRegulationSuccess" typeRef="boolean" biodi:width="244" />
+      <rule id="DecisionRule_0vqqbh7">
+        <description></description>
+        <inputEntry id="UnaryTests_0utzrzh">
+          <text>"Aboveground"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1e6f5i9">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_163r569">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0a1uuhd">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ntlpq7">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1430fpu">
+        <description></description>
+        <inputEntry id="UnaryTests_1v3a6y0">
+          <text>"Underground"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_135zre9">
+          <text>&gt; 500</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00n9bqy">
+          <text>&lt;= 3</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05a7sxh">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0zvhgp7">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_10ivyxw">
+        <inputEntry id="UnaryTests_0qc3f55">
+          <text>"Underground"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0otwsr1">
+          <text>&gt; 500</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03jxd9m">
+          <text>&gt; 3</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1re23fx">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ottepw">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_062bl3z">
+        <inputEntry id="UnaryTests_07lyw5e">
+          <text>"Underground"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07ls04a">
+          <text>&lt;= 500</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pntvpi">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0dh8cq8">
+          <text>&lt;= 4</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0q805x6">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1hghcoo">
+        <inputEntry id="UnaryTests_0z5tok8">
+          <text>"Underground"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jduy4l">
+          <text>&lt;= 500</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1o36863">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gdqcgf">
+          <text>&gt; 4</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_12c1e6r">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="RoomLocationInBuilding" name="RoomLocationInBuilding" />
+  <inputData id="OccupancyPerson" name="OccupancyPerson" />
+  <inputData id="DistanceRoomFloorLevelAndNearestEvacuationFloorLevel" name="DistanceRoomFloorLevelAndNearestEvacuationFloorLevel" />
+  <inputData id="DistanceRoomFloorLevelAndAverageEvacuationFloorLevel" name="DistanceRoomFloorLevelAndAverageEvacuationFloorLevel" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_14dhsm6">
+        <dc:Bounds height="80" width="180" x="360" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1hlq1fy" dmnElementRef="RoomLocationInBuilding">
+        <dc:Bounds height="45" width="125" x="158" y="98" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_09xjxi8" dmnElementRef="InformationRequirement_1fr6muy">
+        <di:waypoint x="283" y="121" />
+        <di:waypoint x="340" y="120" />
+        <di:waypoint x="360" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0qe0zqy" dmnElementRef="OccupancyPerson">
+        <dc:Bounds height="45" width="125" x="387" y="217" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_17peb0x" dmnElementRef="InformationRequirement_0hsg7jp">
+        <di:waypoint x="450" y="217" />
+        <di:waypoint x="450" y="180" />
+        <di:waypoint x="450" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1u47toi" dmnElementRef="DistanceRoomFloorLevelAndNearestEvacuationFloorLevel">
+        <dc:Bounds height="45" width="125" x="617" y="67" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0biw6jc" dmnElementRef="InformationRequirement_08pcwdv">
+        <di:waypoint x="617" y="90" />
+        <di:waypoint x="560" y="107" />
+        <di:waypoint x="540" y="107" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1fqst6p" dmnElementRef="DistanceRoomFloorLevelAndAverageEvacuationFloorLevel">
+        <dc:Bounds height="45" width="125" x="618" y="128" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1keo4ze" dmnElementRef="InformationRequirement_036blf1">
+        <di:waypoint x="618" y="151" />
+        <di:waypoint x="560" y="133" />
+        <di:waypoint x="540" y="133" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

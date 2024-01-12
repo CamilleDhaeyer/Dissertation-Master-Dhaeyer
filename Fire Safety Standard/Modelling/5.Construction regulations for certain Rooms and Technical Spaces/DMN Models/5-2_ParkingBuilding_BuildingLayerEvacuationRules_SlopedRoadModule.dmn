@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0igpm7j" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_0gvf8ds" name="Verify the rules on a sloping access road for vehicles">
+    <informationRequirement id="InformationRequirement_0pjx4s5">
+      <requiredInput href="#FireResistanceAllWallSuccess" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_07wm0re">
+      <requiredInput href="#AreaOfCompartment" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1gtnl46">
+      <requiredInput href="#SlopeOfAccessRoad" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1cr3wlc">
+      <requiredInput href="#CanEvacuateBySlopingAccessRoad" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1s9le3l">
+      <input id="InputClause_19csbmx" label="FireResistanceAllWallSuccess">
+        <inputExpression id="LiteralExpression_047dcex" typeRef="boolean">
+          <text>FireResistanceAllWallSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0jki03v" label="AreaOfCompartment">
+        <inputExpression id="LiteralExpression_1k1tx7e" typeRef="double">
+          <text>AreaOfCompartment</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0085tcn" label="SlopeOfAccessRoad">
+        <inputExpression id="LiteralExpression_1gtz39f" typeRef="double">
+          <text>SlopeOfAccessRoad</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1b3wgtq" label="CanEvacuateBySlopingAccessRoad">
+        <inputExpression id="LiteralExpression_0e916m4" typeRef="boolean">
+          <text>CanEvacuateBySlopingAccessRoad</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_11bwk3h" label="SlopingAccessRoadSuccess" name="SlopingAccessRoadSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_1xv9af9">
+        <description>parking building is 1 entire compartment</description>
+        <inputEntry id="UnaryTests_0f7tzo5">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_067brz5">
+          <text>&gt; 500</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pio6na">
+          <text>&lt;= 10</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rhgkch">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ujezra">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_05j34i2">
+        <description></description>
+        <inputEntry id="UnaryTests_0s42q3i">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jwa8u9">
+          <text>&gt; 500</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1chkjnr">
+          <text>&gt; 10</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19etydx">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1cl81ha">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1dd9pdz">
+        <inputEntry id="UnaryTests_1bwailw">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mvuiwo">
+          <text>&lt;= 500</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_196d1hf">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1btnh3b">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0fjywvn">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1gpc2nc">
+        <inputEntry id="UnaryTests_1q26mt9">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1mu06hw">
+          <text>&lt;= 500</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1teb5ch">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0m7oqa7">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0y4cfap">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1pq7gre">
+        <inputEntry id="UnaryTests_1fh54cj">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02xch0l">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1r3xgq1">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cq4pg1">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ftx28h">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="FireResistanceAllWallSuccess" name="FireResistanceAllWallSuccess" />
+  <inputData id="AreaOfCompartment" name="AreaOfCompartment" />
+  <inputData id="SlopeOfAccessRoad" name="SlopeOfAccessRoad" />
+  <inputData id="CanEvacuateBySlopingAccessRoad" name="CanEvacuateBySlopingAccessRoad" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_1w5h3wj" dmnElementRef="Decision_0gvf8ds">
+        <dc:Bounds height="80" width="180" x="400" y="220" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0ijrf1g" dmnElementRef="FireResistanceAllWallSuccess">
+        <dc:Bounds height="45" width="125" x="157" y="237" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0e0qtsz" dmnElementRef="InformationRequirement_0pjx4s5">
+        <di:waypoint x="282" y="260" />
+        <di:waypoint x="380" y="260" />
+        <di:waypoint x="400" y="260" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0zfqsi6" dmnElementRef="AreaOfCompartment">
+        <dc:Bounds height="45" width="125" x="697" y="237" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0w2bdh4" dmnElementRef="InformationRequirement_07wm0re">
+        <di:waypoint x="697" y="260" />
+        <di:waypoint x="600" y="260" />
+        <di:waypoint x="580" y="260" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0muqbef" dmnElementRef="SlopeOfAccessRoad">
+        <dc:Bounds height="45" width="125" x="428" y="358" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0cvz0i5" dmnElementRef="InformationRequirement_1gtnl46">
+        <di:waypoint x="491" y="358" />
+        <di:waypoint x="490" y="320" />
+        <di:waypoint x="490" y="300" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1xm45h7" dmnElementRef="CanEvacuateBySlopingAccessRoad">
+        <dc:Bounds height="45" width="125" x="427" y="97" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0461i3w" dmnElementRef="InformationRequirement_1cr3wlc">
+        <di:waypoint x="490" y="142" />
+        <di:waypoint x="490" y="200" />
+        <di:waypoint x="490" y="220" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

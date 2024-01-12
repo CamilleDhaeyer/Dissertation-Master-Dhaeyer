@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_03fhumx" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_18mau7h" name="Define remarks on boiler room regulations">
+    <informationRequirement id="InformationRequirement_0k43ea1">
+      <requiredInput href="#TechnicalRoomType" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_18a72c5">
+      <requiredInput href="#BoilerRoomFacility" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_06srh6f">
+      <requiredInput href="#GeneratorType" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0cq8mga">
+      <requiredInput href="#GeneratorHeatCapacity" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1e59488">
+      <input id="Input_1" label="TechnicalRoomType">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>TechnicalRoomType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0fzli0c" label="BoilerRoomFacility">
+        <inputExpression id="LiteralExpression_0xf9vi4" typeRef="string">
+          <text>BoilerRoomFacility</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1hjtd9p" label="GeneratorType">
+        <inputExpression id="LiteralExpression_0ilq857" typeRef="string">
+          <text>GeneratorType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_14urv7h" label="GeneratorHeatCapacity">
+        <inputExpression id="LiteralExpression_0lmlwwb" typeRef="double">
+          <text>GeneratorHeatCapacity</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="BoilerRoomRegulationMessage" name="BoilerRoomRegulationMessage" typeRef="string" biodi:width="192" />
+      <rule id="DecisionRule_0c260fk">
+        <inputEntry id="UnaryTests_1ov9l9u">
+          <text>"Boiler rooms and appurtenances"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16c28nv">
+          <text>"Facilities for the storage and pressure reduction of liquefied petroleum gas"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08c3boq">
+          <text>"No generator present","Other generator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14l02v0">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0781obs">
+          <text>"The facilities for the storage and pressure reduction of liquefied petroleum gas used for heating the building are located outside the building"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0m7y03l">
+        <inputEntry id="UnaryTests_0728h9e">
+          <text>"Boiler rooms and appurtenances","Other"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fp0mqn">
+          <text>"Facilities for generators"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08kw6c5">
+          <text>"Other generator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ssnxoa">
+          <text>[30..70[</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_162bo6w">
+          <text>"The boiler room is set up in a specifically designated technical room"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_003uvpq">
+        <inputEntry id="UnaryTests_0zk9oe4">
+          <text>"Boiler rooms and appurtenances","Other"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04c8c43">
+          <text>"Facilities for generators"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xfr33z">
+          <text>"Other generator"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0re392e">
+          <text>&gt;= 70</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0s6uyvt">
+          <text>"Design and execution comply with the regulations of standard NBN B 61_001 A1 1996"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_052nhm1">
+        <inputEntry id="UnaryTests_0p5uyd5">
+          <text>"Boiler rooms and appurtenances","Other"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bd1fcr">
+          <text>"Facilities for generators"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kv9htb">
+          <text>"gas generators with closed combustion chambers and mechanical draft"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0tkf47o">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qelrvv">
+          <text>"No further regulations"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="TechnicalRoomType" name="TechnicalRoomType" />
+  <inputData id="BoilerRoomFacility" name="BoilerRoomFacility" />
+  <inputData id="GeneratorType" name="GeneratorType" />
+  <inputData id="GeneratorHeatCapacity" name="GeneratorHeatCapacity" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_18mau7h">
+        <dc:Bounds height="80" width="180" x="360" y="210" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0i5dkgq" dmnElementRef="TechnicalRoomType">
+        <dc:Bounds height="45" width="125" x="157" y="227" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1kowf7w" dmnElementRef="InformationRequirement_0k43ea1">
+        <di:waypoint x="282" y="250" />
+        <di:waypoint x="340" y="250" />
+        <di:waypoint x="360" y="250" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1hvw3x4" dmnElementRef="BoilerRoomFacility">
+        <dc:Bounds height="45" width="125" x="387" y="337" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_01izitq" dmnElementRef="InformationRequirement_18a72c5">
+        <di:waypoint x="450" y="337" />
+        <di:waypoint x="450" y="310" />
+        <di:waypoint x="450" y="290" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_07oyf70" dmnElementRef="GeneratorType">
+        <dc:Bounds height="45" width="125" x="597" y="227" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0qz7jqv" dmnElementRef="InformationRequirement_06srh6f">
+        <di:waypoint x="597" y="250" />
+        <di:waypoint x="560" y="250" />
+        <di:waypoint x="540" y="250" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1uj219i" dmnElementRef="GeneratorHeatCapacity">
+        <dc:Bounds height="45" width="125" x="387" y="97" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1hp8zi2" dmnElementRef="InformationRequirement_0cq8mga">
+        <di:waypoint x="450" y="142" />
+        <di:waypoint x="450" y="190" />
+        <di:waypoint x="450" y="210" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

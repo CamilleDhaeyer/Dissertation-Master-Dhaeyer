@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_0apqo5r" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_02sjeip" name="Verify waste disposal room regulations">
+    <informationRequirement id="InformationRequirement_0g5w8d9">
+      <requiredDecision href="#Decision_1p1ail5" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0c5eb3c">
+      <requiredInput href="#TechnicalRoomType" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1eeibdp">
+      <requiredInput href="#FireResistanceAllWallSuccess" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0xca9cg" hitPolicy="FIRST">
+      <input id="InputClause_0qvojc3" label="TechnicalRoomType">
+        <inputExpression id="LiteralExpression_0m1wfwm" typeRef="string">
+          <text>TechnicalRoomType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_06td5po" label="FireResistanceAllWallSuccess" biodi:width="181">
+        <inputExpression id="LiteralExpression_1buyw6d" typeRef="boolean">
+          <text>FireResistanceAllWallSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1mkaq5u" label="DisposalRoomAccessibilitySuccess" biodi:width="220">
+        <inputExpression id="LiteralExpression_1ycxdur" typeRef="boolean">
+          <text>DisposalRoomAccessibilitySuccess</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1tp2bxi" label="WasteDisposalStorageRoomRegulationSucces" name="WasteDisposalStorageRoomRegulationSucces" typeRef="boolean" />
+      <rule id="DecisionRule_1b962fc">
+        <inputEntry id="UnaryTests_0cz5c4l">
+          <text>"Waste disposal room"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1oo8reu">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qqp4ak">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1bznwns">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_162z5ae">
+        <inputEntry id="UnaryTests_08mtslm">
+          <text>"Waste disposal room"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dspz4a">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bd35dr">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1fxkfdi">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ur4n3v">
+        <inputEntry id="UnaryTests_0qplorq">
+          <text>"Waste disposal room"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sqdc2x">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cdzsx4">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_11pqu2v">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0et3gcw">
+        <inputEntry id="UnaryTests_0fxammf">
+          <text>"Waste disposal room"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1obe4tv">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pojw9h">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0d6lk4c">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_1p1ail5" name="Verify disposal room accessibility">
+    <informationRequirement id="InformationRequirement_0drba17">
+      <requiredInput href="#AccessType" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_174xo0j">
+      <requiredInput href="#HasAutomaticFireExtinguishingSystem" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0ljw09n">
+      <requiredInput href="#DoorSuccess" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1an3mj1">
+      <requiredInput href="#AirlockRegulationSuccess" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0r4agzk">
+      <requiredInput href="#InputData_1dteizg" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1xypwnt" hitPolicy="FIRST">
+      <input id="InputClause_1jfyx8z" label="AccessType">
+        <inputExpression id="LiteralExpression_07hexqj" typeRef="string">
+          <text>AccessType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_118eptg" label="HasAutomaticFireExtinguishingSystem" biodi:width="248">
+        <inputExpression id="LiteralExpression_02mvqnq" typeRef="boolean">
+          <text>HasAutomaticFireExtinguishingSystem</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0kgozbo" label="DoorSuccess" biodi:width="164">
+        <inputExpression id="LiteralExpression_1oow3ig" typeRef="boolean">
+          <text>DoorSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0j7sjee" label="AirlockRegulationSuccess" biodi:width="221">
+        <inputExpression id="LiteralExpression_1eq7ywg" typeRef="boolean">
+          <text>AirlockRegulationSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0iwe5ha" label="AreaOfRoom">
+        <inputExpression id="LiteralExpression_1l5rzk1" typeRef="double">
+          <text>AreaOfRoom</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0r83upl" label="DisposalRoomAccessibilitySuccess" name="DisposalRoomAccessibilitySuccess" typeRef="boolean" />
+      <rule id="DecisionRule_1jm9bqt">
+        <inputEntry id="UnaryTests_0svup85">
+          <text>"Door"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nm2vkm">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_028c1yx">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02b57l5">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16s5r0g">
+          <text>&lt;=24</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_14ur8kh">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ylrnvr">
+        <inputEntry id="UnaryTests_0t8zftn">
+          <text>"Door"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1oy2pag">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0h2moeo">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1osmf7w">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lgmzqh">
+          <text>&gt;24</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1og3imo">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_179jryf">
+        <inputEntry id="UnaryTests_1gjet43">
+          <text>"Door"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ke7dph">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pdvm1r">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1s8ka2v">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rsuig2">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qr1z4r">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1g2klbn">
+        <inputEntry id="UnaryTests_187wueg">
+          <text>"Door"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ty7043">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0uar0np">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07jc79j">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0nuyn3f">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0yhzsg1">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0s162y1">
+        <inputEntry id="UnaryTests_0n711pp">
+          <text>"Airlock"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1eys98u">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0g928t1">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ulfsv3">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1frb6f7">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0c0tgfh">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1d5qych">
+        <inputEntry id="UnaryTests_03jzaag">
+          <text>"Airlock"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06ljik4">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1g8fz0w">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fkn1iw">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tpiz6l">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1whgxzv">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="AccessType" name="AccessType" />
+  <inputData id="HasAutomaticFireExtinguishingSystem" name="HasAutomaticFireExtinguishingSystem" />
+  <inputData id="DoorSuccess" name="DoorSuccess" />
+  <inputData id="AirlockRegulationSuccess" name="AirlockRegulationSuccess" />
+  <inputData id="InputData_1dteizg" name="AreaOfRoom" />
+  <inputData id="TechnicalRoomType" name="TechnicalRoomType" />
+  <inputData id="FireResistanceAllWallSuccess" name="FireResistanceAllWallSuccess" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_1vnshd5" dmnElementRef="Decision_02sjeip">
+        <dc:Bounds height="80" width="180" x="370" y="100" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1uwk4fa" dmnElementRef="Decision_1p1ail5">
+        <dc:Bounds height="80" width="180" x="370" y="250" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0qd9qy6" dmnElementRef="InformationRequirement_0g5w8d9">
+        <di:waypoint x="460" y="250" />
+        <di:waypoint x="460" y="200" />
+        <di:waypoint x="460" y="180" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0kp8zcg" dmnElementRef="AccessType">
+        <dc:Bounds height="45" width="125" x="157" y="248" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0gm6nvu" dmnElementRef="InformationRequirement_0drba17">
+        <di:waypoint x="282" y="271" />
+        <di:waypoint x="350" y="277" />
+        <di:waypoint x="370" y="277" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0alilj0" dmnElementRef="HasAutomaticFireExtinguishingSystem">
+        <dc:Bounds height="45" width="125" x="398" y="398" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1eia9t7" dmnElementRef="InformationRequirement_174xo0j">
+        <di:waypoint x="461" y="398" />
+        <di:waypoint x="460" y="350" />
+        <di:waypoint x="460" y="330" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1nkn2to" dmnElementRef="DoorSuccess">
+        <dc:Bounds height="45" width="125" x="618" y="248" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1lgtek6" dmnElementRef="InformationRequirement_0ljw09n">
+        <di:waypoint x="618" y="271" />
+        <di:waypoint x="570" y="277" />
+        <di:waypoint x="550" y="277" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0ga0jj9" dmnElementRef="AirlockRegulationSuccess">
+        <dc:Bounds height="45" width="125" x="619" y="308" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1e2tbpp" dmnElementRef="InformationRequirement_1an3mj1">
+        <di:waypoint x="619" y="331" />
+        <di:waypoint x="570" y="303" />
+        <di:waypoint x="550" y="303" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_17chjqm" dmnElementRef="InputData_1dteizg">
+        <dc:Bounds height="45" width="125" x="158" y="308" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1xlf0qf" dmnElementRef="InformationRequirement_0r4agzk">
+        <di:waypoint x="283" y="331" />
+        <di:waypoint x="350" y="303" />
+        <di:waypoint x="370" y="303" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1ymgtqr" dmnElementRef="TechnicalRoomType">
+        <dc:Bounds height="45" width="125" x="159" y="118" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1fn6su6" dmnElementRef="InformationRequirement_0c5eb3c">
+        <di:waypoint x="284" y="141" />
+        <di:waypoint x="350" y="140" />
+        <di:waypoint x="370" y="140" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0zvs68x" dmnElementRef="FireResistanceAllWallSuccess">
+        <dc:Bounds height="45" width="125" x="619" y="118" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1ljw6jc" dmnElementRef="InformationRequirement_1eeibdp">
+        <di:waypoint x="619" y="141" />
+        <di:waypoint x="570" y="140" />
+        <di:waypoint x="550" y="140" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

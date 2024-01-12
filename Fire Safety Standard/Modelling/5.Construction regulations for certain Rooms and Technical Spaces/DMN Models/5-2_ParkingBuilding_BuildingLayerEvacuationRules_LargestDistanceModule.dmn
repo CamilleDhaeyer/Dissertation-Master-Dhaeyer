@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0igpm7j" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_1aqmg1a" name="Define largest distance to stair succes">
+    <informationRequirement id="InformationRequirement_095m84u">
+      <requiredInput href="#LargestDistanceToNearestExit" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0ngge2t">
+      <input id="InputClause_1chdooi" label="LargestDistanceToNearestExit" biodi:width="216">
+        <inputExpression id="LiteralExpression_1s8orlz" typeRef="double">
+          <text>LargestDistanceToNearestExit</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1r00exq" label="StairMaximumDistanceSuccess" name="StairMaximumDistanceSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_0v9r7sh">
+        <inputEntry id="UnaryTests_1kxjnf0">
+          <text>&lt;= 45</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07kpvi6">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1b6zdmj">
+        <inputEntry id="UnaryTests_0n9mnfr">
+          <text>&gt; 45</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_091v7kp">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="LargestDistanceToNearestExit" name="LargestDistanceToNearestExit" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_1t4vree" dmnElementRef="Decision_1aqmg1a">
+        <dc:Bounds height="80" width="180" x="160" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0gg4axr" dmnElementRef="LargestDistanceToNearestExit">
+        <dc:Bounds height="45" width="125" x="188" y="208" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1msx0b7" dmnElementRef="InformationRequirement_095m84u">
+        <di:waypoint x="251" y="208" />
+        <di:waypoint x="250" y="180" />
+        <di:waypoint x="250" y="160" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0ggq6fn" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_0rrfeb2" name="verify ElementEffectiveWidth">
+    <informationRequirement id="InformationRequirement_1soj1dn">
+      <requiredInput href="#ElementEffectiveWidth" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0m2l915">
+      <input id="InputClause_07t6yxm" label="ElementEffectiveWidth">
+        <inputExpression id="LiteralExpression_1yos4fj" typeRef="double">
+          <text>ElementEffectiveWidth</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1vzck82" label="TechnicalRoomElementEffectiveWidthSuccess" name="TechnicalRoomElementEffectiveWidthSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_0jh6b00">
+        <inputEntry id="UnaryTests_09a6u7k">
+          <text>&lt;0.8</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_06owk6a">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1a9duc1">
+        <inputEntry id="UnaryTests_038az9s">
+          <text>&gt;= 0.8</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_098zjgz">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="ElementEffectiveWidth" name="ElementEffectiveWidth" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_003g5ki" dmnElementRef="Decision_0rrfeb2">
+        <dc:Bounds height="80" width="180" x="160" y="40" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_01lioo1" dmnElementRef="ElementEffectiveWidth">
+        <dc:Bounds height="45" width="125" x="188" y="188" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1u6sgzz" dmnElementRef="InformationRequirement_1soj1dn">
+        <di:waypoint x="251" y="188" />
+        <di:waypoint x="250" y="140" />
+        <di:waypoint x="250" y="120" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0ggq6fn" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_0nhhurh" name="Decide regulations exits">
+    <informationRequirement id="InformationRequirement_0lzeb78">
+      <requiredInput href="#HeightOfCompartmentAccrossMultipleFloorLevels" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0u4uc3i">
+      <requiredInput href="#CompartmentHasConnectedFloorLevels" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_01e2keh">
+      <requiredInput href="#AreaOfCompartment" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1emay4h">
+      <requiredInput href="#InputData_0w7bpm3" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1wokq4o">
+      <input id="InputClause_0horl32" label="HeightOfCompartmentAccrossMultipleFloorLevels">
+        <inputExpression id="LiteralExpression_0x6eisa" typeRef="boolean">
+          <text>HeightOfCompartmentAccrossMultipleFloorLevels</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1l3ucdb" label="CompartmentHasConnectedFloorLevels" biodi:width="228">
+        <inputExpression id="LiteralExpression_0moy1pa" typeRef="boolean">
+          <text>CompartmentHasConnectedFloorLevels</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0y6f1so" label="AreaOfCompartment">
+        <inputExpression id="LiteralExpression_053m4mp" typeRef="double">
+          <text>AreaOfCompartment</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1812vps" label="ExitConfiguration">
+        <inputExpression id="LiteralExpression_1lzyrs3" typeRef="string">
+          <text>ExitConfiguration</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1x89xfo" label="TechnicalRoomExitConfigurationSuccess" name="TechnicalRoomExitConfigurationSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_1tbtzhb">
+        <inputEntry id="UnaryTests_131c1dz">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cjyrlq">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vgbw0s">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16endsi">
+          <text>"Exit present every 2 floor levels starting with the lowest compartment floor level","Exit present on each floor level","Other configuration of exits"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1u3vf0i">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0z68ai9">
+        <inputEntry id="UnaryTests_1eqej5y">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xga0ag">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dom2lz">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19ip241">
+          <text>"Exit present every 2 floor levels starting with the lowest compartment floor level","Exit present on each floor level","Other configuration of exits"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1q7j4ca">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_12bnidx">
+        <inputEntry id="UnaryTests_0x83zie">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0brdccp">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00e1m3d">
+          <text>&lt;= 1000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05t8oww">
+          <text>"Exit present every 2 floor levels starting with the lowest compartment floor level","Exit present on each floor level"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_02rface">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0rlk2hn">
+        <inputEntry id="UnaryTests_04l2nlk">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0aockn3">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0iaa82n">
+          <text>&lt;= 1000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ujluno">
+          <text>"Other configuration of exits"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_18a0vnf">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0cejb19">
+        <inputEntry id="UnaryTests_033gh4i">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16zsx8a">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wo5n69">
+          <text>&gt; 1000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0y58d4x">
+          <text>"Exit present on each floor level"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0zuneto">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1rsk2nh">
+        <inputEntry id="UnaryTests_0yjh339">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15nf0jd">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1z0ab4v">
+          <text>&gt; 1000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04us3xz">
+          <text>"Exit present every 2 floor levels starting with the lowest compartment floor level","Other configuration of exits"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0p755sn">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="HeightOfCompartmentAccrossMultipleFloorLevels" name="HeightOfCompartmentAccrossMultipleFloorLevels" />
+  <inputData id="CompartmentHasConnectedFloorLevels" name="CompartmentHasConnectedFloorLevels" />
+  <inputData id="AreaOfCompartment" name="AreaOfCompartment" />
+  <inputData id="InputData_0w7bpm3" name="ExitConfiguration" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_1fwvmia" dmnElementRef="Decision_0nhhurh">
+        <dc:Bounds height="80" width="180" x="360" y="220" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0gt9ayn" dmnElementRef="HeightOfCompartmentAccrossMultipleFloorLevels">
+        <dc:Bounds height="45" width="125" x="158" y="238" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1do9lcg" dmnElementRef="InformationRequirement_0lzeb78">
+        <di:waypoint x="283" y="261" />
+        <di:waypoint x="340" y="260" />
+        <di:waypoint x="360" y="260" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_09fxw58" dmnElementRef="CompartmentHasConnectedFloorLevels">
+        <dc:Bounds height="45" width="125" x="388" y="368" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_03r984v" dmnElementRef="InformationRequirement_0u4uc3i">
+        <di:waypoint x="451" y="368" />
+        <di:waypoint x="450" y="320" />
+        <di:waypoint x="450" y="300" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0stwats" dmnElementRef="AreaOfCompartment">
+        <dc:Bounds height="45" width="125" x="618" y="238" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1sdiuxq" dmnElementRef="InformationRequirement_01e2keh">
+        <di:waypoint x="618" y="261" />
+        <di:waypoint x="560" y="260" />
+        <di:waypoint x="540" y="260" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1ye06es" dmnElementRef="InputData_0w7bpm3">
+        <dc:Bounds height="45" width="125" x="387" y="97" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_12wem3t" dmnElementRef="InformationRequirement_1emay4h">
+        <di:waypoint x="450" y="142" />
+        <di:waypoint x="450" y="200" />
+        <di:waypoint x="450" y="220" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

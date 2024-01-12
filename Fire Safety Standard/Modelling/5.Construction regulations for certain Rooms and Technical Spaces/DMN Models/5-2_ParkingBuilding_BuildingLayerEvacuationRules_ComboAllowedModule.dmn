@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0igpm7j" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_158d78b" name="Check if combos 8 9 10 or 11 are even allowed">
+    <informationRequirement id="InformationRequirement_0iv16a5">
+      <requiredInput href="#NumberOfBuildingLayersAboveGround" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_17xowo9">
+      <requiredInput href="#CurrentBuildingLayerToVehicleExitLevelDistanceInLevels" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1vl0qa7">
+      <requiredInput href="#MaximumDistanceToAccessPointOfEvacuationRoute" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_16rndxa">
+      <requiredInput href="#MaximumDistanceToAccessPointOfExit" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1si7dks">
+      <input id="InputClause_1u8zij4" label="NumberOfBuildingLayersAboveGround">
+        <inputExpression id="LiteralExpression_1jomnkc" typeRef="integer">
+          <text>NumberOfBuildingLayersAboveGround</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_15qh78m" label="CurrentBuildingLayerToVehicleExitLevelDistanceInLevels">
+        <inputExpression id="LiteralExpression_0a8y1p1" typeRef="integer">
+          <text>CurrentBuildingLayerToVehicleExitLevelDistanceInLevels</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1sg8fch" label="MaximumDistanceToAccessPointOfEvacuationRoute" biodi:width="219">
+        <inputExpression id="LiteralExpression_0wzayst" typeRef="double">
+          <text>MaximumDistanceToAccessPointOfEvacuationRoute</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0jknn08" label="MaximumDistanceToAccessPointOfExit">
+        <inputExpression id="LiteralExpression_0op470l" typeRef="double">
+          <text>MaximumDistanceToAccessPointOfExit</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0el47xk" label="IsCombo8or9or10or11Allowed" name="IsCombo8or9or10or11Allowed" typeRef="boolean" />
+      <rule id="DecisionRule_0wqpvg9">
+        <inputEntry id="UnaryTests_1fwxyt5">
+          <text>&lt;= 2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0dcjyso">
+          <text>&lt;= 2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wbtt9k">
+          <text>&lt;= 15</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kn7wy6">
+          <text>&lt;= 30</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ip7t47">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_090qujr">
+        <inputEntry id="UnaryTests_04bz8vz">
+          <text>&lt;= 2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xyxn7g">
+          <text>&lt;= 2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cw6zyp">
+          <text>&lt;= 15</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1bmh490">
+          <text>&gt; 30</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0h2ubdx">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0d5u3xz">
+        <inputEntry id="UnaryTests_0yw9cc9">
+          <text>&lt;= 2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wimlxm">
+          <text>&lt;= 2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04e1fd1">
+          <text>&gt; 15</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04ufs61">
+          <text>&lt;= 30</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_06606vd">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0jpbb7p">
+        <inputEntry id="UnaryTests_04gttlp">
+          <text>&lt;= 2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1n098fl">
+          <text>&lt;= 2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ofryxs">
+          <text>&gt; 15</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02qxzqw">
+          <text>&gt; 30</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0aw1awv">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ja2q95">
+        <inputEntry id="UnaryTests_1gj0ccu">
+          <text>&lt;= 2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03mghnz">
+          <text>&gt; 2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dyn8b8">
+          <text>&lt;= 15</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vuzwu1">
+          <text>&lt;= 30</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1gjff4a">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0k3m0i4">
+        <inputEntry id="UnaryTests_1shv8dz">
+          <text>&lt;= 2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ue0krn">
+          <text>&gt; 2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mc7hmv">
+          <text>&lt;= 15</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ivxxw5">
+          <text>&lt;= 30</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1assrcu">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1r24g2d">
+        <inputEntry id="UnaryTests_015guxm">
+          <text>&gt; 2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15bj60f">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0c8fv7j">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0q8jij4">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1xuuis0">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="NumberOfBuildingLayersAboveGround" name="NumberOfBuildingLayersAboveGround" />
+  <inputData id="CurrentBuildingLayerToVehicleExitLevelDistanceInLevels" name="CurrentBuildingLayerToVehicleExitLevelDistanceInLevels" />
+  <inputData id="MaximumDistanceToAccessPointOfEvacuationRoute" name="MaximumDistanceToAccessPointOfEvacuationRoute" />
+  <inputData id="MaximumDistanceToAccessPointOfExit" name="MaximumDistanceToAccessPointOfExit" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_0mccccg" dmnElementRef="Decision_158d78b">
+        <dc:Bounds height="80" width="180" x="420" y="210" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1mu9twe" dmnElementRef="NumberOfBuildingLayersAboveGround">
+        <dc:Bounds height="45" width="125" x="158" y="228" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1ck35ec" dmnElementRef="InformationRequirement_0iv16a5">
+        <di:waypoint x="283" y="251" />
+        <di:waypoint x="400" y="250" />
+        <di:waypoint x="420" y="250" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_10ht7bv" dmnElementRef="CurrentBuildingLayerToVehicleExitLevelDistanceInLevels">
+        <dc:Bounds height="45" width="125" x="447" y="357" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_041u4na" dmnElementRef="InformationRequirement_17xowo9">
+        <di:waypoint x="510" y="357" />
+        <di:waypoint x="510" y="310" />
+        <di:waypoint x="510" y="290" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_06dovtq" dmnElementRef="MaximumDistanceToAccessPointOfEvacuationRoute">
+        <dc:Bounds height="45" width="125" x="738" y="228" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1vnqvvf" dmnElementRef="InformationRequirement_1vl0qa7">
+        <di:waypoint x="738" y="251" />
+        <di:waypoint x="620" y="250" />
+        <di:waypoint x="600" y="250" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1wxkkq6" dmnElementRef="MaximumDistanceToAccessPointOfExit">
+        <dc:Bounds height="45" width="125" x="448" y="78" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1l35xw4" dmnElementRef="InformationRequirement_16rndxa">
+        <di:waypoint x="511" y="123" />
+        <di:waypoint x="510" y="190" />
+        <di:waypoint x="510" y="210" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
