@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_1k2uvmi" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <inputData id="PresenceAutomaticExtinguishingSystem" name="PresenceAutomaticExtinguishingSystem" />
+  <inputData id="PresenceSmokeAndHeatExtractionSystem" name="PresenceSmokeAndHeatExtractionSystem" />
+  <inputData id="AreaOfCompartment" name="AreaOfCompartment" />
+  <inputData id="HeightOfCompartment" name="HeightOfCompartment" />
+  <decision id="Decision_16vy8ft" name="General Compartment Rules">
+    <informationRequirement id="InformationRequirement_0s7n8vx">
+      <requiredInput href="#PresenceAutomaticExtinguishingSystem" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0ig4mkf">
+      <requiredInput href="#PresenceSmokeAndHeatExtractionSystem" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1k0kps8">
+      <requiredInput href="#AreaOfCompartment" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0v7wrhk">
+      <requiredInput href="#ExceptionType" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_16w0hh1">
+      <requiredDecision href="#Decision_00apbwf" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0sjyqmm">
+      <input id="InputClause_1qzu4nq" label="ExceptionType">
+        <inputExpression id="LiteralExpression_000idwc" typeRef="string">
+          <text>ExceptionType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_12l1rpg" label="AreaOfCompartment">
+        <inputExpression id="LiteralExpression_0u3mcx8" typeRef="double">
+          <text>AreaOfCompartment</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0m8kn45" label="HeightVerification">
+        <inputExpression id="LiteralExpression_1mmoiaj" typeRef="boolean">
+          <text>HeightVerification</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1atc364" label="PresenceAutomaticExtinguishingSystem">
+        <inputExpression id="LiteralExpression_0mdw192" typeRef="boolean">
+          <text>PresenceAutomaticExtinguishingSystem</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1ifktb8" label="PresenceSmokeAndHeatExtractionSystem">
+        <inputExpression id="LiteralExpression_0kffum2" typeRef="boolean">
+          <text>PresenceSmokeAndHeatExtractionSystem</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_056xikn" label="CompartmentGeneralRulesSuccess" name="CompartmentGeneralRulesSuccess" typeRef="boolean" />
+      <output id="OutputClause_16ybb9n" label="CompartmentGeneralRulesMessage" name="CompartmentGeneralRulesMessage" typeRef="string" />
+      <rule id="DecisionRule_1evqqwh">
+        <inputEntry id="UnaryTests_0y79ne9">
+          <text>"Standard Rules"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16kxt1v">
+          <text>&lt;= 2500</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cgv66s">
+          <text>True</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_033qztj">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11lhl2u">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1xvsj3b">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_012misl">
+          <text>"No further message"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0mjf0m3">
+        <inputEntry id="UnaryTests_1k79452">
+          <text>"Standard Rules"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vzrt6o">
+          <text>&lt;= 2500</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17d4yna">
+          <text>False</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xpod9j">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dytlxd">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_06rwi8u">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_066d207">
+          <text>"Height of compartment must equal floor level height"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0dahh1s">
+        <description></description>
+        <inputEntry id="UnaryTests_0tsdyun">
+          <text>"Standard Rules"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16ewgnm">
+          <text>&gt; 2500</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00r64hk">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07mg9m0">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pql22d">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0yyhcga">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1m9mcu4">
+          <text>"No further message"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0gd7dxo">
+        <inputEntry id="UnaryTests_10jsril">
+          <text>"Standard Rules"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1o47kga">
+          <text>&gt; 2500</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00uoih3">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yt5j7x">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cunm85">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1afy424">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_072tama">
+          <text>"Height of compartment must equal floor level height"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_15vk60f">
+        <description>Zie voorwaarden Minister Van Binnenlandse Zaken</description>
+        <inputEntry id="UnaryTests_0qbf8u3">
+          <text>"Standard Rules"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dsf4jd">
+          <text>&gt; 2500</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hg7g1z">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ktwkrx">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zabqih">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1kv6ehz">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0e6id92">
+          <text>"See conditions Minister of Internal Affairs"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1t2fyax">
+        <description>Zie voorwaarden Minister Van Binnenlandse Zaken</description>
+        <inputEntry id="UnaryTests_0lgo0ag">
+          <text>"Standard Rules"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cyisun">
+          <text>&gt; 2500</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kx79vo">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qvh4d0">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0giq3c2">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_13es7cx">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1j78pjz">
+          <text>"Height of compartment must equal floor level height"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="HeightOfFloorLevel" name="HeightOfFloorLevel" />
+  <inputData id="ExceptionType" name="ExceptionType" />
+  <decision id="Decision_00apbwf" name="HeightVerification">
+    <informationRequirement id="InformationRequirement_1mex97d">
+      <requiredInput href="#HeightOfCompartment" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0v3zv5g">
+      <requiredDecision href="#Decision_1cqusg8" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_144b9a7">
+      <input id="InputClause_0v6sdu3" label="HeightOfCompartment" biodi:width="219">
+        <inputExpression id="LiteralExpression_1m3upgy" typeRef="double">
+          <text>HeightOfCompartment</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1iav0pb" label="HeightVerification" name="HeightVerification" typeRef="boolean" />
+      <rule id="DecisionRule_0bz5zyc">
+        <inputEntry id="UnaryTests_1dmwpqc">
+          <text>FullCompartmentHeight</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1f99a53">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1lonf94">
+        <inputEntry id="UnaryTests_1fy9ez5">
+          <text>&lt;FullCompartmentHeight</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_15yeghs">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1hqxv9g">
+        <inputEntry id="UnaryTests_0gl24n4">
+          <text>&gt;FullCompartmentHeight</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0vnyy8x">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_1cqusg8" name="Define full compartment height">
+    <informationRequirement id="InformationRequirement_0k7l3e6">
+      <requiredInput href="#HeightOfFloorLevel" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1cgnqy2">
+      <input id="InputClause_1nuvkhr" label="HeightOfFloorLevel">
+        <inputExpression id="LiteralExpression_0uxbrbm" typeRef="double">
+          <text>HeightOfFloorLevel</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0304mps" label="FullCompartmentHeight" name="FullCompartmentHeight" typeRef="double" biodi:width="210" />
+      <rule id="DecisionRule_1ldh8tj">
+        <inputEntry id="UnaryTests_0ak4csq">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1e32h51">
+          <text>HeightOfFloorLevel</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <textAnnotation id="TextAnnotation_0uzffds">
+    <text>2.1 Het gebouw is verdeeld in compartimenten 
+waarvan de oppervlakte kleiner is dan 2 500 m2, 
+met uitzondering van de parkeergebouwen (zie 5.2).</text>
+  </textAnnotation>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_12bg4cm" dmnElementRef="TextAnnotation_0uzffds">
+        <dc:Bounds height="60" width="310" x="155" y="120" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0rnc2rf" dmnElementRef="PresenceAutomaticExtinguishingSystem">
+        <dc:Bounds height="45" width="125" x="237" y="267" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0mwu54y" dmnElementRef="PresenceSmokeAndHeatExtractionSystem">
+        <dc:Bounds height="45" width="125" x="237" y="327" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0tz3b46" dmnElementRef="AreaOfCompartment">
+        <dc:Bounds height="45" width="125" x="517" y="417" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_03gphz2" dmnElementRef="HeightOfCompartment">
+        <dc:Bounds height="45" width="125" x="747" y="427" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1ceu30n" dmnElementRef="Decision_16vy8ft">
+        <dc:Bounds height="80" width="180" x="420" y="280" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0nfzldk" dmnElementRef="HeightOfFloorLevel">
+        <dc:Bounds height="45" width="125" x="967" y="427" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0yu9f4r" dmnElementRef="InformationRequirement_0s7n8vx">
+        <di:waypoint x="362" y="290" />
+        <di:waypoint x="400" y="307" />
+        <di:waypoint x="420" y="307" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1yh9gh2" dmnElementRef="InformationRequirement_0ig4mkf">
+        <di:waypoint x="362" y="350" />
+        <di:waypoint x="400" y="333" />
+        <di:waypoint x="420" y="333" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0evnwnz" dmnElementRef="InformationRequirement_1k0kps8">
+        <di:waypoint x="580" y="417" />
+        <di:waypoint x="540" y="380" />
+        <di:waypoint x="540" y="360" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_10y4m8p" dmnElementRef="ExceptionType">
+        <dc:Bounds height="45" width="125" x="377" y="417" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0be17aq" dmnElementRef="InformationRequirement_0v7wrhk">
+        <di:waypoint x="440" y="417" />
+        <di:waypoint x="480" y="380" />
+        <di:waypoint x="480" y="360" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0syy1iv" dmnElementRef="Decision_00apbwf">
+        <dc:Bounds height="80" width="180" x="720" y="280" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1n1z2f0" dmnElementRef="InformationRequirement_1mex97d">
+        <di:waypoint x="810" y="427" />
+        <di:waypoint x="810" y="380" />
+        <di:waypoint x="810" y="360" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0lgaxr9" dmnElementRef="InformationRequirement_16w0hh1">
+        <di:waypoint x="720" y="320" />
+        <di:waypoint x="620" y="320" />
+        <di:waypoint x="600" y="320" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0n6jxi7" dmnElementRef="Decision_1cqusg8">
+        <dc:Bounds height="80" width="180" x="940" y="280" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0k5sm0z" dmnElementRef="InformationRequirement_0k7l3e6">
+        <di:waypoint x="1030" y="427" />
+        <di:waypoint x="1030" y="380" />
+        <di:waypoint x="1030" y="360" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1dv92j4" dmnElementRef="InformationRequirement_0v3zv5g">
+        <di:waypoint x="940" y="320" />
+        <di:waypoint x="920" y="320" />
+        <di:waypoint x="900" y="320" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

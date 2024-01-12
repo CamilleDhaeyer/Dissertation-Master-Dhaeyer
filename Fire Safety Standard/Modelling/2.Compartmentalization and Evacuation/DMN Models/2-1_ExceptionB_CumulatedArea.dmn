@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0ou0efv" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_1b9v4dw" name="Calculate cumulated area of duplex">
+    <decisionTable id="DecisionTable_06ej29u">
+      <input id="Input_1" label="DuplexAreaFirstFloor">
+        <inputExpression id="InputExpression_1" typeRef="double">
+          <text>DuplexAreaFirstFloor</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1s4i46h" label="DuplexAreaSecondFloor">
+        <inputExpression id="LiteralExpression_0h6c448" typeRef="double">
+          <text>DuplexAreaSecondFloor</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="CumulatedAreaOfDuplex" name="CumulatedAreaOfDuplex" typeRef="double" />
+      <rule id="DecisionRule_1boa5p4">
+        <inputEntry id="UnaryTests_1ama5lp">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19w6nya">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1cc85ph">
+          <text>DuplexAreaFirstFloor+DuplexAreaSecondFloor</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1b9v4dw">
+        <dc:Bounds height="80" width="180" x="550" y="250" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

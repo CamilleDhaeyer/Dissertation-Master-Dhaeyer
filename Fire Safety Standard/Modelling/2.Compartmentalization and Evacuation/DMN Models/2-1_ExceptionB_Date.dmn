@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_1k2uvmi" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <inputData id="DateOfApplicationOfPermit" name="DateOfApplicationOfPermit" />
+  <decision id="Decision_0mx0xd8" name="Determination of Application Date">
+    <informationRequirement id="InformationRequirement_0t9vifc">
+      <requiredInput href="#DateOfApplicationOfPermit" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0x8r6gl">
+      <input id="InputClause_0igb7xq" label="DateOfApplicationOfPermit">
+        <inputExpression id="LiteralExpression_1o5c3cb" typeRef="date">
+          <text>DateOfApplicationOfPermit</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0hjfr1l" label="After1April2017" name="After1April2017" typeRef="boolean" />
+      <rule id="DecisionRule_1qfhj8n">
+        <inputEntry id="UnaryTests_083j28z">
+          <text>&lt; date("2017-04-01")</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1uv2wwx">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ec04z1">
+        <inputEntry id="UnaryTests_0mapmjf">
+          <text>&gt;= date("2017-04-01")</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1joo2jt">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_1yygb28" dmnElementRef="DateOfApplicationOfPermit">
+        <dc:Bounds height="45" width="125" x="187" y="197" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1vp2ei1" dmnElementRef="Decision_0mx0xd8">
+        <dc:Bounds height="80" width="180" x="160" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_09yn4am" dmnElementRef="InformationRequirement_0t9vifc">
+        <di:waypoint x="250" y="197" />
+        <di:waypoint x="250" y="180" />
+        <di:waypoint x="250" y="160" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

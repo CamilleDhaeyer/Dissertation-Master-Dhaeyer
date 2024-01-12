@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0etnbhg" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_13nnmoy" name="DSFwithoutCompartimentation verification">
+    <informationRequirement id="InformationRequirement_1gnzvwb">
+      <requiredDecision href="#Decision_0rmbn9y" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_15ic60o">
+      <requiredDecision href="#Decision_1y4s5ol" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_15b1msq">
+      <input id="Input_1" label="FireResistantInteriorWallOfDSFsuccess">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text>FireResistantInteriorWallOfDSFsuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1dw5m2d" label="DSFopenToExteriorSuccess">
+        <inputExpression id="LiteralExpression_1x3d2r0" typeRef="boolean">
+          <text>DSFopenToExteriorSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="DSFwithoutCompartimentationSuccess" name="DCFwithoutCompartimentationSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_1nm8mla">
+        <inputEntry id="UnaryTests_00u65we">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lq2w4f">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0kx0eaz">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0uizr6j">
+        <inputEntry id="UnaryTests_1lnpgrs">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kmc2h2">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0fapzjy">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_17tjyfl">
+        <inputEntry id="UnaryTests_16dw3ct">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0106k1g">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1prsvu8">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_13724dh">
+        <inputEntry id="UnaryTests_0r153m5">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0o7lcdj">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0n2ccim">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_0rmbn9y" name="FireResistantInteriorWallOfDSF verification">
+    <informationRequirement id="InformationRequirement_1std636">
+      <requiredInput href="#ExteriorWallPercentageBetweenLevelsOfUnspecifiedFRelements" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0z31hnc">
+      <requiredInput href="#InteriorWallRequirementSuccess" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0l186t0">
+      <input id="InputClause_1xlsb3j" label="ExteriorWallPercentageBetweenLevelsOfUnspecifiedFRelements">
+        <inputExpression id="LiteralExpression_1h7a3wt" typeRef="double">
+          <text>ExteriorWallPercentageBetweenLevelsOfUnspecifiedFRelements</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_16ne2qh" label="InteriorWallRequirementSuccess">
+        <inputExpression id="LiteralExpression_1n4lp43" typeRef="boolean">
+          <text>InteriorWallRequirementSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1nedmi5" label="FireResistantInteriorWallOfDSFsuccess" name="FireResistantInteriorWallOfDSFsuccess" typeRef="boolean" />
+      <rule id="DecisionRule_08vfflu">
+        <inputEntry id="UnaryTests_1i8x8p3">
+          <text>&gt;= 50</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ah5dz6">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1guad1j">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1iolod4">
+        <description>InteriorWallRequirementSuccess via python functions</description>
+        <inputEntry id="UnaryTests_0kpjzsd">
+          <text>&lt; 50</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_191r9wp">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1vinpyo">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1w7mex8">
+        <inputEntry id="UnaryTests_0lsu1k1">
+          <text>&gt;= 50</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1at07fh">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_12eww56">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1g6lxom">
+        <inputEntry id="UnaryTests_0o9gr5l">
+          <text>&lt; 50</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0g4guvo">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0t14y5c">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_1y4s5ol" name="DSFopenToExterior verification">
+    <informationRequirement id="InformationRequirement_18gr7ll">
+      <requiredInput href="#AllAirventRequirementSuccess" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0ixslby">
+      <requiredInput href="#ExteriorWallHasAutomaticAirVents" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0yjyhj1">
+      <input id="InputClause_0ew0aq9" label="ExteriorWallHasAutomaticAirVents">
+        <inputExpression id="LiteralExpression_033xi35" typeRef="boolean">
+          <text>ExteriorWallHasAutomaticAirVents</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1ozkrd7" label="AllAirventRequirementSuccess">
+        <inputExpression id="LiteralExpression_1n40fa4" typeRef="boolean">
+          <text>AllAirventRequirementSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0kzt4uy" label="DSFopenToExteriorSuccess" name="DSFopenToExteriorSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_0627cv2">
+        <inputEntry id="UnaryTests_0b5zy1x">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0n3419x">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_18kov5j">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_18yac8m">
+        <inputEntry id="UnaryTests_0p66q4i">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1eu3uqj">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1sp5y4k">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0x6z700">
+        <inputEntry id="UnaryTests_1jkfico">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_048r0xw">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_12j7rcy">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="ExteriorWallPercentageBetweenLevelsOfUnspecifiedFRelements" name="ExteriorWallPercentageBetweenLevelsOfUnspecifiedFRelements" />
+  <inputData id="ExteriorWallHasAutomaticAirVents" name="ExteriorWallHasAutomaticAirVents" />
+  <inputData id="AllAirventRequirementSuccess" name="AllAirventRequirementSuccess" />
+  <inputData id="InteriorWallRequirementSuccess" name="InteriorWallRequirementSuccess" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_13nnmoy">
+        <dc:Bounds height="80" width="180" x="460" y="50" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_18fji1o" dmnElementRef="Decision_0rmbn9y">
+        <dc:Bounds height="80" width="180" x="250" y="220" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0j4n0d3" dmnElementRef="Decision_1y4s5ol">
+        <dc:Bounds height="80" width="180" x="660" y="220" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1cj4zui" dmnElementRef="InformationRequirement_1gnzvwb">
+        <di:waypoint x="340" y="220" />
+        <di:waypoint x="520" y="150" />
+        <di:waypoint x="520" y="130" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_171wbos" dmnElementRef="InformationRequirement_15ic60o">
+        <di:waypoint x="750" y="220" />
+        <di:waypoint x="580" y="150" />
+        <di:waypoint x="580" y="130" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_08ut5ar" dmnElementRef="ExteriorWallPercentageBetweenLevelsOfUnspecifiedFRelements">
+        <dc:Bounds height="45" width="125" x="357" y="338" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0lkme07" dmnElementRef="InformationRequirement_1std636">
+        <di:waypoint x="420" y="338" />
+        <di:waypoint x="370" y="320" />
+        <di:waypoint x="370" y="300" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_06zavb5" dmnElementRef="ExteriorWallHasAutomaticAirVents">
+        <dc:Bounds height="45" width="125" x="597" y="338" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0a4kw11" dmnElementRef="AllAirventRequirementSuccess">
+        <dc:Bounds height="45" width="125" x="777" y="338" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1ldyxar" dmnElementRef="InformationRequirement_18gr7ll">
+        <di:waypoint x="840" y="338" />
+        <di:waypoint x="780" y="320" />
+        <di:waypoint x="780" y="300" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1akisxi" dmnElementRef="InformationRequirement_0ixslby">
+        <di:waypoint x="660" y="338" />
+        <di:waypoint x="720" y="320" />
+        <di:waypoint x="720" y="300" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_19cb412" dmnElementRef="InteriorWallRequirementSuccess">
+        <dc:Bounds height="45" width="125" x="157" y="338" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_04j0zld" dmnElementRef="InformationRequirement_0z31hnc">
+        <di:waypoint x="220" y="338" />
+        <di:waypoint x="310" y="320" />
+        <di:waypoint x="310" y="300" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

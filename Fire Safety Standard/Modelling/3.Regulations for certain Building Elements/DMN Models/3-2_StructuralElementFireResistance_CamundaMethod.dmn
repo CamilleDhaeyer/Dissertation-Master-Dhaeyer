@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="DRD" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_1azn8d1" name="Minimal Fire Resistance Of Structural Element" camunda:historyTimeToLive="10">
+    <informationRequirement id="InformationRequirement_1l3o594">
+      <requiredDecision href="#Decision_1dt41vu" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_08gx4py">
+      <input id="Input_1" label="AboveEvacuationLevel">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text>AboveEvacuationLevel</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="RequiredFireResistanceOfStructuralElement" name="RequiredFireResistanceOfStructuralElement" typeRef="string" />
+      <rule id="DecisionRule_0mkiwds">
+        <inputEntry id="UnaryTests_13eoh3c">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1kgrfi0">
+          <text>"R 60"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_048b1sq">
+        <inputEntry id="UnaryTests_0arug6s">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_08labfx">
+          <text>"R 120"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="LowestFloorEvacuationLevel" name="LowestFloorEvacuationLevel" />
+  <inputData id="FloorLevelOfStructuralElement" name="FloorLevelOfStructuralElement" />
+  <inputData id="ProvidedFireResistanceOfStructuralElement" name="ProvidedFireResistanceOfStructuralElement" />
+  <decision id="Decision_0pyvk0w" name="StructuralElementFireResistanceSuccess" camunda:historyTimeToLive="10">
+    <informationRequirement id="InformationRequirement_0ihgdyu">
+      <requiredInput href="#ProvidedFireResistanceOfStructuralElement" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0p4gkwy">
+      <requiredDecision href="#Decision_1azn8d1" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0309s2q">
+      <input id="InputClause_1jdfkuc" label="ProvidedFireResistanceOfStructuralElement">
+        <inputExpression id="LiteralExpression_1csw9cs" typeRef="string">
+          <text>ProvidedFireResistanceOfStructuralElement</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1mozoz2" label="RequiredFireResistanceOfStructuralElement">
+        <inputExpression id="LiteralExpression_1xwvoke" typeRef="string">
+          <text>RequiredFireResistanceOfStructuralElement</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0ekytaq" label="StructuralElementFireResistanceSuccess" name="StructuralElementFireResistanceSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_12mx7yk">
+        <description>#Camunda does not require filled in values !</description>
+        <inputEntry id="UnaryTests_0a2v7lc">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03uqrjp">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1k0nkgi">
+          <text>ProvidedFireResistanceOfStructuralElement=RequiredFireResistanceOfStructuralElement</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_1dt41vu" name="Define Location of Level" camunda:historyTimeToLive="10">
+    <informationRequirement id="InformationRequirement_1f3bk8q">
+      <requiredInput href="#LowestFloorEvacuationLevel" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0lqvki0">
+      <requiredInput href="#FloorLevelOfStructuralElement" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1cbu71g">
+      <input id="InputClause_0rxetym" label="LowestFloorEvacuationLevel">
+        <inputExpression id="LiteralExpression_0er0rit" typeRef="integer">
+          <text>LowestFloorEvacuationLevel</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0yh8rh7" label="FloorLevelOfStructuralElement">
+        <inputExpression id="LiteralExpression_0nyf6iy" typeRef="integer">
+          <text>FloorLevelOfStructuralElement</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1k8ceqm" label="AboveEvacuationLevel" name="AboveEvacuationLevel" typeRef="boolean" />
+      <rule id="DecisionRule_0ryuf6x">
+        <inputEntry id="UnaryTests_0ag09cr">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jegcpk">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_14fqswq">
+          <text>FloorLevelOfStructuralElement &gt; LowestFloorEvacuationLevel</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <textAnnotation id="TextAnnotation_158rwhm">
+    <text>3.2 Structurele elementen.
+De structurele elementen beschikken over een brandweerstand zoals weergegeven in tabel 3.1, waarin E 
+het laagst gelegen evacuatieniveau voorstelt</text>
+  </textAnnotation>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1azn8d1">
+        <dc:Bounds height="80" width="180" x="360" y="470" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0m2p56f" dmnElementRef="TextAnnotation_158rwhm">
+        <dc:Bounds height="65" width="370" x="235" y="77" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_03oi8i4" dmnElementRef="LowestFloorEvacuationLevel">
+        <dc:Bounds height="45" width="125" x="267" y="747" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1ylevaq" dmnElementRef="FloorLevelOfStructuralElement">
+        <dc:Bounds height="45" width="125" x="527" y="757" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1q1zreg" dmnElementRef="ProvidedFireResistanceOfStructuralElement">
+        <dc:Bounds height="45" width="125" x="167" y="357" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1sj2hpr" dmnElementRef="Decision_0pyvk0w">
+        <dc:Bounds height="80" width="180" x="360" y="340" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0y78t9h" dmnElementRef="InformationRequirement_0ihgdyu">
+        <di:waypoint x="292" y="380" />
+        <di:waypoint x="340" y="380" />
+        <di:waypoint x="360" y="380" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0grgnao" dmnElementRef="Decision_1dt41vu">
+        <dc:Bounds height="80" width="180" x="360" y="600" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_15syjbi" dmnElementRef="InformationRequirement_1f3bk8q">
+        <di:waypoint x="330" y="747" />
+        <di:waypoint x="420" y="700" />
+        <di:waypoint x="420" y="680" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_14vfljj" dmnElementRef="InformationRequirement_0lqvki0">
+        <di:waypoint x="590" y="757" />
+        <di:waypoint x="480" y="700" />
+        <di:waypoint x="480" y="680" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_06xq9g2" dmnElementRef="InformationRequirement_1l3o594">
+        <di:waypoint x="450" y="600" />
+        <di:waypoint x="450" y="570" />
+        <di:waypoint x="450" y="550" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1n10e7f" dmnElementRef="InformationRequirement_0p4gkwy">
+        <di:waypoint x="450" y="470" />
+        <di:waypoint x="450" y="440" />
+        <di:waypoint x="450" y="420" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

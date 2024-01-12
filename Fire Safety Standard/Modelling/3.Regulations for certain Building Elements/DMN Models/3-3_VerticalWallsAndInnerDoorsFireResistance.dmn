@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_0xqgcxf" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_05s4w16" name="Room Class definition">
+    <informationRequirement id="InformationRequirement_1shxirr">
+      <requiredInput href="#WallClass" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_01jcm3o">
+      <requiredInput href="#RoomType" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1601t3j">
+      <requiredInput href="#SpaceType" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1u4kwiy">
+      <input id="InputClause_0jwkxej" label="SpaceType">
+        <inputExpression id="LiteralExpression_1a0356t" typeRef="string">
+          <text>SpaceType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_06x7xmc" label="RoomType">
+        <inputExpression id="LiteralExpression_1j3p9rq" typeRef="string">
+          <text>RoomType</text>
+        </inputExpression>
+      </input>
+      <input id="Input_1" label="WallClass" biodi:width="197">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>WallClass</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_09gkloj" label="Message" name="Message" typeRef="string" />
+      <rule id="DecisionRule_1j7ux0l">
+        <inputEntry id="UnaryTests_1mnliyt">
+          <text>"compartment"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14riba4">
+          <text>"Not applicable"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11djvxe">
+          <text>"Outer wall"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_00qxseh">
+          <text>"See rules 4_1"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ytfvr1">
+        <inputEntry id="UnaryTests_1vocych">
+          <text>"Evacuation route"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_042h6e4">
+          <text>"Not applicable"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vdoat8">
+          <text>"Outer wall"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_11jkxq0">
+          <text>"See rules 4_4"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0qyrwcg">
+        <inputEntry id="UnaryTests_0p57355">
+          <text>"compartment"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nrsax9">
+          <text>"Room with night occupancy"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1j780jo">
+          <text>"Inner wall"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1o1pxv7">
+          <text>"Room with night occupancy is included in 3_3"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0b8h4pg">
+        <inputEntry id="UnaryTests_0yo236a">
+          <text>"compartment"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00xyuty">
+          <text>"Room with night occupancy"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12mdyys">
+          <text>"Outer wall"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0cybsxe">
+          <text>"See rules 4_1"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_00d8bbk">
+        <inputEntry id="UnaryTests_0jguvkh">
+          <text>"compartment"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ao7rup">
+          <text>"Archive room"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ncuago">
+          <text>"Inner wall"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_18h7jxd">
+          <text>"Archive room is included in 3_3"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0x9acuf">
+        <inputEntry id="UnaryTests_13ju93i">
+          <text>"compartment"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10p6r7m">
+          <text>"Archive room"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yqd8mg">
+          <text>"Outer wall"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0b3ptaw">
+          <text>"See rules 4_1"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="WallClass" name="WallClass" />
+  <decision id="Decision_18yetym" name="Fire Resistance Requirements">
+    <informationRequirement id="InformationRequirement_1ff3ci5">
+      <requiredDecision href="#Decision_05s4w16" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1plw8uz">
+      <requiredInput href="#InputData_1n3i8qw" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0xu2hyl">
+      <requiredInput href="#FireResistanceAllDoorSuccess" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0i41s13">
+      <requiredInput href="#AllDoorSuccess" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_036txo3">
+      <input id="InputClause_0or9rh1" label="Message">
+        <inputExpression id="LiteralExpression_00o7q2k" typeRef="string">
+          <text>Message</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1r4r5su" label="AllWallSuccess">
+        <inputExpression id="LiteralExpression_1u25dle" typeRef="boolean">
+          <text>AllWallSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1ga62fv" label="FireResistanceAllDoorSuccess">
+        <inputExpression id="LiteralExpression_1ubg97f" typeRef="boolean">
+          <text>FireResistanceAllDoorSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0prq1ru" label="AllDoorSuccess">
+        <inputExpression id="LiteralExpression_1v9his1" typeRef="boolean">
+          <text>AllDoorSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_08ypo8i" label="WallAndDoorFireResistanceVerificationSuccess" name="WallAndDoorFireResistanceVerificationSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_1mvlcpy">
+        <inputEntry id="UnaryTests_08lauce">
+          <text>"Room with night occupancy is included in 3_3"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04me4bw">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xoz2en">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_155kfzx">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1uljl04">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_119molx">
+        <inputEntry id="UnaryTests_0zezaoa">
+          <text>"Room with night occupancy is included in 3_3"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1he60ry">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vb8tr8">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_080w5ts">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_115u1zp">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1uw57zx">
+        <inputEntry id="UnaryTests_1ndlith">
+          <text>"Room with night occupancy is included in 3_3"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04am6c7">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xsbc6j">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0n3kh53">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_10my2mw">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1nlqn7e">
+        <inputEntry id="UnaryTests_0g1e08h">
+          <text>"Room with night occupancy is included in 3_3"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rdy5f4">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0s6vnql">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pztyqp">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0vayszx">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0fmbkdp">
+        <inputEntry id="UnaryTests_0khdw22">
+          <text>"Archive room is included in 3_3"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ehajg1">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10kgko0">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_092175s">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0g3i4og">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0dddwik">
+        <inputEntry id="UnaryTests_1vn286u">
+          <text>"Archive room is included in 3_3"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ts82s7">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1r8z7be">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jdldbh">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0e95lpg">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1uljke2">
+        <inputEntry id="UnaryTests_032t0n6">
+          <text>"Archive room is included in 3_3"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16g0j1r">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1q2l3vz">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jjedpn">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_00l4olu">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ukrrt6">
+        <inputEntry id="UnaryTests_07x96rc">
+          <text>"Archive room is included in 3_3"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0btryhv">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06o32wx">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1on19yk">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_02oxszp">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="RoomType" name="RoomType" />
+  <inputData id="SpaceType" name="SpaceType" />
+  <inputData id="InputData_1n3i8qw" name="AllWallSuccess" />
+  <inputData id="FireResistanceAllDoorSuccess" name="FireResistanceAllDoorSuccess" />
+  <inputData id="AllDoorSuccess" name="AllDoorSuccess" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_05s4w16">
+        <dc:Bounds height="80" width="180" x="350" y="300" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0z6e2k0" dmnElementRef="WallClass">
+        <dc:Bounds height="45" width="125" x="377" y="417" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1o4385m" dmnElementRef="Decision_18yetym">
+        <dc:Bounds height="80" width="180" x="350" y="180" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0o9ix2z" dmnElementRef="InformationRequirement_1shxirr">
+        <di:waypoint x="440" y="417" />
+        <di:waypoint x="440" y="400" />
+        <di:waypoint x="440" y="380" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_17u8g3v" dmnElementRef="InformationRequirement_1ff3ci5">
+        <di:waypoint x="440" y="300" />
+        <di:waypoint x="440" y="280" />
+        <di:waypoint x="440" y="260" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0nhqsil" dmnElementRef="RoomType">
+        <dc:Bounds height="45" width="125" x="158" y="318" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1m5lhkw" dmnElementRef="InformationRequirement_01jcm3o">
+        <di:waypoint x="283" y="341" />
+        <di:waypoint x="330" y="340" />
+        <di:waypoint x="350" y="340" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1r7rvxn" dmnElementRef="SpaceType">
+        <dc:Bounds height="45" width="125" x="598" y="318" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1wlsa95" dmnElementRef="InformationRequirement_1601t3j">
+        <di:waypoint x="598" y="341" />
+        <di:waypoint x="550" y="340" />
+        <di:waypoint x="530" y="340" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_18c8boc" dmnElementRef="InputData_1n3i8qw">
+        <dc:Bounds height="45" width="125" x="159" y="198" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1m2foiq" dmnElementRef="InformationRequirement_1plw8uz">
+        <di:waypoint x="284" y="221" />
+        <di:waypoint x="330" y="220" />
+        <di:waypoint x="350" y="220" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0khxdze" dmnElementRef="FireResistanceAllDoorSuccess">
+        <dc:Bounds height="45" width="125" x="608" y="198" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0hi27w9" dmnElementRef="InformationRequirement_0xu2hyl">
+        <di:waypoint x="608" y="221" />
+        <di:waypoint x="550" y="220" />
+        <di:waypoint x="530" y="220" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1ae7vqq" dmnElementRef="AllDoorSuccess">
+        <dc:Bounds height="45" width="125" x="377" y="87" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0ksdnni" dmnElementRef="InformationRequirement_0i41s13">
+        <di:waypoint x="440" y="132" />
+        <di:waypoint x="440" y="160" />
+        <di:waypoint x="440" y="180" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

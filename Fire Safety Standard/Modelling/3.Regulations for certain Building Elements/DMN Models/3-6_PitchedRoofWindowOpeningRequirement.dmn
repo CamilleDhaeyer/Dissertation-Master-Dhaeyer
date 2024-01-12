@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_1egsixw" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <inputData id="RoofType" name="RoofType" />
+  <inputData id="WindowOpeningsPresentInPitchedRoof" name="WindowOpeningsPresentInPitchedRoof" />
+  <inputData id="CompartmentRulesAppliedOnPitchedRoof" name="CompartmentRulesAppliedOnPitchedRoof" />
+  <decision id="Decision_0oz4rhc" name="Rules for window openings in pitched roof">
+    <informationRequirement id="InformationRequirement_16ehwao">
+      <requiredInput href="#RoofType" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1hzlf4x">
+      <requiredInput href="#CompartmentRulesAppliedOnPitchedRoof" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0hwiacy">
+      <requiredInput href="#WindowOpeningsPresentInPitchedRoof" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0ntq44t">
+      <input id="InputClause_0xfp4cl" label="RoofType">
+        <inputExpression id="LiteralExpression_00o4hti" typeRef="string">
+          <text>RoofType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0u0v8x6" label="WindowOpeningsPresentInPitchedRoof">
+        <inputExpression id="LiteralExpression_04yqmo7" typeRef="boolean">
+          <text>WindowOpeningsPresentInPitchedRoof</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1bj2e8v" label="AllCompartmentWallToPitchedRoofConnectionSuccess">
+        <inputExpression id="LiteralExpression_08r5gqf" typeRef="boolean">
+          <text>AllCompartmentWallToPitchedRoofConnectionSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_05ahl7n" label="PitchedRoofWindowRegulationSuccess" name="PitchedRoofWindowRegulationSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_0ivsmed">
+        <description>via FireResistanceCompartmentWallConnectionToPitchedRoofSuccesss van 36 3511 mappen naar all </description>
+        <inputEntry id="UnaryTests_1lg2aq4">
+          <text>"Pitched Roof"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cy7170">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1p4ok9l">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ajlnt5">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0altnuc">
+        <inputEntry id="UnaryTests_0kqct3l">
+          <text>"Pitched Roof"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0v949vz">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1papdaf">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_10f2x6o">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_00ldwdp">
+        <inputEntry id="UnaryTests_1ejdm56">
+          <text>"Flat Roof"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05cera9">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vb7n0w">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1a49syg">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_10ek062" dmnElementRef="RoofType">
+        <dc:Bounds height="45" width="125" x="157" y="217" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0efq1l0" dmnElementRef="WindowOpeningsPresentInPitchedRoof">
+        <dc:Bounds height="45" width="125" x="437" y="217" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0fj00yc" dmnElementRef="CompartmentRulesAppliedOnPitchedRoof">
+        <dc:Bounds height="45" width="125" x="297" y="217" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1bu3eoo" dmnElementRef="Decision_0oz4rhc">
+        <dc:Bounds height="80" width="180" x="270" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0xa2wd1" dmnElementRef="InformationRequirement_16ehwao">
+        <di:waypoint x="220" y="217" />
+        <di:waypoint x="315" y="180" />
+        <di:waypoint x="315" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0wjs1yp" dmnElementRef="InformationRequirement_1hzlf4x">
+        <di:waypoint x="360" y="217" />
+        <di:waypoint x="360" y="180" />
+        <di:waypoint x="360" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1r7ycsl" dmnElementRef="InformationRequirement_0hwiacy">
+        <di:waypoint x="500" y="217" />
+        <di:waypoint x="405" y="180" />
+        <di:waypoint x="405" y="160" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

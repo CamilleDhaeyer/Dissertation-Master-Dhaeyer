@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0pux16d" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_1gdo29u" name="DoubleSkinFacadeCompartmentVerification">
+    <informationRequirement id="InformationRequirement_1b5o1ez">
+      <requiredDecision href="#Decision_0il4kl6" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0h1c9fs">
+      <requiredInput href="#InterruptionElementPresentInDoubleSkinFacadeAtCompartmentWall" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1r4ot3v">
+      <requiredInput href="#FireResistanceInterruptionElementSuccess" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_16a9nxf">
+      <requiredInput href="#LengthInterruptionElement" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1nrqoq9">
+      <input id="Input_1" label="InterruptionElementPresentInDoubleSkinFacadeAtCompartmentWall">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text>InterruptionElementPresentInDoubleSkinFacadeAtCompartmentWall</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1jxf3z1" label="FireResistanceInterruptionElement">
+        <inputExpression id="LiteralExpression_1nhyznx" typeRef="string">
+          <text>FireResistanceInterruptionElement</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_124z4ls" label="WidthInterruptionElementSuccess">
+        <inputExpression id="LiteralExpression_1t6npc1" typeRef="boolean">
+          <text>WidthInterruptionElementSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0vrduv6" label="LengthInterruptionElement">
+        <inputExpression id="LiteralExpression_1ibwj1p" typeRef="double">
+          <text>LengthInterruptionElement</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="DoubleSkinFacadeCompartmentSuccess" name="DoubleSkinFacadeCompartmentSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_1s74kgt">
+        <description></description>
+        <inputEntry id="UnaryTests_1ka3clp">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0h2a8d1">
+          <text>"E 60","E 90","E 120","E 180","E 240","E 360","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 360"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0clx3nl">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sl6yet">
+          <text>&gt;= 0.6</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_15cccym">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ls9dm7">
+        <description></description>
+        <inputEntry id="UnaryTests_13w4wh1">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jcg4y8">
+          <text>"E 60","E 90","E 120","E 180","E 240","E 360","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 360"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1x020fh">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0taavyr">
+          <text>&lt; 0.6</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1omj8mj">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_02y8xnq">
+        <description></description>
+        <inputEntry id="UnaryTests_0puy3gt">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1w6gyyn">
+          <text>"E 60","E 90","E 120","E 180","E 240","E 360","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 360"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vzumnj">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pu2tje">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0zhterv">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0g7khjw">
+        <description></description>
+        <inputEntry id="UnaryTests_023m5i0">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1uf4z0y">
+          <text>"E 10","E 15","E 20","E 30","E 45"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_134oxgp">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nmo6h4">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_10fkwjv">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0foadcg">
+        <inputEntry id="UnaryTests_0aj2mwz">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19jkl1y">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 360","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 360"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0d7ipd5">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kxr28u">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0775aet">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InterruptionElementPresentInDoubleSkinFacadeAtCompartmentWall" name="InterruptionElementPresentInDoubleSkinFacadeAtCompartmentWall" />
+  <inputData id="FireResistanceInterruptionElementSuccess" name="FireResistanceInterruptionElementSuccess" />
+  <decision id="Decision_0il4kl6" name="Verification Interruption Element Width">
+    <informationRequirement id="InformationRequirement_1qk235j">
+      <requiredInput href="#WidthCavity" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1d8rj0e">
+      <requiredInput href="#WidthInterruptionElement" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1vd6j2n">
+      <input id="InputClause_1nr7ac8" label="WidthCavity">
+        <inputExpression id="LiteralExpression_19o4ch0" typeRef="double">
+          <text>WidthCavity</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0uw8vke" label="WidthInterruptionElement">
+        <inputExpression id="LiteralExpression_1ldqlo5" typeRef="double">
+          <text>WidthInterruptionElement</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_10l3zqi" label="WidthInterruptionElementSuccess" name="WidthInterruptionElementSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_0oa0dvd">
+        <inputEntry id="UnaryTests_01yeloj">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_003r767">
+          <text>&lt;WidthCavity</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qusc40">
+          <text>False</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0c7xohw">
+        <inputEntry id="UnaryTests_175uqv4">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lb3fju">
+          <text>WidthCavity</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0gxl6j6">
+          <text>True</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_09xdk79">
+        <description>impossible</description>
+        <inputEntry id="UnaryTests_1bf69dr">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1j7a4ai">
+          <text>&gt;WidthCavity</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0gh8miz">
+          <text>False</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="WidthCavity" name="WidthCavity" />
+  <inputData id="WidthInterruptionElement" name="WidthInterruptionElement" />
+  <inputData id="LengthInterruptionElement" name="LengthInterruptionElement" />
+  <textAnnotation id="TextAnnotation_16f72ua">
+    <text>E60 FR module</text>
+  </textAnnotation>
+  <association id="Association_16cifkp">
+    <sourceRef href="#TextAnnotation_16f72ua" />
+    <targetRef href="#FireResistanceInterruptionElementSuccess" />
+  </association>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1gdo29u">
+        <dc:Bounds height="80" width="180" x="330" y="190" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0wxd4wr" dmnElementRef="InterruptionElementPresentInDoubleSkinFacadeAtCompartmentWall">
+        <dc:Bounds height="45" width="125" x="597" y="207" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_18umsgk" dmnElementRef="FireResistanceInterruptionElementSuccess">
+        <dc:Bounds height="45" width="125" x="157" y="207" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_03pf53e" dmnElementRef="Decision_0il4kl6">
+        <dc:Bounds height="80" width="180" x="330" y="331" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_065sh4x" dmnElementRef="WidthCavity">
+        <dc:Bounds height="45" width="125" x="267" y="487" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_02pxsqf" dmnElementRef="InformationRequirement_1qk235j">
+        <di:waypoint x="330" y="487" />
+        <di:waypoint x="390" y="431" />
+        <di:waypoint x="390" y="411" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1dvcd9i" dmnElementRef="WidthInterruptionElement">
+        <dc:Bounds height="45" width="125" x="448" y="488" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_06vazbf" dmnElementRef="InformationRequirement_1d8rj0e">
+        <di:waypoint x="511" y="488" />
+        <di:waypoint x="450" y="431" />
+        <di:waypoint x="450" y="411" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1q7dj2n" dmnElementRef="InformationRequirement_1b5o1ez">
+        <di:waypoint x="420" y="331" />
+        <di:waypoint x="420" y="290" />
+        <di:waypoint x="420" y="270" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1uqwfw3" dmnElementRef="InformationRequirement_0h1c9fs">
+        <di:waypoint x="597" y="230" />
+        <di:waypoint x="530" y="230" />
+        <di:waypoint x="510" y="230" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1j6re6w" dmnElementRef="InformationRequirement_1r4ot3v">
+        <di:waypoint x="282" y="230" />
+        <di:waypoint x="310" y="230" />
+        <di:waypoint x="330" y="230" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0of12io" dmnElementRef="LengthInterruptionElement">
+        <dc:Bounds height="45" width="125" x="357" y="57" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1qrewu8" dmnElementRef="InformationRequirement_16a9nxf">
+        <di:waypoint x="420" y="102" />
+        <di:waypoint x="420" y="170" />
+        <di:waypoint x="420" y="190" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1c26mcr" dmnElementRef="TextAnnotation_16f72ua">
+        <dc:Bounds height="23" width="100" x="140" y="77" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1hziv8q" dmnElementRef="Association_16cifkp">
+        <di:waypoint x="192" y="100" />
+        <di:waypoint x="215" y="207" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

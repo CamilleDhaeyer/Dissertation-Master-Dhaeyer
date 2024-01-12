@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_14y8tnk" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_13uyt8v" name="Minimal Exits In a building layer">
+    <informationRequirement id="InformationRequirement_0fbkepj">
+      <requiredInput href="#MaximalOccupancy" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0ut9jrr">
+      <requiredInput href="#CeilingMaximalOccupancy" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0bibec9">
+      <requiredInput href="#BuildingLayerLevel" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_03fogp9">
+      <requiredInput href="#RoomTypesInBuildingLayer" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1fwppzv">
+      <requiredInput href="#LargestDistanceToExit" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0umzwme">
+      <input id="InputClause_051bb0z" label="BuildingLayerLevel" biodi:width="192">
+        <inputExpression id="LiteralExpression_0hhc51u" typeRef="integer">
+          <text>BuildingLayerLevel</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0er0579" label="RoomTypesInBuildingLayer">
+        <inputExpression id="LiteralExpression_1sqd18m" typeRef="string">
+          <text>RoomTypesInBuildingLayer</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_08ro8p5" label="LargestDistanceToExit">
+        <inputExpression id="LiteralExpression_0gpwbn8" typeRef="double">
+          <text>LargestDistanceToExit</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1kxpta9" label="MaximalOccupancy">
+        <inputExpression id="LiteralExpression_0ka9c46" typeRef="integer">
+          <text>MaximalOccupancy</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0byug5s" label="CeilingMaximalOccupancy">
+        <inputExpression id="LiteralExpression_0pe37y7" typeRef="integer">
+          <text>CeilingMaximalOccupancy</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="MinimalNumberOfExits" name="MinimalNumberOfExits" typeRef="integer" />
+      <rule id="DecisionRule_1ovhinr">
+        <inputEntry id="UnaryTests_1hwqec8">
+          <text>-1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1osgbis">
+          <text>"Only technical rooms"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ebmnjp">
+          <text>&lt;= 15</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00v20ui">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10vkisq">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1wp3ege">
+          <text>1</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_129u25p">
+        <inputEntry id="UnaryTests_1ns6pg2">
+          <text>-1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17bmg5z">
+          <text>"Only technical rooms"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rd62li">
+          <text>&gt; 15</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1us7jj4">
+          <text>[50..500[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hbr55o">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_13c8fui">
+          <text>2</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_099uy5y">
+        <inputEntry id="UnaryTests_04bw8qs">
+          <text>-1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1uhs4dg">
+          <text>"Only technical rooms"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0c6mzfh">
+          <text>&gt; 15</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08t2b21">
+          <text>&gt;= 500</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1iv81mv">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1f485kp">
+          <text>2 + CeilingMaximalOccupancy</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_09eru19">
+        <inputEntry id="UnaryTests_1njjocd">
+          <text>-1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fblwfi">
+          <text>"Multiple different rooms"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qdlroa">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1g8ouj4">
+          <text>[50..500[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nemsfb">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0vrisfc">
+          <text>2</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_13qcd3w">
+        <inputEntry id="UnaryTests_14bkuxe">
+          <text>-1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ursl0l">
+          <text>"Multiple different rooms"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11mhb86">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pa4pw2">
+          <text>&gt;= 500</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0seud94">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0bbsqc7">
+          <text>2 + CeilingMaximalOccupancy</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0uh940h">
+        <inputEntry id="UnaryTests_1siihz3">
+          <text>-2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fojuka">
+          <text>"Only technical rooms"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1b5sol1">
+          <text>&lt;= 15</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_195a71h">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tfz60n">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_126eho5">
+          <text>1</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1uf4ejd">
+        <inputEntry id="UnaryTests_0jmb2ht">
+          <text>-2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04psexn">
+          <text>"Only technical rooms"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0atm45p">
+          <text>&gt; 15</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16w7ybq">
+          <text>[50..500[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18xtqwc">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_12aob5d">
+          <text>2</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1wq0w3n">
+        <inputEntry id="UnaryTests_0nml93x">
+          <text>-2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04c90g9">
+          <text>"Only technical rooms"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qc8is2">
+          <text>&gt; 15</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14jkqbv">
+          <text>&gt;= 500</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rfdr1g">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_010mymk">
+          <text>2 + CeilingMaximalOccupancy</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1xm3j6o">
+        <inputEntry id="UnaryTests_0vboqqc">
+          <text>-2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gqlfys">
+          <text>"Multiple different rooms"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pvp2im">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0p8oaft">
+          <text>[50..500[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07xvhig">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0z5bg6i">
+          <text>2</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1dzclnr">
+        <inputEntry id="UnaryTests_09r56mi">
+          <text>-2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ghz80e">
+          <text>"Multiple different rooms"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1o2hdez">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ur1si9">
+          <text>&gt;= 500</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jhv8qp">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_09t21n2">
+          <text>2 + CeilingMaximalOccupancy</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1gmawt4">
+        <inputEntry id="UnaryTests_0jzaqzq">
+          <text>&lt; -2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09fl8hu">
+          <text>"Only technical rooms","Multiple different rooms"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0dwdpb9">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0oa2ot7">
+          <text>[50..500[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0r4y92u">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_01gydjc">
+          <text>2</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_13a4phk">
+        <inputEntry id="UnaryTests_0zbq32w">
+          <text>&gt;= 0</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0h5sc8r">
+          <text>"Only technical rooms","Multiple different rooms"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_003yceb">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0iep03i">
+          <text>[50..500[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03axg36">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_091sckw">
+          <text>2</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_00lfwpy">
+        <inputEntry id="UnaryTests_0vd9ig5">
+          <text>&lt; -2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0z76nq9">
+          <text>"Only technical rooms","Multiple different rooms"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0onyaik">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0osp49f">
+          <text>&gt;= 500</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0nqw63e">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1yekhc1">
+          <text>2 + CeilingMaximalOccupancy</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0aepdnm">
+        <inputEntry id="UnaryTests_09pawmc">
+          <text>&gt;= 0</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_125wtlq">
+          <text>"Only technical rooms","Multiple different rooms"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cyauvy">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_185wvw0">
+          <text>&gt;= 500</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pkt25v">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_14hsorq">
+          <text>2 + CeilingMaximalOccupancy</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="MaximalOccupancy" name="MaximalOccupancy" />
+  <inputData id="FireResistanceTerraceFloor" name="FireResistanceTerraceFloor" />
+  <inputData id="NumberOfBuildingLayerExits" name="NumberOfBuildingLayerExits" />
+  <decision id="Decision_1g3uao9" name="BuildingLayerNumberOfExitsVerification">
+    <informationRequirement id="InformationRequirement_039lx9s">
+      <requiredDecision href="#Decision_13uyt8v" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1gizn5u">
+      <requiredInput href="#NumberOfBuildingLayerExits" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0oiiujm">
+      <input id="InputClause_014bzj3" label="NumberOfBuildingLayerExits">
+        <inputExpression id="LiteralExpression_176dzum" typeRef="integer">
+          <text>NumberOfBuildingLayerExits</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0c9e0ne" label="BuildingLayerNumberOfExitsVerification" name="BuildingLayerNumberOfExitsVerification" typeRef="boolean" />
+      <rule id="DecisionRule_0lqvx6s">
+        <inputEntry id="UnaryTests_1t96mzm">
+          <text>&gt;=MinimalNumberOfExits</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0wb3s3z">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1x719sz">
+        <inputEntry id="UnaryTests_00wrw90">
+          <text>&lt;MinimalNumberOfExits</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_05wrxc1">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="CeilingMaximalOccupancy" name="CeilingMaximalOccupancy" />
+  <inputData id="BuildingLayerLevel" name="BuildingLayerLevel" />
+  <inputData id="RoomTypesInBuildingLayer" name="RoomTypesInBuildingLayer" />
+  <inputData id="LargestDistanceToExit" name="LargestDistanceToExit" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_13uyt8v">
+        <dc:Bounds height="80" width="180" x="480" y="230" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_09ro8pq" dmnElementRef="MaximalOccupancy">
+        <dc:Bounds height="45" width="125" x="507" y="367" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1f8s6ba" dmnElementRef="FireResistanceTerraceFloor">
+        <dc:Bounds height="45" width="125" x="157" y="857" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0vkdhcm" dmnElementRef="NumberOfBuildingLayerExits">
+        <dc:Bounds height="45" width="125" x="307" y="97" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_01wibi0" dmnElementRef="InformationRequirement_0fbkepj">
+        <di:waypoint x="570" y="367" />
+        <di:waypoint x="570" y="330" />
+        <di:waypoint x="570" y="310" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1guydyg" dmnElementRef="InformationRequirement_039lx9s">
+        <di:waypoint x="570" y="230" />
+        <di:waypoint x="570" y="180" />
+        <di:waypoint x="570" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0wivp0l" dmnElementRef="Decision_1g3uao9">
+        <dc:Bounds height="80" width="180" x="480" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1hp3vfm" dmnElementRef="InformationRequirement_1gizn5u">
+        <di:waypoint x="432" y="120" />
+        <di:waypoint x="460" y="120" />
+        <di:waypoint x="480" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_068utcs" dmnElementRef="CeilingMaximalOccupancy">
+        <dc:Bounds height="45" width="125" x="308" y="248" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0o9eszd" dmnElementRef="InformationRequirement_0ut9jrr">
+        <di:waypoint x="433" y="271" />
+        <di:waypoint x="460" y="270" />
+        <di:waypoint x="480" y="270" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0dy2cw1" dmnElementRef="BuildingLayerLevel">
+        <dc:Bounds height="45" width="125" x="748" y="188" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1qkghct" dmnElementRef="InformationRequirement_0bibec9">
+        <di:waypoint x="748" y="211" />
+        <di:waypoint x="680" y="250" />
+        <di:waypoint x="660" y="250" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1f2g2d0" dmnElementRef="RoomTypesInBuildingLayer">
+        <dc:Bounds height="45" width="125" x="749" y="248" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0ommw7w" dmnElementRef="InformationRequirement_03fogp9">
+        <di:waypoint x="749" y="271" />
+        <di:waypoint x="680" y="270" />
+        <di:waypoint x="660" y="270" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1t1hz0z" dmnElementRef="LargestDistanceToExit">
+        <dc:Bounds height="45" width="125" x="749" y="308" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0pw14z3" dmnElementRef="InformationRequirement_1fwppzv">
+        <di:waypoint x="749" y="331" />
+        <di:waypoint x="680" y="290" />
+        <di:waypoint x="660" y="290" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

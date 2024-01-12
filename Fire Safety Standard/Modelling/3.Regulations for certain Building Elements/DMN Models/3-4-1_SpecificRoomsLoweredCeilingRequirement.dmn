@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_1m2yu2v" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_1chz2q9" name="Lowered Ceiling FR Requirement">
+    <informationRequirement id="InformationRequirement_0689dbh">
+      <requiredInput href="#RoomType" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1pwe3qr">
+      <requiredInput href="#InputData_17gz50l" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1nlqf3f">
+      <requiredInput href="#FireResistanceLoweredCeiling" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1lkg23j">
+      <input id="InputClause_1tvvfz2" label="SpaceType">
+        <inputExpression id="LiteralExpression_137ataq" typeRef="string">
+          <text>SpaceType</text>
+        </inputExpression>
+      </input>
+      <input id="Input_1" label="RoomType">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>RoomType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_18i3q7g" label="FireResistanceLoweredCeiling">
+        <inputExpression id="LiteralExpression_1ezaz1m" typeRef="string">
+          <text>FireResistanceLoweredCeiling</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="FireResistanceLoweredCeilingSuccess" name="FireResistanceLoweredCeilingSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_1p9b3u4">
+        <inputEntry id="UnaryTests_0q8cg6n">
+          <text>"Evacuation route","Shared kitchen"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12xc7gi">
+          <text>"Not applicable"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16lkfq0">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 360","EI 10","EI 15","EI 20"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1xzvjlo">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_07gjnuv">
+        <inputEntry id="UnaryTests_0nuqpa0">
+          <text>"Evacuation route","Shared kitchen"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_076hrmk">
+          <text>"Not applicable"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fz3a09">
+          <text>"EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 360"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0xqmlj7">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_01dabws">
+        <inputEntry id="UnaryTests_1dinx2n">
+          <text>"Room"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1bgjxas">
+          <text>"Publicly accessible room"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pelt6k">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 360","EI 10","EI 15","EI 20"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_113h4rg">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0kxfmpn">
+        <inputEntry id="UnaryTests_0a7yl6k">
+          <text>"Room"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1y75to4">
+          <text>"Publicly accessible room"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16adzm8">
+          <text>"EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 360"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0dacskz">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="RoomType" name="RoomType" />
+  <inputData id="InputData_17gz50l" name="SpaceType" />
+  <inputData id="FireResistanceLoweredCeiling" name="FireResistanceLoweredCeiling" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1chz2q9">
+        <dc:Bounds height="80" width="180" x="380" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1ujxhwy" dmnElementRef="RoomType">
+        <dc:Bounds height="45" width="125" x="407" y="247" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_13t81ra" dmnElementRef="InformationRequirement_0689dbh">
+        <di:waypoint x="470" y="247" />
+        <di:waypoint x="470" y="180" />
+        <di:waypoint x="470" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1glnx59" dmnElementRef="InputData_17gz50l">
+        <dc:Bounds height="45" width="125" x="158" y="98" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0lpxl1g" dmnElementRef="InformationRequirement_1pwe3qr">
+        <di:waypoint x="283" y="121" />
+        <di:waypoint x="360" y="120" />
+        <di:waypoint x="380" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_05zdllq" dmnElementRef="FireResistanceLoweredCeiling">
+        <dc:Bounds height="45" width="125" x="658" y="98" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0ak3q6i" dmnElementRef="InformationRequirement_1nlqf3f">
+        <di:waypoint x="658" y="121" />
+        <di:waypoint x="580" y="120" />
+        <di:waypoint x="560" y="120" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

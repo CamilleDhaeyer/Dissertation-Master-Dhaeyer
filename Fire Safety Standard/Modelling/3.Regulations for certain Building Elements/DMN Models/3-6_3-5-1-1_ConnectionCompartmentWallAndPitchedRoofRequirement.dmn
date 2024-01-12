@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_13twhkq" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <inputData id="FireResistanceCompartmentWallConnectionToPitchedRoof" name="FireResistanceCompartmentWallConnectionToPitchedRoof" />
+  <decision id="Decision_15i6r3o" name="FireResistanceCompartmentWallConnectionToPitchedRoofSuccess">
+    <informationRequirement id="InformationRequirement_01mt0ay">
+      <requiredInput href="#FireResistanceCompartmentWallConnectionToPitchedRoof" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1e6tmq0">
+      <input id="InputClause_1mi9icr" label="FireResistanceCompartmentWallConnectionToPitchedRoof">
+        <inputExpression id="LiteralExpression_1ndrftw" typeRef="string">
+          <text>FireResistanceCompartmentWallConnectionToPitchedRoof</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1davvkx" label="FireResistanceCompartmentWallConnectionToPitchedRoofSuccess" name="FireResistanceCompartmentWallConnectionToPitchedRoofSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_1olj5t9">
+        <inputEntry id="UnaryTests_1fevrup">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1mxeale">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1jsr101">
+        <inputEntry id="UnaryTests_0vegfzo">
+          <text>"EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1i2u3pj">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_17kvomn" dmnElementRef="FireResistanceCompartmentWallConnectionToPitchedRoof">
+        <dc:Bounds height="45" width="125" x="187" y="197" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0ntj80l" dmnElementRef="Decision_15i6r3o">
+        <dc:Bounds height="80" width="180" x="160" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_13kmoti" dmnElementRef="InformationRequirement_01mt0ay">
+        <di:waypoint x="250" y="197" />
+        <di:waypoint x="250" y="180" />
+        <di:waypoint x="250" y="160" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

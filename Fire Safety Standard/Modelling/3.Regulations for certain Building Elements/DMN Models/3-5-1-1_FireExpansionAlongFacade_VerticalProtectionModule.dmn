@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_13twhkq" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_1gdb4r0" name="FireProtectingElementApplicationVerticalVerification">
+    <informationRequirement id="InformationRequirement_1h1li80">
+      <requiredDecision href="#Decision_0m76a72" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_10xgooo">
+      <requiredDecision href="#Decision_0xb9i7d" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1ioyihl">
+      <requiredInput href="#PresenceWallExtensionInPlaneOfFacade" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1sr1kh2">
+      <requiredInput href="#WallClass" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0qgztqt">
+      <requiredInput href="#PresenceWallExtensionPastFacade" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1m6zn7l">
+      <requiredInput href="#SpaceType" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1cdxxme" hitPolicy="FIRST">
+      <input id="InputClause_03hvgdh" label="SpaceType" biodi:width="150">
+        <inputExpression id="LiteralExpression_1oduf0a" typeRef="string">
+          <text>SpaceType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0prasbz" label="WallClass">
+        <inputExpression id="LiteralExpression_069d1je" typeRef="string">
+          <text>WallClass</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1c01qpu" label="PresenceWallExtensionPastFacade" biodi:width="191">
+        <inputExpression id="LiteralExpression_0q22x7v" typeRef="boolean">
+          <text>PresenceWallExtensionPastFacade</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_15unym0" label="PresenceWallExtensionInPlaneOfFacade">
+        <inputExpression id="LiteralExpression_0rez59x" typeRef="boolean">
+          <text>PresenceWallExtensionInPlaneOfFacade</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1ww53h2" label="WidthOfWallExtensionLeftFromCenterOfWall" biodi:width="183">
+        <inputExpression id="LiteralExpression_1ynpavo" typeRef="double">
+          <text>WidthOfWallExtensionLeftFromCenterOfWall</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0rp646e" label="WidthOfWallExtensionRightFromCenterOfWall">
+        <inputExpression id="LiteralExpression_0giyt8k" typeRef="double">
+          <text>WidthOfWallExtensionRightFromCenterOfWall</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0xbx8dp" label="WidthOfVerticalProtectionElementSuccess" biodi:width="214">
+        <inputExpression id="LiteralExpression_0295hpz" typeRef="boolean">
+          <text>WidthOfVerticalProtectionElementSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0j5hs3b" label="FireResistanceExtensionElementSuccess">
+        <inputExpression id="LiteralExpression_0n3qfka" typeRef="boolean">
+          <text>FireResistanceExtensionElementSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0630j1s" label="VerticalFireProtectionElementSuccess" name="VerticalFireProtectionElementSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_0q6rigg">
+        <inputEntry id="UnaryTests_194t4y1">
+          <text>"Building"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rsdo73">
+          <text>"Outer wall"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_051ehfq">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_065g0u0">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_191sl9w">
+          <text>&gt;= 0.5</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1c3ujic">
+          <text>&gt;= 0.5</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lpctv9">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ngdogb">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0lwxb3t">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_13ns9ui">
+        <inputEntry id="UnaryTests_0gg3vem">
+          <text>"Compartment"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xxbmr0">
+          <text>"Outer wall"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04zyl8h">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qejawk">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1b4niwd">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kmseqv">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0r8z0k6">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fxslvm">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1dnf51h">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_00f1zx4">
+        <inputEntry id="UnaryTests_0mbreu3">
+          <text>"Building","Compartment"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0l6zp0e">
+          <text>"Outer wall"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cx4moi">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0h2h6iw">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0540eqa">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bqs1hb">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ncpfih">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1odr0ou">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0wpgxxe">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_19v9bod">
+        <inputEntry id="UnaryTests_12yqoa4">
+          <text>"Building","Compartment"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1a8ci9r">
+          <text>"Outer wall"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1x9intu">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10n2n7e">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1c2dgwx">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0p0sie2">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18jipdj">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1urmi28">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1y0zf7c">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_049lyb5">
+        <inputEntry id="UnaryTests_0oo7haa">
+          <text>"Building","Compartment"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15a8z2t">
+          <text>"Outer wall"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1y8cva8">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ca96k8">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pztz3f">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1f14ldb">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_118qsbl">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vhcviy">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1t3rxaf">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_003t5pg">
+        <inputEntry id="UnaryTests_10e0r6y">
+          <text>"Building","Compartment"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kpndwk">
+          <text>"Outer wall"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1uk6in7">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06lhutk">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06fgisz">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xq8egb">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1f62lvt">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1f6dm84">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_181czdk">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="WallClass" name="WallClass" />
+  <inputData id="DistanceFacadePlaneToWindowPlaneLeft" name="DistanceFacadePlaneToWindowPlaneLeft" />
+  <inputData id="DistanceFacadePlaneToWindowPlaneRight" name="DistanceFacadePlaneToWindowPlaneRight" />
+  <inputData id="PresenceWallExtensionPastFacade" name="PresenceWallExtensionPastFacade" />
+  <decision id="Decision_0mbtn0i" name="Calculate distance a b1 b2">
+    <informationRequirement id="InformationRequirement_1mpp6cn">
+      <requiredDecision href="#Decision_0cc0200" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1kis6ic">
+      <requiredInput href="#DistanceFacadePlaneToWindowPlaneRight" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0b2cs8r">
+      <requiredInput href="#DistanceFacadePlaneToWindowPlaneLeft" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_09y3f3l">
+      <input id="InputClause_07u5iui" label="WallFullWidthInFacadePlane">
+        <inputExpression id="LiteralExpression_0ivhq6n" typeRef="double">
+          <text>WallFullWidthInFacadePlane</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_161nk9m" label="DistanceFacadePlaneToWindowPlaneLeft">
+        <inputExpression id="LiteralExpression_19ruwys" typeRef="double">
+          <text>DistanceFacadePlaneToWindowPlaneLeft</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1ji5j0u" label="DistanceFacadePlaneToWindowPlaneRight">
+        <inputExpression id="LiteralExpression_1t9vgg8" typeRef="double">
+          <text>DistanceFacadePlaneToWindowPlaneRight</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_17a1317" label="DistanceAB1B2" name="DistanceAB1B2" typeRef="double" />
+      <rule id="DecisionRule_1doa8n0">
+        <inputEntry id="UnaryTests_0gxx4lq">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09vo9ty">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vz4nhd">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1dzgcpi">
+          <text>WallFullWidthInFacadePlane+DistanceFacadePlaneToWindowPlaneLeft+DistanceFacadePlaneToWindowPlaneRight</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_0m76a72" name="Verify WidthOfVerticalProtectionElementSuccess">
+    <informationRequirement id="InformationRequirement_1u4jun3">
+      <requiredDecision href="#Decision_0mbtn0i" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1dw9oh7">
+      <input id="InputClause_0ljlgj9" label="DistanceAB1B2">
+        <inputExpression id="LiteralExpression_0423ykm" typeRef="double">
+          <text>DistanceAB1B2</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1dnk9jk" label="WidthOfVerticalProtectionElementSuccess" name="WidthOfVerticalProtectionElementSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_18rcmwb">
+        <inputEntry id="UnaryTests_1tsua7i">
+          <text>&lt; 1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_16xdvxp">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_040am3l">
+        <inputEntry id="UnaryTests_0k8jswr">
+          <text>&gt;= 1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0e9lz3y">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_0cc0200" name="Calculate WallFullWidthInFacadePlane">
+    <informationRequirement id="InformationRequirement_1d5u0ta">
+      <requiredInput href="#PresenceWallExtensionInPlaneOfFacade" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_06x1zxi">
+      <requiredInput href="#WidthOfWallExtensionLeftFromCenterOfWall" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0fysxq2">
+      <requiredInput href="#WidthOfWallExtensionRightFromCenterOfWall" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0pvvcx6">
+      <requiredInput href="#WidthWall" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0xkqxq0">
+      <input id="InputClause_17y13iq" label="PresenceWallExtensionInPlaneOfFacade">
+        <inputExpression id="LiteralExpression_08jttlu" typeRef="boolean">
+          <text>PresenceWallExtensionInPlaneOfFacade</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_02eoncr" label="WidthOfWallExtensionLeftFromCenterOfWall">
+        <inputExpression id="LiteralExpression_0m0q0lu" typeRef="double">
+          <text>WidthOfWallExtensionLeftFromCenterOfWall</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_01ce1wt" label="WidthOfWallExtensionRightFromCenterOfWall">
+        <inputExpression id="LiteralExpression_1d8umcn" typeRef="double">
+          <text>WidthOfWallExtensionRightFromCenterOfWall</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_09ky13t" label="WidthWall">
+        <inputExpression id="LiteralExpression_0gnddwp" typeRef="double">
+          <text>WidthWall</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1frcgps" label="WallFullWidthInFacadePlane" name="WallFullWidthInFacadePlane" typeRef="double" />
+      <rule id="DecisionRule_1obskmx">
+        <inputEntry id="UnaryTests_1ken695">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_100l1nj">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0u3e4oc">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ah0agj">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_17udpk0">
+          <text>WidthOfWallExtensionLeftFromCenterOfWall+WidthOfWallExtensionRightFromCenterOfWall</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0mg6v3j">
+        <inputEntry id="UnaryTests_1exezlp">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02mykhq">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0t7se26">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11vpe88">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1knju9r">
+          <text>WidthWall</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="PresenceWallExtensionInPlaneOfFacade" name="PresenceWallExtensionInPlaneOfFacade" />
+  <inputData id="WidthOfWallExtensionLeftFromCenterOfWall" name="WidthOfWallExtensionLeftFromCenterOfWall" />
+  <inputData id="WidthOfWallExtensionRightFromCenterOfWall" name="WidthOfWallExtensionRightFromCenterOfWall" />
+  <inputData id="WidthWall" name="WidthWall" />
+  <decision id="Decision_0xb9i7d" name="Verify FireResistanceExtensionElement">
+    <informationRequirement id="InformationRequirement_0qah4fz">
+      <requiredInput href="#FireResistanceExtensionElement" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_11h8qz0">
+      <input id="InputClause_1h9hozu" label="FireResistanceExtensionElement">
+        <inputExpression id="LiteralExpression_0oeukmd" typeRef="string">
+          <text>FireResistanceExtensionElement</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1rg6bss" label="FireResistanceExtensionElementSuccess" name="FireResistanceExtensionElementSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_1jh78ny">
+        <inputEntry id="UnaryTests_054a2bu">
+          <text>"E 10","E 15","E 20","E 30","E 45"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_04hzn4j">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0zjr5h8">
+        <inputEntry id="UnaryTests_0r4z3w3">
+          <text>"E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0az6gf4">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="FireResistanceExtensionElement" name="FireResistanceExtensionElement" />
+  <inputData id="SpaceType" name="SpaceType" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_0o4i0o5" dmnElementRef="Decision_1gdb4r0">
+        <dc:Bounds height="80" width="180" x="860" y="250" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_15chkuo" dmnElementRef="WallClass">
+        <dc:Bounds height="45" width="125" x="927" y="107" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0kd400r" dmnElementRef="DistanceFacadePlaneToWindowPlaneLeft">
+        <dc:Bounds height="45" width="125" x="707" y="528" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0195o55" dmnElementRef="DistanceFacadePlaneToWindowPlaneRight">
+        <dc:Bounds height="45" width="125" x="567" y="528" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0suv5b6" dmnElementRef="PresenceWallExtensionPastFacade">
+        <dc:Bounds height="45" width="125" x="797" y="107" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_16lnuta" dmnElementRef="Decision_0mbtn0i">
+        <dc:Bounds height="80" width="180" x="590" y="390" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_10xdqv1" dmnElementRef="Decision_0m76a72">
+        <dc:Bounds height="80" width="180" x="590" y="250" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0o7hiip" dmnElementRef="Decision_0cc0200">
+        <dc:Bounds height="80" width="180" x="340" y="390" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1h9wr39" dmnElementRef="InformationRequirement_1mpp6cn">
+        <di:waypoint x="520" y="430" />
+        <di:waypoint x="570" y="430" />
+        <di:waypoint x="590" y="430" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0m5jqhq" dmnElementRef="PresenceWallExtensionInPlaneOfFacade">
+        <dc:Bounds height="45" width="125" x="397" y="117" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1ccd9zj" dmnElementRef="InformationRequirement_1d5u0ta">
+        <di:waypoint x="460" y="162" />
+        <di:waypoint x="430" y="370" />
+        <di:waypoint x="430" y="390" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1qpb7e8" dmnElementRef="WidthOfWallExtensionLeftFromCenterOfWall">
+        <dc:Bounds height="45" width="125" x="268" y="528" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1bxltpy" dmnElementRef="InformationRequirement_06x1zxi">
+        <di:waypoint x="331" y="528" />
+        <di:waypoint x="400" y="490" />
+        <di:waypoint x="400" y="470" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1vu2v7r" dmnElementRef="WidthOfWallExtensionRightFromCenterOfWall">
+        <dc:Bounds height="45" width="125" x="428" y="529" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0sv46dp" dmnElementRef="InformationRequirement_0fysxq2">
+        <di:waypoint x="491" y="529" />
+        <di:waypoint x="460" y="490" />
+        <di:waypoint x="460" y="470" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_09206f7" dmnElementRef="WidthWall">
+        <dc:Bounds height="45" width="125" x="158" y="408" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1ug57cv" dmnElementRef="InformationRequirement_0pvvcx6">
+        <di:waypoint x="283" y="431" />
+        <di:waypoint x="320" y="430" />
+        <di:waypoint x="340" y="430" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1qoodks" dmnElementRef="InformationRequirement_1kis6ic">
+        <di:waypoint x="630" y="528" />
+        <di:waypoint x="650" y="490" />
+        <di:waypoint x="650" y="470" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_045ezmp" dmnElementRef="InformationRequirement_0b2cs8r">
+        <di:waypoint x="770" y="528" />
+        <di:waypoint x="710" y="490" />
+        <di:waypoint x="710" y="470" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0063m5a" dmnElementRef="InformationRequirement_1u4jun3">
+        <di:waypoint x="680" y="390" />
+        <di:waypoint x="680" y="350" />
+        <di:waypoint x="680" y="330" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1fte2tv" dmnElementRef="InformationRequirement_1h1li80">
+        <di:waypoint x="770" y="290" />
+        <di:waypoint x="840" y="290" />
+        <di:waypoint x="860" y="290" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0dbssih" dmnElementRef="InformationRequirement_10xgooo">
+        <di:waypoint x="1120" y="290" />
+        <di:waypoint x="1060" y="290" />
+        <di:waypoint x="1040" y="290" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1y5gal6" dmnElementRef="Decision_0xb9i7d">
+        <dc:Bounds height="80" width="180" x="1120" y="250" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0f2snfy" dmnElementRef="InformationRequirement_1ioyihl">
+        <di:waypoint x="460" y="162" />
+        <di:waypoint x="896" y="230" />
+        <di:waypoint x="896" y="250" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_03wnjw7" dmnElementRef="InformationRequirement_1sr1kh2">
+        <di:waypoint x="990" y="152" />
+        <di:waypoint x="968" y="230" />
+        <di:waypoint x="968" y="250" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1xifj5d" dmnElementRef="InformationRequirement_0qgztqt">
+        <di:waypoint x="860" y="152" />
+        <di:waypoint x="932" y="230" />
+        <di:waypoint x="932" y="250" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0fu0l3l" dmnElementRef="FireResistanceExtensionElement">
+        <dc:Bounds height="45" width="125" x="1148" y="408" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0xy2lt0" dmnElementRef="InformationRequirement_0qah4fz">
+        <di:waypoint x="1211" y="408" />
+        <di:waypoint x="1210" y="350" />
+        <di:waypoint x="1210" y="330" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1waz170" dmnElementRef="SpaceType">
+        <dc:Bounds height="45" width="125" x="1057" y="107" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_10pj0uf" dmnElementRef="InformationRequirement_1m6zn7l">
+        <di:waypoint x="1120" y="152" />
+        <di:waypoint x="1004" y="230" />
+        <di:waypoint x="1004" y="250" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

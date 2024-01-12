@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_0aecqys" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <inputData id="PresenceLoweredCeilingInRoom" name="PresenceLoweredCeilingInRoom" />
+  <inputData id="FireResistanceWallSuccess" name="FireResistanceWallSuccess" />
+  <inputData id="RoomHeightTillCeiling" name="RoomHeightTillCeiling" />
+  <inputData id="RoomHeightTillLoweredCeiling" name="RoomHeightTillLoweredCeiling" />
+  <inputData id="HeightOfWall" name="HeightOfWall" />
+  <inputData id="PresenceAutomaticExtinguishingSystem" name="PresenceAutomaticExtinguishingSystem" />
+  <decision id="Decision_0p9e2ct" name="Height Requirement Wall">
+    <informationRequirement id="InformationRequirement_1t6qtaw">
+      <requiredInput href="#PresenceAutomaticExtinguishingSystem" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1s0nib3">
+      <requiredInput href="#PresenceLoweredCeilingInRoom" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_03tcacw">
+      <requiredInput href="#FireResistanceWallSuccess" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0gw0x6f">
+      <requiredDecision href="#Decision_1szeunr" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_116m6sj">
+      <requiredInput href="#ProjectedCeilingAreaInscribableIn25mSquare" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0dg2aes">
+      <input id="InputClause_00gt010" label="PresenceLoweredCeilingInRoom">
+        <inputExpression id="LiteralExpression_1i9crrw" typeRef="boolean">
+          <text>PresenceLoweredCeilingInRoom</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_04tg0we" label="FireResistanceWallSuccess">
+        <inputExpression id="LiteralExpression_1r9coru" typeRef="boolean">
+          <text>FireResistanceWallSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0fsimec" label="WallHeightToCeilingMessage">
+        <inputExpression id="LiteralExpression_1mu6lyc" typeRef="string">
+          <text>WallHeightToCeilingMessage</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_05n3ah0" label="PresenceAutomaticExtinguishingSystem">
+        <inputExpression id="LiteralExpression_0xdb52h" typeRef="boolean">
+          <text>PresenceAutomaticExtinguishingSystem</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0mnwsce" label="ProjectedCeilingAreaInscribableIn25mSquare">
+        <inputExpression id="LiteralExpression_174zb50" typeRef="boolean">
+          <text>ProjectedCeilingAreaInscribableIn25mSquare</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1m7wnfw" label="LoweredCeilingInnerWallHeightSuccess" name="LoweredCeilingInnerWallHeightSuccess" typeRef="boolean" />
+      <output id="OutputClause_1n4c7l1" label="LoweredCeilingInnerWallHeightMessage" name="LoweredCeilingInnerWallHeightMessage" typeRef="string" />
+      <rule id="DecisionRule_0z3awl1">
+        <inputEntry id="UnaryTests_152ndgz">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xa51gv">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pee2nx">
+          <text>"Wall lower than lowered ceiling","Wall equal to lowered ceiling","Wall lower than ceiling","Wall equal to ceiling"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17ff38g">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ipg2bg">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_066tbuz">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0edelek">
+          <text>"No further message"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_097yl7m">
+        <inputEntry id="UnaryTests_1ewgyau">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1t9y9ja">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wua133">
+          <text>"Wall lower than lowered ceiling","Wall equal to lowered ceiling","Wall lower than ceiling","Wall equal to ceiling"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mg5utb">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_154u3xz">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0x5dopi">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0o34riv">
+          <text>"No further message"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0vzr4xw">
+        <inputEntry id="UnaryTests_1wrxg2c">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_176pqpn">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dy3mb8">
+          <text>"Wall lower than lowered ceiling","Wall equal to lowered ceiling","Wall lower than ceiling"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08mpadd">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1peg8sm">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_155v627">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0qhpezo">
+          <text>"Wall must continue to ceiling"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_15do7fy">
+        <inputEntry id="UnaryTests_0dhx4rg">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_111lruo">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07kde9c">
+          <text>"Wall equal to ceiling"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_047ojef">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_095ig5w">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_05spnci">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1jg99ns">
+          <text>"No further message"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1xrq0ca">
+        <inputEntry id="UnaryTests_0l2i7j8">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0clswzv">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ahh73y">
+          <text>"Wall equal to ceiling"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1780erw">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ykj13c">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1jzgsoo">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1y0h3a7">
+          <text>"No further message"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_11xj99m">
+        <inputEntry id="UnaryTests_0yndeg5">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1q24mnz">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rrifya">
+          <text>"Wall equal to ceiling"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1o80hdc">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04xiasx">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_08h59n2">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_18yuupd">
+          <text>"Inner walls with a fire safety of EI 30 must be added in the space above the lowered ceiling"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1o534uq">
+        <inputEntry id="UnaryTests_0t98zks">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0myuxp2">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kp02pd">
+          <text>"Wall height impossible"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ismw8h">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1b3zsrg">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1dwg4l3">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1bxkoi3">
+          <text>"Wall height is impossible"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_1szeunr" name="Verify if wall reaches ceiling or lowered ceiling">
+    <informationRequirement id="InformationRequirement_0k5rpvg">
+      <requiredInput href="#RoomHeightTillCeiling" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_15pca0r">
+      <requiredInput href="#RoomHeightTillLoweredCeiling" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0dj16s0">
+      <requiredInput href="#HeightOfWall" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1h0ovuq" hitPolicy="FIRST">
+      <input id="InputClause_0afkncb" label="RoomHeightTillCeiling">
+        <inputExpression id="LiteralExpression_01ikb4s" typeRef="double">
+          <text>RoomHeightTillCeiling</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1im1zki" label="RoomHeightTillLoweredCeiling" biodi:width="202">
+        <inputExpression id="LiteralExpression_1yw2zd4" typeRef="double">
+          <text>RoomHeightTillLoweredCeiling</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_02wlddy" label="WallHeight">
+        <inputExpression id="LiteralExpression_0gaz30s" typeRef="double">
+          <text>WallHeight</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_11mxnd5" label="WallHeightToCeilingMessage" name="WallHeightToCeilingMessage" typeRef="string" />
+      <rule id="DecisionRule_1mopstx">
+        <inputEntry id="UnaryTests_0w3wqx3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_198kjhf">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0r2px0b">
+          <text>&lt;RoomHeightTillLoweredCeiling</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0o5joat">
+          <text>"Wall lower than lowered ceiling"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0fjm7vy">
+        <inputEntry id="UnaryTests_10m9qq1">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fltuyz">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hph53d">
+          <text>RoomHeightTillLoweredCeiling</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0t0t0yc">
+          <text>"Wall equal to lowered ceiling"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1sbbts7">
+        <inputEntry id="UnaryTests_1jcxyor">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11jsvy1">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vhtwl5">
+          <text>&lt;RoomHeightTillCeiling</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1axopr8">
+          <text>"Wall lower than ceiling"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_10n3l1d">
+        <inputEntry id="UnaryTests_1klv2q4">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jpaddz">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08piivs">
+          <text>RoomHeightTillCeiling</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_038mjsi">
+          <text>"Wall equal to ceiling"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1f5j3oy">
+        <inputEntry id="UnaryTests_1qxoaja">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fbigna">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pgnp0i">
+          <text>&gt;RoomHeightTillCeiling</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0d7yhbf">
+          <text>"Wall height impossible"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="ProjectedCeilingAreaInscribableIn25mSquare" name="ProjectedCeilingAreaInscribableIn25mSquare" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_13mfwcr" dmnElementRef="PresenceLoweredCeilingInRoom">
+        <dc:Bounds height="45" width="125" x="157" y="167" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0i86k31" dmnElementRef="FireResistanceWallSuccess">
+        <dc:Bounds height="45" width="125" x="597" y="197" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_16jnc2z" dmnElementRef="RoomHeightTillCeiling">
+        <dc:Bounds height="45" width="125" x="157" y="357" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_07qc77b" dmnElementRef="RoomHeightTillLoweredCeiling">
+        <dc:Bounds height="45" width="125" x="157" y="407" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0wuqjev" dmnElementRef="HeightOfWall">
+        <dc:Bounds height="45" width="125" x="597" y="377" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_02zygs1" dmnElementRef="PresenceAutomaticExtinguishingSystem">
+        <dc:Bounds height="45" width="125" x="157" y="227" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_03e5q6k" dmnElementRef="Decision_0p9e2ct">
+        <dc:Bounds height="80" width="180" x="340" y="180" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_086w7q2" dmnElementRef="InformationRequirement_1t6qtaw">
+        <di:waypoint x="282" y="250" />
+        <di:waypoint x="320" y="233" />
+        <di:waypoint x="340" y="233" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_17kbxhc" dmnElementRef="InformationRequirement_1s0nib3">
+        <di:waypoint x="282" y="190" />
+        <di:waypoint x="320" y="207" />
+        <di:waypoint x="340" y="207" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_10tu2go" dmnElementRef="InformationRequirement_03tcacw">
+        <di:waypoint x="597" y="220" />
+        <di:waypoint x="540" y="220" />
+        <di:waypoint x="520" y="220" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1k0oesn" dmnElementRef="Decision_1szeunr">
+        <dc:Bounds height="80" width="180" x="340" y="360" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0p28pb0" dmnElementRef="InformationRequirement_0gw0x6f">
+        <di:waypoint x="430" y="360" />
+        <di:waypoint x="430" y="280" />
+        <di:waypoint x="430" y="260" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_07213et" dmnElementRef="InformationRequirement_0k5rpvg">
+        <di:waypoint x="282" y="380" />
+        <di:waypoint x="320" y="387" />
+        <di:waypoint x="340" y="387" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1a68r3w" dmnElementRef="InformationRequirement_15pca0r">
+        <di:waypoint x="282" y="430" />
+        <di:waypoint x="320" y="413" />
+        <di:waypoint x="340" y="413" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0nlosj4" dmnElementRef="InformationRequirement_0dj16s0">
+        <di:waypoint x="597" y="400" />
+        <di:waypoint x="540" y="400" />
+        <di:waypoint x="520" y="400" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_17wa92f" dmnElementRef="ProjectedCeilingAreaInscribableIn25mSquare">
+        <dc:Bounds height="45" width="125" x="367" y="47" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0myknlg" dmnElementRef="InformationRequirement_116m6sj">
+        <di:waypoint x="430" y="92" />
+        <di:waypoint x="430" y="160" />
+        <di:waypoint x="430" y="180" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

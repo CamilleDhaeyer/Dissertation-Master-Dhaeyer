@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_1opmvld" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_0tumkkv" name="verify VentilationOpeningInInterruptionElement">
+    <decisionTable id="DecisionTable_1ks2uuo">
+      <input id="Input_1" label="VentilationOpeningInInterruptionElement" biodi:width="192">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text>VentilationOpeningInInterruptionElement</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0m50a80" label="ClosureDeviceInVentilationOpening">
+        <inputExpression id="LiteralExpression_0o8lk0g" typeRef="boolean">
+          <text>ClosureDeviceInVentilationOpening</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0hqjx2d" label="ClosureDeviceRegulationSuccess">
+        <inputExpression id="LiteralExpression_1f01f44" typeRef="boolean">
+          <text>ClosureDeviceRegulationSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="VentilationOpeningInInterruptionElementSuccess" name="VentilationOpeningInInterruptionElementSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_1kl9blh">
+        <inputEntry id="UnaryTests_1pdrx2y">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cln68k">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19mwp2a">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0i2ilbr">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0iixrkm">
+        <inputEntry id="UnaryTests_1hd0j0o">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1s2pw9u">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03e03x6">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0l5tv0r">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1pfwrcd">
+        <inputEntry id="UnaryTests_0p6pkdp">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12oajcn">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0umfqqx">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1capi6u">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0jk0gnt">
+        <inputEntry id="UnaryTests_0zo3536">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1uiikib">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0m6z111">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0e7vedc">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_0tumkkv">
+        <dc:Bounds height="80" width="180" x="150" y="80" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

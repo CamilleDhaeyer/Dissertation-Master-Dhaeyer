@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_1k2uvmi" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <inputData id="VolumeOfCompartment" name="VolumeOfCompartment" />
+  <decision id="Decision_17ys0us" name="CompartmentException_c">
+    <informationRequirement id="InformationRequirement_0kurknw">
+      <requiredInput href="#ExceptionType" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0qpflne">
+      <requiredInput href="#VolumeOfCompartment" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1r1akco">
+      <requiredInput href="#After1April2017" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0zn9zoj">
+      <input id="InputClause_1p34lsa" label="ExceptionType">
+        <inputExpression id="LiteralExpression_08p5t5j" typeRef="string">
+          <text>ExceptionType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1uyp7l5" label="After1April2017">
+        <inputExpression id="LiteralExpression_09fi8yu" typeRef="boolean">
+          <text>After1April2017</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_08ebcxo" label="VolumeOfCompartment">
+        <inputExpression id="LiteralExpression_1ln520l" typeRef="double">
+          <text>VolumeOfCompartment</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0q7103i" label="CompartmentExceptionCsuccess" name="CompartmentExceptionCsuccess" typeRef="boolean" />
+      <rule id="DecisionRule_0c4niiv">
+        <description>niet voor 1 april</description>
+        <inputEntry id="UnaryTests_1phn8u7">
+          <text>"Exception c"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hfqsnw">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tk7ve6">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1prny0e">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_16ml4pv">
+        <inputEntry id="UnaryTests_0vi69u3">
+          <text>"Exception c"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19r71gu">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05nfbfb">
+          <text>&lt; 25000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qihmzz">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0lq0iuy">
+        <description>kleiner dan 25 000 m3</description>
+        <inputEntry id="UnaryTests_1ufz98u">
+          <text>"Exception c"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0o3xwyj">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05zpy42">
+          <text>&gt;= 25000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_01t51n0">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="After1April2017" name="After1April2017" />
+  <inputData id="ExceptionType" name="ExceptionType" />
+  <textAnnotation id="TextAnnotation_0el6ssn">
+    <text>c) voor de gebouwen waarvoor de aanvraag 
+voor de stedenbouwkundige vergunning is 
+ingediend voor 1 april 2017, mogen de benedenverdieping en de eerste verdieping (of 
+tussenverdieping) eveneens één compartiment 
+vormen, op voorwaarde dat het totaal volume 
+niet groter is dan 25 000 m3;</text>
+  </textAnnotation>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_03gphz2" dmnElementRef="VolumeOfCompartment">
+        <dc:Bounds height="45" width="125" x="217" y="397" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1g1vvnc" dmnElementRef="Decision_17ys0us">
+        <dc:Bounds height="80" width="180" x="390" y="380" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1yygb28" dmnElementRef="After1April2017">
+        <dc:Bounds height="45" width="125" x="417" y="507" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1qcnh1p" dmnElementRef="TextAnnotation_0el6ssn">
+        <dc:Bounds height="115" width="290" x="195" y="122" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1uxgzst" dmnElementRef="ExceptionType">
+        <dc:Bounds height="45" width="125" x="617" y="397" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1s5cp54" dmnElementRef="InformationRequirement_0kurknw">
+        <di:waypoint x="617" y="420" />
+        <di:waypoint x="590" y="420" />
+        <di:waypoint x="570" y="420" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1fp1v99" dmnElementRef="InformationRequirement_0qpflne">
+        <di:waypoint x="342" y="420" />
+        <di:waypoint x="370" y="420" />
+        <di:waypoint x="390" y="420" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_073cvbq" dmnElementRef="InformationRequirement_1r1akco">
+        <di:waypoint x="480" y="507" />
+        <di:waypoint x="480" y="480" />
+        <di:waypoint x="480" y="460" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

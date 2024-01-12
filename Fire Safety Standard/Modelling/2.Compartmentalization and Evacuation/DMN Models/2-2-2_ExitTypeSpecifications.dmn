@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_04yforc" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_1urahhv" name="Verify type of exit">
+    <informationRequirement id="InformationRequirement_19y2jfh">
+      <requiredInput href="#InputData_1u2h0ns" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0y594on">
+      <requiredInput href="#SpaceType" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_13fswwn">
+      <requiredInput href="#BuildingLayerLevel" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1wfl3lw">
+      <requiredInput href="#IsCompartmentLocatedOnAnEvacuationLevel" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1xw5spb">
+      <requiredInput href="#CompartmentConnectedToAnEvacuationLevel" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_020fkue">
+      <requiredInput href="#CompartmentToEvacuationLevelConnectionType" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_09wu4gl">
+      <input id="InputClause_1xn7iuq" label="BuildingType">
+        <inputExpression id="LiteralExpression_1snp7le" typeRef="string">
+          <text>BuildingType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_17xiswx" label="SpaceType">
+        <inputExpression id="LiteralExpression_16tspjm" typeRef="string">
+          <text>SpaceType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0nhmjhb" label="BuildingLayerLevel">
+        <inputExpression id="LiteralExpression_0nmd0hz" typeRef="integer">
+          <text>BuildingLayerLevel</text>
+        </inputExpression>
+      </input>
+      <input id="Input_1" label="IsCompartmentLocatedOnAnEvacuationLevel">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text>IsCompartmentLocatedOnAnEvacuationLevel</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1h3k7n1" label="CompartmentConnectedToAnEvacuationLevel">
+        <inputExpression id="LiteralExpression_1f4fcty" typeRef="boolean">
+          <text>CompartmentConnectedToAnEvacuationLevel</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_02dnhx8" label="CompartmentToEvacuationLevelConnectionType">
+        <inputExpression id="LiteralExpression_04bq7zp" typeRef="string">
+          <text>CompartmentToEvacuationLevelConnectionType</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="ExitTypeMessage" name="ExitTypeMessage" typeRef="string" />
+      <rule id="DecisionRule_0d4ij9v">
+        <inputEntry id="UnaryTests_10n7810">
+          <text>"No parking building"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18ojheg">
+          <text>"Compartment"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1l4kfnz">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13shqsq">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gkgcc5">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0aax7vb">
+          <text>"Interior staircase","Exterior staircase"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_19rq02i">
+          <text>"On an evacuation level every staircase leads outside either directly or via an evacuation route that complies with the regulations of 4_4_2"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_01b9u4f">
+        <inputEntry id="UnaryTests_0ip5hg9">
+          <text>"No parking building"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0unct4h">
+          <text>"Compartment"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ij2g8z">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ax1bi1">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_004sqw6">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vvf65c">
+          <text>"Interior staircase","Exterior staircase"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_11h73yw">
+          <text>"A non-evacuation level is connected to an evacuation level verify horizontal distances with section 4_4"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1yaizgi">
+        <inputEntry id="UnaryTests_1xqdugw">
+          <text>"No parking building"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vlvi9v">
+          <text>"Compartment"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cz81ig">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1k4rcjo">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1x73bpg">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19l2c86">
+          <text>"No staircase"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0g9oc7t">
+          <text>"Building layer must be connected to evacuation level"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1rh2ox8">
+        <inputEntry id="UnaryTests_0k60voj">
+          <text>"No parking building","Parking building"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19ckglv">
+          <text>"Building Layer"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0dwn0hs">
+          <text>&lt; 0</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gfbeed">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0v39lp4">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fuq7hj">
+          <text>"Interior staircase","Exterior staircase","No staircase"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0knal6c">
+          <text>"See 5_2"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1cdq634">
+        <inputEntry id="UnaryTests_1nvsjn8">
+          <text>"Parking Building"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0s5hm6s">
+          <text>"Compartment","Building Layer"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ssgd3z">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lkeskh">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1x7x279">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qhliav">
+          <text>"Interior staircase","Exterior staircase","No staircase"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_06a8wsw">
+          <text>"See 5_2"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_1u2h0ns" name="BuildingType" />
+  <inputData id="SpaceType" name="SpaceType" />
+  <inputData id="BuildingLayerLevel" name="BuildingLayerLevel" />
+  <inputData id="IsCompartmentLocatedOnAnEvacuationLevel" name="IsCompartmentLocatedOnAnEvacuationLevel" />
+  <inputData id="CompartmentConnectedToAnEvacuationLevel" name="CompartmentConnectedToAnEvacuationLevel" />
+  <inputData id="CompartmentToEvacuationLevelConnectionType" name="CompartmentToEvacuationLevelConnectionType" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1urahhv">
+        <dc:Bounds height="80" width="180" x="390" y="210" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0eaxmzp" dmnElementRef="InputData_1u2h0ns">
+        <dc:Bounds height="45" width="125" x="158" y="228" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0qu1pae" dmnElementRef="InformationRequirement_19y2jfh">
+        <di:waypoint x="283" y="251" />
+        <di:waypoint x="370" y="250" />
+        <di:waypoint x="390" y="250" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_11ec1sa" dmnElementRef="SpaceType">
+        <dc:Bounds height="45" width="125" x="417" y="87" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_05788c1" dmnElementRef="InformationRequirement_0y594on">
+        <di:waypoint x="480" y="132" />
+        <di:waypoint x="480" y="190" />
+        <di:waypoint x="480" y="210" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0cfcrst" dmnElementRef="BuildingLayerLevel">
+        <dc:Bounds height="45" width="125" x="688" y="227" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1gnkbtt" dmnElementRef="InformationRequirement_13fswwn">
+        <di:waypoint x="688" y="250" />
+        <di:waypoint x="590" y="250" />
+        <di:waypoint x="570" y="250" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1umibjr" dmnElementRef="IsCompartmentLocatedOnAnEvacuationLevel">
+        <dc:Bounds height="45" width="125" x="258" y="368" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1770hq3" dmnElementRef="InformationRequirement_1wfl3lw">
+        <di:waypoint x="321" y="368" />
+        <di:waypoint x="435" y="310" />
+        <di:waypoint x="435" y="290" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_10odtcq" dmnElementRef="CompartmentConnectedToAnEvacuationLevel">
+        <dc:Bounds height="45" width="125" x="408" y="369" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1hmuqcw" dmnElementRef="InformationRequirement_1xw5spb">
+        <di:waypoint x="471" y="369" />
+        <di:waypoint x="480" y="310" />
+        <di:waypoint x="480" y="290" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0d3fofh" dmnElementRef="CompartmentToEvacuationLevelConnectionType">
+        <dc:Bounds height="45" width="125" x="568" y="369" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1nbrfeg" dmnElementRef="InformationRequirement_020fkue">
+        <di:waypoint x="631" y="369" />
+        <di:waypoint x="525" y="310" />
+        <di:waypoint x="525" y="290" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

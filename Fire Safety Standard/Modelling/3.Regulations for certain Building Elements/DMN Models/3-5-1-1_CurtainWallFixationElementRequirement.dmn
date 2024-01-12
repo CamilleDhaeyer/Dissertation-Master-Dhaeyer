@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_13twhkq" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_1aepsiu" name="CurtainWallMullionFixationElementRequirement">
+    <informationRequirement id="InformationRequirement_1elshue">
+      <requiredInput href="#PresenceAutomaticExtinguishingSystem" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_10s2vzx">
+      <requiredInput href="#FireResistanceMullionFixationElement" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_15ealwa">
+      <input id="Input_1" label="PresenceAutomaticExtinguishingSystem">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text>PresenceAutomaticExtinguishingSystem</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0nk6uj8" label="FireResistanceMullionFixationElement">
+        <inputExpression id="LiteralExpression_1g3ognx" typeRef="string">
+          <text>FireResistanceMullionFixationElement</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="FireResistanceMullionFixationElementSuccess" name="FireResistanceMullionFixationElementSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_18hem79">
+        <inputEntry id="UnaryTests_1j8j5u8">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_135uwm9">
+          <text>"R 10","R 15","R 20","R 30","R 45","R 60","R 90","R 120","R 180","R 240","R 300","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_04tccze">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1u4224r">
+        <inputEntry id="UnaryTests_1437ce9">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hm2e6e">
+          <text>"R 10","R 15","R 20","R 30","R 45"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1gopgr6">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0w8drew">
+        <inputEntry id="UnaryTests_16b0fvd">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_173ndtx">
+          <text>"R 60","R 90","R 120","R 180","R 240","R 300","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_18mhqnj">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="PresenceAutomaticExtinguishingSystem" name="PresenceAutomaticExtinguishingSystem" />
+  <inputData id="FireResistanceMullionFixationElement" name="FireResistanceMullionFixationElement" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1aepsiu">
+        <dc:Bounds height="80" width="180" x="360" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1p5l1q1" dmnElementRef="PresenceAutomaticExtinguishingSystem">
+        <dc:Bounds height="45" width="125" x="387" y="217" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1xufw18" dmnElementRef="InformationRequirement_1elshue">
+        <di:waypoint x="450" y="217" />
+        <di:waypoint x="450" y="180" />
+        <di:waypoint x="450" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1sa7pw0" dmnElementRef="FireResistanceMullionFixationElement">
+        <dc:Bounds height="45" width="125" x="158" y="98" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0ubktup" dmnElementRef="InformationRequirement_10s2vzx">
+        <di:waypoint x="283" y="121" />
+        <di:waypoint x="340" y="120" />
+        <di:waypoint x="360" y="120" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

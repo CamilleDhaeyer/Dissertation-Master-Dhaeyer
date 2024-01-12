@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_0pux16d" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_14vktgs" name="Verify Interruption element requirements">
+    <informationRequirement id="InformationRequirement_0eznbvi">
+      <requiredInput href="#ClosureDeviceInVentilationOpening" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1n1wto5">
+      <requiredInput href="#VentilationOpeningInInterruptionElement" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1gdnfxt">
+      <requiredDecision href="#Decision_1u3fem1" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0hoog1m">
+      <input id="InputClause_01nrrc1" label="VentilationOpeningInInterruptionElement">
+        <inputExpression id="LiteralExpression_1dka1kf" typeRef="boolean">
+          <text>VentilationOpeningInInterruptionElement</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0s1v209" label="ClosureDeviceInVentilationOpening" biodi:width="219">
+        <inputExpression id="LiteralExpression_1neunqu" typeRef="boolean">
+          <text>ClosureDeviceInVentilationOpening</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0pt4d5s" label="ClosureDeviceRegulationSuccess" biodi:width="204">
+        <inputExpression id="LiteralExpression_0j970ax" typeRef="boolean">
+          <text>ClosureDeviceRegulationSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1ixadgh" label="VentilationOpeningInInterruptionElementSuccess" name="VentilationOpeningInInterruptionElementSuccess" typeRef="boolean" biodi:width="270" />
+      <rule id="DecisionRule_0ninm8l">
+        <inputEntry id="UnaryTests_0vg0yzc">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1e17hds">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04fmter">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1o6trnh">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1njs62s">
+        <inputEntry id="UnaryTests_0es037b">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14wtiry">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0iyabch">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ctz7f5">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_14cqsd4">
+        <inputEntry id="UnaryTests_1v0o9j3">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gignb6">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fbc6h0">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0xt7th7">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1uh37sb">
+        <inputEntry id="UnaryTests_1wq7881">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0urojf0">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0z156vf">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1yf39ea">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="VentilationOpeningInInterruptionElement" name="VentilationOpeningInInterruptionElement" />
+  <inputData id="ClosureDeviceInVentilationOpening" name="ClosureDeviceInVentilationOpening" />
+  <decision id="Decision_1u3fem1" name="Verify closure device regulation">
+    <informationRequirement id="InformationRequirement_0wgi9nu">
+      <requiredInput href="#FireResistanceClosureDevice" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1l5l7w0">
+      <requiredInput href="#ClosingDeviceTypeSuccess" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0gpjfhm">
+      <input id="InputClause_0atjyb5" label="ClosingDeviceTypeSuccess">
+        <inputExpression id="LiteralExpression_04q4zm2" typeRef="boolean">
+          <text>ClosingDeviceTypeSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1xpptgy" label="FireResistanceClosureDevice">
+        <inputExpression id="LiteralExpression_1xnybrz" typeRef="string">
+          <text>FireResistanceClosureDevice</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1ur19at" label="ClosureDeviceRegulationSuccess" name="ClosureDeviceRegulationSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_07spvoh">
+        <inputEntry id="UnaryTests_17y7zsm">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1iwjkj7">
+          <text>"E 10","E 15","E 20","E 30","E 45"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1pdp0ej">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0z3hnes">
+        <inputEntry id="UnaryTests_00qmkc5">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1u1rq96">
+          <text>"E 10","E 15","E 20","E 30","E 45"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1i2jlgx">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0f3j0dg">
+        <inputEntry id="UnaryTests_1msomum">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1m5up8z">
+          <text>"E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_16hqdmc">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1647a5o">
+        <inputEntry id="UnaryTests_0acwxs2">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kbayy9">
+          <text>"E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45","REI 60","REI 90","REI 120","REI 180","REI 240","REI 300"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1m8kqw2">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="FireResistanceClosureDevice" name="FireResistanceClosureDevice" />
+  <inputData id="ClosingDeviceTypeSuccess" name="ClosingDeviceTypeSuccess" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_0zhfgdk" dmnElementRef="Decision_14vktgs">
+        <dc:Bounds height="80" width="180" x="350" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1ayxx3q" dmnElementRef="VentilationOpeningInInterruptionElement">
+        <dc:Bounds height="45" width="125" x="158" y="98" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0lyido7" dmnElementRef="ClosureDeviceInVentilationOpening">
+        <dc:Bounds height="45" width="125" x="598" y="97" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_02cnmjj" dmnElementRef="InformationRequirement_0eznbvi">
+        <di:waypoint x="598" y="120" />
+        <di:waypoint x="550" y="120" />
+        <di:waypoint x="530" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_136otqa" dmnElementRef="InformationRequirement_1n1wto5">
+        <di:waypoint x="283" y="121" />
+        <di:waypoint x="330" y="120" />
+        <di:waypoint x="350" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_09zo6d0" dmnElementRef="Decision_1u3fem1">
+        <dc:Bounds height="80" width="180" x="350" y="210" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_116f6jv" dmnElementRef="FireResistanceClosureDevice">
+        <dc:Bounds height="45" width="125" x="158" y="227" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1o0bx6k" dmnElementRef="InformationRequirement_0wgi9nu">
+        <di:waypoint x="283" y="250" />
+        <di:waypoint x="330" y="250" />
+        <di:waypoint x="350" y="250" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1mb0bwr" dmnElementRef="InformationRequirement_1gdnfxt">
+        <di:waypoint x="440" y="210" />
+        <di:waypoint x="440" y="180" />
+        <di:waypoint x="440" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0d02nph" dmnElementRef="ClosingDeviceTypeSuccess">
+        <dc:Bounds height="45" width="125" x="378" y="348" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1hd1k7f" dmnElementRef="InformationRequirement_1l5l7w0">
+        <di:waypoint x="441" y="348" />
+        <di:waypoint x="440" y="310" />
+        <di:waypoint x="440" y="290" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

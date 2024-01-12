@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_0etnbhg" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_091zmva" name="Airvent requirements">
+    <informationRequirement id="InformationRequirement_1hbuqh9">
+      <requiredInput href="#AirventAngleWithHorizontal" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_09hnxov">
+      <requiredInput href="#AirventOrientation" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0r8msm1">
+      <requiredInput href="#AirventExteriorWallAreaPercentage" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1hqwva5">
+      <requiredDecision href="#Decision_1mbxwht" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_06i3bhk">
+      <requiredInput href="#InputData_1xpsuiw" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0wzxfbj" biodi:annotationsWidth="400">
+      <input id="InputClause_09pf01k" label="AirventType" biodi:width="216">
+        <inputExpression id="LiteralExpression_0utjvtw" typeRef="string">
+          <text>AirventType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1fe995q" label="AirventAngleWithHorizontal">
+        <inputExpression id="LiteralExpression_1csfdrl" typeRef="double">
+          <text>AirventAngleWithHorizontal</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1yuy97t" label="AirventOrientation">
+        <inputExpression id="LiteralExpression_0tx60yr" typeRef="string">
+          <text>AirventOrientation</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_05v72ol" label="AirventExteriorWallAreaPercentage">
+        <inputExpression id="LiteralExpression_0oppz72" typeRef="double">
+          <text>AirventExteriorWallAreaPercentage</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0wzyho9" label="FireDetectionInstallationRegulationSuccess">
+        <inputExpression id="LiteralExpression_1hk4wdg" typeRef="boolean">
+          <text>FireDetectionInstallationRegulationSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1sxvinx" label="AirventRequirementSuccess" name="AirventRequirementSuccess" typeRef="boolean" biodi:width="174" />
+      <rule id="DecisionRule_1fpnxmm">
+        <description>map to AllAirventRequirementSuccess</description>
+        <inputEntry id="UnaryTests_0r6iw0a">
+          <text>"Rigid airventilation"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07vwr6k">
+          <text>[20..40]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0w53bb1">
+          <text>"Upwards angled to exterior"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0tg2yyb">
+          <text>&gt;= 50</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09wt4ca">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1mrtu6y">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0xek87p">
+        <description>map to AllAirventRequirementSuccess</description>
+        <inputEntry id="UnaryTests_0smkxyf">
+          <text>"Mobile airventilation"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1v6y005">
+          <text>[20..40]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0uz6f1o">
+          <text>"Orientation controlled by fire detection installation"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1uq1hcs">
+          <text>&gt;= 50</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ukndlg">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_119rmoe">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0svvsar">
+        <description>map to AllAirventRequirementSuccess</description>
+        <inputEntry id="UnaryTests_00p78o0">
+          <text>"Mobile airventilation"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qywb4t">
+          <text>[20..40]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03xrjgt">
+          <text>"Orientation controlled by fire detection installation","Orientation not controlled by fire detection installation"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00fiua3">
+          <text>&gt;= 50</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14vkgkh">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1hr5uf5">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0uy6dft">
+        <inputEntry id="UnaryTests_1egv404">
+          <text>"Rigid airventilation"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16nh2xu">
+          <text>[20..40]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lmvg4s">
+          <text>"Upwards angled to exterior"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1u8fd00">
+          <text>&lt; 50</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xfssj3">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0vzh5z2">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0iyrzd2">
+        <inputEntry id="UnaryTests_17l7y5a">
+          <text>"Mobile airventilation"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jobj47">
+          <text>[20..40]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02rxa5z">
+          <text>"Orientation controlled by fire detection installation","Orientation not controlled by fire detection installation"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1bvv7rc">
+          <text>&lt; 50</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08n47uc">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_09qvk37">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_10bat99">
+        <inputEntry id="UnaryTests_1tg3zry">
+          <text>"Rigid airventilation"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cwb00l">
+          <text>[20..40]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wlt6jh">
+          <text>"Other orientation"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tst636">
+          <text>&gt;= 50</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1yz8nfr">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0rc3z57">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0t48qu2">
+        <inputEntry id="UnaryTests_0t57wl4">
+          <text>"Mobile airventilation"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_039o9p2">
+          <text>[20..40]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0g8u7jm">
+          <text>"Orientation controlled by fire detection installation","Orientation not controlled by fire detection installation"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19brrt1">
+          <text>&gt;= 50</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07n3vei">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0vlp3nu">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_01npcaq">
+        <inputEntry id="UnaryTests_1wmsty8">
+          <text>"Rigid airventilation"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1r5wfrj">
+          <text>[20..40]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1q0n1wz">
+          <text>"Other orientation"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17p4oyy">
+          <text>&lt; 50</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1b54yms">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_01bgd8f">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1pjp80u">
+        <inputEntry id="UnaryTests_0e40gj8">
+          <text>"Mobile airventilation"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yjtak7">
+          <text>[20..40]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0la911j">
+          <text>"Orientation controlled by fire detection installation","Orientation not controlled by fire detection installation"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0aiz967">
+          <text>&lt; 50</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15hn1wl">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ew6e0z">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1b3orxa">
+        <inputEntry id="UnaryTests_1bayf5n">
+          <text>"Rigid airventilation"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0k2shfl">
+          <text>[0..20[,]40..180]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pely8b">
+          <text>"Upwards angled to exterior"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1q9zlav">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rozl4s">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0sj852z">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1eencc8">
+        <inputEntry id="UnaryTests_119rsa2">
+          <text>"Mobile airventilation"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_030wqie">
+          <text>[0..20[,]40..180]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_025v4y3">
+          <text>"Orientation controlled by fire detection installation","Orientation not controlled by fire detection installation"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0t0nl0k">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tw59g8">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ln690v">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_19zhceg">
+        <inputEntry id="UnaryTests_1adaw1b">
+          <text>"Rigid airventilation"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17vnvvw">
+          <text>[0..20[,]40..180]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_094so40">
+          <text>"Other orientation"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0dalzl3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1bg73lm">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0v819pe">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1cwzqd3">
+        <inputEntry id="UnaryTests_0gmahvf">
+          <text>"Mobile airventilation"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1altdqd">
+          <text>[0..20[,]40..180]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0oj7pov">
+          <text>"Orientation controlled by fire detection installation","Orientation not controlled by fire detection installation"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0tji0dr">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qvamuy">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1yr6lob">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="AirventAngleWithHorizontal" name="AirventAngleWithHorizontal" />
+  <inputData id="AirventOrientation" name="AirventOrientation" />
+  <inputData id="AirventExteriorWallAreaPercentage" name="AirventExteriorWallAreaPercentage" />
+  <decision id="Decision_1mbxwht" name="Verify fire detection installation regulation">
+    <informationRequirement id="InformationRequirement_1wf618p">
+      <requiredInput href="#SecurePositionActivatedByFireDetectionInstallation" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_16ez8p8">
+      <requiredInput href="#FireDetectionInstallationLocation" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0qgxv4x">
+      <requiredInput href="#AutomaticOpeningClosingSystemSucces" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1d5mlq7">
+      <input id="InputClause_0puiqzm" label="SecurePositionActivatedByFireDetectionInstallation">
+        <inputExpression id="LiteralExpression_0twiuhw" typeRef="boolean">
+          <text>SecurePositionActivatedByFireDetectionInstallation</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_175hl8g" label="FireDetectionInstallationLocation">
+        <inputExpression id="LiteralExpression_0go5or6" typeRef="string">
+          <text>FireDetectionInstallationLocation</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_09f9c7l" label="AutomaticOpeningClosingSystemSuccess">
+        <inputExpression id="LiteralExpression_1ysqwiw" typeRef="boolean">
+          <text>AutomaticOpeningClosingSystemSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1pny55i" label="FireDetectionInstallationRegulationSuccess" name="FireDetectionInstallationRegulationSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_016zdwr">
+        <description></description>
+        <inputEntry id="UnaryTests_1li64xr">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08u2gyj">
+          <text>"in each compartment along the facade"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1f1rha2">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0d5149m">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0fdlvmj">
+        <description></description>
+        <inputEntry id="UnaryTests_1jf9p4q">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sahmfv">
+          <text>"in each compartment along the facade"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17e4ovl">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1elg3px">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1tckjj6">
+        <description>AutomaticOpeningClosingSystemSucces van 3523</description>
+        <inputEntry id="UnaryTests_1wg4ic5">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jhifhv">
+          <text>"in each compartment along the facade"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cm3cu8">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0dwo4sh">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0qw89cs">
+        <inputEntry id="UnaryTests_13wblx8">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0eo5t6j">
+          <text>"Other location","No fire detection installation present"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kg8jje">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_08n7q20">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_084264i">
+        <inputEntry id="UnaryTests_0cmb3yh">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0oho42d">
+          <text>"Other location","No fire detection installation present"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1sc5aux">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1t2iq55">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="SecurePositionActivatedByFireDetectionInstallation" name="SecurePositionActivatedByFireDetectionInstallation" />
+  <inputData id="FireDetectionInstallationLocation" name="FireDetectionInstallationLocation" />
+  <inputData id="AutomaticOpeningClosingSystemSucces" name="AutomaticOpeningClosingSystemSucces" />
+  <inputData id="InputData_1xpsuiw" name="AirventType" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_0vq6go3" dmnElementRef="Decision_091zmva">
+        <dc:Bounds height="80" width="180" x="340" y="90" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1h927rj" dmnElementRef="AirventAngleWithHorizontal">
+        <dc:Bounds height="45" width="125" x="158" y="78" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0dcbzvb" dmnElementRef="InformationRequirement_1hbuqh9">
+        <di:waypoint x="283" y="101" />
+        <di:waypoint x="320" y="117" />
+        <di:waypoint x="340" y="117" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1l5g8m2" dmnElementRef="AirventOrientation">
+        <dc:Bounds height="45" width="125" x="598" y="78" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0ksf77z" dmnElementRef="AirventExteriorWallAreaPercentage">
+        <dc:Bounds height="45" width="125" x="598" y="138" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1kt7nrf" dmnElementRef="InformationRequirement_09hnxov">
+        <di:waypoint x="598" y="101" />
+        <di:waypoint x="540" y="117" />
+        <di:waypoint x="520" y="117" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0mc38eh" dmnElementRef="InformationRequirement_0r8msm1">
+        <di:waypoint x="598" y="161" />
+        <di:waypoint x="540" y="143" />
+        <di:waypoint x="520" y="143" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1nfaw5r" dmnElementRef="Decision_1mbxwht">
+        <dc:Bounds height="80" width="180" x="340" y="220" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1uj673b" dmnElementRef="InformationRequirement_1hqwva5">
+        <di:waypoint x="430" y="220" />
+        <di:waypoint x="430" y="190" />
+        <di:waypoint x="430" y="170" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0dgg3hn" dmnElementRef="SecurePositionActivatedByFireDetectionInstallation">
+        <dc:Bounds height="45" width="125" x="158" y="238" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0owonmd" dmnElementRef="InformationRequirement_1wf618p">
+        <di:waypoint x="283" y="261" />
+        <di:waypoint x="320" y="260" />
+        <di:waypoint x="340" y="260" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_18vuyar" dmnElementRef="FireDetectionInstallationLocation">
+        <dc:Bounds height="45" width="125" x="367" y="377" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1vjeqez" dmnElementRef="InformationRequirement_16ez8p8">
+        <di:waypoint x="430" y="377" />
+        <di:waypoint x="430" y="320" />
+        <di:waypoint x="430" y="300" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1qa8t6v" dmnElementRef="AutomaticOpeningClosingSystemSucces">
+        <dc:Bounds height="45" width="125" x="598" y="238" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1arr3w4" dmnElementRef="InformationRequirement_0qgxv4x">
+        <di:waypoint x="598" y="261" />
+        <di:waypoint x="540" y="260" />
+        <di:waypoint x="520" y="260" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0vsiw86" dmnElementRef="InputData_1xpsuiw">
+        <dc:Bounds height="45" width="125" x="158" y="138" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1hccl9e" dmnElementRef="InformationRequirement_06i3bhk">
+        <di:waypoint x="283" y="161" />
+        <di:waypoint x="320" y="143" />
+        <di:waypoint x="340" y="143" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0ol8n1r" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_1b3k1tx" name="HeightVerification">
+    <informationRequirement id="InformationRequirement_1citqo3">
+      <requiredInput href="#HeightOfCompartment" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0kmvaex">
+      <requiredInput href="#HeightOfCompartmentFloorLevel" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_192cn6i">
+      <input id="Input_1" label="HeightOfCompartment">
+        <inputExpression id="InputExpression_1" typeRef="double">
+          <text>HeightOfCompartment</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0jbzzyz" label="HeightOfCompartmentFloorLevel">
+        <inputExpression id="LiteralExpression_1kcvv3b" typeRef="double">
+          <text>HeightOfCompartmentFloorLevel</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="HeightVerification" name="HeightVerification" typeRef="boolean" />
+      <rule id="DecisionRule_11ichze">
+        <inputEntry id="UnaryTests_1r91wyl">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01slwtz">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1obkdb6">
+          <text>HeightOfCompartment=HeightOfCompartmentFloorLevel</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="HeightOfCompartment" name="HeightOfCompartment" />
+  <inputData id="HeightOfCompartmentFloorLevel" name="HeightOfCompartmentFloorLevel" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1b3k1tx">
+        <dc:Bounds height="80" width="180" x="270" y="100" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_199z5h8" dmnElementRef="HeightOfCompartment">
+        <dc:Bounds height="45" width="125" x="177" y="317" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0ejfxlw" dmnElementRef="InformationRequirement_1citqo3">
+        <di:waypoint x="240" y="317" />
+        <di:waypoint x="330" y="200" />
+        <di:waypoint x="330" y="180" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_112ef8l" dmnElementRef="HeightOfCompartmentFloorLevel">
+        <dc:Bounds height="45" width="125" x="417" y="317" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0qvton1" dmnElementRef="InformationRequirement_0kmvaex">
+        <di:waypoint x="480" y="317" />
+        <di:waypoint x="390" y="200" />
+        <di:waypoint x="390" y="180" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

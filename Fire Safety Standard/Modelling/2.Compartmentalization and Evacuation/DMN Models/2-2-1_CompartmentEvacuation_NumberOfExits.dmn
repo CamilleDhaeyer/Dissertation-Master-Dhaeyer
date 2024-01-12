@@ -1,0 +1,752 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_14y8tnk" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_13uyt8v" name="Minimal Exits In a Compartment">
+    <informationRequirement id="InformationRequirement_1hwb5ry">
+      <requiredDecision href="#Decision_1im383i" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_01adoax">
+      <requiredInput href="#StaircaseInExitPathToFacadeOrTerrace" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0fbkepj">
+      <requiredInput href="#MaximalOccupancy" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0l5t1fv">
+      <requiredInput href="#CeilingMaximalOccupancy" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0umzwme" biodi:annotationsWidth="400">
+      <input id="InputClause_1kxpta9" label="MaximalOccupancy">
+        <inputExpression id="LiteralExpression_0ka9c46" typeRef="integer">
+          <text>MaximalOccupancy</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0o7lof0" label="AccessibleExitType" biodi:width="160">
+        <inputExpression id="LiteralExpression_0ee57ta" typeRef="string">
+          <text>AccessibleExitType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1hcf5n6" label="StaircaseInExitPathToFacadeOrTerrace" biodi:width="170">
+        <inputExpression id="LiteralExpression_1mw1wo5" typeRef="boolean">
+          <text>StaircaseInExitPathToFacadeOrTerrace</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0tipsys" label="CeilingMaximalOccupancy" biodi:width="150">
+        <inputExpression id="LiteralExpression_02eh5w2" typeRef="integer">
+          <text>CeilingMaximalOccupancy</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="MinimalNumberOfExits" name="MinimalNumberOfExits" typeRef="integer" biodi:width="160" />
+      <rule id="DecisionRule_0ikbkdq">
+        <inputEntry id="UnaryTests_1ny1ez7">
+          <text>&lt; 50</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1y2pf1l">
+          <text>"Direct exit through facade opening"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1voxwig">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09itz1h">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ggfori">
+          <text>1</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1mwzak5">
+        <inputEntry id="UnaryTests_07d1c72">
+          <text>&lt; 50</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0iuvoey">
+          <text>"Direct exit through facade opening"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19iwn1p">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fctyd5">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qfaoz5">
+          <text>2</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0p0c7p7">
+        <inputEntry id="UnaryTests_1yynkxg">
+          <text>&lt; 50</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cbzxl5">
+          <text>"Direct exit through terrace"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04g7trp">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hlzftl">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1cbbuqr">
+          <text>1</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1j8qrej">
+        <inputEntry id="UnaryTests_1igggdw">
+          <text>&lt; 50</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cyz648">
+          <text>"Direct exit through terrace"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1clx6sn">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cayc81">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1iiy5xg">
+          <text>2</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_02vqskd">
+        <inputEntry id="UnaryTests_10gbc5l">
+          <text>&lt; 50</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1uc841m">
+          <text>"No direct exit to exterior"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qzb3ij">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fzl0fg">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1b908nn">
+          <text>2</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ovhinr">
+        <inputEntry id="UnaryTests_00v20ui">
+          <text>[50..500[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dyq3kb">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11p71dh">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10oq5lz">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1wp3ege">
+          <text>2</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_00lfwpy">
+        <inputEntry id="UnaryTests_0osp49f">
+          <text>&gt;= 500</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1d6nhog">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10150wx">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18fjo5b">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1yekhc1">
+          <text>2 + CeilingMaximalOccupancy</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="MaximalOccupancy" name="MaximalOccupancy" />
+  <inputData id="AccessibilityFacadeOpening" name="AccessibilityFacadeOpening" />
+  <inputData id="StaircaseInExitPathToFacadeOrTerrace" name="StaircaseInExitPathToFacadeOrTerrace" />
+  <inputData id="DistanceEdgeOfTheRoadToPlaneOfTerrace" name="DistanceEdgeOfTheRoadToPlaneOfTerrace" />
+  <decision id="Decision_0mx8n56" name="AccessibilityTerraceSuccess">
+    <informationRequirement id="InformationRequirement_11wpcqz">
+      <requiredInput href="#DistanceEdgeOfTheRoadToPlaneOfTerrace" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0hskfxm">
+      <requiredInput href="#ConnectionToTerracePossible" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_05qx8vs">
+      <input id="InputClause_11nv63m" label="ConnectionToTerracePossible">
+        <inputExpression id="LiteralExpression_06zxg98" typeRef="boolean">
+          <text>ConnectionToTerracePossible</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0z5k2gq" label="DistanceEdgeOfTheRoadToPlaneOfTerrace">
+        <inputExpression id="LiteralExpression_0aph1a9" typeRef="double">
+          <text>DistanceEdgeOfTheRoadToPlaneOfTerrace</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0dk6r3i" label="AccessibilityTerraceSuccess" name="AccessibilityTerraceSuccess" typeRef="string" />
+      <rule id="DecisionRule_115hdq4">
+        <inputEntry id="UnaryTests_0g1z7fx">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hlhzl5">
+          <text>[4..10]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1n603vd">
+          <text>"Terrace is accessible"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_00bwu5k">
+        <inputEntry id="UnaryTests_0h7kn8w">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0t8ipn5">
+          <text>[0..4[</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0cbuzn8">
+          <text>"Terrace is accessible"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0cax7ba">
+        <inputEntry id="UnaryTests_1hn6fhq">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kdvxf7">
+          <text>&gt; 10</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_06zreyb">
+          <text>"Terrace is not accessible"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_08l9hlz">
+        <inputEntry id="UnaryTests_1wyzn7c">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1npdbfm">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1nx2coi">
+          <text>"No terrace present"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="FireResistanceTerraceFloor" name="FireResistanceTerraceFloor" />
+  <inputData id="FireResistanceWallTerraceFacadeSuccess" name="FireResistanceWallTerraceFacadeSuccess" />
+  <inputData id="DistanceTerraceRailFromFacade" name="DistanceTerraceRailFromFacade" />
+  <decision id="Decision_11ht5kk" name="Terrace Requirements">
+    <informationRequirement id="InformationRequirement_1ph1td9">
+      <requiredDecision href="#Decision_0ja1ver" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_17qqccy">
+      <requiredInput href="#FireResistanceWallTerraceFacadeSuccess" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1rodqrt">
+      <requiredInput href="#DistanceTerraceRailFromFacade" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1vepqgf">
+      <input id="InputClause_1cjpx9s" label="FireResistanceTerraceFloorSuccess">
+        <inputExpression id="LiteralExpression_02xfpc3" typeRef="boolean">
+          <text>FireResistanceTerraceFloorSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_16d99kt" label="FireResistanceWallTerraceFacadeSuccess">
+        <inputExpression id="LiteralExpression_19lw8si" typeRef="boolean">
+          <text>FireResistanceWallTerraceFacadeSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0mvtlyd" label="DistanceTerraceRailFromFacade">
+        <inputExpression id="LiteralExpression_0j85gng" typeRef="double">
+          <text>DistanceTerraceRailFromFacade</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_19dfu5w" label="TerraceRequirementsSuccess" name="TerraceRequirementsSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_0yf2wxy">
+        <inputEntry id="UnaryTests_1xe4pzc">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0i6mnd1">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0x6d250">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1tg69w1">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0riliz9">
+        <inputEntry id="UnaryTests_1njvagu">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0djlvbe">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kb2nb0">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1v9lpf3">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_07hi6wf">
+        <inputEntry id="UnaryTests_00sqpt1">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1j9heum">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1di1boe">
+          <text>&gt;= 1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_102dhgm">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1fadjvu">
+        <inputEntry id="UnaryTests_183p7jx">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1b3uufz">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1saj73k">
+          <text>&lt; 1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0bdb3ox">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0orkiab">
+        <inputEntry id="UnaryTests_1clsj7n">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_161nck6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11wvpm6">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1owm81w">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="NumberOfCompartmentExits" name="NumberOfCompartmentExits" />
+  <decision id="Decision_1im383i" name="Accessibility Exit type">
+    <informationRequirement id="InformationRequirement_1oszml9">
+      <requiredInput href="#AccessibilityFacadeOpening" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0ml25d0">
+      <requiredInput href="#ExitType" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_08n59bk">
+      <requiredDecision href="#Decision_187rqoh" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_06g2av9">
+      <input id="InputClause_1skkz9w" label="ExitType">
+        <inputExpression id="LiteralExpression_0ncdl2x" typeRef="string">
+          <text>ExitType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0wubwvt" label="TerraceRegulationSuccess" biodi:width="155">
+        <inputExpression id="LiteralExpression_0zo3a4u" typeRef="boolean">
+          <text>TerraceRegulationSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_112mczc" label="AccessibilityFacadeOpening">
+        <inputExpression id="LiteralExpression_0ppswnm" typeRef="string">
+          <text>AccessibilityFacadeOpening</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0wbj6kt" label="AccessibleExitType" name="AccessibleExitType" typeRef="string" />
+      <rule id="DecisionRule_017w3yr">
+        <inputEntry id="UnaryTests_0z5pmox">
+          <text>"Exit possible through a terrace"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jjd2eg">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ppioqr">
+          <text>"Facade openings are accessible", "Facade openings are inaccessible"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1l4z0jk">
+          <text>"Direct exit through terrace"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1mz3hf8">
+        <inputEntry id="UnaryTests_0tlw47a">
+          <text>"Exit possible through a terrace"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_163caxm">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pb0bvi">
+          <text>"Facade openings are accessible", "Facade openings are inaccessible"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qnjeld">
+          <text>"No direct exit to exterior"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1npeb99">
+        <inputEntry id="UnaryTests_1s6fy75">
+          <text>"Exit possible through a facade opening"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tbpr76">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09op2bq">
+          <text>"Facade openings are accessible"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_04wrp86">
+          <text>"Direct exit through facade opening"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0iylqar">
+        <inputEntry id="UnaryTests_1dqezy3">
+          <text>"Exit possible through a facade opening"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fqwxbn">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tincay">
+          <text>"Facade openings are inaccessible"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1rvm5d5">
+          <text>"No direct exit to exterior"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1657dnr">
+        <inputEntry id="UnaryTests_126aejg">
+          <text>"Exit not possible through facade opening or terrace"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_095rla4">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1k3fjf0">
+          <text>"Facade openings are accessible", "Facade openings are inaccessible"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0gtv1hs">
+          <text>"No direct exit to exterior"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_1g3uao9" name="CompartmentNumberOfExitsVerification">
+    <informationRequirement id="InformationRequirement_039lx9s">
+      <requiredDecision href="#Decision_13uyt8v" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1gizn5u">
+      <requiredInput href="#NumberOfCompartmentExits" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0oiiujm">
+      <input id="InputClause_0k8c33s" label="MinimalNumberOfExits">
+        <inputExpression id="LiteralExpression_0vavoze" typeRef="integer">
+          <text>MinimalNumberOfExits</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_014bzj3" label="NumberOfCompartmentExits" biodi:width="197">
+        <inputExpression id="LiteralExpression_176dzum" typeRef="integer">
+          <text>NumberOfCompartmentExits</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0c9e0ne" label="CompartmentNumberOfExitsVerification" name="CompartmentNumberOfExitsVerification" typeRef="boolean" biodi:width="368" />
+      <rule id="DecisionRule_0lqvx6s">
+        <inputEntry id="UnaryTests_19nwjig">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1t96mzm">
+          <text>&gt;=MinimalNumberOfExits</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0wb3s3z">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1x719sz">
+        <inputEntry id="UnaryTests_0yirnx4">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00wrw90">
+          <text>&lt;MinimalNumberOfExits</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_05wrxc1">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="ExitType" name="ExitType" />
+  <decision id="Decision_187rqoh" name="Validate terrace requirement and access">
+    <informationRequirement id="InformationRequirement_05om7gk">
+      <requiredDecision href="#Decision_0mx8n56" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1b13jid">
+      <requiredDecision href="#Decision_11ht5kk" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0fnnxaw">
+      <input id="InputClause_1qd2cro" label="AccessibilityTerraceSuccess" biodi:width="172">
+        <inputExpression id="LiteralExpression_06f28cw" typeRef="string">
+          <text>AccessibilityTerraceSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1c05wnz" label="TerraceRequirementsSuccess" biodi:width="184">
+        <inputExpression id="LiteralExpression_1lci49d" typeRef="boolean">
+          <text>TerraceRequirementsSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_18xs17k" label="TerraceRegulationSuccess" name="TerraceRegulationSuccess" typeRef="boolean" biodi:width="156" />
+      <rule id="DecisionRule_1s0j4ku">
+        <inputEntry id="UnaryTests_1hayjvb">
+          <text>"Terrace is accessible"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fjmkpr">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0tzqq15">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0g27cqf">
+        <inputEntry id="UnaryTests_1g5x6yn">
+          <text>"Terrace is accessible"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1csy9pm">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0tz0ejx">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0687tbz">
+        <inputEntry id="UnaryTests_1i2noyx">
+          <text>"Terrace is not accessible"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lx0b0u">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07uhmhx">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0vvqbck">
+        <inputEntry id="UnaryTests_0lgso8f">
+          <text>"Terrace is not accessible"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lsffoc">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0o88y9s">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0fzznlh">
+        <inputEntry id="UnaryTests_1pvyonr">
+          <text>"No terrace present"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ivtg20">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0eazxm1">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_0ja1ver" name="Verify fire resistance terrace floor">
+    <informationRequirement id="InformationRequirement_0lni7r4">
+      <requiredInput href="#FireResistanceTerraceFloor" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0wosib5">
+      <input id="InputClause_1nxnhya" label="FireResistanceTerraceFloor" biodi:width="570">
+        <inputExpression id="LiteralExpression_01zotil" typeRef="string">
+          <text>FireResistanceTerraceFloor</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_01t12t3" label="FireResistanceTerraceFloorSuccess" name="FireResistanceTerraceFloorSuccess" typeRef="boolean" biodi:width="187" />
+      <rule id="DecisionRule_0dz4dyd">
+        <inputEntry id="UnaryTests_09nuip2">
+          <text>"E 10","E 15","E 20","E 30","E 45","E 60","E 90","E 120","E 180","E 240","E 300","EI 10","EI 15","EI 20","EI 30","EI 45","EI 60","EI 90","EI 120","EI 180","EI 240","EI 360","REI 10","REI 15","REI 20","REI 30","REI 45"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1yoeu42">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_05qmatn">
+        <inputEntry id="UnaryTests_0sj1zcn">
+          <text>"REI 60","REI 90","REI 120","REI 180","REI 240","REI 360"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_05jj69x">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="ConnectionToTerracePossible" name="ConnectionToTerracePossible" />
+  <inputData id="CeilingMaximalOccupancy" name="CeilingMaximalOccupancy" />
+  <textAnnotation id="TextAnnotation_19j1e8a">
+    <text>Requires going through DMN 1.4 first</text>
+  </textAnnotation>
+  <association id="Association_1uwvqmw">
+    <sourceRef href="#TextAnnotation_19j1e8a" />
+    <targetRef href="#AccessibilityFacadeOpening" />
+  </association>
+  <textAnnotation id="TextAnnotation_1ajn4t8">
+    <text>wall module dmn</text>
+  </textAnnotation>
+  <association id="Association_13cv2ra">
+    <sourceRef href="#TextAnnotation_1ajn4t8" />
+    <targetRef href="#FireResistanceWallTerraceFacadeSuccess" />
+  </association>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_13uyt8v">
+        <dc:Bounds height="80" width="180" x="670" y="230" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_09ro8pq" dmnElementRef="MaximalOccupancy">
+        <dc:Bounds height="45" width="125" x="497" y="247" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0enn5a6" dmnElementRef="AccessibilityFacadeOpening">
+        <dc:Bounds height="45" width="125" x="697" y="547" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0vumca7" dmnElementRef="StaircaseInExitPathToFacadeOrTerrace">
+        <dc:Bounds height="45" width="125" x="907" y="217" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_07pxmud" dmnElementRef="TextAnnotation_19j1e8a">
+        <dc:Bounds height="26" width="230" x="795" y="627" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1tqrdr5" dmnElementRef="DistanceEdgeOfTheRoadToPlaneOfTerrace">
+        <dc:Bounds height="45" width="125" x="157" y="298" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0wfif90" dmnElementRef="Decision_0mx8n56">
+        <dc:Bounds height="80" width="180" x="210" y="410" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1qu7xom" dmnElementRef="InformationRequirement_11wpcqz">
+        <di:waypoint x="220" y="343" />
+        <di:waypoint x="270" y="390" />
+        <di:waypoint x="270" y="410" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1f8s6ba" dmnElementRef="FireResistanceTerraceFloor">
+        <dc:Bounds height="45" width="125" x="377" y="777" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0m95kzv" dmnElementRef="FireResistanceWallTerraceFacadeSuccess">
+        <dc:Bounds height="45" width="125" x="567" y="677" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_08y9nk2" dmnElementRef="DistanceTerraceRailFromFacade">
+        <dc:Bounds height="45" width="125" x="267" y="557" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1w52oci" dmnElementRef="Decision_11ht5kk">
+        <dc:Bounds height="80" width="180" x="440" y="540" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1odi1xa" dmnElementRef="Association_1uwvqmw">
+        <di:waypoint x="952" y="627" />
+        <di:waypoint x="729" y="592" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0vkdhcm" dmnElementRef="NumberOfCompartmentExits">
+        <dc:Bounds height="45" width="125" x="497" y="97" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1m7celk" dmnElementRef="Decision_1im383i">
+        <dc:Bounds height="80" width="180" x="670" y="410" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1g0v2kq" dmnElementRef="InformationRequirement_1hwb5ry">
+        <di:waypoint x="760" y="410" />
+        <di:waypoint x="760" y="330" />
+        <di:waypoint x="760" y="310" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1rycfsh" dmnElementRef="InformationRequirement_01adoax">
+        <di:waypoint x="907" y="240" />
+        <di:waypoint x="870" y="257" />
+        <di:waypoint x="850" y="257" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_01wibi0" dmnElementRef="InformationRequirement_0fbkepj">
+        <di:waypoint x="622" y="270" />
+        <di:waypoint x="650" y="270" />
+        <di:waypoint x="670" y="270" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1daxvxh" dmnElementRef="InformationRequirement_1oszml9">
+        <di:waypoint x="760" y="547" />
+        <di:waypoint x="760" y="510" />
+        <di:waypoint x="760" y="490" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1guydyg" dmnElementRef="InformationRequirement_039lx9s">
+        <di:waypoint x="760" y="230" />
+        <di:waypoint x="760" y="180" />
+        <di:waypoint x="760" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0wivp0l" dmnElementRef="Decision_1g3uao9">
+        <dc:Bounds height="80" width="180" x="670" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1hp3vfm" dmnElementRef="InformationRequirement_1gizn5u">
+        <di:waypoint x="622" y="120" />
+        <di:waypoint x="650" y="120" />
+        <di:waypoint x="670" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1g6cb67" dmnElementRef="ExitType">
+        <dc:Bounds height="45" width="125" x="907" y="427" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0j9aeae" dmnElementRef="InformationRequirement_0ml25d0">
+        <di:waypoint x="907" y="450" />
+        <di:waypoint x="870" y="450" />
+        <di:waypoint x="850" y="450" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0tq3eo3" dmnElementRef="Decision_187rqoh">
+        <dc:Bounds height="80" width="180" x="440" y="410" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1bot9nn" dmnElementRef="InformationRequirement_05om7gk">
+        <di:waypoint x="390" y="450" />
+        <di:waypoint x="420" y="450" />
+        <di:waypoint x="440" y="450" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_13q3zsb" dmnElementRef="InformationRequirement_1b13jid">
+        <di:waypoint x="530" y="540" />
+        <di:waypoint x="530" y="510" />
+        <di:waypoint x="530" y="490" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0qk7kba" dmnElementRef="InformationRequirement_08n59bk">
+        <di:waypoint x="620" y="450" />
+        <di:waypoint x="650" y="450" />
+        <di:waypoint x="670" y="450" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1a7di8x" dmnElementRef="Decision_0ja1ver">
+        <dc:Bounds height="80" width="180" x="350" y="660" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1pp3vcs" dmnElementRef="InformationRequirement_0lni7r4">
+        <di:waypoint x="440" y="777" />
+        <di:waypoint x="440" y="760" />
+        <di:waypoint x="440" y="740" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1iwr5uo" dmnElementRef="InformationRequirement_1ph1td9">
+        <di:waypoint x="440" y="660" />
+        <di:waypoint x="500" y="640" />
+        <di:waypoint x="500" y="620" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_01r4z6k" dmnElementRef="InformationRequirement_17qqccy">
+        <di:waypoint x="630" y="677" />
+        <di:waypoint x="560" y="640" />
+        <di:waypoint x="560" y="620" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_19v1a3v" dmnElementRef="TextAnnotation_1ajn4t8">
+        <dc:Bounds height="25" width="100" x="670" y="747" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1o9ylw5" dmnElementRef="Association_13cv2ra">
+        <di:waypoint x="692" y="747" />
+        <di:waypoint x="678" y="722" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_17krna6" dmnElementRef="InformationRequirement_1rodqrt">
+        <di:waypoint x="392" y="580" />
+        <di:waypoint x="420" y="580" />
+        <di:waypoint x="440" y="580" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_15miogg" dmnElementRef="ConnectionToTerracePossible">
+        <dc:Bounds height="45" width="125" x="317" y="298" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1syrpqt" dmnElementRef="InformationRequirement_0hskfxm">
+        <di:waypoint x="380" y="343" />
+        <di:waypoint x="330" y="390" />
+        <di:waypoint x="330" y="410" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_13cxf2t" dmnElementRef="CeilingMaximalOccupancy">
+        <dc:Bounds height="45" width="125" x="908" y="278" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1b60ty5" dmnElementRef="InformationRequirement_0l5t1fv">
+        <di:waypoint x="908" y="301" />
+        <di:waypoint x="870" y="283" />
+        <di:waypoint x="850" y="283" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

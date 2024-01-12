@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0ol8n1r" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_1b3k1tx" name="HeightVerification">
+    <informationRequirement id="InformationRequirement_0mzxvh1">
+      <requiredInput href="#InputData_0qzmeho" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_192cn6i">
+      <input id="InputClause_1aovf83" label="HeightOfCompartmentFloorLevel">
+        <inputExpression id="LiteralExpression_133ymcq" typeRef="double">
+          <text>HeightOfCompartmentFloorLevel</text>
+        </inputExpression>
+      </input>
+      <input id="Input_1" label="HeightOfCompartment" biodi:width="264">
+        <inputExpression id="InputExpression_1" typeRef="double">
+          <text>HeightOfCompartment</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="HeightVerification" name="HeightVerification" typeRef="boolean" />
+      <rule id="DecisionRule_11ichze">
+        <description></description>
+        <inputEntry id="UnaryTests_1ac7g1i">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1r91wyl">
+          <text>HeightOfCompartmentFloorLevel</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1obkdb6">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_008qn30">
+        <inputEntry id="UnaryTests_0spqk6y">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0r8a5go">
+          <text>&lt;HeightOfCompartmentFloorLevel</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0a30kb4">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1tudjcq">
+        <inputEntry id="UnaryTests_0k6pzmh">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gkg2c5">
+          <text>&gt;HeightOfCompartmentFloorLevel</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1osmbf2">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_0qzmeho" name="HeightOfCompartmentFloorLevel" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1b3k1tx">
+        <dc:Bounds height="80" width="180" x="150" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_12qjoso" dmnElementRef="InputData_0qzmeho">
+        <dc:Bounds height="45" width="125" x="177" y="237" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0yz5o95" dmnElementRef="InformationRequirement_0mzxvh1">
+        <di:waypoint x="240" y="237" />
+        <di:waypoint x="240" y="180" />
+        <di:waypoint x="240" y="160" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

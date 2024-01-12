@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0hl2f46" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_0c0tfks" name="CompartmentException_e">
+    <informationRequirement id="InformationRequirement_09w170n">
+      <requiredInput href="#FireEvacuationRequirementsSucces" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_14wa5vs">
+      <requiredInput href="#PresenceAutomaticExtinguishingSystem" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0rvo9ll">
+      <requiredInput href="#PresenceSmokeAndHeatExtractionSystem" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_11a9k7m">
+      <requiredInput href="#NumberOfBuildingLayersInCompartment" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1gn3h7b">
+      <requiredDecision href="#Decision_0uzotyj" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1mlu49j">
+      <input id="InputClause_0ggssdw" label="PresenceAutomaticExtinguishingSystem">
+        <inputExpression id="LiteralExpression_0ygf7mo" typeRef="boolean">
+          <text>PresenceAutomaticExtinguishingSystem</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0mnrut7" label="PresenceSmokeAndHeatExtractionSystem">
+        <inputExpression id="LiteralExpression_0nfyada" typeRef="boolean">
+          <text>PresenceSmokeAndHeatExtractionSystem</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1voxn4f" label="NumberOfBuildingLayersInCompartment">
+        <inputExpression id="LiteralExpression_1ofojdb" typeRef="double">
+          <text>NumberOfBuildingLayersInCompartment</text>
+        </inputExpression>
+      </input>
+      <input id="Input_1" label="HeightVerificationAtrium">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text>HeightVerificationAtrium</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1l2h2bv" label="FireEvacuationRequirementsSuccess">
+        <inputExpression id="LiteralExpression_17rynts" typeRef="boolean">
+          <text>FireEvacuationRequirementsSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="CompartmentExceptionEsuccess" name="CompartmentExceptionEsuccess" typeRef="boolean" />
+      <rule id="DecisionRule_02bq1h8">
+        <description>Requirements on fire systems according to Minister of internal affairs </description>
+        <inputEntry id="UnaryTests_1fx6ke6">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0z5hpx6">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18i36z6">
+          <text>&gt;= 2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gsw42b">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15mzwoz">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0d5q6mz">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_17ugvup">
+        <description>Check evacuation requirements</description>
+        <inputEntry id="UnaryTests_0zzscaf">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bwb5af">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_178fa76">
+          <text>&gt;= 2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1czk9db">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1j0ecvc">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1pwwdky">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0zyr6ek">
+        <description></description>
+        <inputEntry id="UnaryTests_0vyb94y">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1uu03hu">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bmp4et">
+          <text>&gt;= 2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vq4vkw">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12vp0cu">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1jcctgc">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1qphcbn">
+        <description>see general rules</description>
+        <inputEntry id="UnaryTests_045rpx6">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bsr65j">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1l4i3dz">
+          <text>&lt; 2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mgqa2x">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1m9hkkm">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ad9fia">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="HeightOfCompartment" name="HeightOfCompartment" />
+  <inputData id="NumberOfBuildingLayersInCompartment" name="NumberOfBuildingLayersInCompartment" />
+  <inputData id="PresenceAutomaticExtinguishingSystem" name="PresenceAutomaticExtinguishingSystem" />
+  <inputData id="PresenceSmokeAndHeatExtractionSystem" name="PresenceSmokeAndHeatExtractionSystem" />
+  <inputData id="CumulatedHeightOfAllBuildingLayersInCompartment" name="CumulatedHeightOfAllBuildingLayersInCompartment" />
+  <inputData id="FireEvacuationRequirementsSucces" name="FireEvacuationRequirementsSucces" />
+  <decision id="Decision_0uzotyj" name="Atrium compartment height verification">
+    <informationRequirement id="InformationRequirement_0uzoz89">
+      <requiredInput href="#HeightOfCompartment" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_186yz5n">
+      <requiredInput href="#CumulatedHeightOfAllBuildingLayersInCompartment" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0ljz6uj">
+      <input id="InputClause_0hemtu3" label="CumulatedHeightOfAllBuildingLayersInCompartment">
+        <inputExpression id="LiteralExpression_11ohj96" typeRef="double">
+          <text>CumulatedHeightOfAllBuildingLayersInCompartment</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_18v4hsy" label="HeightOfCompartment">
+        <inputExpression id="LiteralExpression_0rm80n5" typeRef="double">
+          <text>HeightOfCompartment</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_05h8vld" label="HeightVerificationAtrium" name="HeightVerificationAtrium" typeRef="boolean" />
+      <rule id="DecisionRule_17rm1oh">
+        <inputEntry id="UnaryTests_1nydo63">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0oicir0">
+          <text>&lt;CumulatedHeightOfAllBuildingLayersInCompartment</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_09d30p1">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1srit40">
+        <inputEntry id="UnaryTests_0leyvc0">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wgolv8">
+          <text>CumulatedHeightOfAllBuildingLayersInCompartment</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1295fik">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_04k9ey3">
+        <inputEntry id="UnaryTests_0kkvy0g">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00avxzw">
+          <text>&gt;CumulatedHeightOfAllBuildingLayersInCompartment</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1l51rjy">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <textAnnotation id="TextAnnotation_0pckwjj">
+    <text>e) de hoogte van een compartiment mag zich 
+uitstrekken over verscheidene bouwlagen 
+(atrium) op voorwaarde :
+- dat dit compartiment is uitgerust met een automatische blusinstallatie en een rook- en warmteafvoerinstallatie. De Minister van Binnenlandse Zaken 
+bepaalt de voorwaarden waaronder uitzonderingen mogelijk zijn op de verplichte plaatsing van 
+een automatische blusinstallatie en een rook- en 
+warmteafvoerinstallatie;
+- en dat de evacuatiemogelijkheden van het gebouw 
+dienen te voldoen aan de bepalingen van deze 
+bijlage waarbij geen rekening mag gehouden 
+worden met de evacuatie via het atrium.</text>
+  </textAnnotation>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_0c0tfks">
+        <dc:Bounds height="80" width="180" x="510" y="440" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0vjb8ot" dmnElementRef="TextAnnotation_0pckwjj">
+        <dc:Bounds height="190" width="690" x="155" y="85" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0j6prrj" dmnElementRef="HeightOfCompartment">
+        <dc:Bounds height="45" width="125" x="297" y="627" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_14fbm2b" dmnElementRef="NumberOfBuildingLayersInCompartment">
+        <dc:Bounds height="45" width="125" x="817" y="487" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1d495u6" dmnElementRef="PresenceAutomaticExtinguishingSystem">
+        <dc:Bounds height="45" width="125" x="317" y="427" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0l8s7z2" dmnElementRef="PresenceSmokeAndHeatExtractionSystem">
+        <dc:Bounds height="45" width="125" x="317" y="487" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0xj1065" dmnElementRef="CumulatedHeightOfAllBuildingLayersInCompartment">
+        <dc:Bounds height="45" width="125" x="827" y="627" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1952yr1" dmnElementRef="FireEvacuationRequirementsSucces">
+        <dc:Bounds height="45" width="125" x="817" y="427" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1vv16ck" dmnElementRef="InformationRequirement_09w170n">
+        <di:waypoint x="817" y="450" />
+        <di:waypoint x="710" y="467" />
+        <di:waypoint x="690" y="467" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1giuh3p" dmnElementRef="InformationRequirement_14wa5vs">
+        <di:waypoint x="442" y="450" />
+        <di:waypoint x="490" y="467" />
+        <di:waypoint x="510" y="467" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0bk46u3" dmnElementRef="InformationRequirement_0rvo9ll">
+        <di:waypoint x="442" y="510" />
+        <di:waypoint x="490" y="493" />
+        <di:waypoint x="510" y="493" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0beqzu0" dmnElementRef="InformationRequirement_11a9k7m">
+        <di:waypoint x="817" y="510" />
+        <di:waypoint x="710" y="493" />
+        <di:waypoint x="690" y="493" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1b08ejf" dmnElementRef="Decision_0uzotyj">
+        <dc:Bounds height="80" width="180" x="510" y="610" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_04gexr8" dmnElementRef="InformationRequirement_0uzoz89">
+        <di:waypoint x="422" y="650" />
+        <di:waypoint x="490" y="650" />
+        <di:waypoint x="510" y="650" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_14v5eox" dmnElementRef="InformationRequirement_186yz5n">
+        <di:waypoint x="827" y="650" />
+        <di:waypoint x="710" y="650" />
+        <di:waypoint x="690" y="650" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0w7ney5" dmnElementRef="InformationRequirement_1gn3h7b">
+        <di:waypoint x="600" y="610" />
+        <di:waypoint x="600" y="540" />
+        <di:waypoint x="600" y="520" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

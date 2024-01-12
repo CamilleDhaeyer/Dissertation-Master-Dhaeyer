@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_1k2uvmi" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <inputData id="TypeOfBuilding" name="TypeOfBuilding" />
+  <decision id="Decision_0tq5hn5" name="ParkingBuildingSuccess">
+    <informationRequirement id="InformationRequirement_0089o3m">
+      <requiredInput href="#TypeOfBuilding" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_16sn6m8">
+      <input id="InputClause_0lckjnc" label="TypeOfBuilding">
+        <inputExpression id="LiteralExpression_1qczh95" typeRef="string">
+          <text>TypeOfBuilding</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0dp0nq3" label="StructureIsParkingBuilding" name="StructureIsParkingBuilding" typeRef="boolean" />
+      <output id="OutputClause_0dg3ud9" label="ParkingBuildingMessage" name="ParkingBuildingMessage" typeRef="string" />
+      <rule id="DecisionRule_122gl0u">
+        <inputEntry id="UnaryTests_062f3l9">
+          <text>"Parking Building"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0vtvmz7">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_036hkoq">
+          <text>"See rules section 5_2 "</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0pqnfma">
+        <inputEntry id="UnaryTests_1h7hoti">
+          <text>"Other Building"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1lu6ctv">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0s538h3">
+          <text>"not applicable"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_0po0ae6" name="Type of Exception">
+    <informationRequirement id="InformationRequirement_0cxni1g">
+      <requiredInput href="#RoomTypeInCompartment" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1punetv">
+      <requiredDecision href="#Decision_0tq5hn5" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_12r9ygp">
+      <input id="InputClause_0287c7s" label="RoomType">
+        <inputExpression id="LiteralExpression_1evfexz" typeRef="string">
+          <text>RoomType</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_03e8w65">
+          <text>"Standard Room","Atrium","Duplex","Triplex","Technical Room","Parking","Ground Floor and First Floor or intermediate level"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_1r662xn" label="StructureIsParkingBuilding">
+        <inputExpression id="LiteralExpression_0aro4fk" typeRef="boolean">
+          <text>StructureIsParkingBuilding</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_10h34ug" label="ExceptionType" name="ExceptionType" typeRef="string">
+        <outputValues id="UnaryTests_0sdenuw">
+          <text>"Standard Rules","Exception b","Exception b_1","Exception c","See Rules 5_1_1","Exception e","See Rules 5_2"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_1jlggzb">
+        <inputEntry id="UnaryTests_00w0ss5">
+          <text>"Standard Room"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1naares">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_15y3giy">
+          <text>"Standard Rules"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0km1e6c">
+        <inputEntry id="UnaryTests_1dhzsbk">
+          <text>"Duplex"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1go0oqc">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_16e8pi9">
+          <text>"Exception b"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1roiizm">
+        <inputEntry id="UnaryTests_166pv71">
+          <text>"Triplex"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ytab3b">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0zn7g25">
+          <text>"Exception b_1"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0n4ty0x">
+        <inputEntry id="UnaryTests_1t8g0s7">
+          <text>"Ground Floor and First Floor or intermediate level"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0crtt8k">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07hdabn">
+          <text>"Exception c"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1fhq8z8">
+        <inputEntry id="UnaryTests_03qmly3">
+          <text>"Technical Room"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vq5evi">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0t38uoi">
+          <text>"See Rules 5_1_1"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_10pcoe8">
+        <inputEntry id="UnaryTests_0au0ghf">
+          <text>"Atrium"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11xr2iv">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0hnv6hl">
+          <text>"Exception e"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ckhiiq">
+        <inputEntry id="UnaryTests_0fkapdn">
+          <text>"Parking"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1b55tt2">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0qs2wkl">
+          <text>"See Rules 5_2"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="RoomTypeInCompartment" name="RoomTypeInCompartment" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_1cjeuru" dmnElementRef="TypeOfBuilding">
+        <dc:Bounds height="45" width="125" x="357" y="367" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0m4nrqr" dmnElementRef="Decision_0tq5hn5">
+        <dc:Bounds height="80" width="180" x="330" y="220" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_02ur47g" dmnElementRef="InformationRequirement_0089o3m">
+        <di:waypoint x="420" y="367" />
+        <di:waypoint x="420" y="320" />
+        <di:waypoint x="420" y="300" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_01j9i14" dmnElementRef="Decision_0po0ae6">
+        <dc:Bounds height="80" width="180" x="330" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0wbouan" dmnElementRef="RoomTypeInCompartment">
+        <dc:Bounds height="45" width="125" x="157" y="97" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1tcf2zy" dmnElementRef="InformationRequirement_0cxni1g">
+        <di:waypoint x="282" y="120" />
+        <di:waypoint x="310" y="120" />
+        <di:waypoint x="330" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_10gqrb7" dmnElementRef="InformationRequirement_1punetv">
+        <di:waypoint x="420" y="220" />
+        <di:waypoint x="420" y="180" />
+        <di:waypoint x="420" y="160" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

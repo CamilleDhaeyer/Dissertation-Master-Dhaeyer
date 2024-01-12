@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_1k2uvmi" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <inputData id="HeightOfCompartment" name="HeightOfCompartment" />
+  <decision id="Decision_17ys0us" name="CompartmentException b1">
+    <informationRequirement id="InformationRequirement_092gx2l">
+      <requiredDecision href="#Decision_0mx0xd8" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0kurknw">
+      <requiredInput href="#ExceptionType" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1v4n14h">
+      <requiredInput href="#InternalStairCaseInCompartment" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_09e6ejh">
+      <requiredDecision href="#Decision_0pk2ceg" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_08rxefm">
+      <requiredDecision href="#Decision_13v8kf8" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0zn9zoj">
+      <input id="InputClause_1p34lsa" label="ExceptionType">
+        <inputExpression id="LiteralExpression_08p5t5j" typeRef="string">
+          <text>ExceptionType</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0majc6q" label="InternalStairCaseInCompartment" biodi:width="163">
+        <inputExpression id="LiteralExpression_09xaxza" typeRef="boolean">
+          <text>InternalStairCaseInCompartment</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_16a70an" label="TriplexHeightVerification" biodi:width="218">
+        <inputExpression id="LiteralExpression_144zuk3" typeRef="boolean">
+          <text>TriplexHeightVerification</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_10yo1il" label="CumulatedAreaOfTriplex" biodi:width="207">
+        <inputExpression id="LiteralExpression_06uq9tl" typeRef="double">
+          <text>CumulatedAreaOfTriplex</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_112i7yl" label="PresenceFireDetectionSystem">
+        <inputExpression id="LiteralExpression_1h51c57" typeRef="boolean">
+          <text>PresenceFireDetectionSystem</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0q7103i" label="CompartmentExceptionB1success" name="CompartmentExceptionB1success" typeRef="boolean" biodi:width="199" />
+      <rule id="DecisionRule_0c4niiv">
+        <inputEntry id="UnaryTests_1phn8u7">
+          <text>"Exception b 1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0my1jv9">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0u60pet">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ru7bng">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0nl2304">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1prny0e">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_16ml4pv">
+        <inputEntry id="UnaryTests_0vi69u3">
+          <text>"Exception b 1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0evkfp2">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07c13qv">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ly1lvh">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1b5tho3">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qihmzz">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_03c8pdi">
+        <inputEntry id="UnaryTests_11r7c00">
+          <text>"Exception b 1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vmv8kj">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18ar9uj">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1syqa4l">
+          <text>&lt;= 300</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cskeby">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0chvlum">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1co17rn">
+        <inputEntry id="UnaryTests_08rnmbz">
+          <text>"Exception b 1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0o07klp">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1w0kcq2">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kn0ly6">
+          <text>&lt;= 300</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_095296q">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_04nib3j">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ne4sha">
+        <description>Oppervlakte kleiner dan 300</description>
+        <inputEntry id="UnaryTests_0f3tck1">
+          <text>"Exception b 1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10jagua">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tuhg2h">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mo2ag9">
+          <text>&gt; 300</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18u860c">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0iomxuc">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InternalStairCaseInCompartment" name="InternalStairCaseInCompartment" />
+  <inputData id="HeightFirstFloorLevelOfTriplex" name="HeightFirstFloorLevelOfTriplex" />
+  <inputData id="ProvidedFireDetectionSystem" name="ProvidedFireDetectionSystem" />
+  <decision id="Decision_0mx0xd8" name="Determination of Fire Detection System">
+    <informationRequirement id="InformationRequirement_0t9vifc">
+      <requiredInput href="#ProvidedFireDetectionSystem" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0x8r6gl">
+      <input id="InputClause_0igb7xq" label="ProvidedFireDetectionSystem" biodi:width="188">
+        <inputExpression id="LiteralExpression_1o5c3cb" typeRef="string">
+          <text>ProvidedFireDetectionSystem</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0hjfr1l" label="PresenceFireDetectionSystem" name="PresenceFireDetectionSystem" typeRef="boolean" />
+      <rule id="DecisionRule_1qfhj8n">
+        <inputEntry id="UnaryTests_083j28z">
+          <text>"Automatic fire detection system total surveillance type with automatic indication of the fire alarm and adjusted detectors to the risks present"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1uv2wwx">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ec04z1">
+        <inputEntry id="UnaryTests_0mapmjf">
+          <text>"No fire detection system"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1joo2jt">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0wnx5s0">
+        <description>wrong system</description>
+        <inputEntry id="UnaryTests_18va7at">
+          <text>"Other type of fire detection"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0x0a5lb">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="TriplexAreaFirstFloor" name="TriplexAreaFirstFloor" />
+  <inputData id="ExceptionType" name="ExceptionType" />
+  <inputData id="TriplexAreaThirdFloor" name="TriplexAreaThirdFloor" />
+  <inputData id="TriplexAreaSecondFloor" name="TriplexAreaSecondFloor" />
+  <inputData id="HeightSecondFloorLevelOfTriplex" name="HeightSecondFloorLevelOfTriplex" />
+  <inputData id="HeightThirdFloorLevelOfTriplex" name="HeightThirdFloorLevelOfTriplex" />
+  <decision id="Decision_0pk2ceg" name="Calculate cumulated triplex area">
+    <informationRequirement id="InformationRequirement_0ivne0t">
+      <requiredInput href="#TriplexAreaSecondFloor" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1jtj1zw">
+      <requiredInput href="#TriplexAreaFirstFloor" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0u5zv20">
+      <requiredInput href="#TriplexAreaThirdFloor" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0cxuobk">
+      <input id="InputClause_1d4cb7h" label="TriplexAreaFirstFloor">
+        <inputExpression id="LiteralExpression_1bhbfas" typeRef="double">
+          <text>TriplexAreaFirstFloor</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1ok5ip3" label="TriplexAreaSecondFloor" biodi:width="201">
+        <inputExpression id="LiteralExpression_1644hz8" typeRef="double">
+          <text>TriplexAreaSecondFloor</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1yv4921" label="TriplexAreaThirdFloor">
+        <inputExpression id="LiteralExpression_1sp1oat" typeRef="double">
+          <text>TriplexAreaThirdFloor</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0w69avq" label="CumulatedAreaOfTriplex" name="CumulatedAreaOfTriplex" typeRef="double" />
+      <rule id="DecisionRule_1m41ri6">
+        <inputEntry id="UnaryTests_137ulyq">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0euxors">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hynu05">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1uvbq25">
+          <text>TriplexAreaFirstFloor+TriplexAreaSecondFloor+TriplexAreaThirdFloor</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_13v8kf8" name="Verify height of triplex">
+    <informationRequirement id="InformationRequirement_1qboyq1">
+      <requiredDecision href="#Decision_1rb7iq4" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_176ctti">
+      <requiredInput href="#HeightOfCompartment" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1vlof1f">
+      <input id="InputClause_1x4bs49" label="FullTriplexHeight">
+        <inputExpression id="LiteralExpression_1vk3x9n" typeRef="double">
+          <text>FullTriplexHeight</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0cmytoj" label="HeightOfCompartment">
+        <inputExpression id="LiteralExpression_07h1p4t" typeRef="double">
+          <text>HeightOfCompartment</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0ybc1hr" label="TriplexHeightVerification" name="TriplexHeightVerification" typeRef="boolean" />
+      <rule id="DecisionRule_0409gm4">
+        <inputEntry id="UnaryTests_07l1tuc">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0p7cr4w">
+          <text>&lt;FullTriplexHeight</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_01ouiv8">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0rb7r69">
+        <inputEntry id="UnaryTests_08dsswk">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0d6llaz">
+          <text>FullTriplexHeight</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1etqbsk">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0pq36xw">
+        <inputEntry id="UnaryTests_1burwjj">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1utjgah">
+          <text>&gt;FullTriplexHeight</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ij0z50">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_1rb7iq4" name="Calculate full triplex height">
+    <informationRequirement id="InformationRequirement_1oqzay8">
+      <requiredInput href="#HeightThirdFloorLevelOfTriplex" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0dpmxhx">
+      <requiredInput href="#HeightSecondFloorLevelOfTriplex" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_100vmqq">
+      <requiredInput href="#HeightFirstFloorLevelOfTriplex" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1xcreiv">
+      <input id="InputClause_0rv1j5w" label="HeightFirstFloorLevelOfTriplex">
+        <inputExpression id="LiteralExpression_1674g8h" typeRef="double">
+          <text>HeightFirstFloorLevelOfTriplex</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0u4oq4v" label="HeightSecondFloorLevelOfTriplex">
+        <inputExpression id="LiteralExpression_0qxtxfl" typeRef="double">
+          <text>HeightSecondFloorLevelOfTriplex</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1ykbll1" label="HeightThirdFloorLevelOfTriplex" biodi:width="192">
+        <inputExpression id="LiteralExpression_13big24" typeRef="double">
+          <text>HeightThirdFloorLevelOfTriplex</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0b27r3x" label="FullTriplexHeight" name="FullTriplexHeight" typeRef="double" />
+      <rule id="DecisionRule_0bwsef0">
+        <inputEntry id="UnaryTests_0wiodln">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0texwzj">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15rkgbz">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1wu4ezl">
+          <text>HeightFirstFloorLevelOfTriplex+HeightSecondFloorLevelOfTriplex+HeightThirdFloorLevelOfTriplex</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_03gphz2" dmnElementRef="HeightOfCompartment">
+        <dc:Bounds height="45" width="125" x="707" y="77" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1g1vvnc" dmnElementRef="Decision_17ys0us">
+        <dc:Bounds height="80" width="180" x="950" y="170" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0s8tw75" dmnElementRef="InternalStairCaseInCompartment">
+        <dc:Bounds height="45" width="125" x="1077" y="77" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1kkzkjg" dmnElementRef="HeightFirstFloorLevelOfTriplex">
+        <dc:Bounds height="45" width="125" x="157" y="227" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1yygb28" dmnElementRef="ProvidedFireDetectionSystem">
+        <dc:Bounds height="45" width="125" x="977" y="437" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1vp2ei1" dmnElementRef="Decision_0mx0xd8">
+        <dc:Bounds height="80" width="180" x="950" y="320" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_09yn4am" dmnElementRef="InformationRequirement_0t9vifc">
+        <di:waypoint x="1040" y="437" />
+        <di:waypoint x="1040" y="420" />
+        <di:waypoint x="1040" y="400" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0yte8mu" dmnElementRef="TriplexAreaFirstFloor">
+        <dc:Bounds height="45" width="125" x="1517" y="137" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1uxgzst" dmnElementRef="ExceptionType">
+        <dc:Bounds height="45" width="125" x="907" y="77" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0sq67oi" dmnElementRef="TriplexAreaThirdFloor">
+        <dc:Bounds height="45" width="125" x="1517" y="237" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0ajeka3" dmnElementRef="TriplexAreaSecondFloor">
+        <dc:Bounds height="45" width="125" x="1517" y="187" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1gxzw70" dmnElementRef="InformationRequirement_092gx2l">
+        <di:waypoint x="1040" y="320" />
+        <di:waypoint x="1040" y="270" />
+        <di:waypoint x="1040" y="250" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1s5cp54" dmnElementRef="InformationRequirement_0kurknw">
+        <di:waypoint x="970" y="122" />
+        <di:waypoint x="1010" y="150" />
+        <di:waypoint x="1010" y="170" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1irarw5" dmnElementRef="InformationRequirement_1v4n14h">
+        <di:waypoint x="1140" y="122" />
+        <di:waypoint x="1070" y="150" />
+        <di:waypoint x="1070" y="170" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_02nxytf" dmnElementRef="HeightSecondFloorLevelOfTriplex">
+        <dc:Bounds height="45" width="125" x="157" y="177" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1c1k47n" dmnElementRef="HeightThirdFloorLevelOfTriplex">
+        <dc:Bounds height="45" width="125" x="158" y="128" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0g9mn44" dmnElementRef="Decision_0pk2ceg">
+        <dc:Bounds height="80" width="180" x="1240" y="170" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1juuiic" dmnElementRef="InformationRequirement_09e6ejh">
+        <di:waypoint x="1240" y="210" />
+        <di:waypoint x="1150" y="210" />
+        <di:waypoint x="1130" y="210" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0iw2ea1" dmnElementRef="InformationRequirement_0ivne0t">
+        <di:waypoint x="1517" y="210" />
+        <di:waypoint x="1440" y="210" />
+        <di:waypoint x="1420" y="210" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0ad2wok" dmnElementRef="InformationRequirement_1jtj1zw">
+        <di:waypoint x="1517" y="160" />
+        <di:waypoint x="1440" y="190" />
+        <di:waypoint x="1420" y="190" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1oltcoj" dmnElementRef="InformationRequirement_0u5zv20">
+        <di:waypoint x="1517" y="260" />
+        <di:waypoint x="1440" y="230" />
+        <di:waypoint x="1420" y="230" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_165h5g4" dmnElementRef="Decision_13v8kf8">
+        <dc:Bounds height="80" width="180" x="680" y="170" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1vbpbhi" dmnElementRef="Decision_1rb7iq4">
+        <dc:Bounds height="80" width="180" x="420" y="160" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0aut7mr" dmnElementRef="InformationRequirement_1oqzay8">
+        <di:waypoint x="283" y="151" />
+        <di:waypoint x="400" y="180" />
+        <di:waypoint x="420" y="180" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0n4775j" dmnElementRef="InformationRequirement_0dpmxhx">
+        <di:waypoint x="282" y="200" />
+        <di:waypoint x="400" y="200" />
+        <di:waypoint x="420" y="200" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_02epnnk" dmnElementRef="InformationRequirement_100vmqq">
+        <di:waypoint x="282" y="250" />
+        <di:waypoint x="400" y="220" />
+        <di:waypoint x="420" y="220" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0g67va4" dmnElementRef="InformationRequirement_1qboyq1">
+        <di:waypoint x="600" y="200" />
+        <di:waypoint x="660" y="210" />
+        <di:waypoint x="680" y="210" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_021hwzl" dmnElementRef="InformationRequirement_08rxefm">
+        <di:waypoint x="860" y="210" />
+        <di:waypoint x="930" y="210" />
+        <di:waypoint x="950" y="210" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1lkgoxc" dmnElementRef="InformationRequirement_176ctti">
+        <di:waypoint x="770" y="122" />
+        <di:waypoint x="770" y="150" />
+        <di:waypoint x="770" y="170" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

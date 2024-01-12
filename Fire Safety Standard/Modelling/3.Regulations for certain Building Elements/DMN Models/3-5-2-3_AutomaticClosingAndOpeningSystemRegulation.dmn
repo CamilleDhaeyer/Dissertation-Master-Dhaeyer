@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0xqox2e" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_0r17x8w" name="Operating requirements">
+    <informationRequirement id="InformationRequirement_0wq2p9a">
+      <requiredInput href="#AutomaticClosingAndOpeningByFireDetectionInstallation" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1w7isql">
+      <requiredInput href="#FireDetectionSystemHasManualOpeningAndClosingOperatingSystem" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0q7muf7">
+      <input id="Input_1" label="AutomaticClosingAndOpeningByFireDetectionInstallation" biodi:width="192">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text>AutomaticClosingAndOpeningByFireDetectionInstallation</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0rcusd9" label="FireDetectionInstallationHasManualOpeningAndClosingOperatingSystem">
+        <inputExpression id="LiteralExpression_10lhdgr" typeRef="boolean">
+          <text>FireDetectionInstallationHasManualOpeningAndClosingOperatingSystem</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="OperationSuccess" name="OperationSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_1aoo63x">
+        <inputEntry id="UnaryTests_17lyqpk">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1akpzf2">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1rq02at">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1k49hb0">
+        <inputEntry id="UnaryTests_11em4rf">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00yc8vz">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0y2zwwe">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0zoxrkp">
+        <inputEntry id="UnaryTests_0f5b30a">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cpfjy4">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0nb3qp7">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_10o1l87">
+        <inputEntry id="UnaryTests_1mpjav9">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1v3hm0f">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1803dq6">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_1mu4yix" name="Operation requirements for fire in neighbouring compartment">
+    <informationRequirement id="InformationRequirement_1i4d9lx">
+      <requiredInput href="#OpeningClosingSystemHasPositiveSecurity" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1xkgz88">
+      <requiredInput href="#OpeningClosingSystemCableRequirements" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_11i71iu">
+      <input id="InputClause_134n9qh" label="OpeningClosingSystemHasPositiveSecurity">
+        <inputExpression id="LiteralExpression_03tp6lf" typeRef="boolean">
+          <text>OpeningClosingSystemHasPositiveSecurity</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0xwq52a" label="OpeningClosingSystemCableRequirements">
+        <inputExpression id="LiteralExpression_0nslaz8" typeRef="boolean">
+          <text>OpeningClosingSystemCableRequirements</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0mh6v7o" label="NeighbouringCompartmentFireSuccess" name="NeighbouringCompartmentFireSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_1aqrcjq">
+        <inputEntry id="UnaryTests_0bqvgma">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ojfmor">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0tkl7pn">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0da7d20">
+        <description>OpeningClosingSystemCableRequirements from DMN 652</description>
+        <inputEntry id="UnaryTests_1wzo9io">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ia3df0">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0z49fq1">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_15ob3rv">
+        <inputEntry id="UnaryTests_1r7gznx">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sioyda">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0u56ths">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_0pjgbzb" name="Reliability requirements">
+    <informationRequirement id="InformationRequirement_0kv6ds3">
+      <requiredInput href="#NormalPowerSourceAvailability" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1mc7h4z">
+      <requiredInput href="#AutomaticNotificationWithPowerOutage" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_06s14lo">
+      <requiredInput href="#OpeningClosingSystemInSecurePositionBy" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1d708yp">
+      <input id="InputClause_1h9gx33" label="NormalPowerSourceAvailability">
+        <inputExpression id="LiteralExpression_1m91im0" typeRef="boolean">
+          <text>NormalPowerSourceAvailability</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1fnux5r" label="AutomaticNotificationWithPowerOutage">
+        <inputExpression id="LiteralExpression_0bu4hec" typeRef="boolean">
+          <text>AutomaticNotificationWithPowerOutage</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_04jfjaq" label="OpeningClosingSystemInSecurePositionBy">
+        <inputExpression id="LiteralExpression_0x10lkv" typeRef="string">
+          <text>OpeningClosingSystemInSecurePositionBy</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0s633di" label="ReliabilitySuccess" name="ReliabilitySuccess" typeRef="boolean" />
+      <rule id="DecisionRule_0nl18xp">
+        <inputEntry id="UnaryTests_1txwnsd">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zzd4ss">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_023u7ms">
+          <text>"Fire Detection Installation","Manual opening and closing operating system","No system"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0u1tjir">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_05d23d7">
+        <inputEntry id="UnaryTests_0hifke9">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sws1bl">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nl01ly">
+          <text>"Fire Detection Installation","Manual opening and closing operating system"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0yj4krg">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_010idsr">
+        <inputEntry id="UnaryTests_0pr42lu">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rpedob">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zql9nt">
+          <text>"Fire Detection Installation","Manual opening and closing operating system","No system"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1q4r40n">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_05j8g9f" name="Requirements for the automatic opening and closing systems">
+    <informationRequirement id="InformationRequirement_1tcrvqd">
+      <requiredDecision href="#Decision_0r17x8w" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1hg5qkl">
+      <requiredDecision href="#Decision_0pjgbzb" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1gu798o">
+      <requiredDecision href="#Decision_1mu4yix" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_02nx658" hitPolicy="FIRST">
+      <input id="InputClause_0kkikvw" label="OperationSuccess">
+        <inputExpression id="LiteralExpression_1qh882a" typeRef="boolean">
+          <text>OperationSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1v7pcic" label="ReliabilitySuccess">
+        <inputExpression id="LiteralExpression_0gj9rf4" typeRef="boolean">
+          <text>ReliabilitySuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0qaogrh" label="NeighbouringCompartmentFireSuccess">
+        <inputExpression id="LiteralExpression_18i52d9" typeRef="boolean">
+          <text>NeighbouringCompartmentFireSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_09orva9" label="AutomaticOpeningClosingSystemSuccess" name="AutomaticOpeningClosingSystemSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_0ft13k9">
+        <inputEntry id="UnaryTests_0n76qzj">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1w8mi8z">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wo406e">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_18pzesy">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_01yqwom">
+        <inputEntry id="UnaryTests_1e98p79">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1oa7zsh">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1z00fux">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_01li8dh">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="AutomaticClosingAndOpeningByFireDetectionInstallation" name="AutomaticClosingAndOpeningByFireDetectionInstallation" />
+  <inputData id="FireDetectionSystemHasManualOpeningAndClosingOperatingSystem" name="FireDetectionSystemHasManualOpeningAndClosingOperatingSystem" />
+  <inputData id="NormalPowerSourceAvailability" name="NormalPowerSourceAvailability" />
+  <inputData id="AutomaticNotificationWithPowerOutage" name="AutomaticNotificationWithPowerOutage" />
+  <inputData id="OpeningClosingSystemInSecurePositionBy" name="OpeningClosingSystemInSecurePositionBy" />
+  <inputData id="OpeningClosingSystemHasPositiveSecurity" name="OpeningClosingSystemHasPositiveSecurity" />
+  <inputData id="OpeningClosingSystemCableRequirements" name="OpeningClosingSystemCableRequirements" />
+  <textAnnotation id="TextAnnotation_1rfr4lq">
+    <text>To check on each fire detection installation</text>
+  </textAnnotation>
+  <association id="Association_04caicv">
+    <sourceRef href="#TextAnnotation_1rfr4lq" />
+    <targetRef href="#Decision_05j8g9f" />
+  </association>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_0r17x8w">
+        <dc:Bounds height="80" width="180" x="310" y="390" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0s442w2" dmnElementRef="Decision_1mu4yix">
+        <dc:Bounds height="80" width="180" x="770" y="390" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0fbva2a" dmnElementRef="Decision_0pjgbzb">
+        <dc:Bounds height="80" width="180" x="550" y="390" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_115w3g5" dmnElementRef="Decision_05j8g9f">
+        <dc:Bounds height="80" width="180" x="550" y="210" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0gdex52" dmnElementRef="InformationRequirement_1tcrvqd">
+        <di:waypoint x="400" y="390" />
+        <di:waypoint x="595" y="310" />
+        <di:waypoint x="595" y="290" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_09aq229" dmnElementRef="InformationRequirement_1hg5qkl">
+        <di:waypoint x="640" y="390" />
+        <di:waypoint x="640" y="310" />
+        <di:waypoint x="640" y="290" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0jnjgra" dmnElementRef="InformationRequirement_1gu798o">
+        <di:waypoint x="860" y="390" />
+        <di:waypoint x="685" y="310" />
+        <di:waypoint x="685" y="290" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1yuvc2d" dmnElementRef="AutomaticClosingAndOpeningByFireDetectionInstallation">
+        <dc:Bounds height="45" width="125" x="158" y="538" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1wnabuc" dmnElementRef="InformationRequirement_0wq2p9a">
+        <di:waypoint x="221" y="538" />
+        <di:waypoint x="370" y="490" />
+        <di:waypoint x="370" y="470" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0o3441m" dmnElementRef="FireDetectionSystemHasManualOpeningAndClosingOperatingSystem">
+        <dc:Bounds height="45" width="125" x="307" y="538" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_19kgbj6" dmnElementRef="InformationRequirement_1w7isql">
+        <di:waypoint x="370" y="538" />
+        <di:waypoint x="430" y="490" />
+        <di:waypoint x="430" y="470" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0r3s30l" dmnElementRef="NormalPowerSourceAvailability">
+        <dc:Bounds height="45" width="125" x="447" y="538" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0dq138g" dmnElementRef="InformationRequirement_0kv6ds3">
+        <di:waypoint x="510" y="538" />
+        <di:waypoint x="595" y="490" />
+        <di:waypoint x="595" y="470" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1vzudnm" dmnElementRef="AutomaticNotificationWithPowerOutage">
+        <dc:Bounds height="45" width="125" x="577" y="538" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0y1gam9" dmnElementRef="InformationRequirement_1mc7h4z">
+        <di:waypoint x="640" y="538" />
+        <di:waypoint x="640" y="490" />
+        <di:waypoint x="640" y="470" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1tebovc" dmnElementRef="OpeningClosingSystemInSecurePositionBy">
+        <dc:Bounds height="45" width="125" x="707" y="538" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0o2wfk5" dmnElementRef="InformationRequirement_06s14lo">
+        <di:waypoint x="770" y="538" />
+        <di:waypoint x="685" y="490" />
+        <di:waypoint x="685" y="470" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1cad995" dmnElementRef="OpeningClosingSystemHasPositiveSecurity">
+        <dc:Bounds height="45" width="125" x="848" y="539" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_10ars6g" dmnElementRef="InformationRequirement_1i4d9lx">
+        <di:waypoint x="911" y="539" />
+        <di:waypoint x="830" y="490" />
+        <di:waypoint x="830" y="470" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_173omhh" dmnElementRef="OpeningClosingSystemCableRequirements">
+        <dc:Bounds height="45" width="125" x="988" y="539" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1vcdkfm" dmnElementRef="InformationRequirement_1xkgz88">
+        <di:waypoint x="1051" y="539" />
+        <di:waypoint x="890" y="490" />
+        <di:waypoint x="890" y="470" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0n4xuow" dmnElementRef="TextAnnotation_1rfr4lq">
+        <dc:Bounds height="80" width="100" x="730" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_135agkt" dmnElementRef="Association_04caicv">
+        <di:waypoint x="737" y="160" />
+        <di:waypoint x="683" y="210" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

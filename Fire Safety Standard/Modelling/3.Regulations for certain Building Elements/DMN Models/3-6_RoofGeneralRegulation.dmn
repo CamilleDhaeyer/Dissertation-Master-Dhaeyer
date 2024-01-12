@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_1egsixw" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <inputData id="FireResistanceRoofSuccess" name="FireResistanceRoofSuccess" />
+  <inputData id="FireResistanceRoofSubFloorSuccess" name="FireResistanceRoofSubFloorSuccess" />
+  <inputData id="FireResistanceAccesOpeningToRoofSuccess" name="FireResistanceAccesOpeningToRoofSuccess" />
+  <inputData id="RoofSpaceEmpty" name="RoofSpaceEmpty" />
+  <decision id="Decision_1wfa2yc" name="Roof regulation" camunda:historyTimeToLive="2">
+    <informationRequirement id="InformationRequirement_12r86w5">
+      <requiredInput href="#FireResistanceRoofSubFloorSuccess" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0ies571">
+      <requiredInput href="#FireResistanceAccesOpeningToRoofSuccess" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1ltpdjk">
+      <requiredInput href="#RoofSpaceEmpty" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_02hb1zk">
+      <requiredInput href="#FireResistanceRoofSuccess" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0f560q2" hitPolicy="FIRST">
+      <input id="InputClause_0gu3vmp" label="FireResistanceRoofSubFloorSuccess">
+        <inputExpression id="LiteralExpression_12f0hvm" typeRef="boolean">
+          <text>FireResistanceRoofSubFloorSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0k5w0fl" label="FireResistanceAccesOpeningToRoofSuccess">
+        <inputExpression id="LiteralExpression_1am1ooo" typeRef="boolean">
+          <text>FireResistanceAccesOpeningToRoofSuccess</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1pkfdx4" label="RoofSpaceEmpty">
+        <inputExpression id="LiteralExpression_1b7cokj" typeRef="boolean">
+          <text>RoofSpaceEmpty</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1po1vpl" label="FireResistanceRoofSuccess">
+        <inputExpression id="LiteralExpression_1q288a7" typeRef="boolean">
+          <text>FireResistanceRoofSuccess</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_065log8" label="RoofRegulationSuccess" name="RoofRegulationSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_1ojsnzz">
+        <description>FireResistanceRoofSubFloorSuccess via EI60 module</description>
+        <inputEntry id="UnaryTests_1qw6zs3">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gvlc7w">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ppkhhg">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mahk5w">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0jei7hf">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1wbnes9">
+        <description>FireResistanceAccesOpeningToRoofSuccess via EI 30 module</description>
+        <inputEntry id="UnaryTests_06b8ldz">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1t20i78">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0j17yb5">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16dsvzy">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_17xq6ne">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_10ep38b">
+        <description>FireResistanceRoofSuccess via R 60 module</description>
+        <inputEntry id="UnaryTests_0jebdj8">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10a18sj">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0v5rmug">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ge0gmo">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1nxlzw6">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_1oqq3w4" dmnElementRef="FireResistanceRoofSuccess">
+        <dc:Bounds height="45" width="125" x="157" y="97" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1iqmzaf" dmnElementRef="FireResistanceRoofSubFloorSuccess">
+        <dc:Bounds height="45" width="125" x="227" y="207" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_13phqg5" dmnElementRef="FireResistanceAccesOpeningToRoofSuccess">
+        <dc:Bounds height="45" width="125" x="357" y="207" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0fwz4da" dmnElementRef="RoofSpaceEmpty">
+        <dc:Bounds height="45" width="125" x="488" y="207" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0v0u0ms" dmnElementRef="Decision_1wfa2yc">
+        <dc:Bounds height="80" width="180" x="330" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_13aik0b" dmnElementRef="InformationRequirement_12r86w5">
+        <di:waypoint x="290" y="207" />
+        <di:waypoint x="375" y="180" />
+        <di:waypoint x="375" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1y3kgf2" dmnElementRef="InformationRequirement_0ies571">
+        <di:waypoint x="420" y="207" />
+        <di:waypoint x="420" y="180" />
+        <di:waypoint x="420" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0ulj9gd" dmnElementRef="InformationRequirement_1ltpdjk">
+        <di:waypoint x="551" y="207" />
+        <di:waypoint x="465" y="180" />
+        <di:waypoint x="465" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1win9oo" dmnElementRef="InformationRequirement_02hb1zk">
+        <di:waypoint x="282" y="120" />
+        <di:waypoint x="310" y="120" />
+        <di:waypoint x="330" y="120" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

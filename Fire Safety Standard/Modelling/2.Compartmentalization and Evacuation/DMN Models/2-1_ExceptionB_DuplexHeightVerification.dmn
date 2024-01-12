@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0ekg9kb" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_0opuzt8" name="Calculate full duplex height">
+    <decisionTable id="DecisionTable_0sm6awb">
+      <input id="InputClause_0l1d5oe" label="HeightFirstFloorLevelOfDuplex">
+        <inputExpression id="LiteralExpression_0kmv1bi" typeRef="double">
+          <text>HeightFirstFloorLevelOfDuplex</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0q9dj7m" label="HeightSecondFloorLevelOfDuplex">
+        <inputExpression id="LiteralExpression_1uqojzl" typeRef="double">
+          <text>HeightSecondFloorLevelOfDuplex</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="FullHeightDuplex" name="FullHeightDuplex" typeRef="double" />
+      <rule id="DecisionRule_0exjvlh">
+        <inputEntry id="UnaryTests_0522pel">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_076ofcr">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ssd2n1">
+          <text>HeightFirstFloorLevelOfDuplex+HeightSecondFloorLevelOfDuplex</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_1ij3zzt" name="Verify height of duplex">
+    <informationRequirement id="InformationRequirement_16x3sxg">
+      <requiredDecision href="#Decision_0opuzt8" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1d1hudu">
+      <input id="InputClause_10be6g1" label="HeightOfCompartment">
+        <inputExpression id="LiteralExpression_1v7e3az" typeRef="double">
+          <text>HeightOfCompartment</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1mo0lxj" label="DuplexHeightVerification" name="DuplexHeightVerification" typeRef="boolean" />
+      <rule id="DecisionRule_130pvh7">
+        <inputEntry id="UnaryTests_1u252x8">
+          <text>FullHeightDuplex</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1o0hfdw">
+          <text>True</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0l6zmxt">
+        <inputEntry id="UnaryTests_0l75f4c">
+          <text>&lt;FullHeightDuplex</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_02fnbpv">
+          <text>False</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0k1xzpi">
+        <inputEntry id="UnaryTests_1e1ko96">
+          <text>&gt;FullHeightDuplex</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1e3hd6a">
+          <text>False</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_0opuzt8">
+        <dc:Bounds height="80" width="180" x="160" y="260" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1y4637c" dmnElementRef="Decision_1ij3zzt">
+        <dc:Bounds height="80" width="180" x="160" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0on56ha" dmnElementRef="InformationRequirement_16x3sxg">
+        <di:waypoint x="250" y="260" />
+        <di:waypoint x="250" y="180" />
+        <di:waypoint x="250" y="160" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

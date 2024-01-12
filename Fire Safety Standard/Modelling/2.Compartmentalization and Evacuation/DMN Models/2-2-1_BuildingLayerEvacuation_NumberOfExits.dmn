@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_14y8tnk" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_13uyt8v" name="Minimal Exits In a building layer">
+    <informationRequirement id="InformationRequirement_0fbkepj">
+      <requiredInput href="#MaximalOccupancy" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0umzwme">
+      <input id="InputClause_1kxpta9" label="MaximalOccupancy">
+        <inputExpression id="LiteralExpression_0ka9c46" typeRef="double">
+          <text>MaximalOccupancy</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="MinimalNumberOfExits" name="MinimalNumberOfExits" typeRef="integer" />
+      <rule id="DecisionRule_1ovhinr">
+        <inputEntry id="UnaryTests_00v20ui">
+          <text>[50..500[</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1wp3ege">
+          <text>2</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_00lfwpy">
+        <inputEntry id="UnaryTests_0osp49f">
+          <text>&gt;= 500</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1yekhc1">
+          <text>2 + ceiling(MaximalOccupancy/1000)</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="MaximalOccupancy" name="MaximalOccupancy" />
+  <inputData id="FireResistanceTerraceFloor" name="FireResistanceTerraceFloor" />
+  <inputData id="NumberOfBuildingLayerExits" name="NumberOfBuildingLayerExits" />
+  <decision id="Decision_1g3uao9" name="BuildingLayerNumberOfExitsVerification">
+    <informationRequirement id="InformationRequirement_039lx9s">
+      <requiredDecision href="#Decision_13uyt8v" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1gizn5u">
+      <requiredInput href="#NumberOfBuildingLayerExits" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0oiiujm">
+      <input id="InputClause_014bzj3" label="NumberOfBuildingLayerExits">
+        <inputExpression id="LiteralExpression_176dzum" typeRef="integer">
+          <text>NumberOfBuildingLayerExits</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0c9e0ne" label="BuildingLayerNumberOfExitsVerification" name="BuildingLayerNumberOfExitsVerification" typeRef="boolean" />
+      <rule id="DecisionRule_0lqvx6s">
+        <inputEntry id="UnaryTests_1t96mzm">
+          <text>&gt;=MinimalNumberOfExits</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0wb3s3z">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1x719sz">
+        <inputEntry id="UnaryTests_00wrw90">
+          <text>&lt;MinimalNumberOfExits</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_05wrxc1">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_13uyt8v">
+        <dc:Bounds height="80" width="180" x="480" y="230" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_09ro8pq" dmnElementRef="MaximalOccupancy">
+        <dc:Bounds height="45" width="125" x="507" y="357" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1f8s6ba" dmnElementRef="FireResistanceTerraceFloor">
+        <dc:Bounds height="45" width="125" x="157" y="857" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0vkdhcm" dmnElementRef="NumberOfBuildingLayerExits">
+        <dc:Bounds height="45" width="125" x="307" y="97" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_01wibi0" dmnElementRef="InformationRequirement_0fbkepj">
+        <di:waypoint x="570" y="357" />
+        <di:waypoint x="570" y="330" />
+        <di:waypoint x="570" y="310" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1guydyg" dmnElementRef="InformationRequirement_039lx9s">
+        <di:waypoint x="570" y="230" />
+        <di:waypoint x="570" y="180" />
+        <di:waypoint x="570" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0wivp0l" dmnElementRef="Decision_1g3uao9">
+        <dc:Bounds height="80" width="180" x="480" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1hp3vfm" dmnElementRef="InformationRequirement_1gizn5u">
+        <di:waypoint x="432" y="120" />
+        <di:waypoint x="460" y="120" />
+        <di:waypoint x="480" y="120" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

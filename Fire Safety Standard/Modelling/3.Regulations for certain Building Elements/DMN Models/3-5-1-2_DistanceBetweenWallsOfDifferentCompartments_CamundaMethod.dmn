@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_0fp3138" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.16.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="CosinusDMN2" name="Decision COS" camunda:historyTimeToLive="10">
+    <informationRequirement id="InformationRequirement_1f844lu">
+      <requiredInput href="#EnclosedCornerBetweenTheFacades" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1drsvh0">
+      <requiredDecision href="#SameCompartmentDMN" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0s3wzf4">
+      <requiredInput href="#CosineCalc" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0vfsqgk">
+      <input id="Input_1" label="SameCompartment">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text>SameCompartment</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_08id2qq" label="EnclosedCornerBetweenTheFacades">
+        <inputExpression id="LiteralExpression_1o0ra6r" typeRef="double">
+          <text>EnclosedCornerBetweenTheFacades</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0kpx4k2" label="CosineCalc">
+        <inputExpression id="LiteralExpression_0crup8x" typeRef="double">
+          <text>CosineCalc</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="MinimalDistanceBetweenWalls" name="MinimalDistanceBetweenWalls" typeRef="double" />
+      <rule id="DecisionRule_1cmab0x">
+        <inputEntry id="UnaryTests_0mzm09u">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13ay1c3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1galsy8">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_12ou05x">
+          <text>0</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0nbkr6q">
+        <inputEntry id="UnaryTests_0ufu8ny">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05mfbx5">
+          <text>[0..90]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rs54bq">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_06dk07c">
+          <text>CosineCalc</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1xdanbj">
+        <inputEntry id="UnaryTests_1qlio6c">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0581y3g">
+          <text>]90..180]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1f961tq">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0bwj45w">
+          <text>CosineCalc</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="CompartmentNameFacadeWall1" name="CompartmentNameFacadeWall1" />
+  <inputData id="EnclosedCornerBetweenTheFacades" name="EnclosedCornerBetweenTheFacades" />
+  <inputData id="CompartmentNameFacadeWall2" name="CompartmentNameFacadeWall2" />
+  <decision id="SameCompartmentDMN" name="Verify if walls are from different compartments" camunda:historyTimeToLive="10">
+    <informationRequirement id="InformationRequirement_10zdghi">
+      <requiredInput href="#CompartmentNameFacadeWall2" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0oosyz9">
+      <requiredInput href="#CompartmentNameFacadeWall1" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1w5bwzc">
+      <input id="InputClause_183a5vw" label="CompartmentNameFacadeWall1">
+        <inputExpression id="LiteralExpression_0ghjijd" typeRef="string">
+          <text>CompartmentNameFacadeWall1</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0dxn737" label="CompartmentNameFacadeWall2">
+        <inputExpression id="LiteralExpression_07001f6" typeRef="string">
+          <text>CompartmentNameFacadeWall2</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1ehcjss" label="SameCompartment" name="SameCompartment" typeRef="boolean" />
+      <rule id="DecisionRule_04lw6wk">
+        <inputEntry id="UnaryTests_0g93s3t">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zu8rrc">
+          <text>CompartmentNameFacadeWall1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_14uc1cf">
+          <text>True</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0jj3f62">
+        <inputEntry id="UnaryTests_0pag2o0">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cnrti2">
+          <text>not(CompartmentNameFacadeWall1)</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ky90o3">
+          <text>False</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="CosineCalc" name="CosineCalc" />
+  <decision id="Decision_05qeyyz" name="Verify minimal distance">
+    <informationRequirement id="InformationRequirement_1f0h0me">
+      <requiredDecision href="#CosinusDMN2" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_11zcubn">
+      <requiredInput href="#DistanceBetweenUnsufficientElements" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0rirtav">
+      <input id="InputClause_04m04uj" label="MinimalDistanceBetweenWalls" biodi:width="153">
+        <inputExpression id="LiteralExpression_0cvo515" typeRef="double">
+          <text>MinimalDistanceBetweenWalls</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_01xzcsb" label="DistanceBetweenUnsufficientFireResistanceElements" biodi:width="240">
+        <inputExpression id="LiteralExpression_0c4dsmx" typeRef="double">
+          <text>DistanceBetweenUnsufficientFireResistanceElements</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0l9l916" label="DistanceBetweenUnsufficientElementsSuccess" name="DistanceBetweenUnsufficientElementsSuccess" typeRef="boolean" />
+      <rule id="DecisionRule_08c7x9r">
+        <inputEntry id="UnaryTests_07p0a7d">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1i80y2g">
+          <text>&lt;MinimalDistanceBetweenWalls</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1xwlw2d">
+          <text>False</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0t0gcnv">
+        <inputEntry id="UnaryTests_19qnbk6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wtb7m3">
+          <text>&gt;=MinimalDistanceBetweenWalls</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_00cptww">
+          <text>True</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="DistanceBetweenUnsufficientElements" name="DistanceBetweenUnsufficientElements" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="CosinusDMN2">
+        <dc:Bounds height="80" width="180" x="580" y="200" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_18kf84j" dmnElementRef="CompartmentNameFacadeWall1">
+        <dc:Bounds height="45" width="125" x="157" y="187" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1n1wu68" dmnElementRef="EnclosedCornerBetweenTheFacades">
+        <dc:Bounds height="45" width="125" x="607" y="338" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0ir9ucy" dmnElementRef="InformationRequirement_1f844lu">
+        <di:waypoint x="670" y="338" />
+        <di:waypoint x="670" y="300" />
+        <di:waypoint x="670" y="280" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_10up7jf" dmnElementRef="CompartmentNameFacadeWall2">
+        <dc:Bounds height="45" width="125" x="157" y="247" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0mawubl" dmnElementRef="SameCompartmentDMN">
+        <dc:Bounds height="80" width="180" x="350" y="200" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0b2iic0" dmnElementRef="InformationRequirement_10zdghi">
+        <di:waypoint x="282" y="270" />
+        <di:waypoint x="330" y="253" />
+        <di:waypoint x="350" y="253" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_11pee24" dmnElementRef="InformationRequirement_0oosyz9">
+        <di:waypoint x="282" y="210" />
+        <di:waypoint x="330" y="227" />
+        <di:waypoint x="350" y="227" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0g9r2va" dmnElementRef="InformationRequirement_1drsvh0">
+        <di:waypoint x="530" y="240" />
+        <di:waypoint x="560" y="240" />
+        <di:waypoint x="580" y="240" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1v8zl40" dmnElementRef="CosineCalc">
+        <dc:Bounds height="45" width="125" x="607" y="78" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1k4m5vo" dmnElementRef="InformationRequirement_0s3wzf4">
+        <di:waypoint x="670" y="123" />
+        <di:waypoint x="670" y="180" />
+        <di:waypoint x="670" y="200" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_14oml3j" dmnElementRef="Decision_05qeyyz">
+        <dc:Bounds height="80" width="180" x="850" y="200" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_03x2o87" dmnElementRef="InformationRequirement_1f0h0me">
+        <di:waypoint x="760" y="240" />
+        <di:waypoint x="830" y="240" />
+        <di:waypoint x="850" y="240" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0mqepa3" dmnElementRef="DistanceBetweenUnsufficientElements">
+        <dc:Bounds height="45" width="125" x="1107" y="217" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1n0wz4v" dmnElementRef="InformationRequirement_11zcubn">
+        <di:waypoint x="1107" y="240" />
+        <di:waypoint x="1050" y="240" />
+        <di:waypoint x="1030" y="240" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
