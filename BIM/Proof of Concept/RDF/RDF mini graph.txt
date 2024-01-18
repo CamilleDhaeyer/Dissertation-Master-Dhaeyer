@@ -1,0 +1,40 @@
+inst:IfcLabel_40398 rdf:type ifc:IfcLabel .
+inst:IfcLabel_40398 express:hasString "EI_30" .
+inst:IfcPropertySingleValue_10784 ifc:nominalValue_IfcPropertySingleValue inst:IfcLabel_40398 .
+inst:IfcPropertySingleValue_10940 ifc:nominalValue_IfcPropertySingleValue inst:IfcLabel_40398 .
+inst:IfcPropertySingleValue_18199 ifc:nominalValue_IfcPropertySingleValue inst:IfcLabel_40398 .
+inst:IfcPropertySingleValue_18303 ifc:nominalValue_IfcPropertySingleValue inst:IfcLabel_40398 .
+
+inst:IfcPropertySingleValue_10784 rdf:type ifc:IfcPropertySingleValue .
+inst:IfcPropertySingleValue_10784 ifc:name_IfcProperty inst:IfcIdentifier_40397 .
+inst:IfcPropertySet_10785 ifc:hasProperties_IfcPropertySet inst:IfcPropertySingleValue_10784 .
+
+inst:IfcPropertySet_10785 rdf:type ifc:IfcPropertySet .
+inst:IfcPropertySet_10785 ifc:globalId_IfcRoot inst:IfcGloballyUniqueId_40399 .
+inst:IfcRelDefinesByProperties_10817 ifc:relatingPropertyDefinition_IfcRelDefinesByProperties inst:IfcPropertySet_10785 .
+
+inst:IfcRelDefinesByProperties_10817 ifc:relatedObjects_IfcRelDefines inst:IfcWallStandardCase_10698 .
+inst:IfcRelDefinesByProperties_10817 ifc:relatingPropertyDefinition_IfcRelDefinesByProperties inst:IfcPropertySet_10785 .
+
+inst:IfcWallStandardCase_10698 rdf:type ifc:IfcWallStandardCase
+inst:IfcWallStandardCase_10698 ifc:tag_IfcElement inst:IfcIdentifier_40331 .
+inst:IfcRelVoidsElement_10712 ifc:relatingBuildingElement_IfcRelVoidsElement inst:IfcWallStandardCase_10698 .
+inst:IfcRelVoidsElement_10740 ifc:relatingBuildingElement_IfcRelVoidsElement inst:IfcWallStandardCase_10698 .
+inst:IfcRelVoidsElement_10754 ifc:relatingBuildingElement_IfcRelVoidsElement inst:IfcWallStandardCase_10698 .
+inst:IfcRelVoidsElement_10768 ifc:relatingBuildingElement_IfcRelVoidsElement inst:IfcWallStandardCase_10698 .
+inst:IfcRelContainedInSpatialStructure_18841 ifc:relatedElements_IfcRelContainedInSpatialStructure inst:IfcWallStandardCase_10698 .
+inst:IfcRelDefinesByType_19063 ifc:relatedObjects_IfcRelDefines inst:IfcWallStandardCase_10698 .
+---------------------------------------------------------------------------------------------------------------------------------------------------
+inst:IfcIdentifier_40397 express:hasString "FireResistanceRating" .
+inst:IfcLabel_40400 express:hasString "Pset_FireRatingProperties" .
+inst:IfcLabel_40398 rdf:type ifc:IfcLabel .
+inst:IfcLabel_40398 express:hasString "EI_30" .
+inst:IfcPropertySingleValue_18199 ifc:name_IfcProperty inst:IfcIdentifier_40397 .
+inst:IfcPropertySingleValue_18199 ifc:nominalValue_IfcPropertySingleValue inst:IfcLabel_40398 .
+inst:IfcPropertySet_18200 ifc:name_IfcRoot inst:IfcLabel_40400 .
+inst:IfcPropertySet_18200 ifc:hasProperties_IfcPropertySet inst:IfcPropertySingleValue_18199 
+inst:IfcRelDefinesByProperties_18205 ifc:relatingPropertyDefinition_IfcRelDefinesByProperties inst:IfcPropertySet_18200 .
+inst:IfcRelDefinesByProperties_18205 ifc:relatedObjects_IfcRelDefines inst:IfcWallStandardCase_18197 .
+inst:IfcWallStandardCase_18197 rdf:type ifc:IfcWallStandardCase .
+inst:IfcWallStandardCase_18197 ifc:globalId_IfcRoot inst:IfcGloballyUniqueId_51605 .
+inst:IfcGloballyUniqueId_51605 express:hasString "0MC3TvFCX3jBSGHKgPQQlJ"
