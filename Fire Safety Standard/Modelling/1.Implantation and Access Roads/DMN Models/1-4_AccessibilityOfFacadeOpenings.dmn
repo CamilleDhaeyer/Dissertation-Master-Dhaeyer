@@ -13,13 +13,13 @@
           <text>DistanceEdgeOfTheRoadToPlaneOfFacade</text>
         </inputExpression>
       </input>
-      <output id="OutputClause_1p0v9s4" label="AccessibilityFacadeOpening" name="AccessibilityFacadeOpening" typeRef="string" />
+      <output id="OutputClause_1p0v9s4" label="AccessibilityFacadeOpeningSuccess" name="AccessibilityFacadeOpeningSuccess" typeRef="boolean" />
       <rule id="DecisionRule_08zs3rx">
         <inputEntry id="UnaryTests_180f46v">
           <text>[0..4[</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_0ef88o4">
-          <text>"Facade openings are accessible"</text>
+          <text>true</text>
         </outputEntry>
       </rule>
       <rule id="DecisionRule_0721mt8">
@@ -27,7 +27,7 @@
           <text>[4..10]</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_02nuti8">
-          <text>"Facade openings are accessible"</text>
+          <text>true</text>
         </outputEntry>
       </rule>
       <rule id="DecisionRule_028amhy">
@@ -35,7 +35,7 @@
           <text>&gt; 10</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_0q1jbyi">
-          <text>"Facade openings are inaccessible"</text>
+          <text>false</text>
         </outputEntry>
       </rule>
     </decisionTable>
@@ -44,10 +44,10 @@
   <dmndi:DMNDI>
     <dmndi:DMNDiagram>
       <dmndi:DMNShape id="DMNShape_11fkflz" dmnElementRef="Decision_0snjtma">
-        <dc:Bounds height="80" width="180" x="160" y="110" />
+        <dc:Bounds height="80" width="180" x="160" y="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="DMNShape_1owl1jf" dmnElementRef="DistanceEdgeOfTheRoadToPlaneOfFacade">
-        <dc:Bounds height="45" width="125" x="187" y="257" />
+        <dc:Bounds height="45" width="125" x="187" y="237" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="DMNEdge_0oto0u1" dmnElementRef="InformationRequirement_0ph2tmz">
         <di:waypoint x="1290" y="377" />
@@ -55,9 +55,9 @@
         <di:waypoint x="1290" y="290" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="DMNEdge_10qjmnh" dmnElementRef="InformationRequirement_1sr7jrs">
-        <di:waypoint x="250" y="257" />
-        <di:waypoint x="250" y="210" />
-        <di:waypoint x="250" y="190" />
+        <di:waypoint x="250" y="237" />
+        <di:waypoint x="250" y="180" />
+        <di:waypoint x="250" y="160" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
