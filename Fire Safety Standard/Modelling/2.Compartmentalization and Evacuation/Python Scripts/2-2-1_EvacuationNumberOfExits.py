@@ -23,8 +23,8 @@ if SpaceType == "Compartment":
     print("inputs:", FRwallE60.get_inputs())
     print("outputs:", FRwallE60.get_outputs())
     
-    
     '''
+    
     ##set input values
     
     #verification decision table (DT)
@@ -40,11 +40,12 @@ if SpaceType == "Compartment":
     CompartmentExits.set_value('ExitType', "Exit_possible_through_a_terrace")
     
     FacadeAccess.set_value('DistanceEdgeOfTheRoadToPlaneOfFacade', 6)
-    CompartmentExits.set_value('AccessibilityFacadeOpening', FacadeAccess.value_of('AccessibilityFacadeOpening'))
+    CompartmentExits.set_value('AccessibilityFacadeOpeningSuccess', FacadeAccess.value_of('AccessibilityFacadeOpeningSuccess'))
     
+    #validate all terrace requirements DT
+    CompartmentExits.set_value('DirectExitToExterior', True)
     
     #Terrace accessibility DT
-    #CompartmentExits.set_value('ConnectionToTerracePossible', True)
     CompartmentExits.set_value('DistanceEdgeOfTheRoadToPlaneOfTerrace', 4)
     
 
@@ -56,24 +57,30 @@ if SpaceType == "Compartment":
     #Fire resistance terrace DT
     CompartmentExits.set_value('FireResistanceTerraceFloor', "REI_60")
 
+    CompartmentExitsResult = CompartmentExits.model_expand()
+    print(CompartmentExitsResult)
+    
     '''
     ##set output values + MaximalOccupancy due to the ceiling function
     CompartmentExits.set_value('CompartmentNumberOfExitsVerification', True)
     
-    CompartmentExits.set_value('MaximalOccupancy', 1000)
+    CompartmentExits.set_value('MaximalOccupancy', 49)
     CeilingMaximalOccupancy = np.ceil(CompartmentExits.value_of('MaximalOccupancy')/1000)
     CompartmentExits.set_value('CeilingMaximalOccupancy', CeilingMaximalOccupancy)#cMDN can not evaluate ceiling function
 
+    CompartmentExitsResult = CompartmentExits.model_expand()
+    print(CompartmentExitsResult)
+    
     #extra to reduce models
     CompartmentExits.set_value('NumberOfCompartmentExits', 4)
-    CompartmentExits.set_value('AccessibilityTerraceSuccess', "No_terrace_present")
-    CompartmentExits.set_value('FireResistanceTerraceFloor', "E_45")
-    CompartmentExits.set_value('TerraceRequirementsSuccess', False)
-    CompartmentExits.set_value('ExitType', "Exit_possible_through_a_facade_opening")
-    CompartmentExits.set_value('StaircaseInExitPathToFacadeOrTerrace', False)
+    CompartmentExits.set_value('TerracePresent', True)
+    CompartmentExits.set_value('FireResistanceTerraceFloor', "REI_60")
+    CompartmentExits.set_value('FireResistanceWallTerraceFacadeSuccess', True)
+    CompartmentExits.set_value('DistanceTerraceRailFromFacade', 2)
+    CompartmentExits.set_value('DistanceEdgeOfTheRoadToPlaneOfTerrace', 5)
+    CompartmentExits.set_value('ExitType', "Exit_possible_through_a_terrace")
     
 
-    #CompartmentExits.set_value('DistanceEdgeOfTheRoadToPlaneOfTerrace', 0.1)
     
     CompartmentExitsResult = CompartmentExits.model_expand()
     print(CompartmentExitsResult)
@@ -83,7 +90,7 @@ if SpaceType == "Compartment":
     data_string = CompartmentExitsResult
     models = data_string.split('\n\n')
     
-    
+    '''
     Facade_Access_to_retrieve = 'AccessibilityFacadeOpening'
     
     Facade_Access_success_values = []
@@ -121,9 +128,8 @@ if SpaceType == "Compartment":
             print(f"The specific variable value has no influence on main model {i}\n")
         i += 1
     
-    
-    '''
 
+    '''
     FR_succes_to_retrieve = 'FireResistanceWallTerraceFacadeSuccess'
     
     FR_success_values = []
@@ -161,7 +167,6 @@ if SpaceType == "Compartment":
             print(f"The specific variable value has no influence on model {i}\n")
         i += 1
     
-    '''
         
     '''
     data_string = CompartmentExitsResult
